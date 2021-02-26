@@ -20,7 +20,8 @@ async def play(client: Client, message_: Message):
     await message_.reply_text("Downloading and converting...")
 
     if audio:
-        file_path = await convert(await message_.reply_to_message.download())
+        file_name = audio.file_id + audio.file_name.split(".")[-1]
+        file_path = await convert(await message_.reply_to_message.download(file_name))
     else:
         messages = [message_]
         text = ""
