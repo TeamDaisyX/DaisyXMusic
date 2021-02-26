@@ -13,6 +13,14 @@ Neither this, or PyTgCalls are stable.
 
 ## Deployment
 
+### HEROKU DEPLOYMENT
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+Get STRING_NAME from here:
+[![GenerateStringName](https://img.shields.io/badge/repl.it-generateStringName-yellowgreen)](https://repl.it/@subinps/getStringName)
+
+
+### NORMAL WAY
 1. Install Python requirements:
    ```bash
    pip install -r requirements.txt

@@ -1,0 +1,39 @@
+{
+    "name": "MusicPlayer",
+    "description": "An Open-source PyTgCalls based Pyrogram bot to play music in voice chats",
+    "keywords": [
+      "telegram",
+      "voicechat",
+      "pytgcalls",
+      "productivity"
+    ],
+    "repository": "https://github.com/subinps/MusicPlayer-Heroku",
+    "stack": "container",
+    "env": {
+      "API_ID": {
+        "description": "Get this value from my.telegram.org!",
+        "value": ""
+      },
+      "API_HASH": {
+        "description": "Get this value from my.telegram.org! ",
+        "value": ""
+      },
+      "SESSION_NAME": {
+        "description": "Get this value from https://repl.it/@subinps/getStringName",
+        "value": ""
+      },
+      "BOT_TOKEN": {
+        "description": " Make a bot at http://telegram.dog/BotFather and get the token of your bot.",
+        "value": ""
+      },
+      "SUDO_USERS": {
+        "description": "List of ID of those who can pause, stop and clear queue,separated by space.",
+        "value": ""
+      },
+      "DURATION_LIMIT": {
+        "description": "Maximum duration of songs that users can request(in minutes).",
+        "value": "7",
+        "required": false
+      }
+    }
+}
