@@ -17,8 +17,10 @@ from helpers.wrappers import errors
 async def play(client: Client, message_: Message):
     audio = (message_.reply_to_message.audio or message_.reply_to_message.voice) if message_.reply_to_message else None
 
+    await message_.reply_text("Downloading and converting...")
+
     if audio:
-        file_path = await message_.download()
+        file_path = await message_.reply_to_message.download()
     else:
         messages = [message_]
         text = ""
@@ -44,8 +46,6 @@ async def play(client: Client, message_: Message):
             return
 
         url = text[offset:offset+length]
-
-        await message_.reply_text("Downloading and converting...")
 
         file_path = await convert(download(url))
 
