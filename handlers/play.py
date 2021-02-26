@@ -15,34 +15,39 @@ from helpers.wrappers import errors
 )
 @errors
 async def play(client: Client, message_: Message):
-    messages = [message_]
-    text = ""
-    offset = None
-    length = None
+    audio = (message_.reply_to_message.audio or message_.reply_to_message.voice) if message_.reply_to_message else None
 
-    if message_.reply_to_message:
-        messages.append(message_.reply_to_message)
+    if audio:
+        file_path = audio.download()
+    else:
+        messages = [message_]
+        text = ""
+        offset = None
+        length = None
 
-    for message in messages:
-        if offset:
-            break
+        if message_.reply_to_message:
+            messages.append(message_.reply_to_message)
 
-        if message.entities:
-            for entity in message.entities:
-                if entity.type == "url":
-                    text = message.text or message.caption
-                    offset, length = entity.offset, entity.length
-                    break
+        for message in messages:
+            if offset:
+                break
 
-    if offset == None:
-        await message_.reply_text("You did not provide a video URL.")
-        return
+            if message.entities:
+                for entity in message.entities:
+                    if entity.type == "url":
+                        text = message.text or message.caption
+                        offset, length = entity.offset, entity.length
+                        break
 
-    url = text[offset:offset+length]
+        if offset == None:
+            await message_.reply_text("You did not provide a video URL.")
+            return
 
-    await message_.reply_text("Downloading and converting...")
+        url = text[offset:offset+length]
 
-    file_path = await convert(download(url))
+        await message_.reply_text("Downloading and converting...")
+
+        file_path = await convert(download(url))
 
     if message.chat.id in tgcalls.playing:
         position = await sira.add(message.chat.id, file_path)
