@@ -9,17 +9,15 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton
 )
 async def start(client: Client, message: Message):
     await message.reply_text(
-        "Do you want to search for a video?",
+        "💁🏻‍♂️ Do you want to search for a YouTube video?",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "Yes.", switch_inline_query_current_chat=""
-                    )
-                ],
-                [
+                        "✅ Yes", switch_inline_query_current_chat=""
+                    ),
                     InlineKeyboardButton(
-                        "No, close this.", callback_data="close"
+                        "No ❌", callback_data="close"
                     )
                 ]
             ]
