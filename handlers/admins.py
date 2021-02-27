@@ -59,4 +59,6 @@ async def skip(client: Client, message: Message):
     if sira.is_empty(chat_id):
         tgcalls.pytgcalls.leave_group_call(chat_id)
     else:
-        tgcalls.pytgcalls.change_stream(chat_id, get(chat_id)["file_path"])
+        tgcalls.pytgcalls.change_stream(
+            chat_id, sira.get(chat_id)["file_path"]
+        )
