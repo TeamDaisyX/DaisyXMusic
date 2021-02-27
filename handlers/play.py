@@ -51,7 +51,7 @@ async def play(client: Client, message_: Message):
                         break
 
         if offset == None:
-            await message_.reply_text("❕ You did not provide a YouTube video URL.")
+            await message_.reply_text("❕ You did not anything to play.")
             return
 
         url = text[offset:offset+length]
