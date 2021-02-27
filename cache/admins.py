@@ -6,11 +6,11 @@ from pyrogram.types import User
 admins: Dict[str, List[User]] = {}
 
 
-def set(chat_id: Union[str, int], admins: List[User]):
+def set(chat_id: Union[str, int], admins_: List[User]):
     if isinstance(chat_id, int):
         chat_id = str(chat_id)
 
-    admins[chat_id] = admins
+    admins[chat_id] = admins_
 
 
 def get(chat_id: Union[str, int]) -> Union[List[User], bool]:
