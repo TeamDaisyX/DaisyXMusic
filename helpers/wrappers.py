@@ -11,7 +11,7 @@ def errors(func: Callable) -> Coroutine:
         try:
             return await func(client, message)
         except Exception as e:
-            await message.reply(f"{type(e).__name__}: {e}")
+            await message.reply(f"❗️ {type(e).__name__}: {e}")
     return wrapper
 
 

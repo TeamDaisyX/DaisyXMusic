@@ -15,6 +15,7 @@ from helpers.wrappers import errors, admins_only
 @admins_only
 async def pause(client: Client, message: Message):
     tgcalls.pytgcalls.pause_stream(message.chat.id)
+    await message.reply_text("⏸ Paused.")
 
 
 @Client.on_message(
@@ -26,6 +27,7 @@ async def pause(client: Client, message: Message):
 @admins_only
 async def resume(client: Client, message: Message):
     tgcalls.pytgcalls.resume_stream(message.chat.id)
+    await message.reply_text("▶️ Resumed.")
 
 
 @Client.on_message(
@@ -42,6 +44,7 @@ async def stop(client: Client, message: Message):
         pass
 
     tgcalls.pytgcalls.leave_group_call(message.chat.id)
+    await message.reply_text("⏹ Stopped streaming.")
 
 
 @Client.on_message(
@@ -62,3 +65,5 @@ async def skip(client: Client, message: Message):
         tgcalls.pytgcalls.change_stream(
             chat_id, sira.get(chat_id)["file_path"]
         )
+
+    await message.reply_text("⏩ Skipped the current song.")
