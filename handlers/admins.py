@@ -42,3 +42,21 @@ async def stop(client: Client, message: Message):
         pass
 
     tgcalls.pytgcalls.leave_group_call(message.chat.id)
+
+
+@Client.on_message(
+    filters.command(["skip", "next"])
+    & filters.group
+    & ~ filters.edited
+)
+@errors
+@admins_only
+async def skip(client: Client, message: Message):
+    chat_id = message.chat.id
+
+    sira.task_done(chat_id)
+
+    if sira.is_empty(chat_id):
+        tgcalls.pytgcalls.leave_group_call(chat_id)
+    else:
+        tgcalls.pytgcalls.change_stream(chat_id, get(chat_id)["file_path"])
