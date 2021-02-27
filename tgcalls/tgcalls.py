@@ -6,7 +6,7 @@ import config
 
 
 client = Client(config.SESSION_NAME, config.API_ID, config.API_HASH)
-pytgcalls = PyTgCalls(1512, False)
+pytgcalls = PyTgCalls(client, 1512, False)
 
 
 @pytgcalls.on_stream_end()
@@ -19,5 +19,4 @@ def on_stream_end(chat_id: int) -> None:
         pytgcalls.change_stream(chat_id, get(chat_id)["file_path"])
 
 
-def run():
-    pytgcalls.run(client)
+run = pytgcalls.run
