@@ -1,7 +1,7 @@
 from pyrogram import Client
 from pytgcalls import PyTgCalls
 
-from sira import is_empty, get, task_done
+import sira
 import config
 
 
@@ -11,12 +11,14 @@ pytgcalls = PyTgCalls(client, 1512, False)
 
 @pytgcalls.on_stream_end()
 def on_stream_end(chat_id: int) -> None:
-    task_done(chat_id)
+    sira.task_done(chat_id)
 
-    if is_empty(chat_id):
+    if sira.is_empty(chat_id):
         pytgcalls.leave_group_call(chat_id)
     else:
-        pytgcalls.change_stream(chat_id, get(chat_id)["file_path"])
+        pytgcalls.change_stream(
+            chat_id, sira.get(chat_id)["file_path"]
+        )
 
 
 run = pytgcalls.run
