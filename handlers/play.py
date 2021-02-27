@@ -1,5 +1,6 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
+from pytgcalls.pytgcalls.methods.stream import is_playing
 
 import tgcalls
 from converter import convert
@@ -57,7 +58,12 @@ async def play(client: Client, message_: Message):
 
         file_path = await convert(download(url))
 
-    if tgcalls.pytgcalls.is_playing(message_.chat.id):
+    try:
+        is_playing = tgcalls.pytgcalls.is_playing(message_.chat.id)
+    except:
+        is_playing = False
+
+    if is_playing:
         position = await sira.add(message_.chat.id, file_path)
         await message_.reply_text(f"Queued at position {position}.")
     else:
