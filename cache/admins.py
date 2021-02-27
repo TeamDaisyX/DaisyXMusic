@@ -3,7 +3,7 @@ from typing import List, Dict, Union
 from pyrogram.types import User
 
 
-admins: List[Dict[str, List[User]]] = []
+admins: Dict[str, List[User]] = {}
 
 
 def set(chat_id: Union[str, int], admins: List[User]):
