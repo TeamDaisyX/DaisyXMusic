@@ -57,7 +57,7 @@ async def play(client: Client, message_: Message):
 
         file_path = await convert(download(url))
 
-    if message_.chat.id in tgcalls.playing:
+    if tgcalls.pytgcalls.is_playing(message_.chat.id):
         position = await sira.add(message_.chat.id, file_path)
         await message_.reply_text(f"Queued at position {position}.")
     else:

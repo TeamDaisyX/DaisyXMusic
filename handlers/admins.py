@@ -36,9 +36,6 @@ async def resume(client: Client, message: Message):
 @errors
 @admins_only
 async def stop(client: Client, message: Message):
-    if message.chat.id in tgcalls.playing:
-        tgcalls.playing.remove(message.chat.id)
-
     try:
         sira.clear(message.chat.id)
     except:
