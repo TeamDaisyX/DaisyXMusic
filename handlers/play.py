@@ -5,7 +5,9 @@ import tgcalls
 from converter import convert
 from youtube import download
 import sira
+from config import DURATION_LIMIT
 from helpers.wrappers import errors
+from helpers.errors import DurationLimitError
 
 
 @Client.on_message(
@@ -20,6 +22,11 @@ async def play(client: Client, message_: Message):
     await message_.reply_text("Downloading and converting...")
 
     if audio:
+        if round(audio.duration / 60) > DURATION_LIMIT:
+            raise DurationLimitError(
+                f"Videos longer than {DURATION_LIMIT} minute(s) aren't allowed, the provided video is {audio.duration} minute(s)"
+            )
+
         file_name = audio.file_id + audio.file_name.split(".")[-1]
         file_path = await convert(await message_.reply_to_message.download(file_name))
     else:
