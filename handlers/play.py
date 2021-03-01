@@ -1,6 +1,5 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from pytgcalls.pytgcalls.methods.stream import is_playing
 
 import tgcalls
 from converter import convert

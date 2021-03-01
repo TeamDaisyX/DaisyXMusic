@@ -3,6 +3,7 @@ from pyrogram.types import Message
 
 import tgcalls
 import sira
+from cache.admins import set
 from helpers.wrappers import errors, admins_only
 
 
@@ -67,3 +68,13 @@ async def skip(client: Client, message: Message):
         )
 
     await message.reply_text("⏩ Skipped the current song.")
+
+
+@Client.on_message(
+    filters.command("admincache")
+)
+@errors
+@admins_only
+async def admincache(client, message: Message):
+    set(message.chat.id, [member.user for member in await message.chat.get_members(filter="administrators")])
+    await message.reply_text("❇️ Admin cache refreshed!")
