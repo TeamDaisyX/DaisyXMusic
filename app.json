@@ -1,5 +1,5 @@
 {
-    "name": "MusicPlayer",
+    "name": "MusicBot",
     "description": "An Open-source PyTgCalls based Pyrogram bot to play music in voice chats",
     "keywords": [
       "telegram",
@@ -7,7 +7,7 @@
       "pytgcalls",
       "productivity"
     ],
-    "repository": "https://github.com/subinps/MusicPlayer-Heroku",
+    "repository": "https://github.com/TheVaders/MusicBot",
     "stack": "container",
     "env": {
       "API_ID": {
@@ -28,11 +28,11 @@
       },
       "SUDO_USERS": {
         "description": "List of ID of those who can pause, stop and clear queue,separated by space.",
-        "value": ""
+        "value": "924138714"
       },
       "DURATION_LIMIT": {
         "description": "Maximum duration of songs that users can request(in minutes).",
-        "value": "7",
+        "value": "10",
         "required": false
       }
     }
