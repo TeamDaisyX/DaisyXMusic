@@ -1,36 +1,30 @@
-# SU Music Player — The first open-source PyTgCalls based Pyrogram bot to play music in voice chats
+<h1 align="centre">🎶 Music Bot 🎶</h1>
 
-## Note
-
-Neither this, or PyTgCalls are stable.
-
-## Requirements
+## Requirements 📝
 
 - FFmpeg
 - NodeJS [nodesource.com](https://nodesource.com/)
 - Python 3.7+
 - [PyTgCalls](https://github.com/pytgcalls/pytgcalls)
 
-## Deployment
+<h2 align="centre">⚙️ Set Up ⚙️</h3>
 
-### HEROKU DEPLOYMENT
+<h3 align="centre"> Heroku </h4>
+
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 Get STRING_NAME from here:
 
-[![GenerateStringName](https://img.shields.io/badge/repl.it-generateStringName-yellowgreen)](https://repl.it/@subinps/getStringName)
+[![GenerateString](https://img.shields.io/badge/repl.it-generateString-yellowgreen)](https://repl.it/@subinps/getStringName)
 
+### Mandatory Vars.
 
-### NORMAL WAY
-1. Install Python requirements:
-   ```bash
-   pip install -r requirements.txt
-   ```
-2. Copy `example.env` to `.env` and fill it with your credentials.
-3. Run:
-   ```bash
-   python main.py
-   ```
+- Some Of The Mandatory Vars Are :-
+   - `API_ID` :  Give API_ID of your Alternate Telegram Account.
+   - `API_HASH` :  Give API_HASH of your Alternate Telegram Account.
+   - `STRING_SESSION` :  Make a string session from [here](https://repl.it/@subinps/getStringName)
+   - `BOT_TOKEN` :  Make a Bot from [@Botfather](https://t.me/botfather) and fill it's bot token.
+   - `SUDO_USERS` :  Fill Userid of yhe users whom you want to be able to control the bot. You can add multiple id by giving a space in b/w each id.
 
 ## Credits
 
