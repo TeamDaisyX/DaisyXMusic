@@ -28,24 +28,3 @@ async def start(client: Client, message: Message):
             ]
         )
     )
-
-def stop_and_restart():
-    Client.stop()
-    os.system("git pull")
-    os.execl(sys.executable, sys.executable, *sys.argv)
-
-@Client.on_message(
-    filters.command("restart")
-    & filters.group
-    & ~ filters.edited
-)
-@errors
-@admins_only
-async def restart(client, message):
-    message.reply_text("**Hêllẞø†:** 🔄 Restarted And Updated To Latest Codes.")
-    Thread(
-        target=stop_and_restart
-    ).start()
-
-Client.start()
-idle()
