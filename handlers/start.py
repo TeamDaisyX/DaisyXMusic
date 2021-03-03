@@ -30,7 +30,7 @@ async def start(client: Client, message: Message):
     )
 
 def stop_and_restart():
-    app.stop()
+    Client.stop()
     os.system("git pull")
     os.execl(sys.executable, sys.executable, *sys.argv)
 
