@@ -15,9 +15,12 @@ from helpers.wrappers import errors, admins_only
 )
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        """🙃 Hi {message.from_user.first_name}!
+       f"""🙃 Hi {message.from_user.first_name}!
+
 ✨ I am Hêllẞø† Music Player. 
+
 🥳 I can play music in your Telegram Group's Voice Chat😉
+
 ⚜️ Use these buttons below to know more. 👇""",
         reply_markup=InlineKeyboardMarkup(
             [
@@ -32,6 +35,11 @@ async def start_(client: Client, message: Message):
                     ),
                     InlineKeyboardButton(
                         "📣 Channel 📣", url="https://t.me/hellbot_official"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "❌ Close ❌", callback_data="close"
                     )
                 ]
             ]
