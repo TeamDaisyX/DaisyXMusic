@@ -12,6 +12,15 @@ from helpers.errors import DurationLimitError
 
 @Client.on_message(
     filters.command("play")
+    & filters.private
+    & ~ filters.edited
+)
+async def play_(client: Client, message: Message):
+    await message.reply_text("**Hêllẞø†:** Sorry! I can only be used in groups. \nTry again in a group.")
+
+
+@Client.on_message(
+    filters.command("play")
     & filters.group
     & ~ filters.edited
 )
