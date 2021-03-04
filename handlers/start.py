@@ -7,6 +7,38 @@ from pyrogram import idle, filters
 from pyrogram.handlers import MessageHandler
 from helpers.wrappers import errors, admins_only
 
+
+@Client.on_message(
+    filters.command("start")
+    & filters.private
+    & ~ filters.edited
+)
+async def start_(client: Client, message: Message):
+    await message.reply_text(
+        """🙃 Hi {message.from_user.first_name}!
+✨ I am Hêllẞø† Music Player. 
+🥳 I can play music in your Telegram Group's Voice Chat😉
+⚜️ Use these buttons below to know more. 👇""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "📔 Source Code 📔", url="https://github.com/TheVaders/MusicBot"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "💬 Group 💬", url="https://t.me/hellbot_official_chat"
+                    ),
+                    InlineKeyboardButton(
+                        "📣 Channel 📣", url="https://t.me/hellbot_official"
+                    )
+                ]
+            ]
+        )
+    )
+
+
 @Client.on_message(
     filters.command("start")
     & filters.group
