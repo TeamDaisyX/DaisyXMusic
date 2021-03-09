@@ -17,8 +17,7 @@ if __name__ == "__main__":
     from threading import Thread
     from pyrogram import idle, filters
     from pyrogram.handlers import MessageHandler
-    import player
-    from config import SUDO_USERS
+    from config import SUDO_USERS, BOT_NAME
 
     def stop_and_restart():
         app.stop()
