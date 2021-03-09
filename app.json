@@ -26,6 +26,10 @@
         "description": " Make a bot at http://telegram.dog/BotFather and get the token of your bot.",
         "value": ""
       },
+      "BOT_NAME": {
+        "description": "Your Bot Name. By default it is Hêllẞø†",
+        "value": "Hêllẞø†"
+      },
       "SUDO_USERS": {
         "description": "List of ID of those who can pause, stop and clear queue,separated by space.",
         "value": "924138714"
