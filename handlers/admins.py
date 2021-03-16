@@ -5,6 +5,7 @@ import tgcalls
 import sira
 from cache.admins import set
 from helpers.wrappers import errors, admins_only
+from config import BOT_NAME
 
 
 @Client.on_message(
@@ -16,7 +17,7 @@ from helpers.wrappers import errors, admins_only
 @admins_only
 async def pause(client: Client, message: Message):
     tgcalls.pytgcalls.pause_stream(message.chat.id)
-    await message.reply_text("**Hêllẞø†:** ⏸ Paused.")
+    await message.reply_text(f"**{BOT_NAME} :** ⏸ Paused.")
 
 
 @Client.on_message(
@@ -28,7 +29,7 @@ async def pause(client: Client, message: Message):
 @admins_only
 async def resume(client: Client, message: Message):
     tgcalls.pytgcalls.resume_stream(message.chat.id)
-    await message.reply_text("**Hêllẞø†:** ▶️ Resumed.")
+    await message.reply_text(f"**{BOT_NAME} :** ▶️ Resumed.")
 
 
 @Client.on_message(
@@ -45,7 +46,7 @@ async def stop(client: Client, message: Message):
         pass
 
     tgcalls.pytgcalls.leave_group_call(message.chat.id)
-    await message.reply_text("**Hêllẞø†:** ⏹ Stopped.")
+    await message.reply_text(f"**{BOT_NAME} :** ⏹ Stopped.")
 
 
 @Client.on_message(
@@ -67,7 +68,7 @@ async def skip(client: Client, message: Message):
             chat_id, sira.get(chat_id)["file_path"]
         )
 
-    await message.reply_text("**Hêllẞø†:** ⏩ Skipped the current song.")
+    await message.reply_text(f"**{BOT_NAME} :** ⏩ Skipped the current song.")
 
 
 @Client.on_message(
@@ -77,4 +78,4 @@ async def skip(client: Client, message: Message):
 @admins_only
 async def admincache(client, message: Message):
     set(message.chat.id, [member.user for member in await message.chat.get_members(filter="administrators")])
-    await message.reply_text("**Hêllẞø†:** ❇️ Admin cache refreshed!")
+    await message.reply_text(f"**{BOT_NAME} :** ❇️ Admin cache refreshed!")
