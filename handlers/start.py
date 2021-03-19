@@ -7,24 +7,28 @@ from helpers.filters import command, other_filters, other_filters2
 @Client.on_message(command("start") & other_filters2)
 async def start(_, message: Message):
     await message.reply_text(
-        f"""<b>👋🏻 Hi {message.from_user.first_name}!</b>
-
-I am Calls Music, an open-source bot that lets you play music in your groups.
-
-Use the buttons below to know more about me.""",
+        f"""🙃 Hi {message.from_user.first_name}!
+✨ I am Hêllẞø† Music Player. 
+🥳 I can play music in your Telegram Group's Voice Chat😉
+⚜️ Use these buttons below to know more. 👇""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "⚒ Source code", url="https://t.me/CallsMusic"
+                        "⚒ Source code", url="https://github.com/TheVaders/MusicBot"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "💬 Group", url="https://t.me/callsmusicchat"
+                        "💬 Group", url="https://t.me/hellbot_official_chat"
                     ),
                     InlineKeyboardButton(
-                        "Channel 🔈", url="https://t.me/callsmusic"
+                        "Channel 🔈", url="https://t.me/hellbot_official"
+                    )
+                ],
+                [
+                    InlineKeyboardButton(
+                        "❌ Close ❌", callback_data="close"
                     )
                 ]
             ]
@@ -35,15 +39,15 @@ Use the buttons below to know more about me.""",
 @Client.on_message(command("start") & other_filters)
 async def start2(_, message: Message):
     await message.reply_text(
-        "💁🏻‍♂️ Do you want to search for a YouTube video?",
+        "**Hêllẞø†:** I'm Working!!!\nUse me in Inline to search for a YouTube Video/Music. \n**Happy Streaming**",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "✅ Yes", switch_inline_query_current_chat=""
+                        "🎶 Search 🎶", switch_inline_query_current_chat=""
                     ),
                     InlineKeyboardButton(
-                        "No ❌", callback_data="close"
+                        "❌ Close ❌", callback_data="close"
                     )
                 ]
             ]
