@@ -4,7 +4,7 @@ from pyrogram import Client
 from pyrogram.types import Message
 
 from helpers.admins import get_administrators
-from config import SUDO_USERS
+from config import SUDO_USERS, BOT_NAME as BN
 
 
 def errors(func: Callable) -> Callable:
@@ -12,7 +12,7 @@ def errors(func: Callable) -> Callable:
         try:
             return await func(client, message)
         except Exception as e:
-            await message.reply(f"❗️ {type(e).__name__}: {e}")
+            await message.reply(f"**{BN} :**❗️ {type(e).__name__}: {e}")
 
     return wrapper
 
