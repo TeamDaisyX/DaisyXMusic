@@ -9,7 +9,7 @@ import converter
 import youtube
 import queues
 
-from config import DURATION_LIMIT
+from config import DURATION_LIMIT, BOT_NAME as Bn
 from helpers.errors import DurationLimitError
 from helpers.filters import command, other_filters
 from helpers.wrappers import errors
@@ -20,12 +20,12 @@ from helpers.wrappers import errors
 async def play(_, message: Message):
     audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
 
-    res = await message.reply_text("🔄 Processing...")
+    res = await message.reply_text(f"**{Bn} :** 🔄 Processing...")
 
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
-                f"Videos longer than {DURATION_LIMIT} minute(s) aren't allowed, the provided video is {audio.duration / 60} minute(s)"
+                f"**{Bn} :** Videos longer than {DURATION_LIMIT} minute(s) aren't allowed, the provided video is {audio.duration / 60} minute(s)"
             )
 
         file_name = audio.file_unique_id + "." + (
@@ -56,7 +56,7 @@ async def play(_, message: Message):
                         break
 
         if offset in (None,):
-            await res.edit_text("❕ You did not give me anything to play.")
+            await res.edit_text(f"**{Bn} :**❕ You did not give me anything to play.")
             return
 
         url = text[offset:offset + length]
@@ -65,7 +65,7 @@ async def play(_, message: Message):
 
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = queues.add(message.chat.id, file_path)
-        await res.edit_text(f"#️⃣ Queued at position {position}.")
+        await res.edit_text(f"**{Bn} :** #️⃣ Queued at position {position}.")
     else:
-        await res.edit_text("▶️ Playing...")
+        await res.edit_text(f"**{Bn} :** ▶️ Playing...")
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path, 48000, callsmusic.pytgcalls.get_cache_peer())
