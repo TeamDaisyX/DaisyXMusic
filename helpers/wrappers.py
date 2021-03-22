@@ -29,7 +29,7 @@ def admins_only(func: Callable) -> Callable:
     return wrapper
 
 
-def non_admin(func: Callable) -> Callable:
+def nonadmin(func: Callable) -> Callable:
     async def wrapper(client: Client, message: Message):
         admins = await get_administrators(message.chat)
         for admin in admins:
