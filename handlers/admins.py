@@ -10,7 +10,7 @@ import cache.admins
 
 from config import BOT_NAME as BN
 from helpers.filters import command
-from helpers.wrappers import errors, admins_only
+from helpers.wrappers import errors, admins_only, nonadmin
 
 
 @Client.on_message(command(["pause", "p"]))
@@ -26,6 +26,12 @@ async def pause(_, message: Message):
     else:
         callsmusic.pytgcalls.pause_stream(message.chat.id)
         await message.reply_text(f"**{BN} :** ⏸ Paused.")
+
+@Client.on_message(command(["pause", "p"]))
+@errors
+@nonadmin
+async def pausee(_, message: Message):
+    await message.reply_text(f"**{BN} :** 🤐 Only Admins & Sudo Users Can do that.")
 
 
 @Client.on_message(command(["resume", "r"]))
@@ -43,6 +49,13 @@ async def resume(_, message: Message):
         await message.reply_text(f"**{BN} :** ▶️ Resumed.")
 
 
+@Client.on_message(command(["resume", "r"]))
+@errors
+@nonadmin
+async def re(_, message: Message):
+    await message.reply_text(f"**{BN} :** 🤐 Only Admins & Sudo Users Can do that.")
+
+
 @Client.on_message(command(["end", "s"]))
 @errors
 @admins_only
@@ -57,6 +70,12 @@ async def stop(_, message: Message):
 
         callsmusic.pytgcalls.leave_group_call(message.chat.id)
         await message.reply_text(f"**{BN} :** ⏹ Stopped streaming.")
+
+@Client.on_message(command(["end", "s"]))
+@errors
+@nonadmin
+async def pausee(_, message: Message):
+    await message.reply_text(f"**{BN} :** 🤐 Only Admins & Sudo Users Can do that.")
 
 
 @Client.on_message(command(["skip", "next"]))
@@ -76,6 +95,13 @@ async def skip(_, message: Message):
         await message.reply_text(f"**{BN} :** ⏩ Skipped the current song.")
 
 
+@Client.on_message(command(["skip", "next"]))
+@errors
+@nonadmin
+async def pausee(_, message: Message):
+    await message.reply_text(f"**{BN} :** 🤐 Only Admins & Sudo Users Can do that.")
+
+
 @Client.on_message(command("admincache"))
 @errors
 @admins_only
@@ -85,3 +111,10 @@ async def admincache(_, message: Message):
         [member.user for member in await message.chat.get_members(filter="administrators")]
     )
     await message.reply_text(f"**{BN} :** ❇ Admin cache refreshed!")
+
+
+@Client.on_message(command("admincache"))
+@errors
+@nonadmin
+async def pausee(_, message: Message):
+    await message.reply_text(f"**{BN} :** 🤐 Only Admins & Sudo Users Can do that.")
