@@ -6,13 +6,12 @@ from pyrogram.types import Message, Voice
 import callsmusic
 
 import converter
-import youtube
-import queues
+from downloaders import youtube
 
-from config import DURATION_LIMIT, BOT_NAME as Bn
+from config import BOT_NAME as BN, DURATION_LIMIT
 from helpers.errors import DurationLimitError
 from helpers.filters import command, other_filters
-from helpers.wrappers import errors
+from helpers.decorators import errors
 
 
 @Client.on_message(command("play") & other_filters)
@@ -20,16 +19,17 @@ from helpers.wrappers import errors
 async def play(_, message: Message):
     audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
 
-    res = await message.reply_text(f"**{Bn} :** 🔄 Processing...")
+    res = await message.reply_text(f"**{BN} :-** ⏳ Processing...")
 
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
-                f"**{Bn} :** Videos longer than {DURATION_LIMIT} minute(s) aren't allowed, the provided video is {audio.duration / 60} minute(s)"
+                f"**{BN} :-** 😕 Videos longer than {DURATION_LIMIT} minute(s) aren't allowed, the provided video is {audio.duration / 60} minute(s)"
             )
 
         file_name = audio.file_unique_id + "." + (
-            audio.file_name.split(".")[-1] if not isinstance(audio, Voice) else "ogg"
+            audio.file_name.split(
+                ".")[-1] if not isinstance(audio, Voice) else "ogg"
         )
         file_path = await converter.convert(
             (await message.reply_to_message.download(file_name))
@@ -56,7 +56,7 @@ async def play(_, message: Message):
                         break
 
         if offset in (None,):
-            await res.edit_text(f"**{Bn} :**❕ You did not give me anything to play.")
+            await res.edit_text(f"**{BN} :-** 🙄 You did not give me anything to play!")
             return
 
         url = text[offset:offset + length]
@@ -64,8 +64,8 @@ async def play(_, message: Message):
         file_path = await converter.convert(youtube.download(url))
 
     if message.chat.id in callsmusic.pytgcalls.active_calls:
-        position = queues.add(message.chat.id, file_path)
-        await res.edit_text(f"**{Bn} :** #️⃣ Queued at position {position}.")
+        position = callsmusic.queues.add(message.chat.id, file_path)
+        await res.edit_text(f"**{BN} :-** 💬 Queued at position #{position}!")
     else:
-        await res.edit_text(f"**{Bn} :** ▶️ Playing...")
-        callsmusic.pytgcalls.join_group_call(message.chat.id, file_path, 48000, callsmusic.pytgcalls.get_cache_peer())
+        await res.edit_text(f"**{BN} :-** 🥳 Playing...")
+        callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
