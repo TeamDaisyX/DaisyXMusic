@@ -1,17 +1,13 @@
-"""
-To prevent conflict with built-in modules, using "queues", the Greek word for "queue".
-"""
-from queue import Queue, Empty
+from asyncio import Queue, QueueEmpty as Empty
 from typing import Dict, Union
 
 queues: Dict[int, Queue] = {}
 
 
-def add(chat_id: int, file_path: str) -> int:
+async def put(chat_id: int, **kwargs) -> int:
     if chat_id not in queues:
         queues[chat_id] = Queue()
-
-    queues[chat_id].put({"file_path": file_path})
+    await queues[chat_id].put({**kwargs})
     return queues[chat_id].qsize()
 
 
@@ -23,14 +19,13 @@ def get(chat_id: int) -> Union[Dict[str, str], None]:
             return None
 
 
-def is_empty(chat_id: int) -> Union[bool, None]:
+def is_empty(chat_id: int) -> bool:
     if chat_id in queues:
         return queues[chat_id].empty()
-    else:
-        return True
+    return True
 
 
-def task_done(chat_id: int) -> None:
+def task_done(chat_id: int):
     if chat_id in queues:
         try:
             queues[chat_id].task_done()
@@ -44,5 +39,4 @@ def clear(chat_id: int):
             raise Empty
         else:
             queues[chat_id].queue = []
-    else:
-        raise Empty
+    raise Empty
