@@ -1,6 +1,8 @@
-.git
-.gitignore
-**/*__pycache__
-.env
-README.md
 LICENSE
+README.md
+
+.env
+.gitignore
+
+.git/
+__pycache__/
