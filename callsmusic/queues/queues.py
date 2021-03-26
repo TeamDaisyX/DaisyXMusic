@@ -4,7 +4,7 @@ from typing import Dict, Union
 queues: Dict[int, Queue] = {}
 
 
-async def put(chat_id: int, **kwargs) -> int:
+def put(chat_id: int, **kwargs) -> int:
     if chat_id not in queues:
         queues[chat_id] = Queue()
     await queues[chat_id].put({**kwargs})
