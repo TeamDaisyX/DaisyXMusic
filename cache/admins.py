@@ -1,22 +1,14 @@
 from typing import List, Dict, Union
 
-from pyrogram.types import User
+
+admins: Dict[int, List[int]] = {}
 
 
-admins: Dict[str, List[User]] = {}
-
-
-def set(chat_id: Union[str, int], admins_: List[User]):
-    if isinstance(chat_id, int):
-        chat_id = str(chat_id)
-
+def set(chat_id: int, admins_: List[int]):
     admins[chat_id] = admins_
 
 
-def get(chat_id: Union[str, int]) -> Union[List[User], bool]:
-    if isinstance(chat_id, int):
-        chat_id = str(chat_id)
-
+def get(chat_id: int) -> Union[List[int], bool]:
     if chat_id in admins:
         return admins[chat_id]
 
