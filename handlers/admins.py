@@ -2,7 +2,6 @@ from asyncio.queues import QueueEmpty
 
 from pyrogram import Client
 from pyrogram.types import Message
-from handlers.play import file_path
 from callsmusic import callsmusic
 
 from config import BOT_NAME as BN
