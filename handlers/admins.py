@@ -2,8 +2,8 @@ from asyncio.queues import QueueEmpty
 
 from pyrogram import Client
 from pyrogram.types import Message
-
-import callsmusic
+from callsmusic.handlers.play import file_path
+from callsmusic import callsmusic
 
 from config import BOT_NAME as BN
 from helpers.filters import command, other_filters
@@ -40,7 +40,7 @@ async def resume(_, message: Message):
         await message.reply_text("⏸ Resumed!")
 
 
-@Client.on_message(command("stop") & other_filters)
+@Client.on_message(command("end") & other_filters)
 @errors
 @authorized_users_only
 async def stop(_, message: Message):
