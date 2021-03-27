@@ -3,7 +3,7 @@ from os import path
 from pyrogram import Client
 from pyrogram.types import Message, Voice
 
-import callsmusic
+from callsmusic import callsmusic, queues
 
 import converter
 from downloaders import youtube
@@ -35,10 +35,12 @@ async def play(_, message: Message):
     elif url:
         file_path = await converter.convert(youtube.download(url))
     else:
-        return await message.reply_text("🙄 You did not give me anything to play!")
+        return await message.reply_text("❗ You did not give me anything to play!")
 
     if message.chat.id in callsmusic.pytgcalls.active_calls:
-        await message.reply_text("#⃣ Queued at position {callsmusic.queues.put(message.chat.id, file_path=file_path)}!")
+        position = await queues.put(message.chat.id, file=file_path)
+        await message.reply_text(f"#⃣ Queued at position {position}!")
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
         await message.reply_text("🎵 Playing here by @Infinity_BOTs...")
+        await callsmusic.set_stream(message.chat.id, file=file_path)
