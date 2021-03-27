@@ -43,4 +43,3 @@ async def play(_, message: Message):
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
         await message.reply_text("🎵 Playing here by @Infinity_BOTs...")
-        await callsmusic.set_stream(message.chat.id, file_path)
