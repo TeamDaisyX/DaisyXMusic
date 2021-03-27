@@ -9,9 +9,9 @@ from helpers.filters import other_filters2
 async def start(_, message: Message):
     await message.reply_sticker("CAACAgQAAx0CTv65QgABBfJlYF6VCrGMm6OJ23AxHmD6qUSWESsAAhoQAAKm8XEeD5nrjz5IJFYeBA")
     await message.reply_text(
-        f"""**I am {bn} 🎵
+        f"""**Hey There, I'm {bn} 🎵
 
-I can play music in your group's voice chat 😉**
+I can play music in your group's voice chat. Add me to your group and play music freely!**
         """,
         reply_markup=InlineKeyboardMarkup(
             [
