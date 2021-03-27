@@ -41,5 +41,5 @@ async def play(_, message: Message):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_text(f"#⃣ Queued at position {position}!")
     else:
-        callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
+        callsmusic.pytgcalls.join_group_call(message.chat.id, file=file_path)
         await message.reply_text("🎵 Playing here by @Infinity_BOTs...")
