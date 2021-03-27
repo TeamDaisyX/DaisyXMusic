@@ -17,12 +17,15 @@ I can play music in your group's voice chat 😉**
             [
                 [
                     InlineKeyboardButton(
-                        "Group 💬", url="https://t.me/InfinityBOTs_Support"
+                        "💬 Group", url="https://t.me/InfinityBOTs_Support"
                     ),
                     InlineKeyboardButton(
                         "Channel 🔊", url="https://t.me/Infinity_BOTs"
                     )
-                ]
+                ],[ 
+                    InlineKeyboardButton(
+                        "➕ Add To Your Group ➕", url="https://t.me/JEGroupMusicPlayerBot?startgroup=true"
+                    )]
             ]
         )
     )
