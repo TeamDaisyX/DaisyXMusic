@@ -11,7 +11,7 @@ async def start(_, message: Message):
     await message.reply_text(
         f"""**Hey, I'm {bn} 🎵
 
-I can play music in your group's voice call :) 
+I can play music in your group's voice call. Developed by @ImJanindu :) 
 
 Add me to your group and play music freely!**
         """,
