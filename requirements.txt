@@ -7,3 +7,4 @@ youtube_search_python
 requests
 aiohttp
 asyncio
+youtube_search
