@@ -49,5 +49,4 @@ async def play(_, message: Message):
         caption="🎵 Playing here by @Infinity_BOTs...\n\n👤 Requester: {}".format(
         message.from_user.mention()
            ),
-        disable_web_page_preview=True
    )
