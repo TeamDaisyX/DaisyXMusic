@@ -20,6 +20,17 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 async def play(_, message: Message):
     sender_id = message.from_user.id
     sender_name = message.from_user.first_name
+
+    keyboard = InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        text="Channel 🔊",
+                        url="https://t.me/Infinity_BOTs")
+                ]
+            ]
+        )
+
     audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
     url = get_url(message)
 
@@ -38,16 +49,6 @@ async def play(_, message: Message):
         file_path = await converter.convert(youtube.download(url))
     else:
         return await message.reply_text("❗ You did not give me anything to play!")
-
-keyboard = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        text="Channel 🔊",
-                        url="https://t.me/Infinity_BOTs")
-                ]
-            ]
-        )
 
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
