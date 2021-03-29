@@ -18,6 +18,8 @@ from helpers.gets import get_url, get_file_name
 @Client.on_message(command("play") & other_filters)
 @errors
 async def play(_, message: Message):
+    sender_id = message.from_user.id
+    sender_name = message.from_user.first_name
     audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
     url = get_url(message)
 
@@ -43,5 +45,9 @@ async def play(_, message: Message):
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
         await message.reply_photo(
-        caption="🎵 Playing here by @Infinity_BOTs...",
-        photo="https://telegra.ph/file/a4fa687ed647cfef52402.jpg")
+        photo="https://telegra.ph/file/a4fa687ed647cfef52402.jpg",
+        caption="🎵 Playing here by @Infinity_BOTs...\n\n👤 Requester: {}".format(
+        message.from_user.mention()
+           ),
+        disable_web_page_preview=True
+   )
