@@ -25,8 +25,12 @@ async def play(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        text="Channel 🔊",
-                        url="https://t.me/Infinity_BOTs")
+                        text="Channel",
+                        url="https://t.me/Infinity_BOTs"),
+                    InlineKeyboardButton(
+                        text="Dev",
+                        url="https://github.com/ImJanindu")
+                   
                 ]
             ]
         )
@@ -58,7 +62,7 @@ async def play(_, message: Message):
         await message.reply_photo(
         photo="https://telegra.ph/file/a4fa687ed647cfef52402.jpg",
         reply_markup=keyboard,
-        caption="▶️ **Playing** here the song requested by {}\n\n🎵 **Powered** by @Infinity_BOTs".format(
+        caption="▶️ **Playing** here the song requested by {}\n\n🎵 **Powered** by @InfinityJE".format(
         message.from_user.mention()
         ),
     )
