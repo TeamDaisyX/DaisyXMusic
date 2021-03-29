@@ -42,4 +42,6 @@ async def play(_, message: Message):
         await message.reply_text(f"#⃣ Queued at position {position}!")
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
-        await message.reply_text("🎵 Playing here by @Infinity_BOTs...")
+        await message.reply_photo(
+        caption="🎵 Playing here by @Infinity_BOTs...",
+        photo="https://telegra.ph/file/a4fa687ed647cfef52402.jpg")
