@@ -13,7 +13,7 @@ from helpers.filters import command, other_filters
 from helpers.decorators import errors
 from helpers.errors import DurationLimitError
 from helpers.gets import get_url, get_file_name
-
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
 @Client.on_message(command("play") & other_filters)
 @errors
@@ -39,6 +39,16 @@ async def play(_, message: Message):
     else:
         return await message.reply_text("❗ You did not give me anything to play!")
 
+keyboard = InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        text="Channel 🔊",
+                        url="https://t.me/Infinity_BOTs")
+                ]
+            ]
+        )
+
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_text(f"#⃣ Queued at position {position}!")
@@ -46,7 +56,8 @@ async def play(_, message: Message):
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
         await message.reply_photo(
         photo="https://telegra.ph/file/a4fa687ed647cfef52402.jpg",
-        caption="🎵 Playing here by @Infinity_BOTs...\n\n👤 Requester: {}".format(
+        reply_markup=keyboard,
+        caption="▶️ **Playing** here the song requested by {}\n\n🎵 **Powered** by @Infinity_BOTs".format(
         message.from_user.mention()
-           ),
-   )
+        ),
+    )
