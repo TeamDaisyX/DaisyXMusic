@@ -50,7 +50,7 @@ async def play(_, message: Message):
         file_path = await converter.convert(youtube.download(url))
     else:
         return await message.reply_sticker("CAACAgIAAx0CTv65QgABBfueYGMiSeCDn2U8usn_2l5PPgcEu4QAAvMAA1advQpqG-vEx_qW_h4E")
-               await Client.send_message(message.chat.id, text="❗ You did not give me anything to play!")
+               await Client.send_message("❗ You did not give me anything to play!")
 
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
