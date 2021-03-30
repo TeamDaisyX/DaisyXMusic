@@ -49,8 +49,7 @@ async def play(_, message: Message):
     elif url:
         file_path = await converter.convert(youtube.download(url))
     else:
-        return await message.reply_sticker("CAACAgIAAx0CTv65QgABBfueYGMiSeCDn2U8usn_2l5PPgcEu4QAAvMAA1advQpqG-vEx_qW_h4E")
-               await Client.send_message("❗ You did not give me anything to play!")
+        return await message.reply_sticker("CAACAgQAAx0CTv65QgABBfu5YGMrdgABQWYaCXzaZ8HTvtA4bYmkAAIaEAACpvFxHg-Z648-SCRWHgQ")
 
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
@@ -60,7 +59,7 @@ async def play(_, message: Message):
         await message.reply_photo(
         photo="https://telegra.ph/file/a4fa687ed647cfef52402.jpg",
         reply_markup=keyboard,
-        caption="▶️ **Playing** here the song requested by {}\n\n🎵 **Powered** by @InfinityJE".format(
+        caption="▶️ **Playing** here the song requested by {}!".format(
         message.from_user.mention()
         ),
     )
