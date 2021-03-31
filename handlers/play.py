@@ -19,7 +19,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 @errors
 async def play(_, message: Message):
 
-    lel = await message.reply_text("🔄 **Processing...**")
+    lel = await message.reply_text("🔄 Processing sounds...")
     sender_id = message.from_user.id
     sender_name = message.from_user.first_name
 
@@ -55,7 +55,7 @@ async def play(_, message: Message):
 
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
-        await lel.edit_text(f"#⃣ **Queued** at position {position}!")
+        await lel.edit(f"#⃣ **Queued** at position {position}!")
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
         await message.reply_photo(
@@ -65,4 +65,4 @@ async def play(_, message: Message):
         message.from_user.mention()
         ),
     )
-        await lel.delete()
+        lel.delete()
