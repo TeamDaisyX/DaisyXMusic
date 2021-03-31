@@ -65,4 +65,4 @@ async def play(_, message: Message):
         message.from_user.mention()
         ),
     )
-        await lel.delete()
+        return await lel.delete()
