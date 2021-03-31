@@ -19,7 +19,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 @errors
 async def play(_, message: Message):
 
-    lel = await message.reply_text("🔄 Processing sounds...")
+    lel = await message.reply("🔄 Processing sounds...")
     sender_id = message.from_user.id
     sender_name = message.from_user.first_name
 
