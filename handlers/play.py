@@ -18,6 +18,8 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 @Client.on_message(command("play") & other_filters)
 @errors
 async def play(_, message: Message):
+
+    lel = await nessage.reply_text("🔄 **Processing...**")
     sender_id = message.from_user.id
     sender_name = message.from_user.first_name
 
@@ -49,17 +51,18 @@ async def play(_, message: Message):
     elif url:
         file_path = await converter.convert(youtube.download(url))
     else:
-        return await message.reply_sticker("CAACAgQAAx0CTv65QgABBfu5YGMrdgABQWYaCXzaZ8HTvtA4bYmkAAIaEAACpvFxHg-Z648-SCRWHgQ")
+        return await lel.edit_text("❗ You did not give me anything to play!")
 
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
-        await message.reply_text(f"#⃣ **Queued** at position {position}!")
+        await lel.edit_text(f"#⃣ **Queued** at position {position}!")
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
-        await message.reply_photo(
+        await message.send_photo(
         photo="https://telegra.ph/file/a4fa687ed647cfef52402.jpg",
         reply_markup=keyboard,
         caption="▶️ **Playing** here the song requested by {}!".format(
         message.from_user.mention()
         ),
     )
+        await lel.delete()
