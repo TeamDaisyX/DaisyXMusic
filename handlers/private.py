@@ -32,7 +32,8 @@ Add me to your group and play music freely!**
                         "➕ Add To Your Group ➕", url="https://t.me/JEGroupMusicPlayerBot?startgroup=true"
                     )]
             ]
-        )
+        ),
+     disable_web_page_preview=True
     )
 
 @Client.on_message(filters.command("start") & ~filters.private & ~filters.channel)
