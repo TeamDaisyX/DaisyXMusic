@@ -11,13 +11,16 @@ async def start(_, message: Message):
     await message.reply_text(
         f"""**Hey, I'm {bn} 🎵
 
-I can play music in your group's voice call. Developed by @ImJanindu :) 
+I can play music in your group's voice call. Developed by <a href"https://t.me/ImJanindu">Jason</a>.
 
 Add me to your group and play music freely!**
         """,
         reply_markup=InlineKeyboardMarkup(
             [
                 [
+                    InlineKeyboardButton(
+                        "🛠 How to use me 🛠", url="https://telegra.ph/Group-Music-Player-Manual-03-31")
+                  ],[
                     InlineKeyboardButton(
                         "💬 Group", url="https://t.me/InfinityBOTs_Support"
                     ),
