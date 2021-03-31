@@ -58,7 +58,6 @@ async def play(_, message: Message):
         await lel.edit(f"#⃣ **Queued** at position {position}!")
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
-        lel.delete()
         await message.reply_photo(
         photo="https://telegra.ph/file/a4fa687ed647cfef52402.jpg",
         reply_markup=keyboard,
@@ -66,3 +65,4 @@ async def play(_, message: Message):
         message.from_user.mention()
         ),
     )
+        await lel.delete()
