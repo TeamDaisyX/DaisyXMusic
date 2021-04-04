@@ -1,6 +1,6 @@
-<h1 align="centre">Music Play Bot 🎵</h1>
+<h2 align="centre">Music Play Bot 🎵</h2>
 
-## Requirements 📝
+<h3>Requirements 📝</h3>
 
 - FFmpeg
 - NodeJS [nodesource.com](https://nodesource.com/)
