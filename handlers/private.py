@@ -19,9 +19,6 @@ Add me to your group and play music freely!**
             [
                 [
                     InlineKeyboardButton(
-                        "🛠 How to use me 🛠", url="https://telegra.ph/Group-Music-Player-Manual-03-31")
-                  ],[
-                    InlineKeyboardButton(
                         "💬 Group", url="https://t.me/InfinityBOTs_Support"
                     ),
                     InlineKeyboardButton(
