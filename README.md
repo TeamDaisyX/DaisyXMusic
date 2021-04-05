@@ -13,6 +13,7 @@
 #### For all in group
 - `/play` - reply to youtube url or song file to play song
 - `/ytp <song name>` - play song without youtube url or song file (best method)
+- `/song <song name>` - download songs you want quickly
 
 #### Admins only
 - `/pause` - pause song play
