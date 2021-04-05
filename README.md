@@ -12,7 +12,7 @@
 ### Commands 🛠
 #### For all in group
 - `/play` - reply to youtube url or song file to play song
-- `/ytp <song name>` - play songs without youtube url or song file
+- `/ytp <song name>` - play song without youtube url or song file
 
 #### Admins only
 - `/pause` - pause song play
