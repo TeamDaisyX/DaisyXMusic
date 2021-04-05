@@ -60,7 +60,7 @@ async def play(_, message: Message):
     audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
 
     if audio:
-        await lel.edit_text("❗ Use `/play` cmd for play audio files!")
+        await lel.edit_text("Lel")
 
     elif url:
         file_path = await converter.convert(youtube.download(url))
