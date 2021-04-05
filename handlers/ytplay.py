@@ -24,6 +24,7 @@ async def play(_, message: Message):
 
     lel = await message.reply("🔎 **Finding** the song...")
     sender_id = message.from_user.id
+    user_id = message.from_user.id
     sender_name = message.from_user.first_name
     user_name = message.from_user.first_name
     rpk = "["+user_name+"](tg://user?id="+str(user_id)+")"
