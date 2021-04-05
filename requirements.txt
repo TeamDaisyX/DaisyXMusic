@@ -8,3 +8,4 @@ requests
 aiohttp
 asyncio
 youtube_search
+search_engine_parser
