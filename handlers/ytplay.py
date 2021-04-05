@@ -49,10 +49,7 @@ async def play(_, message: Message):
         url_suffix = results[0]["url_suffix"]
         views = results[0]["views"]
     
-    if url:
         file_path = await converter.convert(youtube.download(url))
-    else:
-        return await lel.edit_text("❗ You did not give me anything to play!")
 
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
