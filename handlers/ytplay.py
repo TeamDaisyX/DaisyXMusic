@@ -48,6 +48,13 @@ async def play(_, message: Message):
         duration = results[0]["duration"]
         url_suffix = results[0]["url_suffix"]
         views = results[0]["views"]
+
+    except Exception as e:
+        lel.edit(
+            "❌ Found Nothing.\n\nTry another song or maybe spell it properly."
+        )
+        print(str(e))
+        return
     
         file_path = await converter.convert(youtube.download(url))
 
