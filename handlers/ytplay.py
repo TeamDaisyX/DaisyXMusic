@@ -52,7 +52,7 @@ async def play(_, message: Message):
 
     except Exception as e:
         lel.edit(
-            "❌ Found Nothing.\n\nTry another song or maybe spell it properly."
+            "❌ Song not found.\n\nTry another song or maybe spell it properly."
         )
         print(str(e))
         return
@@ -60,15 +60,7 @@ async def play(_, message: Message):
     audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
 
     if audio:
-        if round(audio.duration / 60) > DURATION_LIMIT:
-            raise DurationLimitError(
-                f"❌ Videos longer than {DURATION_LIMIT} minute(s) aren't allowed to play!"
-            )
-
-        file_name = get_file_name(audio)
-        file_path = await converter.convert(
-            (await message.reply_to_message.download(file_name))
-            if not path.isfile(path.join("downloads", file_name)) else file_name
+        await lel.edit_text("❗ Use `/play` cmd for play audio files!")
         )
     elif url:
         file_path = await converter.convert(youtube.download(url))
