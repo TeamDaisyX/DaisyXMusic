@@ -1,5 +1,7 @@
 <h2 align="centre">Music Play Bot 🎵</h2>
 
+### Here the advanced branch with more features 🙂
+
 <h3>Requirements 📝</h3>
 
 - FFmpeg
