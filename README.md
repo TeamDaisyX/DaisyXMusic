@@ -9,7 +9,7 @@
 - Python 3.7+
 - [PyTgCalls](https://github.com/pytgcalls/pytgcalls)
 
-## Commands
+## Commands 🛠
 ### For all in group
 - `/play` - reply to youtube url or song file to play song
 - `/ytp <song name>` - play songs without youtube url or song file
