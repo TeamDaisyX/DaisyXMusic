@@ -27,16 +27,6 @@ async def play(_, message: Message):
     user_id = message.from_user.id
     sender_name = message.from_user.first_name
     user_name = message.from_user.first_name
-    keyboard = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        text="Watch On YouTube 🎬",
-                        url=f"{url}")
-                   
-                ]
-            ]
-        )
     rpk = "["+user_name+"](tg://user?id="+str(user_id)+")"
 
     query = ''
@@ -90,3 +80,14 @@ async def play(_, message: Message):
         ),
     )
         return await lel.delete()
+
+        keyboard = InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        text="Watch On YouTube 🎬",
+                        url=f"{url}")
+                   
+                ]
+            ]
+        )
