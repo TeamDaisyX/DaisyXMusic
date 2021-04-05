@@ -21,3 +21,4 @@ Get pyrogram STRING_NAME from here:
 
 - [Laky](https://github.com/Laky-64) & [Andrew](https://github.com/AndrewLaneX): PyTgCalls
 - [Original Repo](https://github.com/suprojects/CallsMusic)
+- [Infinity BOTs](https://t.me/Infinity_BOTs)
