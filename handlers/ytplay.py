@@ -22,7 +22,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 @errors
 async def play(_, message: Message):
 
-    lel = await message.reply("🔄 **Processing**...")
+    lel = await message.reply("🔎 **Finding** the song...")
     sender_id = message.from_user.id
     sender_name = message.from_user.first_name
 
@@ -32,7 +32,7 @@ async def play(_, message: Message):
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
-    lel = await message.reply('🔎 **Finding** the song...')
+    await lel.edit("🎵 **Processing** sounds...")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -58,7 +58,7 @@ async def play(_, message: Message):
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
         await message.reply_photo(
         photo="https://telegra.ph/file/a4fa687ed647cfef52402.jpg",
-        caption="▶️ **Playing** here the song requested by {}!".format(
+        caption="▶️ **Playing** here the song requested by {} 😜".format(
         message.from_user.mention()
         ),
     )
