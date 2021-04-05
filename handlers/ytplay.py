@@ -56,8 +56,11 @@ async def play(_, message: Message):
         )
         print(str(e))
         return
-    
+
+     try:
         file_path = await converter.convert(youtube.download(url))
+     except Exception as e:
+        lel.edit("❌ Error")
 
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
