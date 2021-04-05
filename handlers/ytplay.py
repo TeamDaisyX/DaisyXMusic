@@ -48,18 +48,6 @@ async def play(_, message: Message):
         duration = results[0]["duration"]
         url_suffix = results[0]["url_suffix"]
         views = results[0]["views"]
-
-    keyboard = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        text="🔊 Channel",
-                        url="https://t.me/Infinity_BOTs")
-                   
-                ]
-            ]
-        )
-
     
     if url:
         file_path = await converter.convert(youtube.download(url))
@@ -73,7 +61,6 @@ async def play(_, message: Message):
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
         await message.reply_photo(
         photo="https://telegra.ph/file/a4fa687ed647cfef52402.jpg",
-        reply_markup=keyboard,
         caption="▶️ **Playing** here the song requested by {}!".format(
         message.from_user.mention()
         ),
