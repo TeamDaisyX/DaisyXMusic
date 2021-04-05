@@ -57,6 +57,17 @@ async def play(_, message: Message):
         print(str(e))
         return
 
+    keyboard = InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        text="Watch On YouTube 🎬",
+                        url=f"{url}")
+                   
+                ]
+            ]
+        )
+
     audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
 
     if audio:
@@ -80,14 +91,3 @@ async def play(_, message: Message):
         ),
     )
         return await lel.delete()
-
-        keyboard = InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        text="Watch On YouTube 🎬",
-                        url=f"{url}")
-                   
-                ]
-            ]
-        )
