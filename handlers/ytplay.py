@@ -57,10 +57,23 @@ async def play(_, message: Message):
         print(str(e))
         return
 
-     try:
+    audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
+
+    if audio:
+        if round(audio.duration / 60) > DURATION_LIMIT:
+            raise DurationLimitError(
+                f"❌ Videos longer than {DURATION_LIMIT} minute(s) aren't allowed to play!"
+            )
+
+        file_name = get_file_name(audio)
+        file_path = await converter.convert(
+            (await message.reply_to_message.download(file_name))
+            if not path.isfile(path.join("downloads", file_name)) else file_name
+        )
+    elif url:
         file_path = await converter.convert(youtube.download(url))
-     except Exception as e:
-        lel.edit("❌ Error")
+    else:
+        return await lel.edit_text("❗ You did not give me anything to play!")
 
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
