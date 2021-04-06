@@ -2,9 +2,7 @@
 
 ### A bot that can play music on telegram group's voice call
 
-<p align="center">
-  <img src="https://telegra.ph/file/xxxxxxxx7aec4ae824901f85e.jpg">
-</p>
+#### Based on Callsmusic-1
 
 <h3>Requirements 📝</h3>
 
@@ -33,6 +31,7 @@
 Use [@StringSessionGeneratorRobot](https://t.me/StringSessionGeneratorRobot) to get pyrogram string session
 
 ### Credits
+- [Anjana-Ma](https://github.com/Anjana-Ma): Dev
 - [ImJanindu](https://github.com/ImJanindu): Dev
 - [InukaASiTH](https://github.com/InukaAsith): Dev
 - [Laky](https://github.com/Laky-64) & [Andrew](https://github.com/AndrewLaneX): PyTgCalls
