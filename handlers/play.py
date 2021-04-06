@@ -83,7 +83,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     )
     draw.text((190, 630), f"Views: {views}", (255, 255, 255), font=font)
     draw.text((190, 670),
-        f"Played By: {requested_by}",
+        f"Added By: {requested_by}",
         (255, 255, 255),
         font=font,
     )
@@ -133,12 +133,12 @@ async def play(_, message: Message):
                     [
                         InlineKeyboardButton(
                             text="🔊 Channel",
-                            url=f"https://t.me/Daisyxupdates")
+                            url=f"https://t.me/Infinity_Bots")
 
                     ]
                 ]
             )
-        requested_by = message.from_user.mention()
+        requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)  
         file_path = await converter.convert(
             (await message.reply_to_message.download(file_name))
@@ -182,7 +182,7 @@ async def play(_, message: Message):
                         ]
                     ]
                 )
-        requested_by = message.from_user.mention()
+        requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)     
         file_path = await converter.convert(youtube.download(url))
     else:
@@ -229,7 +229,7 @@ async def play(_, message: Message):
                     ]
                 ]
             )
-        requested_by = message.from_user.mention()
+        requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)  
         file_path = await converter.convert(youtube.download(url))
   
