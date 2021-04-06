@@ -108,7 +108,16 @@ async def play(_, message: Message):
             raise DurationLimitError(
                 f"❌ Videos longer than {DURATION_LIMIT} minute(s) aren't allowed to play!"
             )
+        keyboard = InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            text="Join Updates Channel ",
+                            url=f"https://t.me/daisyxupdates")
 
+                    ]
+                ]
+            )
         file_name = get_file_name(audio)
         title = file_name
         thumb_name = "https://telegra.ph/file/889f1bb444c61658ea1ce.jpg"
