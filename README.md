@@ -1,4 +1,4 @@
-<h2 align="centre">Music Play Bot 🎵</h2>
+<h2 align="centre">Telegram Group Music Play Bot 🎵</h2>
 
 ### A bot that can play music on telegram group's voice call
 
