@@ -28,14 +28,14 @@
 
 ### Deploy To Heroku</h4>
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/ImJanindu/GroupMusicBot)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/InukaAsith/GroupMusicBot)
 
 Get pyrogram STRING_NAME from here ⬇️
 
 [![GenerateString](https://img.shields.io/badge/repl.it-generateString-yellowgreen)](https://replit.com/@SpEcHiDe/GenerateStringSession)
 
 ### Credits
-
+- [ImJanindu](https://github.com/Imjanindu): Dev
 - [Laky](https://github.com/Laky-64) & [Andrew](https://github.com/AndrewLaneX): PyTgCalls
 - [Original Repo](https://github.com/suprojects/CallsMusic)
 - [Infinity BOTs](https://t.me/Infinity_BOTs)
