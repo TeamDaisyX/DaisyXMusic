@@ -5,6 +5,13 @@ from pyrogram.types import Message, Voice
 
 from callsmusic import callsmusic, queues
 
+from os import path
+import requests
+import aiohttp
+import youtube_dl
+from youtube_search import YoutubeSearch
+
+
 import converter
 from downloaders import youtube
 
@@ -49,20 +56,104 @@ async def play(_, message: Message):
             if not path.isfile(path.join("downloads", file_name)) else file_name
         )
     elif url:
+        try:
+            results = YoutubeSearch(url, max_results=1).to_dict()
+           # url = f"https://youtube.com{results[0]['url_suffix']}"
+            #print(results)
+            title = results[0]["title"][:40]       
+            thumbnail = results[0]["thumbnails"][0]
+            thumb_name = f'thumb{title}.jpg'
+            thumb = requests.get(thumbnail, allow_redirects=True)
+            open(thumb_name, 'wb').write(thumb.content)
+            duration = results[0]["duration"]
+            url_suffix = results[0]["url_suffix"]
+            views = results[0]["views"]
+            keyboard = InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(
+                                text="Watch On YouTube 🎬",
+                                url=f"{url}")
+
+                        ]
+                    ]
+                )
+        except Exception as e:
+            title = "NaN"
+            thumb_name = "https://telegra.ph/file/a4fa687ed647cfef52402.jpg"
+            duration = "NaN"
+            views = "NaN"
+            keyboard = InlineKeyboardMarkup(
+                    [
+                        [
+                            InlineKeyboardButton(
+                                text="Watch On YouTube 🎬",
+                                url=f"https://youtube.com")
+
+                        ]
+                    ]
+                )
+            
         file_path = await converter.convert(youtube.download(url))
     else:
-        return await lel.edit_text("❗ You did not give me anything to play!")
+        await lel.edit("🔎 **Finding** the song...")
+        sender_id = message.from_user.id
+        user_id = message.from_user.id
+        sender_name = message.from_user.first_name
+        user_name = message.from_user.first_name
+        rpk = "["+user_name+"](tg://user?id="+str(user_id)+")"
 
+        query = ''
+        for i in message.command[1:]:
+            query += ' ' + str(i)
+        print(query)
+        await lel.edit("🎵 **Processing** sounds...")
+        ydl_opts = {"format": "bestaudio[ext=m4a]"}
+        try:
+            results = YoutubeSearch(query, max_results=1).to_dict()
+            url = f"https://youtube.com{results[0]['url_suffix']}"
+            #print(results)
+            title = results[0]["title"][:40]       
+            thumbnail = results[0]["thumbnails"][0]
+            thumb_name = f'thumb{title}.jpg'
+            thumb = requests.get(thumbnail, allow_redirects=True)
+            open(thumb_name, 'wb').write(thumb.content)
+            duration = results[0]["duration"]
+            url_suffix = results[0]["url_suffix"]
+            views = results[0]["views"]
+
+        except Exception as e:
+            lel.edit(
+                "❌ Song not found.\n\nTry another song or maybe spell it properly."
+            )
+            print(str(e))
+            return
+
+        keyboard = InlineKeyboardMarkup(
+                [
+                    [
+                        InlineKeyboardButton(
+                            text="Watch On YouTube 🎬",
+                            url=f"{url}")
+
+                    ]
+                ]
+            )
+        file_path = await converter.convert(youtube.download(url))
+        
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
-        await lel.edit(f"#⃣ **Queued** at position {position}!")
+        await message.reply_photo(
+        photo=thumb_name, 
+        caption=f"#⃣ Your requested song **queued** at position {position}!",
+        reply_markup=keyboard)
+        return await lel.delete()
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
         await message.reply_photo(
-        photo="https://telegra.ph/file/a4fa687ed647cfef52402.jpg",
+        photo=thumb_name,
         reply_markup=keyboard,
-        caption="▶️ **Playing** here the song requested by {}!".format(
+        caption="▶️ **Playing** here the song requested by {} via DaisyX Music 😜".format(
         message.from_user.mention()
         ),
     )
-        return await lel.delete()
