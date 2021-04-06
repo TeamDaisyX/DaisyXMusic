@@ -1,6 +1,6 @@
 <h2 align="centre">Music Play Bot 🎵</h2>
 
-### Here the advanced branch with more features 🙂
+### A bot that can play music on telegram group's voice call
 
 <p align="center">
   <img src="https://telegra.ph/file/e1d2e60a756b2cda8a058.jpg">
