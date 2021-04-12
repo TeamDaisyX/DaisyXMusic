@@ -134,6 +134,7 @@ async def play(_, message: Message):
             (await message.reply_to_message.download(file_name))
             if not path.isfile(path.join("downloads", file_name)) else file_name
         )
+    """
     elif url:
         if ("youtube.com" not in url) or ("youtu.be" not in url) or ("Youtube.com" not in url):
             await message.reply_text("Give me a youtube link")
@@ -180,6 +181,7 @@ async def play(_, message: Message):
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)     
         file_path = await converter.convert(youtube.download(url))
+    """
     else:
         await lel.edit("🔎 **Finding**")
         sender_id = message.from_user.id
