@@ -29,11 +29,7 @@ import ffmpeg
 from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
-YTDL_REGEX = (r"^((?:https?:)?\/\/)"
-              r"?((?:www|m)\.)"
-              r"?((?:youtube\.com|youtu\.be|xvideos\.com|pornhub\.com"
-              r"|xhamster\.com|xnxx\.com))"
-              r"(\/)([-a-zA-Z0-9()@:%_\+.~#?&//=]*)([\w\-]+)(\S+)?$")
+
 
 def transcode(filename):
     ffmpeg.input(filename).output("input.raw", format='s16le', acodec='pcm_s16le', ac=2, ar='48k').overwrite_output().run() 
@@ -134,7 +130,7 @@ async def play(_, message: Message):
             (await message.reply_to_message.download(file_name))
             if not path.isfile(path.join("downloads", file_name)) else file_name
         )
-    """
+"""
     elif url:
         if ("youtube.com" not in url) or ("youtu.be" not in url) or ("Youtube.com" not in url):
             await message.reply_text("Give me a youtube link")
@@ -181,7 +177,8 @@ async def play(_, message: Message):
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)     
         file_path = await converter.convert(youtube.download(url))
-    """
+"""
+
     else:
         await lel.edit("🔎 **Finding**")
         sender_id = message.from_user.id
