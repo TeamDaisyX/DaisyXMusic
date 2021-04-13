@@ -1,3 +1,4 @@
+from __future__ import unicode_literals
 import os
 import requests
 import aiohttp
@@ -5,7 +6,7 @@ import youtube_dl
 
 from pyrogram import filters, Client
 from youtube_search import YoutubeSearch
-from __future__ import unicode_literals
+
 from urllib.parse import urlparse
 import aiofiles
 import os
@@ -218,6 +219,14 @@ def song(client, message):
         )
         print(str(e))
         return
+    
+    infoo = ytdl.extract_info(url, False)
+    duration = round(infoo["duration"] / 60)
+
+    if duration > 60:
+        raise DurationLimitError(
+            f"❌ Songs longer than 60 minute(s) aren't allowed, the provided song is {duration} minute(s)"
+        )
     m.edit("Downloading the song ")
     try:
         #is_downloading = True
@@ -291,7 +300,7 @@ async def ytmusic(client,message: Message):
     if is_downloading:
         await message.reply_text("Another download is in progress, try again after sometime.")
         return
-    
+
     urlissed = get_text(message)
 
     pablo =  await client.send_message(
@@ -311,6 +320,13 @@ async def ytmusic(client,message: Message):
     kekme = f"https://img.youtube.com/vi/{fridayz}/hqdefault.jpg"
     await asyncio.sleep(0.6)
     url = mo
+    infoo = ytdl.extract_info(url, False)
+    duration = round(infoo["duration"] / 60)
+
+    if duration > 8:
+        raise DurationLimitError(
+            f"❌ Videos longer than 8 minute(s) aren't allowed, the provided video is {duration} minute(s)"
+        )
     sedlyf = wget.download(kekme)
     opts = {
             "format": "best",
