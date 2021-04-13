@@ -227,13 +227,6 @@ def song(client, message):
         #is_downloading = True
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             infoo = ydl.extract_info(url, False)
-            duration4 = round(infoo["duration"] / 60)
-
-            if duration4 > 60:
-                raise DurationLimitError(
-                    f"❌ Videos longer than 8 minute(s) aren't allowed, the provided video is {duration} minute(s)"
-                )
-                return
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
