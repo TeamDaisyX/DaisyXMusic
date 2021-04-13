@@ -11,7 +11,7 @@ from urllib.parse import urlparse
 import aiofiles
 import os
 from random import randint
-
+from youtubesearchpython import SearchVideos
 from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import Chat, Message, User
 
