@@ -225,7 +225,7 @@ def song(client, message):
     m.edit("Downloading the song ")
     try:
         #is_downloading = True
-        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+        with YoutubeDL(ydl_opts) as ydl:
             infoo = ydl.extract_info(url, False)
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
