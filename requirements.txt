@@ -12,3 +12,6 @@ youtube_search
 search_engine_parser
 ffmpeg
 Pillow
+python-arq
+future
+psutil
