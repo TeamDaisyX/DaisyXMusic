@@ -159,7 +159,7 @@ async def play(_, message: Message):
             views = results[0]["views"]
 
         except Exception as e:
-            lel.edit("Song not found.Try another song or maybe spell it properly.")
+            await lel.edit("Song not found.Try another song or maybe spell it properly.")
             print(str(e))
             return
 
