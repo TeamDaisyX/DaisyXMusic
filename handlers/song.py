@@ -18,6 +18,8 @@ import asyncio
 from typing import Callable, Coroutine, Dict, List, Tuple, Union
 import sys
 import time
+from youtube_dl import YoutubeDL
+
 ARQ_API = "http://35.240.133.234:8000"
 arq = ARQ(ARQ_API)
 def get_text(message: Message) -> [None, str]:
@@ -222,17 +224,20 @@ def song(client, message):
         print(str(e))
         return
     
+    with YoutubeDL(opts) as ytdl:
 
-    duration1 = round(dur / 60)
-
-    if duration1 > 60:
-        raise DurationLimitError(
-            f"❌ Songs longer than 60 minute(s) aren't allowed, the provided song is {duration} minute(s)"
-        )
     m.edit("Downloading the song ")
     try:
         #is_downloading = True
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            infoo = ydl.extract_info(url, False)
+            duration4 = round(infoo["duration"] / 60)
+
+            if duration4 > 60:
+                raise DurationLimitError(
+                    f"❌ Videos longer than 8 minute(s) aren't allowed, the provided video is {duration} minute(s)"
+                )
+                return
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
@@ -353,13 +358,6 @@ async def ytmusic(client,message: Message):
     kekme = f"https://img.youtube.com/vi/{fridayz}/hqdefault.jpg"
     await asyncio.sleep(0.6)
     url = mo
-    infoo = ydl.extract_info(url, False)
-    duration = round(infoo["duration"] / 60)
-
-    if duration > 8:
-        raise DurationLimitError(
-            f"❌ Videos longer than 8 minute(s) aren't allowed, the provided video is {duration} minute(s)"
-        )
     sedlyf = wget.download(kekme)
     opts = {
             "format": "best",
@@ -378,10 +376,21 @@ async def ytmusic(client,message: Message):
     try:
         is_downloading = True
         with YoutubeDL(opts) as ytdl:
-            ytdl_data = ydl.extract_info(url, download=True)
+            infoo = ytdl.extract_info(url, False)
+            duration = round(infoo["duration"] / 60)
+
+            if duration > 8:
+                raise DurationLimitError(
+                    f"❌ Videos longer than 8 minute(s) aren't allowed, the provided video is {duration} minute(s)"
+                )
+                return
+            ytdl_data = ytdl.extract_info(url, download=True)
+            
+    
     except Exception as e:
         await event.edit(event, f"**Failed To Download** \n**Error :** `{str(e)}`")
         return
+    
     c_time = time.time()
     file_stark = f"{ytdl_data['id']}.mp4"
     capy = f"**Video Name ➠** `{thum}` \n**Requested For :** `{urlissed}` \n**Channel :** `{thums}` \n**Link :** `{mo}`"
