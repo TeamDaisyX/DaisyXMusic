@@ -19,6 +19,7 @@ import asyncio
 from typing import Callable, Coroutine, Dict, List, Tuple, Union
 import sys
 import time
+from helpers.errors import DurationLimitError
 
 @Client.on_message(filters.command('song') & ~filters.private & ~filters.channel)
 def song(client, message):
@@ -372,7 +373,7 @@ async def ytmusic(client,message: Message):
             
     
     except Exception as e:
-        await event.edit(event, f"**Failed To Download** \n**Error :** `{str(e)}`")
+        #await pablo.edit(event, f"**Failed To Download** \n**Error :** `{str(e)}`")
         return
     
     c_time = time.time()
