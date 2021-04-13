@@ -4,6 +4,7 @@ import requests
 import aiohttp
 import youtube_dl
 import wget
+import math
 from pyrogram import filters, Client
 from youtube_search import YoutubeSearch
 from Python_ARQ import ARQ
@@ -210,10 +211,7 @@ def song(client, message):
         thumb_name = f'thumb{title}.jpg'
         thumb = requests.get(thumbnail, allow_redirects=True)
         open(thumb_name, 'wb').write(thumb.content)
-
-
         duration = results[0]["duration"]
-        dur = int(duration)
         url_suffix = results[0]["url_suffix"]
         views = results[0]["views"]
 
