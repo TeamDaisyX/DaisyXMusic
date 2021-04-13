@@ -20,9 +20,67 @@ from typing import Callable, Coroutine, Dict, List, Tuple, Union
 import sys
 import time
 
+@Client.on_message(filters.command('song') & ~filters.private & ~filters.channel)
+def song(client, message):
+
+    user_id = message.from_user.id 
+    user_name = message.from_user.first_name 
+    rpk = "["+user_name+"](tg://user?id="+str(user_id)+")"
+
+    query = ''
+    for i in message.command[1:]:
+        query += ' ' + str(i)
+    print(query)
+    m = message.reply('🔎 Finding the song...')
+    ydl_opts = {"format": "bestaudio[ext=m4a]"}
+    try:
+        results = YoutubeSearch(query, max_results=1).to_dict()
+        link = f"https://youtube.com{results[0]['url_suffix']}"
+        #print(results)
+        title = results[0]["title"][:40]       
+        thumbnail = results[0]["thumbnails"][0]
+        thumb_name = f'thumb{title}.jpg'
+        thumb = requests.get(thumbnail, allow_redirects=True)
+        open(thumb_name, 'wb').write(thumb.content)
+
+
+        duration = results[0]["duration"]
+        url_suffix = results[0]["url_suffix"]
+        views = results[0]["views"]
+
+    except Exception as e:
+        m.edit(
+            "❌ Found Nothing.\n\nTry another keywork or maybe spell it properly."
+        )
+        print(str(e))
+        return
+    m.edit("Downloading the song ")
+    try:
+        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+            info_dict = ydl.extract_info(link, download=False)
+            audio_file = ydl.prepare_filename(info_dict)
+            ydl.process_info(info_dict)
+        rep = '**🎵 Uploaded by **'
+        secmul, dur, dur_arr = 1, 0, duration.split(':')
+        for i in range(len(dur_arr)-1, -1, -1):
+            dur += (int(dur_arr[i]) * secmul)
+            secmul *= 60
+        message.reply_audio(audio_file, caption=rep, thumb=thumb_name, parse_mode='md', title=title, duration=dur)
+        m.delete()
+    except Exception as e:
+        m.edit('❌ Error')
+        print(e)
+
+    try:
+        os.remove(audio_file)
+        os.remove(thumb_name)
+    except Exception as e:
+        print(e)
 
 ARQ_API = "http://35.240.133.234:8000"
 arq = ARQ(ARQ_API)
+
+
 def get_text(message: Message) -> [None, str]:
     text_to_return = message.text
     if message.text is None:
@@ -185,38 +243,6 @@ def time_to_seconds(time):
     return sum(int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(':'))))
 
 
-@Client.on_message(filters.command("song") & ~filters.edited)
-async def music(_, message):
-    if len(message.command) != 2:
-        await message.reply_text("/song needs a link as argument")
-        return
-    link = message.text.split(None, 1)[1]
-    m = await message.reply_text(f"Downloading {link}",
-                                 disable_web_page_preview=True)
-    try:
-        with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-            info_dict = ydl.extract_info(link, download=False)
-            audio_file = ydl.prepare_filename(info_dict)
-            ydl.process_info(info_dict)
-            # .webm -> .weba
-            basename = audio_file.rsplit(".", 1)[-2]
-            thumbnail_url = info_dict['thumbnail']
-            thumbnail_file = basename + "." + \
-                get_file_extension_from_url(thumbnail_url)
-            audio_file = basename + ".mp3"
-    except Exception as e:
-        await m.edit(str(e))
-        return
-        # info
-    title = info_dict['title']
-    performer = info_dict['uploader']
-    duration = int(float(info_dict['duration']))
-    await m.delete()
-    await message.reply_chat_action("upload_document")
-    await message.reply_audio(audio_file, duration=duration, performer=performer,
-                              title=title, thumb=thumbnail_file)
-    os.remove(audio_file)
-    os.remove(thumbnail_file)
 
 
 
