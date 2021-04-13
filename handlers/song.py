@@ -3,7 +3,7 @@ import os
 import requests
 import aiohttp
 import youtube_dl
-
+import wget
 from pyrogram import filters, Client
 from youtube_search import YoutubeSearch
 
