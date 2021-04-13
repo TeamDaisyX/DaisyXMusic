@@ -14,7 +14,7 @@ from random import randint
 from youtubesearchpython import SearchVideos
 from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import Chat, Message, User
-
+import asyncio
 from typing import Callable, Coroutine, Dict, List, Tuple, Union
 import sys
 import time
@@ -211,6 +211,7 @@ def song(client, message):
 
 
         duration = results[0]["duration"]
+        dur = int(duration)
         url_suffix = results[0]["url_suffix"]
         views = results[0]["views"]
 
