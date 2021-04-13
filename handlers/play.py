@@ -159,9 +159,7 @@ async def play(_, message: Message):
             views = results[0]["views"]
 
         except Exception as e:
-            lel.edit(
-                "❌ Song not found.\n\nTry another song or maybe spell it properly."
-            )
+            lel.edit("Song not found.Try another song or maybe spell it properly.")
             print(str(e))
             return
 
@@ -192,7 +190,7 @@ async def play(_, message: Message):
         await message.reply_photo(
         photo="final.png",
         reply_markup=keyboard,
-        caption="▶️ **Playing** here the song requested by {} via YouTube Music 😜".format(
+        caption="▶️ **Playing** here the song requested by {} via DaisyXmusic 😜".format(
         message.from_user.mention()
         ),
     )
