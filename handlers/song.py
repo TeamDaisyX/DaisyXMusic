@@ -224,8 +224,6 @@ def song(client, message):
         print(str(e))
         return
     
-    with YoutubeDL(opts) as ytdl:
-
     m.edit("Downloading the song ")
     try:
         #is_downloading = True
