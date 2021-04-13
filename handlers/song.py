@@ -18,7 +18,8 @@ from pyrogram.types import Chat, Message, User
 from typing import Callable, Coroutine, Dict, List, Tuple, Union
 import sys
 import time
-
+ARQ_API = "http://35.240.133.234:8000"
+arq = ARQ(ARQ_API)
 def get_text(message: Message) -> [None, str]:
     text_to_return = message.text
     if message.text is None:
@@ -220,10 +221,10 @@ def song(client, message):
         print(str(e))
         return
     
-    infoo = ytdl.extract_info(url, False)
-    duration = round(infoo["duration"] / 60)
 
-    if duration > 60:
+    duration1 = round(duration / 60)
+
+    if duration1 > 60:
         raise DurationLimitError(
             f"❌ Songs longer than 60 minute(s) aren't allowed, the provided song is {duration} minute(s)"
         )
@@ -256,6 +257,37 @@ def song(client, message):
 
 
 
+
+@Client.on_message(filters.command("saavn") & ~filters.edited)
+async def jssong(_, message):
+    global is_downloading
+    if len(message.command) < 2:
+        await message.reply_text("/saavn requires an argument.")
+        return
+    if is_downloading:
+        await message.reply_text("Another download is in progress, try again after sometime.")
+        return
+    is_downloading = True
+    text = message.text.split(None, 1)[1]
+    query = text.replace(" ", "%20")
+    m = await message.reply_text("Searching...")
+    try:
+        songs = await arq.saavn(query)
+        sname = songs[0].song
+        slink = songs[0].media_url
+        ssingers = songs[0].singers
+        await m.edit("Downloading")
+        song = await download_song(slink)
+        await m.edit("Uploading")
+        await message.reply_audio(audio=song, title=sname,
+                                  performer=ssingers)
+        os.remove(song)
+        await m.delete()
+    except Exception as e:
+        is_downloading = False
+        await m.edit(str(e))
+        return
+    is_downloading = False
 
 
 
@@ -320,7 +352,7 @@ async def ytmusic(client,message: Message):
     kekme = f"https://img.youtube.com/vi/{fridayz}/hqdefault.jpg"
     await asyncio.sleep(0.6)
     url = mo
-    infoo = ytdl.extract_info(url, False)
+    infoo = ydl.extract_info(url, False)
     duration = round(infoo["duration"] / 60)
 
     if duration > 8:
@@ -345,7 +377,7 @@ async def ytmusic(client,message: Message):
     try:
         is_downloading = True
         with YoutubeDL(opts) as ytdl:
-            ytdl_data = ytdl.extract_info(url, download=True)
+            ytdl_data = ydl.extract_info(url, download=True)
     except Exception as e:
         await event.edit(event, f"**Failed To Download** \n**Error :** `{str(e)}`")
         return
