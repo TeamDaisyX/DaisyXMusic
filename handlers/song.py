@@ -223,7 +223,7 @@ def song(client, message):
         return
     
 
-    duration1 = round(duration / 60)
+    duration1 = round(dur / 60)
 
     if duration1 > 60:
         raise DurationLimitError(
