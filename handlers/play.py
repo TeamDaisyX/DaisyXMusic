@@ -112,8 +112,8 @@ async def play(_, message: Message):
                 [
                     [
                         InlineKeyboardButton(
-                            text="Join Updates Channel ",
-                            url=f"https://t.me/daisyxupdates")
+                            text="OWNER ",
+                            url=f"https://t.me/Bossfightbot")
 
                     ]
                 ]
@@ -167,8 +167,8 @@ async def play(_, message: Message):
                 [
                     [
                         InlineKeyboardButton(
-                            text="Watch On YouTube 🎬",
-                            url=f"{url}")
+                            text="SOURCE BOT",
+                            url=f"https://t.me/loveiswarXVII")
 
                     ]
                 ]
