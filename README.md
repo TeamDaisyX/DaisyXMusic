@@ -2,6 +2,10 @@
 
 ### A bot that can play music on telegram group's voice call
 
+<p align="center">
+  <img src="https://telegra.ph/file/dd04b1968f1bc1169d162.jpg">
+</p>
+
 <h2> Whats new 🔥 </h2>
 
 - Thumbnail Support
