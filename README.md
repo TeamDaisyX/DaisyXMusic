@@ -18,6 +18,7 @@
 - DEEZER,YOUTUBE & SAAVN PLAYBACK SUPPORTED
 - Settings panel
 - Control with buttons
+- Userbot auto join
 
 ### Commands 🛠
 #### For all in group
@@ -39,7 +40,8 @@
 - `/resume` - resume song play
 - `/skip` - play next song
 - `/end` - stop music play
-
+- `/userbotjoin` - invite assistant to your chat
+- `/admincache` - Refresh admin list
 
 #### Based on Callsmusic-1
 
