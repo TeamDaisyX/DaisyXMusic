@@ -3,6 +3,7 @@
 ### A bot that can play music on telegram group's voice call
 
 <h2> Whats new 🔥 </h2>
+
 - Thumbnail Support
 - Playlist Support
 - Current playback support
