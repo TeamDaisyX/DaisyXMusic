@@ -654,7 +654,7 @@ async def deezer(client: Client, message_: Message):
         loc = file_path
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
-        await res.edit_text(f"Playing [{title}]({url}) Via Deezer")
+        await res.edit_text(f"✯DaisyXmusic✯= #️⃣ Queued at position {position}")
     else:
         await res.edit_text("✯DaisyXmusic✯=▶️ Playing.....")
         chat_id = message_.chat.id
@@ -673,7 +673,7 @@ async def deezer(client: Client, message_: Message):
         chat_id=message_.chat.id,
         reply_markup=keyboard,
         photo="final.png",
-        caption=f"✯DaisyXmusic✯= #️⃣ Queued at position {position}.)."
+        caption=f"Playing [{title}]({url}) Via Deezer"
     ) 
     os.remove("final.png")
 
