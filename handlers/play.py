@@ -424,12 +424,12 @@ async def play(_, message: Message):
     wew = usar.id
     try:
         #chatdetails = await USER.get_chat(chid)
-        lmoa = await client.get_chat_member(chid,wew)
+        lmoa = await _.get_chat_member(chid,wew)
     except:
            for administrator in administrators:
                       if administrator == message.from_user.id:  
                           try:
-                              invitelink = await client.export_chat_invite_link(chid)
+                              invitelink = await _.export_chat_invite_link(chid)
                           except:
                               await lel.edit(
                                   "<b>Add me as admin of yor group first</b>",
