@@ -427,7 +427,7 @@ async def play(_, message: Message):
         lmoa = await client.get_chat_member(chid,wew)
     except:
            for administrator in administrators:
-                      if administrator == message_.from_user.id:  
+                      if administrator == message.from_user.id:  
                           try:
                               invitelink = await client.export_chat_invite_link(chid)
                           except:
@@ -582,7 +582,7 @@ async def deezer(client: Client, message_: Message):
 
                           try:
                               await USER.join_chat(invitelink)
-                              await USER.send_message(message.chat.id,"I joined this group for playing music in VC")
+                              await USER.send_message(message_.chat.id,"I joined this group for playing music in VC")
                               await lel.edit(
                                   "<b>helper userbot joined your chat</b>",
                               )
@@ -708,7 +708,7 @@ async def jiosaavn(client: Client, message_: Message):
 
                           try:
                               await USER.join_chat(invitelink)
-                              await USER.send_message(message.chat.id,"I joined this group for playing music in VC")
+                              await USER.send_message(message_.chat.id,"I joined this group for playing music in VC")
                               await lel.edit(
                                   "<b>helper userbot joined your chat</b>",
                               )
