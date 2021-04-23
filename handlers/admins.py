@@ -56,7 +56,7 @@ async def pause(_, message: Message):
         await message.reply_text("❌ NGAPAIN SIH SAYANG!")
     else:
         callsmusic.pytgcalls.pause_stream(message.chat.id)
-        await message.reply_text("▶️ NGAPAIN DIMATIIN!")
+        await message.reply_text("▶️ YAH DIPAUSE!")
 
 
 @Client.on_message(command("resume") & other_filters)
@@ -74,7 +74,7 @@ async def resume(_, message: Message):
         await message.reply_text("⏸ MELANJUTKAN!")
 
 
-@Client.on_message(command("end") & other_filters)
+@Client.on_message(command("stop") & other_filters)
 @errors
 @authorized_users_only
 async def stop(_, message: Message):
@@ -87,7 +87,7 @@ async def stop(_, message: Message):
             pass
 
         callsmusic.pytgcalls.leave_group_call(message.chat.id)
-        await message.reply_text("❌ NGAPAIN DIMATIIN SAYANG!")
+        await message.reply_text("❌ YAH DIMATIIN!")
 
 
 @Client.on_message(command("skip") & other_filters)
