@@ -41,15 +41,15 @@
 - `/skip` - play next song
 - `/end` - stop music play
 - `/userbotjoin` - invite assistant to your chat
+- `/userbotleave` - remove assistant from your chat
 - `/admincache` - Refresh admin list
 
-#### Based on Callsmusic-1
 
 ### Deploy To Heroku</h4>
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/teamdaisyx/DaisyXMusic)
 
-Use [@StringSessionGeneratorRobot](https://t.me/StringSessionGeneratorRobot) to get pyrogram string session
+Use [@DaisyXStringGeneratorBot](https://t.me/DaisyXStringGeneratorBot) to get pyrogram string session or [repl](https://repl.it/@SpEcHiDe/GenerateStringSession)
 
 ### Credits
 - [InukaASiTH](https://github.com/InukaAsith): Dev
