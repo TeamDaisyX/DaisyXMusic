@@ -33,17 +33,26 @@ Ini adalah bot music yang membantumu untuk memutar music di VOICE CHAT GRUB anda
 NB : Maaf jika ada kekurangan didalam bot ini.""",
         reply_markup=InlineKeyboardMarkup(
             [ 
-                [
+                
+                 [
                     InlineKeyboardButton(
-                        "Cara Penggunaan✍️", url="https://telegra.ph/DAFTAR-PERINTAH-04-22")
+                        "⚒️ OWNER 🛠️", url="https://t.me/justthetech")
                   ],[
                     InlineKeyboardButton(
-                        "Channel🚀", url="https://pejuangairdrops"
+                        "GRUB I 👥", url="https://t.me/randomcryptoid"
+                    )
+                    InlineKeyboardButton(
+                        "GRUB II 👥", url="https://t.me/gcwoah"
                     )
                 ],[ 
                     InlineKeyboardButton(
-                        "Grub👥", url="https://t.me/randomcryptoid"
-                    )]
+                        "CHANNEL 🚀", url="https://t.me/pejuangairdrops"
+                    
+                    )
+                  ],[
+                    InlineKeyboardButton(
+                        "DAFTAR PERINTAH ✍️", url="https://telegra.ph/DAFTAR-PERINTAH-04-22")
+                 ]
             ]
         ),
      disable_web_page_preview=True
@@ -51,7 +60,7 @@ NB : Maaf jika ada kekurangan didalam bot ini.""",
 
 @Client.on_message(filters.command("start") & ~filters.private & ~filters.channel)
 async def gstart(_, message: Message):
-      await message.reply_text("""**🔴 Music player is online**""",
+      await message.reply_text("""**🔴 ROBOT MUSIC BOT ONLINE **""",
       reply_markup=InlineKeyboardMarkup(
             [
                 [
