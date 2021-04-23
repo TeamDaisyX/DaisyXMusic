@@ -114,7 +114,7 @@ async def skip(_, message: Message):
         skip = qeue.pop(0)
     if not qeue:
         return
-    await message.reply_text(f'- YAH DISKIP TOLOL **{skip[0]}**\n- Now Playing **{qeue[0][0]}**')
+    await message.reply_text(f'- YAH DISKIP **{skip[0]}**\n- Now Playing **{qeue[0][0]}**')
 
 
 @Client.on_message(
