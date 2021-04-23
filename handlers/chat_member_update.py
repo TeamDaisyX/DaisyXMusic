@@ -29,8 +29,6 @@ async def auto_admin_updater(_, chat_member_updated: ChatMemberUpdated):
         )
     ) if (
         (
-            chat_member_updated.new_chat_member.can_manage_voice_chats
-        ) and (
             (
                 chat_member_updated.new_chat_member.user.id
             ) not in admins[chat_member_updated.chat.id]
