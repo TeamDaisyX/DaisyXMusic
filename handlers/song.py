@@ -38,7 +38,7 @@ import sys
 import time
 from helpers.errors import DurationLimitError
 
-@Client.on_message(filters.command('song') & ~filters.private & ~filters.channel)
+@Client.on_message(filters.command('song') & ~filters.channel)
 def song(client, message):
 
     user_id = message.from_user.id 
