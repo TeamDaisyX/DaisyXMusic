@@ -51,7 +51,7 @@ NB : Maaf jika ada kekurangan didalam bot ini.""",
                     )
                   ],[
                     InlineKeyboardButton(
-                        "DAFTAR PERINTAH ✍️", url="https://telegra.ph/DAFTAR-PERINTAH-04-22")
+                        "DAFTAR PERINTAH ✍️", url="https://telegra.ph/ROBOT-04-23-2")
                  ]
             ]
         ),
