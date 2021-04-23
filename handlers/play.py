@@ -420,7 +420,12 @@ async def play(_, message: Message):
     lel = await message.reply("🔄 **Processing**")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
-    usar = await USER.get_me()
+
+    try:
+        user = await USER.get_me()
+    except:
+        user.first_name =  "helper"
+    usar = user
     wew = usar.id
     try:
         #chatdetails = await USER.get_chat(chid)
@@ -457,7 +462,7 @@ async def play(_, message: Message):
         #lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            "<i> helper Userbot not in this chat, Ask admin to send /play command for first time or add assistant manually</i>"
+            f"<i> {user.first_name} Userbot not in this chat, Ask admin to send /play command for first time or add {user.first_name} manually</i>"
         )
         return     
     sender_id = message.from_user.id
@@ -564,7 +569,11 @@ async def deezer(client: Client, message_: Message):
     lel = await message_.reply("🔄 **Processing**")
     administrators = await get_administrators(message_.chat)
     chid = message_.chat.id
-    usar = await USER.get_me()
+    try:
+        user = await USER.get_me()
+    except:
+        user.first_name =  "DaisyMusic"
+    usar = user
     wew = usar.id
     try:
         #chatdetails = await USER.get_chat(chid)
@@ -601,7 +610,7 @@ async def deezer(client: Client, message_: Message):
         #lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            "<i> helper Userbot not in this chat, Ask admin to send /play command for first time or add assistant manually</i>"
+            f"<i> {user.first_name} Userbot not in this chat, Ask admin to send /play command for first time or add {user.first_name} manually</i>"
         )
         return                            
     requested_by = message_.from_user.first_name   
@@ -690,7 +699,11 @@ async def jiosaavn(client: Client, message_: Message):
     lel = await message_.reply("🔄 **Processing**")
     administrators = await get_administrators(message_.chat)
     chid = message_.chat.id
-    usar = await USER.get_me()
+    try:
+        user = await USER.get_me()
+    except:
+        user.first_name =  "DaisyMusic"
+    usar = user
     wew = usar.id
     try:
         #chatdetails = await USER.get_chat(chid)
