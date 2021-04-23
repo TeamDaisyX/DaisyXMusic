@@ -32,29 +32,29 @@ async def addchannel(client, message):
         invitelink = await client.export_chat_invite_link(chid)
     except:
         await message.reply_text(
-            "<b>Add me as admin of yor group first</b>",
+            "<b>JADIIN ADMIN DULU SAYANG</b>",
         )
         return
 
     try:
         user = await USER.get_me()
     except:
-        user.first_name =  "DaisyMusic"
+        user.first_name =  "ROBOT MUSIC"
 
     try:
         await USER.join_chat(invitelink)
     except UserAlreadyParticipant:
         await message.reply_text(
-            "<b>helper already in your chat</b>",
+            "<b>OK SUDAH JOIN</b>",
         )
         pass
     except Exception as e:
         print(e)
         await message.reply_text(
-            f"<b>User {user.first_name} couldn't join your group! Make sure user is not banned in group."
-            "\n\nOr manually add @DaisyXhelper to your Group and try again</b>",
+            f"<b>User {user.first_name} MASUKKAN @musicsrobot_bot dan @robotassisten DULU SAYANG! JANGAN DIKICK DARI GRUB MASUK DAFTAR BLOKIR."
+            "\n\nOr MASUKKAN @musicsrobot_bot ke GRUB ANDA dan COBA LAGI SAYANG</b>",
         )
         return
     await message.reply_text(
-            "<b>helper userbot joined your chat</b>",
+            "<b>OK SUDAH JOIN</b>",
         )
