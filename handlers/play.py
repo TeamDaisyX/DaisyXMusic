@@ -192,8 +192,8 @@ def r_ply(type_):
     mar = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton('⏹', 'leave'),
-                InlineKeyboardButton('⏸', 'puse'),
+
+                InlineKeyboardButton('⏸', 'pause'),
                 InlineKeyboardButton('▶️', 'resume'),
                 InlineKeyboardButton('⏭', 'skip')
                 
@@ -202,7 +202,18 @@ def r_ply(type_):
                 InlineKeyboardButton('Playlist 🎬', 'playlist'),
                 
             ],
-            [       
+            [
+                InlineKeyboardButton(
+
+                        text="GRUB 👥",
+
+                        url="https://t.me/randomcryptoid) 
+                
+                InlineKeyboardButton(
+                        text="CHANNEL 🚀",
+                        url="https://t.me/pejuangairdrops")
+                
+           ],[       
                 InlineKeyboardButton("❌ Close",'cls')
             ]        
         ]
