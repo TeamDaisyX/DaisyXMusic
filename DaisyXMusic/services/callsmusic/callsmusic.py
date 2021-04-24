@@ -15,16 +15,27 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from typing import Union, List
 
-from pyrogram import filters
+from pyrogram import Client
+from pytgcalls import PyTgCalls
 
-from config import COMMAND_PREFIXES
+import DaisyXMusic.config
+from DaisyXMusic.services.callsmusic import queues
 
-other_filters = filters.group & ~ filters.edited & ~ filters.via_bot & ~ filters.forwarded
-other_filters2 = filters.private & ~ filters.edited & ~ filters.via_bot & ~ filters.forwarded
+client = Client(config.SESSION_NAME, config.API_ID, config.API_HASH)
+pytgcalls = PyTgCalls(client)
 
 
-def command(commands: Union[str, List[str]]):
-    return filters.command(commands, COMMAND_PREFIXES)
+@pytgcalls.on_stream_end()
+def on_stream_end(chat_id: int) -> None:
+    queues.task_done(chat_id)
 
+    if queues.is_empty(chat_id):
+        pytgcalls.leave_group_call(chat_id)
+    else:
+        pytgcalls.change_stream(
+            chat_id, queues.get(chat_id)["file"]
+        )
+
+
+run = pytgcalls.run

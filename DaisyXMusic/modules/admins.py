@@ -16,20 +16,20 @@
 
 
 from asyncio.queues import QueueEmpty
-from cache.admins import set
+from DaisyXMusic.function.admins import set
 from pyrogram import Client
 from pyrogram.types import Message
-from callsmusic import callsmusic
+from DaisyXMusic.services.callsmusic import callsmusic
 import traceback
 import os
 import sys
 from pyrogram.errors.exceptions.bad_request_400 import ChatAdminRequired
 from pyrogram.errors.exceptions.flood_420 import FloodWait
 from pyrogram import filters, emoji
-from config import BOT_NAME as BN
-from helpers.filters import command, other_filters
-from helpers.decorators import errors, authorized_users_only
-from config import que, admins as a
+from DaisyXMusic.config import BOT_NAME as BN
+from DaisyXMusic.helpers.filters import command, other_filters
+from DaisyXMusic.helpers.decorators import errors, authorized_users_only
+from DaisyXMusic.config import que, admins as a
 
 @Client.on_message(filters.command('adminreset'))
 async def update_admin(client, message):

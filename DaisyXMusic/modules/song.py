@@ -36,7 +36,7 @@ import asyncio
 from typing import Callable, Coroutine, Dict, List, Tuple, Union
 import sys
 import time
-from helpers.errors import DurationLimitError
+from DaisyXMusic.helpers.errors import DurationLimitError
 
 @Client.on_message(filters.command('song') & ~filters.channel)
 def song(client, message):

@@ -17,11 +17,11 @@
 
 
 
-from callsmusic.callsmusic import client as USER
+from DaisyXMusic.services.callsmusic.callsmusic import client as USER
 from pyrogram import Client, filters
 from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors import UserAlreadyParticipant
-from helpers.decorators import errors, authorized_users_only
+from DaisyXMusic.helpers.decorators import errors, authorized_users_only
 
 @Client.on_message(filters.group & filters.command(["userbotjoin"]))
 @authorized_users_only

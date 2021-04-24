@@ -21,8 +21,8 @@ from typing import Dict
 from pyrogram import Client
 from pyrogram.types import Message, Voice
 from typing import Callable, Coroutine, Dict, List, Tuple, Union
-from callsmusic import callsmusic, queues
-from helpers.admins import get_administrators
+from DaisyXMusic.services.callsmusic import callsmusic, queues
+from DaisyXMusic.helpers.admins import get_administrators
 from os import path
 import requests
 import aiohttp
@@ -35,18 +35,18 @@ from pyrogram.errors.exceptions.flood_420 import FloodWait
 import traceback
 import os
 import sys
-from callsmusic.callsmusic import client as USER
+from DaisyXMusic.services.callsmusic.callsmusic import client as USER
 from pyrogram.errors import UserAlreadyParticipant
-import converter
-from downloaders import youtube
+import DaisyXMusic.services.converter
+from DaisyXMusic.services.downloaders import youtube
 
-from config import BOT_NAME as bn, DURATION_LIMIT
-from helpers.filters import command, other_filters
-from helpers.decorators import errors, authorized_users_only
-from helpers.errors import DurationLimitError
-from helpers.gets import get_url, get_file_name
+from DaisyXMusic.config import BOT_NAME as bn, DURATION_LIMIT
+from DaisyXMusic.helpers.filters import command, other_filters
+from DaisyXMusic.helpers.decorators import errors, authorized_users_only
+from DaisyXMusic.helpers.errors import DurationLimitError
+from DaisyXMusic.helpers.gets import get_url, get_file_name
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from cache.admins import admins as a
+from DaisyXMusic.function.admins import admins as a
 import os
 import aiohttp
 import aiofiles

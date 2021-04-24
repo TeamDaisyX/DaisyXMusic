@@ -15,27 +15,25 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
+from typing import List
 
-from pyrogram import Client
-from pytgcalls import PyTgCalls
+from pyrogram.types import Chat, User
 
-import config
-from . import queues
-
-client = Client(config.SESSION_NAME, config.API_ID, config.API_HASH)
-pytgcalls = PyTgCalls(client)
+import DaisyXMusic.function.admins
 
 
-@pytgcalls.on_stream_end()
-def on_stream_end(chat_id: int) -> None:
-    queues.task_done(chat_id)
+async def get_administrators(chat: Chat) -> List[User]:
+    get = cache.admins.get(chat.id)
 
-    if queues.is_empty(chat_id):
-        pytgcalls.leave_group_call(chat_id)
+    if get:
+        return get
     else:
-        pytgcalls.change_stream(
-            chat_id, queues.get(chat_id)["file"]
-        )
+        administrators = await chat.get_members(filter="administrators")
+        to_set = []
 
+        for administrator in administrators:
+            #if administrator.can_manage_voice_chats:
+            to_set.append(administrator.user.id)
 
-run = pytgcalls.run
+        cache.admins.set(chat.id, to_set)
+        return await get_administrators(chat)
