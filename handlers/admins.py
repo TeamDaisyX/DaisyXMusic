@@ -56,7 +56,7 @@ async def pause(_, message: Message):
         await message.reply_text("❌ NGAPAIN SIH SAYANG!")
     else:
         callsmusic.pytgcalls.pause_stream(message.chat.id)
-        await message.reply_text("▶️ YAH DIPAUSE!")
+        await message.reply_text("▶️ PAUSED!")
 
 
 @Client.on_message(command("resume") & other_filters)
@@ -79,7 +79,7 @@ async def resume(_, message: Message):
 @authorized_users_only
 async def stop(_, message: Message):
     if message.chat.id not in callsmusic.pytgcalls.active_calls:
-        await message.reply_text("❌ OH TIDAK BISA!")
+        await message.reply_text("❌ MAU NGAPAIN SIH!")
     else:
         try:
             callsmusic.queues.clear(message.chat.id)
@@ -114,7 +114,7 @@ async def skip(_, message: Message):
         skip = qeue.pop(0)
     if not qeue:
         return
-    await message.reply_text(f'- YAH DISKIP **{skip[0]}**\n- Now Playing **{qeue[0][0]}**')
+    await message.reply_text(f' ➣ SKIP MUSIC **{skip[0]}**\n ➣ MEMUTAR **{qeue[0][0]}**')
 
 
 @Client.on_message(
