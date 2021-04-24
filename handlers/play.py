@@ -205,12 +205,17 @@ def r_ply(type_):
             [
                 InlineKeyboardButton(
 
-                        'GRUB :busts_in_silhouette:',
+                        'GRUB 👥',
 
                         url="https://t.me/randomcryptoid"),
+                InlineKeyboardButton(
+
+                        'GRUB 👥',
+
+                        url="https://t.me/gcwoah"),
                 
                 InlineKeyboardButton(
-                        'CHANNEL :rocket:',
+                        'CHANNEL 🚀,
                         url="https://t.me/pejuangairdrops")
                 
            ],
