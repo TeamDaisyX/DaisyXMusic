@@ -122,13 +122,13 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     img = Image.open("temp.png")
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("etc/font.otf", 32)
-    draw.text((205, 550), f"Title: {title}", (51, 215, 255), font=font)
+    draw.text((205, 550), f"JUDUL : {title}", (51, 215, 255), font=font)
     draw.text(
-        (205, 590), f"Duration: {duration}", (255, 255, 255), font=font
+        (205, 590), f"DURASI : {duration}", (255, 255, 255), font=font
     )
-    draw.text((205, 630), f"Views: {views}", (255, 255, 255), font=font)
+    draw.text((205, 630), f"VIEWS : {views}", (255, 255, 255), font=font)
     draw.text((205, 670),
-        f"Request dari : {requested_by}",
+        f"REQUEST DARI : {requested_by}",
         (255, 255, 255),
         font=font,
     )
@@ -148,7 +148,7 @@ async def playlist(client, message):
     global que
     queue = que.get(message.chat.id)
     if not queue:
-        await message.reply_text('Player is idle')
+        await message.reply_text('TIDAK ADA PLAYLIST')
     temp = []
     for t in queue:
         temp.append(t)
