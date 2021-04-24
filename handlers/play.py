@@ -203,20 +203,12 @@ def r_ply(type_):
                 
             ],
             [
-                InlineKeyboardButton(
+                 InlineKeyboardButton(
 
-                        'GRUB 👥',
+                        text='GRUB 👥',
 
-                        url="https://t.me/randomcryptoid"),
-                InlineKeyboardButton(
-
-                        'GRUB 👥',
-
-                        url="https://t.me/gcwoah"),
-                
-                InlineKeyboardButton(
-                        'CHANNEL 🚀',
-                        url="https://t.me/pejuangairdrops")
+                        url='https://t.me/randomcryptoid'),
+          
                 
            ],
             [       
