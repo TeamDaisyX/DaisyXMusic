@@ -207,7 +207,7 @@ def r_ply(type_):
 
                         text="GRUB 👥",
 
-                        url="https://t.me/randomcryptoid) 
+                        url="https://t.me/randomcryptoid") 
                 
                 InlineKeyboardButton(
                         text="CHANNEL 🚀",
