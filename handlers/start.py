@@ -37,19 +37,18 @@ NB : Maaf jika ada kekurangan didalam bot ini.""",
                  [
                     InlineKeyboardButton(
                         "⚒️ OWNER 🛠️", url="https://t.me/justthetech")
-                  ],[
+                  ], [
                     InlineKeyboardButton(
-                        "GRUB I 👥", url="https://t.me/randomcryptoid"
-                    )
+                        "GRUB I 👥", url="https://t.me/randomcryptoid")
+               
+                ], [
                     InlineKeyboardButton(
-                        "GRUB II 👥", url="https://t.me/gcwoah"
-                    )
-                ],[ 
+                        "GRUB II 👥", url="https://t.me/gcwoah")
+                     
+                 ], [ 
                     InlineKeyboardButton(
-                        "CHANNEL 🚀", url="https://t.me/pejuangairdrops"
-                    
-                    )
-                  ],[
+                        "CHANNEL 🚀", url="https://t.me/pejuangairdrops")
+                  ], [
                     InlineKeyboardButton(
                         "DAFTAR PERINTAH ✍️", url="https://telegra.ph/ROBOT-04-23-2")
                  ]
