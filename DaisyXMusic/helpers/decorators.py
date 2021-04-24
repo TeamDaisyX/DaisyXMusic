@@ -20,8 +20,8 @@ from typing import Callable
 from pyrogram import Client
 from pyrogram.types import Message
 
-from DaisyXMusic.helpers.admins import get_administrators
 from DaisyXMusic.config import SUDO_USERS
+from DaisyXMusic.helpers.admins import get_administrators
 
 
 def errors(func: Callable) -> Callable:

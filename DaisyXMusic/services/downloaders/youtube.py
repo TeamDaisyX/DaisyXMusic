@@ -14,14 +14,15 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-# Modified by Inukaasith 
+# Modified by Inukaasith
 
 from os import path
 
 from youtube_dl import YoutubeDL
 
-from DaisyXMusic.config import BOT_NAME as bn, DURATION_LIMIT
+from DaisyXMusic.config import DURATION_LIMIT
 from DaisyXMusic.helpers.errors import DurationLimitError
+
 ydl_opts = {
     "format": "bestaudio[ext=m4a]",
     "geo-bypass": True,

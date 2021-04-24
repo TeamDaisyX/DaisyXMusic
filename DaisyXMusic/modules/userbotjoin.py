@@ -1,5 +1,5 @@
 # Daisyxmusic (Telegram bot project )
-# Copyright (C) 2021  Inukaasith 
+# Copyright (C) 2021  Inukaasith
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -15,13 +15,12 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-
-
-from DaisyXMusic.services.callsmusic.callsmusic import client as USER
 from pyrogram import Client, filters
-from pyrogram.types import Message, InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.errors import UserAlreadyParticipant
-from DaisyXMusic.helpers.decorators import errors, authorized_users_only
+
+from DaisyXMusic.helpers.decorators import authorized_users_only, errors
+from DaisyXMusic.services.callsmusic.callsmusic import client as USER
+
 
 @Client.on_message(filters.group & filters.command(["userbotjoin"]))
 @authorized_users_only
@@ -39,16 +38,15 @@ async def addchannel(client, message):
     try:
         user = await USER.get_me()
     except:
-        user.first_name =  "DaisyMusic"
+        user.first_name = "DaisyMusic"
 
     try:
         await USER.join_chat(invitelink)
-        await USER.send_message(message.chat.id,"I joined here as you requested")
+        await USER.send_message(message.chat.id, "I joined here as you requested")
     except UserAlreadyParticipant:
         await message.reply_text(
             "<b>helper already in your chat</b>",
         )
-        pass
     except Exception as e:
         print(e)
         await message.reply_text(
@@ -57,14 +55,15 @@ async def addchannel(client, message):
         )
         return
     await message.reply_text(
-            "<b>helper userbot joined your chat</b>",
-        )
-    
+        "<b>helper userbot joined your chat</b>",
+    )
+
+
 @USER.on_message(filters.group & filters.command(["userbotleave"]))
 async def rem(USER, message):
     try:
         await USER.leave_chat(message.chat.id)
-    except:  
+    except:
         await message.reply_text(
             f"<b>User couldn't leave your group! May be floodwaits."
             "\n\nOr manually kick me from to your Group</b>",

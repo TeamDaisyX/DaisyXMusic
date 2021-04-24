@@ -19,8 +19,6 @@ from typing import List
 
 from pyrogram.types import Chat, User
 
-import DaisyXMusic.function.admins
-
 
 async def get_administrators(chat: Chat) -> List[User]:
     get = cache.admins.get(chat.id)
@@ -32,7 +30,7 @@ async def get_administrators(chat: Chat) -> List[User]:
         to_set = []
 
         for administrator in administrators:
-            #if administrator.can_manage_voice_chats:
+            # if administrator.can_manage_voice_chats:
             to_set.append(administrator.user.id)
 
         cache.admins.set(chat.id, to_set)

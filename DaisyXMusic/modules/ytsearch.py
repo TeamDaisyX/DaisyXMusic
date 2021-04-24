@@ -1,5 +1,5 @@
 # Daisyxmusic (Telegram bot project )
-# Copyright (C) 2021  Inukaasith 
+# Copyright (C) 2021  Inukaasith
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
@@ -15,15 +15,12 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-
 # the logging things
 import logging
 
+from pyrogram import Client as app
 from pyrogram.types import Message
-from search_engine_parser import GoogleSearch
 from youtube_search import YoutubeSearch
-
-from pyrogram import Client as app, filters
 
 logging.basicConfig(
     level=logging.DEBUG, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
@@ -33,6 +30,7 @@ logger = logging.getLogger(__name__)
 import pyrogram
 
 logging.getLogger("pyrogram").setLevel(logging.WARNING)
+
 
 @app.on_message(pyrogram.filters.command(["search"]))
 async def ytsearch(_, message: Message):
