@@ -215,7 +215,7 @@ def r_ply(type_):
                         url="https://t.me/gcwoah"),
                 
                 InlineKeyboardButton(
-                        'CHANNEL 🚀,
+                        'CHANNEL 🚀',
                         url="https://t.me/pejuangairdrops")
                 
            ],
