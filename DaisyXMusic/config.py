@@ -15,13 +15,14 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 # Modified by Inukaasith
 
-from os import getenv
 import os
+from os import getenv
+
 from dotenv import load_dotenv
 
 if os.path.exists("local.env"):
     load_dotenv("local.env")
-    
+
 que = {}
 SESSION_NAME = getenv("SESSION_NAME", "session")
 BOT_TOKEN = getenv("BOT_TOKEN")
