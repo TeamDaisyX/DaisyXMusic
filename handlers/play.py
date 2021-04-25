@@ -629,7 +629,7 @@ async def deezer(client: Client, message_: Message):
         url = r[0]["url"]
     except:
         await res.edit(
-            "Found Literally Nothing, You Should Work On Your English!"
+            "Found Literally Nothing, jangan lupa semangat belajar!"
         )
         is_playing = False
         return
@@ -762,7 +762,7 @@ async def jiosaavn(client: Client, message_: Message):
         sduration = int(r[0]["duration"])
     except Exception as e:
         await res.edit(
-            "Found Literally!, jangan lupa belajar yang semangat."
+            "Found Literally Nothing!, jangan lupa belajar yang semangat."
         )
         print(str(e))
         is_playing = False
