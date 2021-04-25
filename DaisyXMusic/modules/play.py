@@ -24,7 +24,6 @@ import aiohttp
 import ffmpeg
 import requests
 import wget
-from DaisyXMusic.config import que
 from PIL import Image, ImageDraw, ImageFont
 from pyrogram import Client, filters
 from pyrogram.errors import UserAlreadyParticipant
@@ -32,6 +31,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
 
+from DaisyXMusic.config import que
 from DaisyXMusic.function.admins import admins as a
 from DaisyXMusic.helpers.admins import get_administrators
 from DaisyXMusic.helpers.decorators import authorized_users_only
