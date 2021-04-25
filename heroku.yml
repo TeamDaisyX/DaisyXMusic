@@ -2,4 +2,4 @@ build:
   docker:
     worker: Dockerfile
 run:
-  Player: python3 -m DaisyXMusic
+  worker: python3 -m DaisyXMusic
