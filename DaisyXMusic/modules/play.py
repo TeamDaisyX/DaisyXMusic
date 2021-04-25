@@ -30,7 +30,7 @@ from pyrogram.errors import UserAlreadyParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
-import DaisyXMusic.services.converter
+
 from DaisyXMusic.config import que
 from DaisyXMusic.function.admins import admins as a
 from DaisyXMusic.helpers.admins import get_administrators
