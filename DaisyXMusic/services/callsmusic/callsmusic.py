@@ -20,7 +20,11 @@ from pytgcalls import PyTgCalls
 
 from DaisyXMusic.services.callsmusic import queues
 
-client = Client(DaisyXMusic.config.SESSION_NAME, DaisyXMusic.config.API_ID, DaisyXMusic.config.API_HASH)
+client = Client(
+    DaisyXMusic.config.SESSION_NAME,
+    DaisyXMusic.config.API_ID,
+    DaisyXMusic.config.API_HASH,
+)
 pytgcalls = PyTgCalls(client)
 
 
