@@ -508,7 +508,7 @@ async def play(_, message: Message):
                 ],                     
                 [
                     InlineKeyboardButton(
-                        text="Music Streaming 📻",
+                        text="Music Wanalin🧸",
                         url=f"{url}")
 
                 ],
