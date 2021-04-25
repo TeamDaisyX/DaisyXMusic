@@ -629,7 +629,7 @@ async def deezer(client: Client, message_: Message):
         url = r[0]["url"]
     except:
         await res.edit(
-            "Found Literally Nothing, jangan lupa semangat belajar!"
+            "Found Literally Nothing, You Should Work On Your English."
         )
         is_playing = False
         return
@@ -665,9 +665,9 @@ async def deezer(client: Client, message_: Message):
         loc = file_path
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
-        await res.edit_text(f"✯RI024✯= #️⃣ Queued at position {position}")
+        await res.edit_text(f"✯IRWAN✯= #️⃣ Queued at position {position}")
     else:
-        await res.edit_text("✯RI024✯=▶️ Playing.....")
+        await res.edit_text("✯IRWAN✯=▶️ Playing.....")
         chat_id = message_.chat.id
         que[chat_id] = []
         qeue = que.get(message_.chat.id)
@@ -762,7 +762,7 @@ async def jiosaavn(client: Client, message_: Message):
         sduration = int(r[0]["duration"])
     except Exception as e:
         await res.edit(
-            "Found Literally Nothing!, jangan lupa belajar yang semangat."
+            "Found Literally Nothing!, You Should Work On Your English."
         )
         print(str(e))
         is_playing = False
@@ -800,12 +800,12 @@ async def jiosaavn(client: Client, message_: Message):
             chat_id=message_.chat.id,
             reply_markup=keyboard,
             photo="final.png",
-            caption=f"✯RI024✯=#️⃣ Queued at position {position}",
+            caption=f"✯IRWAN✯=#️⃣ Queued at position {position}",
         
         )           
            
     else:
-        await res.edit_text("✯RI024✯=▶️ Playing.....")
+        await res.edit_text("✯IRWAN✯=▶️ Playing.....")
         chat_id = message_.chat.id
         que[chat_id] = []
         qeue = que.get(message_.chat.id)
