@@ -424,7 +424,7 @@ async def play(_, message: Message):
     try:
         user = await USER.get_me()
     except:
-        user.first_name =  "helper"
+        user.first_name =  "RI024"
     usar = user
     wew = usar.id
     try:
@@ -775,7 +775,7 @@ async def jiosaavn(client: Client, message_: Message):
              ],                     
              [
                InlineKeyboardButton(
-                   text="**Owner**",
+                   text="*☕Owner☕*",
                    url="https:/t.me/RI024")
              ],
              [       
