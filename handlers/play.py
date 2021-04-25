@@ -443,9 +443,9 @@ async def play(_, message: Message):
 
                           try:
                               await USER.join_chat(invitelink)
-                              await USER.send_message(message.chat.id,"I joined this group for playing music in VC")
+                              await USER.send_message(message.chat.id,"halo masukan bot kedalam gru dan putar musicnya  music in VC")
                               await lel.edit(
-                                  "<b>helper userbot joined your chat</b>",
+                                  "<b>helper userbot joined bergabung ke obrolan</b>",
                               )
 
                           except UserAlreadyParticipant:
@@ -453,8 +453,8 @@ async def play(_, message: Message):
                           except Exception as e:
                               #print(e)
                               await lel.edit(
-                                  f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your group due to heavy requests for userbot! Make sure user is not banned in group."
-                                  "\n\nOr manually add @DaisyXmusic to your Group and try again</b>",
+                                  f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} terjadi kesalah join masukan ke group jika ingin masuk lagi dengan perintah userbot! jangan banned user dari group."
+                                  "\n\nOr masukan secara manual @musicrosebot kedalam grup yang kamu gunakan</b>",
                               )
                               pass
     try:
@@ -508,7 +508,7 @@ async def play(_, message: Message):
                 ],                     
                 [
                     InlineKeyboardButton(
-                        text="Watch On YouTube 🎬",
+                        text="Music Streaming 📻",
                         url=f"{url}")
 
                 ],
@@ -551,7 +551,7 @@ async def play(_, message: Message):
         await message.reply_photo(
         photo="final.png",
         reply_markup=keyboard,
-        caption="▶️ **Playing** here the song requested by {} via DaisyXmusic 😜".format(
+        caption="▶️ **Playing** here the song requested by {} via Rosewan 😜".format(
         message.from_user.mention()
         ),
     )
@@ -601,8 +601,8 @@ async def deezer(client: Client, message_: Message):
                           except Exception as e:
                               #print(e)
                               await lel.edit(
-                                  f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your group due to heavy requests for userbot! Make sure user is not banned in group."
-                                  "\n\nOr manually add @DaisyXmusic to your Group and try again</b>",
+                                  f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} terjadi kesalahan akibat terlalu banyak request masukan kembali! jangan banned userbot jika ingin memulai."
+                                  "\n\nOr masukan secara manual @musicrosebot kedalam grup anda dan join</b>",
                               )
                               pass
     try:
@@ -731,8 +731,8 @@ async def jiosaavn(client: Client, message_: Message):
                           except Exception as e:
                               #print(e)
                               await lel.edit(
-                                  f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your group due to heavy requests for userbot! Make sure user is not banned in group."
-                                  "\n\nOr manually add @DaisyXmusic to your Group and try again</b>",
+                                  f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} terjadi kesalahan join akibat terlalu banyak request lagu userbot tidak hisa bisa bergabung! Jangan banned userbot jika ingin memulai."
+                                  "\n\nOr masukan secara manual @musicbotrose kedalam grup kamu</b>",
                               )
                               pass
     try:
@@ -775,8 +775,8 @@ async def jiosaavn(client: Client, message_: Message):
              ],                     
              [
                InlineKeyboardButton(
-                   text="Join Updates Channel",
-                   url='https://t.me/daisyxupdates')
+                   text="**Owner**",
+                   url='https://t.me/RI024)
              ],
              [       
                InlineKeyboardButton(
@@ -800,12 +800,12 @@ async def jiosaavn(client: Client, message_: Message):
             chat_id=message_.chat.id,
             reply_markup=keyboard,
             photo="final.png",
-            caption=f"✯DaisyXmusic✯=#️⃣ Queued at position {position}",
+            caption=f"✯RI024✯=#️⃣ Queued at position {position}",
         
         )           
            
     else:
-        await res.edit_text("✯DaisyXmusic✯=▶️ Playing.....")
+        await res.edit_text("✯RI024✯=▶️ Playing.....")
         chat_id = message_.chat.id
         que[chat_id] = []
         qeue = que.get(message_.chat.id)
