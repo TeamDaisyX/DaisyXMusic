@@ -776,7 +776,7 @@ async def jiosaavn(client: Client, message_: Message):
              [
                InlineKeyboardButton(
                    text="**Owner**",
-                   url='https://t.me/RI024)
+                   url="https:/t.me/RI024")
              ],
              [       
                InlineKeyboardButton(
