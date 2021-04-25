@@ -17,10 +17,11 @@
 
 from pyrogram import Client
 from pytgcalls import PyTgCalls
-from DaisyXMusic.config import SESSION_NAME,API_ID,API_HASH
+
+from DaisyXMusic.config import API_HASH, API_ID, SESSION_NAME
 from DaisyXMusic.services.callsmusic import queues
 
-client = Client(SESSION_NAME,API_ID,API_HASH)
+client = Client(SESSION_NAME, API_ID, API_HASH)
 pytgcalls = PyTgCalls(client)
 
 
