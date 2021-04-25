@@ -18,10 +18,10 @@
 from typing import List
 
 from pyrogram.types import Chat, User
-
+from DaisyXMusic.function.admins import get as gett
 
 async def get_administrators(chat: Chat) -> List[User]:
-    get = cache.admins.get(chat.id)
+    get = gett(chat.id)
 
     if get:
         return get
