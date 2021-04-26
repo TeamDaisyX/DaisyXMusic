@@ -27,7 +27,7 @@ from config import BOT_NAME as bn
 @Client.on_message(filters.command("start") & filters.private & ~filters.channel)
 async def start(_, message: Message):
     await message.reply_text(
-        f"""Hallo 👋 perkenalkan saya Musicwan! Bisa memulai saya di Voice Obrolan Telegram Groups. dan ini versi music terbaru bahkan lebih banyak menunya dari music sebelumnya!\n\n🔴 gunakan tombol perintah\' 📜 Perintah Pengguna 📜 \' gunakan tombol dibawah untuk mengetahui perintah.\n\n masukan asistan music bot kedalam grup jika gagal hubungi admin \n\n🔴 info dan commands menu [perintah pengguna](https://telegra.ph/Musicwan-04-25)\n\nA Created By @RI024""",
+        f"""Hallo 👋 perkenalkan saya Musicwan! Bisa memulai saya di Voice Obrolan Telegram Group. dan ini versi music terbaru bahkan lebih banyak menunya dari music sebelumnya!\n\n🔴 gunakan tombol perintah\' 📜 Perintah Pengguna 📜 \' gunakan tombol dibawah untuk mengetahui perintah.\n\n masukan assistant music bot kedalam grup jika gagal hubungi admin \n\n🔴 info dan commands menu [perintah pengguna](https://telegra.ph/Musicwan-04-25)\n\nA Created By @RI024""",
         reply_markup=InlineKeyboardMarkup(
             [ 
                 [
@@ -35,11 +35,11 @@ async def start(_, message: Message):
                         "📜 Perintah pengguna 📜", url="https://telegra.ph/Musicwan-04-25")
                   ],[
                     InlineKeyboardButton(
-                        "☕ Join Grup ☕", url="https://t.me/antigabutbrothers"
+                        "💻 Join Grup 💻", url="https://t.me/antigabutbrothers"
                     )
                 ],[ 
                     InlineKeyboardButton(
-                        "**Owner**", url="https://t.me/RI024"
+                        "**Owner☕", url="https://t.me/RI024"
                     )]
             ]
         ),
@@ -53,7 +53,7 @@ async def gstart(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "☕ Join grup ☕", url="https://t.me/antigabutbrothers")
+                        "💻 Join grup 💻", url="https://t.me/antigabutbrothers")
                 ]
             ]
         )
