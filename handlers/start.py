@@ -27,7 +27,7 @@ from config import BOT_NAME as bn
 @Client.on_message(filters.command("start") & filters.private & ~filters.channel)
 async def start(_, message: Message):
     await message.reply_text(
-        f"""Hallo 👋 perkenalkan saya wanAlin! Bisa memulai saya di Voice Obrolan Telegram Groups. dan ini versi music terbaru bahkan lebih banyak menunya dari music sebelumnya!\n\n🔴 gunakan tombol perintah\' 📜 Perintah Pengguna 📜 \' gunakan tombol dibawah untuk mengetahui perintah.\n\n masukan asistan music bot kedalam grup jika gagal hubungi admin \n\n🔴 info dan commands menu [perintah pengguna](https://telegra.ph/Musicwan-04-25)\n\nA Created By @RI024""",
+        f"""Hallo 👋 perkenalkan saya Musicwan! Bisa memulai saya di Voice Obrolan Telegram Groups. dan ini versi music terbaru bahkan lebih banyak menunya dari music sebelumnya!\n\n🔴 gunakan tombol perintah\' 📜 Perintah Pengguna 📜 \' gunakan tombol dibawah untuk mengetahui perintah.\n\n masukan asistan music bot kedalam grup jika gagal hubungi admin \n\n🔴 info dan commands menu [perintah pengguna](https://telegra.ph/Musicwan-04-25)\n\nA Created By @RI024""",
         reply_markup=InlineKeyboardMarkup(
             [ 
                 [
