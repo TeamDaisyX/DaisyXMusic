@@ -454,7 +454,7 @@ async def play(_, message: Message):
                               #print(e)
                               await lel.edit(
                                   f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} terjadi kesalah join masukan ke group jika ingin masuk lagi dengan perintah userbot! jangan banned user dari group."
-                                  "\n\nOr masukan secara manual @musicrosebot kedalam grup yang kamu gunakan</b>",
+                                  "\n\nOr masukan secara manual @Musicwan kedalam grup yang kamu gunakan</b>",
                               )
                               pass
     try:
@@ -508,7 +508,7 @@ async def play(_, message: Message):
                 ],                     
                 [
                     InlineKeyboardButton(
-                        text="Musicwan🧸",
+                        text="Musicwan☕",
                         url=f"{url}")
 
                 ],
@@ -602,7 +602,7 @@ async def deezer(client: Client, message_: Message):
                               #print(e)
                               await lel.edit(
                                   f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} terjadi kesalahan akibat terlalu banyak request masukan kembali! jangan banned userbot jika ingin memulai."
-                                  "\n\nOr masukan secara manual @musicrosebot kedalam grup anda dan join</b>",
+                                  "\n\nOr masukan secara manual @Musicwan kedalam grup anda dan join</b>",
                               )
                               pass
     try:
@@ -732,7 +732,7 @@ async def jiosaavn(client: Client, message_: Message):
                               #print(e)
                               await lel.edit(
                                   f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} terjadi kesalahan join akibat terlalu banyak request lagu userbot tidak hisa bisa bergabung! Jangan banned userbot jika ingin memulai."
-                                  "\n\nOr masukan secara manual @musicbotrose kedalam grup kamu</b>",
+                                  "\n\nOr masukan secara manual @Musicwan kedalam grup kamu</b>",
                               )
                               pass
     try:
