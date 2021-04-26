@@ -52,8 +52,8 @@ async def addchannel(client, message):
     except Exception as e:
         print(e)
         await message.reply_text(
-            f"<b>🛑 Flood Wait Error 🛑 \n User {user.first_name} couldn't join your group due to heavy join requests for userbot! Make sure user is not banned in group."
-            "\n\nOr manually add @musicrosebot to your Group and try again</b>",
+            f"<b>🛑 Flood Wait Error 🛑 \n User {user.first_name} Bot Berhasil masuk  kedalam group kamu dan muat ulang  userbot! Jangan Banned Bot dari vcg."
+            "\n\nOr masukan secara manual Asistant @musicwan dan coba memuat ulang di grup kamu</b>",
         )
         return
     await message.reply_text(
