@@ -443,7 +443,7 @@ async def play(_, message: Message):
 
                           try:
                               await USER.join_chat(invitelink)
-                              await USER.send_message(message.chat.id,"halo masukan bot kedalam gru dan putar musicnya  music in VC")
+                              await USER.send_message(message.chat.id,"halo masukan bot kedalam grup kamu dan putar musicnya  music in Musicwan")
                               await lel.edit(
                                   "<b>helper userbot joined bergabung ke obrolan</b>",
                               )
@@ -551,7 +551,7 @@ async def play(_, message: Message):
         await message.reply_photo(
         photo="final.png",
         reply_markup=keyboard,
-        caption="▶️ **Playing** here the song requested by {} via Alinwan ❤️".format(
+        caption="▶️ **Playing** here the song requested by {} via Musicwan ☕".format(
         message.from_user.mention()
         ),
     )
@@ -591,7 +591,7 @@ async def deezer(client: Client, message_: Message):
 
                           try:
                               await USER.join_chat(invitelink)
-                              await USER.send_message(message_.chat.id,"I joined this group for playing music in VC")
+                              await USER.send_message(message_.chat.id,"Berhasil masuk kedalam goup music play in Musicwan")
                               await lel.edit(
                                   "<b>helper userbot joined your chat</b>",
                               )
