@@ -32,14 +32,14 @@ async def start(_, message: Message):
             [ 
                 [
                     InlineKeyboardButton(
-                        "📜 Perintah pengguna 📜", url="https://telegra.ph/Musicwan-04-25")
+                        "*📜 Perintah pengguna 📜*", url="https://telegra.ph/Musicwan-04-25")
                   ],[
                     InlineKeyboardButton(
-                        "💻 Join Grup 💻", url="https://t.me/antigabutbrothers"
+                        "*💻 Join Grup 💻*", url="https://t.me/antigabutbrothers"
                     )
                 ],[ 
                     InlineKeyboardButton(
-                        "**Owner☕", url="https://t.me/RI024"
+                        "*☕ Owner ☕*", url="https://t.me/RI024"
                     )]
             ]
         ),
@@ -48,7 +48,7 @@ async def start(_, message: Message):
 
 @Client.on_message(filters.command("start") & ~filters.private & ~filters.channel)
 async def gstart(_, message: Message):
-      await message.reply_text("""**🔴 Music player is online**""",
+      await message.reply_text("""**🔴 Music Wan Online**""",
       reply_markup=InlineKeyboardMarkup(
             [
                 [
