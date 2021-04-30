@@ -383,7 +383,7 @@ async def ytmusic(client,message: Message):
 
             if duration > 8:
                 await pablo.edit(
-                    f"❌ video berdurasi lebih dari 8 menit tidak diperbolehkan(s) Video yang disediakan, hanya diperbolehkan {duration} minute(s)"
+                    f"❌ video berdurasi lebih dari 8 menit tidak diperbolehkan , Video yang disediakan dan diperbolehkan {duration} minute(s)"
                 )
                 is_downloading = False
                 return
