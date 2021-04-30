@@ -203,7 +203,7 @@ def r_ply(type_):
                 
             ],
             [       
-                InlineKeyboardButton("❌ Close",'cls')
+                InlineKeyboardButton("❌ Keluar",'cls')
             ]        
         ]
     )
@@ -376,7 +376,7 @@ async def m_cb(b, cb):
                 
                 ],
                 [       
-                    InlineKeyboardButton("❌ Close",'cls')
+                    InlineKeyboardButton("❌ Keluar",'cls')
                 ]        
             ]
         )
@@ -437,7 +437,7 @@ async def play(_, message: Message):
                               invitelink = await _.export_chat_invite_link(chid)
                           except:
                               await lel.edit(
-                                  "<b>Add masukan ke grup dan berikan hak akses admin</b>",
+                                  "<b>Tambahkan saya sebagai admin grup anda terlebih dahulu</b>",
                               )
                               return
 
@@ -514,7 +514,7 @@ async def play(_, message: Message):
                 ],
                 [       
                     InlineKeyboardButton(
-                        text="❌ Close",
+                        text="❌ Keluar",
                         callback_data='cls')
 
                 ]                             
@@ -585,7 +585,7 @@ async def deezer(client: Client, message_: Message):
                               invitelink = await client.export_chat_invite_link(chid)
                           except:
                               await lel.edit(
-                                  "<b>Add masukan jadikan admin sepenuhnya ke grup kamu</b>",
+                                  "<b>Tambahkan saya sebagai admin grup anda terlebih dahulu</b>",
                               )
                               return
 
@@ -647,7 +647,7 @@ async def deezer(client: Client, message_: Message):
              ],
              [       
                  InlineKeyboardButton(
-                     text="❌ Close",
+                     text="❌ Keluar",
                      callback_data='cls')
 
             ]                      
@@ -715,7 +715,7 @@ async def jiosaavn(client: Client, message_: Message):
                               invitelink = await client.export_chat_invite_link(chid)
                           except:
                               await lel.edit(
-                                  "<b>Add me as admin of yor group first</b>",
+                                  "<b>Tambahkan saya sebagai admin grup anda terlebih dahulu</b>",
                               )
                               return
 
@@ -780,7 +780,7 @@ async def jiosaavn(client: Client, message_: Message):
              ],
              [       
                InlineKeyboardButton(
-                   text="❌ Close",
+                   text="❌ Keluar",
                    callback_data='cls')
 
             ]                          
