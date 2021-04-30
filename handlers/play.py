@@ -176,10 +176,10 @@ def updated_stats(chat, queue, vol=100):
         stats = 'Pengaturan dari **{}**'.format(chat.title)
         if len(que) > 0:
             stats += '\n\n'
-            stats += 'Volume : {}%\n'.format(vol)
-            stats += 'Lagu dalam antrian : `{}`\n'.format(len(que))
-            stats += 'Sedang dimainkan : **{}**\n'.format(queue[0][0])
-            stats += 'Requested by : {}'.format(queue[0][1].mention)
+            stats += '🎚️Volume : {}%\n'.format(vol)
+            stats += '📖Lagu dalam antrian : `{}`\n'.format(len(que))
+            stats += '🎬Sedang dimainkan : **{}**\n'.format(queue[0][0])
+            stats += '🎵Requested by : {}'.format(queue[0][1].mention)
     else:
         stats = None
     return stats
@@ -508,7 +508,7 @@ async def play(_, message: Message):
                 ],                     
                 [
                     InlineKeyboardButton(
-                        text="Youtube🎶",
+                        text="Youtube",
                         url=f"{url}")
 
                 ],
@@ -641,7 +641,7 @@ async def deezer(client: Client, message_: Message):
              ],                     
              [
                  InlineKeyboardButton(
-                     text="Deezer streaming 🎬",
+                     text="Deezer streaming",
                      url=f"{url}")
 
              ],
@@ -805,7 +805,7 @@ async def jiosaavn(client: Client, message_: Message):
         )           
            
     else:
-        await res.edit_text("▶️ Playing.....")
+        await res.edit_text("✯IRWAN✯=▶️ Playing.....")
         chat_id = message_.chat.id
         que[chat_id] = []
         qeue = que.get(message_.chat.id)
@@ -815,7 +815,7 @@ async def jiosaavn(client: Client, message_: Message):
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
         callsmusic.pytgcalls.join_group_call(message_.chat.id, file_path)
-    await res.edit("Generating Thumbnail.")
+    await res.edit("Bio Lagu.")
     await generate_cover(requested_by, sname, ssingers, sduration, sthumb)
     await res.delete()
     m = await client.send_photo(
