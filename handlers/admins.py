@@ -31,7 +31,7 @@ from helpers.filters import command, other_filters
 from helpers.decorators import errors, authorized_users_only
 from config import que, admins as a
 
-@Client.on_message(filters.command('admincache'))
+@Client.on_message(filters.command('adminreset'))
 async def update_admin(client, message):
     global a
     admins = await client.get_chat_members(message.chat.id, filter="administrators")
@@ -118,9 +118,9 @@ async def skip(_, message: Message):
 
 
 @Client.on_message(
-    filters.command("adminreset")
+    filters.command("admincache")
 )
 @errors
 async def admincache(client, message: Message):
     set(message.chat.id, [member.user for member in await message.chat.get_members(filter="administrators")])
-    #await message.reply_text("Admin cache refreshed!")
+    #await message.reply_text("**IRWAN**= Admin cache refreshed!")
