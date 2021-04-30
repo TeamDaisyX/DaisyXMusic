@@ -49,7 +49,7 @@ def song(client, message):
     for i in message.command[1:]:
         query += ' ' + str(i)
     print(query)
-    m = message.reply('🔎 Finding the song...')
+    m = message.reply('🔎 Sedang Mencari Lagu...')
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -68,17 +68,17 @@ def song(client, message):
 
     except Exception as e:
         m.edit(
-            "❌ Found Nothing.\n\nTry another keywork or maybe spell it properly."
+            "❌ Lagu tidak ditemukan.\n\nCoba Masukan nama Lagu yang jelas."
         )
         print(str(e))
         return
-    m.edit("Downloading the song ")
+    m.edit("Sedang Mendownload Lagu")
     try:
         with youtube_dl.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = '**🎵 Uploaded by **'
+        rep = '**🎵 Uploaded by ** @RI024'
         secmul, dur, dur_arr = 1, 0, duration.split(':')
         for i in range(len(dur_arr)-1, -1, -1):
             dur += (int(dur_arr[i]) * secmul)
@@ -270,15 +270,15 @@ def time_to_seconds(time):
 async def jssong(_, message):
     global is_downloading
     if len(message.command) < 2:
-        await message.reply_text("/saavn requires an argument.")
+        await message.reply_text("/saavn masukan judul Lagu.")
         return
     if is_downloading:
-        await message.reply_text("Another download is in progress, try again after sometime.")
+        await message.reply_text("Download yang lain sedang dalam proses, coba tunggu beberapa menit.")
         return
     is_downloading = True
     text = message.text.split(None, 1)[1]
     query = text.replace(" ", "%20")
-    m = await message.reply_text("Searching...")
+    m = await message.reply_text("Mencari...")
     try:
         songs = await arq.saavn(query)
         sname = songs[0].song
@@ -306,15 +306,15 @@ async def jssong(_, message):
 async def deezsong(_, message):
     global is_downloading
     if len(message.command) < 2:
-        await message.reply_text("/deezer requires an argument.")
+        await message.reply_text("/deezer masukan judul lagu.")
         return
     if is_downloading:
-        await message.reply_text("Another download is in progress, try again after sometime.")
+        await message.reply_text("Download yang lain sedang dalam proses, coba tunggu beberapa menit.")
         return
     is_downloading = True
     text = message.text.split(None, 1)[1]
     query = text.replace(" ", "%20")
-    m = await message.reply_text("Searching...")
+    m = await message.reply_text("Mencari...")
     try:
         songs = await arq.deezer(query, 1)
         title = songs[0].title
@@ -338,16 +338,16 @@ async def deezsong(_, message):
 async def ytmusic(client,message: Message):
     global is_downloading
     if is_downloading:
-        await message.reply_text("Another download is in progress, try again after sometime.")
+        await message.reply_text("Download yang lain sedang dalam proses, coba tunggu beberapa menit.")
         return
 
     urlissed = get_text(message)
 
     pablo =  await client.send_message(
             message.chat.id,
-            f"`Getting {urlissed} From Youtube Servers. Please Wait.`")
+            f"`Berhasil {urlissed} Mencari Youtube. Tunggu sebentar.`")
     if not urlissed:
-        await pablo.edit("Invalid Command Syntax, Please Check Help Menu To Know More!")
+        await pablo.edit("Sintaks Perintah Benar, silahkan Periksa Menu help untuk Mengetahui Lebih Lengkap!")
         return
     
     search = SearchVideos(f"{urlissed}", offset=1, mode="dict", max_results=1)
@@ -383,7 +383,7 @@ async def ytmusic(client,message: Message):
 
             if duration > 8:
                 await pablo.edit(
-                    f"❌ Videos longer than 8 minute(s) aren't allowed, the provided video is {duration} minute(s)"
+                    f"❌ video berdurasi lebih dari 8 menit tidak diperbolehkan(s) Video yang disediakan, hanya diperbolehkan {duration} minute(s)"
                 )
                 is_downloading = False
                 return
