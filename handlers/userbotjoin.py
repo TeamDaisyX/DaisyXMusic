@@ -57,7 +57,7 @@ async def addchannel(client, message):
         )
         return
     await message.reply_text(
-            "<b>helper userbot berhasil join chat</b>",
+            "<b>helper userbot sudah ada didalam obrolan suara</b>",
         )
     
 @USER.on_message(filters.group & filters.command(["userbotleave"]))
