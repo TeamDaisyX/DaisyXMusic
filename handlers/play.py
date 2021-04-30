@@ -203,7 +203,7 @@ def r_ply(type_):
                 
             ],
             [       
-                InlineKeyboardButton("❌ Keluar",'klr')
+                InlineKeyboardButton("❌ Close",'cls')
             ]        
         ]
     )
@@ -376,7 +376,7 @@ async def m_cb(b, cb):
                 
                 ],
                 [       
-                    InlineKeyboardButton("❌ Keluar",'klr')
+                    InlineKeyboardButton("❌ Close",'cls')
                 ]        
             ]
         )
@@ -514,8 +514,8 @@ async def play(_, message: Message):
                 ],
                 [       
                     InlineKeyboardButton(
-                        text="❌ Keluar",
-                        callback_data='klr')
+                        text="❌ Close",
+                        callback_data='cls')
 
                 ]                             
             ]
@@ -647,8 +647,8 @@ async def deezer(client: Client, message_: Message):
              ],
              [       
                  InlineKeyboardButton(
-                     text="❌ Keluar",
-                     callback_data='klr')
+                     text="❌ Close",
+                     callback_data='cls')
 
             ]                      
          ]
@@ -780,8 +780,8 @@ async def jiosaavn(client: Client, message_: Message):
              ],
              [       
                InlineKeyboardButton(
-                   text="❌ Keluar",
-                   callback_data='klr')
+                   text="❌ Close",
+                   callback_data='cls')
 
             ]                          
          ]
