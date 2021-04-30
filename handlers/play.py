@@ -254,7 +254,7 @@ async def p_cb(b, cb):
     if type_ == 'playlist':           
         queue = que.get(cb.message.chat.id)
         if not queue:   
-            await cb.message.edit('Pemain menganggur')
+            await cb.message.edit('Player is idle')
         temp = []
         for t in queue:
             temp.append(t)
