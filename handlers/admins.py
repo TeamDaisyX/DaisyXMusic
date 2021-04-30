@@ -121,6 +121,6 @@ async def skip(_, message: Message):
     filters.command("adminreset")
 )
 @errors
-async def admincache(client, message: Message):
+async def adminreset(client, message: Message):
     set(message.chat.id, [member.user for member in await message.chat.get_members(filter="administrators")])
     #await message.reply_text("Admin cache refreshed!")
