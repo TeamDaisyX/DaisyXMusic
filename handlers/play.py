@@ -494,7 +494,7 @@ async def play(_, message: Message):
         views = results[0]["views"]
 
     except Exception as e:
-        await lel.edit("Song not found.Try another song or maybe spell it properly.")
+        await lel.edit("lagu yang kamu cari tidak dapat ditemukan.Cari dengan menuliskan nama song dan artis secara detail jelas.")
         print(str(e))
         return
 
@@ -508,7 +508,7 @@ async def play(_, message: Message):
                 ],                     
                 [
                     InlineKeyboardButton(
-                        text="Musicwan☕",
+                        text="⚡Musicwan⚡",
                         url=f"{url}")
 
                 ],
@@ -740,7 +740,7 @@ async def jiosaavn(client: Client, message_: Message):
         #lmoa = await client.get_chat_member(chid,wew)
     except:
         await lel.edit(
-            "<i> helper Userbot not in this chat, Ask admin to send /play command for first time or add assistant manually</i>"
+            "<i> Music Assistant tidak dapat bergabung ke vcg , lakukan admin dengan klik /play atau lakukan berkala dalam hitungan menit atau bisa juga masukan assistant secara manually</i>"
         )
         return     
     requested_by = message_.from_user.first_name
