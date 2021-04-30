@@ -220,7 +220,7 @@ async def ee(client, message):
     if stats:
         await message.reply(stats)              
     else:
-        await message.reply('No VC instances running in this chat')
+        await message.reply('Tidak ada instance VC yang berjalan dalam obrolan ini')
 
 @Client.on_message(
     filters.command("player")
@@ -241,7 +241,7 @@ async def settings(client, message):
         else:
             await message.reply(stats, reply_markup=r_ply('play'))
     else:
-        await message.reply('No VC instances running in this chat')
+        await message.reply('Tidak ada instance VC yang berjalan dalam obrolan ini')
 
 @Client.on_callback_query(filters.regex(pattern=r'^(playlist)$'))
 async def p_cb(b, cb):
@@ -254,7 +254,7 @@ async def p_cb(b, cb):
     if type_ == 'playlist':           
         queue = que.get(cb.message.chat.id)
         if not queue:   
-            await cb.message.edit('Player is idle')
+            await cb.message.edit('Pemain menganggur')
         temp = []
         for t in queue:
             temp.append(t)
@@ -314,7 +314,7 @@ async def m_cb(b, cb):
     elif type_ == 'playlist':
         queue = que.get(cb.message.chat.id)
         if not queue:   
-            await cb.message.edit('Player is idle')
+            await cb.message.edit('Pemain menganggur')
         temp = []
         for t in queue:
             temp.append(t)
@@ -385,7 +385,7 @@ async def m_cb(b, cb):
         if qeue:
             skip = qeue.pop(0)
         if chat_id not in callsmusic.pytgcalls.active_calls:
-            await cb.answer('Chat is not connected!', show_alert=True)
+            await cb.answer('Obrolan tidak terhubung!', show_alert=True)
         else:
             callsmusic.queues.task_done(chat_id)
 
@@ -508,7 +508,7 @@ async def play(_, message: Message):
                 ],                     
                 [
                     InlineKeyboardButton(
-                        text="⚡Musicwan⚡",
+                        text="Youtube🎬",
                         url=f"{url}")
 
                 ],
@@ -551,7 +551,7 @@ async def play(_, message: Message):
         await message.reply_photo(
         photo="final.png",
         reply_markup=keyboard,
-        caption="▶️ **Playing** music request  by {} via Musicwan ☕".format(
+        caption="▶️ **Playing** music request by {} via Musicwan ☕".format(
         message.from_user.mention()
         ),
     )
@@ -723,7 +723,7 @@ async def jiosaavn(client: Client, message_: Message):
                               await USER.join_chat(invitelink)
                               await USER.send_message(message_.chat.id,"I joined this group for playing music in VC")
                               await lel.edit(
-                                  "<b>helper userbot joined your chat</b>",
+                                  "<b>helper userbot berhasil masuk ke Vcg</b>",
                               )
 
                           except UserAlreadyParticipant:
