@@ -96,7 +96,7 @@ async def stop(_, message: Message):
 async def skip(_, message: Message):
     global que
     if message.chat.id not in callsmusic.pytgcalls.active_calls:
-        await message.reply_text("❗ !")
+        await message.reply_text("❗Nothing is playing to skip!")
     else:
         callsmusic.queues.task_done(message.chat.id)
 
