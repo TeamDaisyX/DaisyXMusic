@@ -494,7 +494,7 @@ async def play(_, message: Message):
         views = results[0]["views"]
 
     except Exception as e:
-        await lel.edit("lagu yang kamu cari tidak dapat ditemukan.Cari dengan menuliskan nama song dan artis secara detail jelas.")
+        await lel.edit("lagu yang kamu cari tidak dapat ditemukan.cari dengan menuliskan  nama kata kunci yang benar dan jelas.")
         print(str(e))
         return
 
