@@ -372,7 +372,7 @@ async def m_cb(b, cb):
                 
                 ],
                 [
-                    InlineKeyboardButton('Playlist 🎛️', 'playlist'),
+                    InlineKeyboardButton('Playlist 📖', 'playlist'),
                 
                 ],
                 [       
@@ -502,13 +502,13 @@ async def play(_, message: Message):
             [   
                 [
                                
-                    InlineKeyboardButton('🎛️ Playlist', callback_data='playlist'),
+                    InlineKeyboardButton('📖 Playlist', callback_data='playlist'),
                     InlineKeyboardButton('Menu ⏯ ', callback_data='menu')
                 
                 ],                     
                 [
                     InlineKeyboardButton(
-                        text="Youtube🎬",
+                        text="Youtube🎶",
                         url=f"{url}")
 
                 ],
@@ -551,7 +551,7 @@ async def play(_, message: Message):
         await message.reply_photo(
         photo="final.png",
         reply_markup=keyboard,
-        caption="▶️ **Playing** music request by {} via Musicwan ☕".format(
+        caption="▶️ **Playing** music request by {} via Musicwan 🎵".format(
         message.from_user.mention()
         ),
     )
@@ -636,7 +636,7 @@ async def deezer(client: Client, message_: Message):
     keyboard = InlineKeyboardMarkup(
          [   
              [
-                 InlineKeyboardButton('🎛️ Playlist', callback_data='playlist'),
+                 InlineKeyboardButton('📖 Playlist', callback_data='playlist'),
                  InlineKeyboardButton('Menu ⏯ ', callback_data='menu')     
              ],                     
              [
@@ -770,12 +770,12 @@ async def jiosaavn(client: Client, message_: Message):
     keyboard = InlineKeyboardMarkup(
          [   
              [
-               InlineKeyboardButton('🎛️ Playlist', callback_data='playlist'),
+               InlineKeyboardButton('📖 Playlist', callback_data='playlist'),
                InlineKeyboardButton('Menu ⏯ ', callback_data='menu')   
              ],                     
              [
                InlineKeyboardButton(
-                   text="*☕Owner☕*",
+                   text="Owner☕",
                    url="https:/t.me/RI024")
              ],
              [       
