@@ -39,14 +39,14 @@ async def addchannel(client, message):
     try:
         user = await USER.get_me()
     except:
-        user.first_name =  "Musicrosebot"
+        user.first_name =  "Musicwan"
 
     try:
         await USER.join_chat(invitelink)
         await USER.send_message(message.chat.id,"I joined here as you requested")
     except UserAlreadyParticipant:
         await message.reply_text(
-            "<b>helper already in your chat</b>",
+            "<b>helper sudah ada didalam obrolan suara</b>",
         )
         pass
     except Exception as e:
@@ -57,7 +57,7 @@ async def addchannel(client, message):
         )
         return
     await message.reply_text(
-            "<b>helper userbot joined your chat</b>",
+            "<b>helper userbot berhasil join chat</b>",
         )
     
 @USER.on_message(filters.group & filters.command(["userbotleave"]))
