@@ -32,14 +32,14 @@ async def start(_, message: Message):
             [ 
                 [
                     InlineKeyboardButton(
-                        "*📜 Perintah pengguna 📜*", url="https://telegra.ph/Musicwan-04-25")
+                        "📜 Perintah pengguna 📜", url="https://telegra.ph/Musicwan-04-25")
                   ],[
                     InlineKeyboardButton(
-                        "*💻 Join Grup 💻*", url="https://t.me/antigabutbrothers"
+                        "💻 Join Grup 💻", url="https://t.me/antigabutbrothers"
                     )
                 ],[ 
                     InlineKeyboardButton(
-                        "*☕ Owner ☕*", url="https://t.me/RI024"
+                        "☕ Owner ☕", url="https://t.me/RI024"
                     )]
             ]
         ),
