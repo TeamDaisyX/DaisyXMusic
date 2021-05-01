@@ -176,10 +176,10 @@ def updated_stats(chat, queue, vol=100):
         stats = 'Settings of **{}**'.format(chat.title)
         if len(que) > 0:
             stats += '\n\n'
-            stats += 'Volume : {}%\n'.format(vol)
-            stats += 'Songs in queue : `{}`\n'.format(len(que))
-            stats += 'Now Playing : **{}**\n'.format(queue[0][0])
-            stats += 'Requested by : {}'.format(queue[0][1].mention)
+            stats += 'Suara : {}%\n'.format(vol)
+            stats += 'Lagu di putar : `{}`\n'.format(len(que))
+            stats += 'Tidak ada play : **{}**\n'.format(queue[0][0])
+            stats += 'Penikmat By : {}'.format(queue[0][1].mention)
     else:
         stats = None
     return stats
@@ -454,7 +454,7 @@ async def play(_, message: Message):
                               #print(e)
                               await lel.edit(
                                   f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your group due to heavy requests for userbot! Make sure user is not banned in group."
-                                  "\n\nOr manually add @DaisyXmusic to your Group and try again</b>",
+                                  "\n\nOr manually add @musicwan to your Group and try again</b>",
                               )
                               pass
     try:
@@ -702,7 +702,7 @@ async def jiosaavn(client: Client, message_: Message):
     try:
         user = await USER.get_me()
     except:
-        user.first_name =  "DaisyMusic"
+        user.first_name =  "Musicwan"
     usar = user
     wew = usar.id
     try:
@@ -776,7 +776,7 @@ async def jiosaavn(client: Client, message_: Message):
              [
                InlineKeyboardButton(
                    text="Join Updates Channel",
-                   url='https://t.me/daisyxupdates')
+                   url='https://t.me/sadnesstalk')
              ],
              [       
                InlineKeyboardButton(
