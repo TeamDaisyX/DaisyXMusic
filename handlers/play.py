@@ -178,7 +178,7 @@ def updated_stats(chat, queue, vol=100):
             stats += '\n\n'
             stats += 'Suara : {}%\n'.format(vol)
             stats += 'Lagu di putar : `{}`\n'.format(len(que))
-            stats += 'Tidak ada play : **{}**\n'.format(queue[0][0])
+            stats += 'Artis mulai judul : **{}**\n'.format(queue[0][0])
             stats += 'Penikmat By : {}'.format(queue[0][1].mention)
     else:
         stats = None
