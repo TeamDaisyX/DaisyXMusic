@@ -118,7 +118,7 @@ async def skip(_, message: Message):
 
 
 @Client.on_message(
-    filters.command("admincache")
+    filters.command("admincache"))
 )
 @errors
 async def admincache (client, message: Message):
