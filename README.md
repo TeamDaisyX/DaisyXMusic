@@ -1,7 +1,7 @@
 <h1 align="centre">DAISYXMUSIC V3 🎵</h1>
 
 ### A bot that can play music on telegram group's voice call
-
+#### BASED ON [CALLSMUSIC](https://github.com/callsmusic/callsmusic)
 # Available on telegram as @DaisyXbot
 
 <p align="center">
@@ -55,7 +55,10 @@ Use [@DaisyXStringGeneratorBot](https://t.me/DaisyXStringGeneratorBot) to get py
 #### Special Credits
 - [Rojserbest](http://github.com/rojserbes): Callsmusic Developer
 
-#### Other Credits
+This bot is based on the original work done by [Rojserbest](http://github.com/rojserbest). Without his hardwork daisyxmusic won't exist. 
+DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/callsmusic) for fit the needs of @DaisyXbot users
+
+#### Contribtors
 - [InukaASiTH](https://github.com/InukaAsith): Dev
 - [Wrench](https://github.com/EverythingSuckz/): Dev
 - [QueenArzoo](https://github.com/QueenArzoo): Dev
