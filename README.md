@@ -52,6 +52,10 @@
 Use [@DaisyXStringGeneratorBot](https://t.me/DaisyXStringGeneratorBot) to get pyrogram string session or [repl](https://repl.it/@SpEcHiDe/GenerateStringSession)
 
 ### Credits
+#### Special Credits
+- [Rojserbest](http://github.com/rojserbes): Callsmusic Developer
+
+#### Other Credits
 - [InukaASiTH](https://github.com/InukaAsith): Dev
 - [Wrench](https://github.com/EverythingSuckz/): Dev
 - [QueenArzoo](https://github.com/QueenArzoo): Dev
