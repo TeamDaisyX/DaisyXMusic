@@ -27,7 +27,16 @@ from config import BOT_NAME as bn
 @Client.on_message(filters.command("start") & filters.private & ~filters.channel)
 async def start(_, message: Message):
     await message.reply_text(
-        f"""Hello 👋 there! I can play music in voice chats of Telegeam Groups. I have a lot of cool feature that will amaze you!\n\n🔴 Do you want me to play music in your Telegram groups'voice chats? Please click the \'📜 User Manual 📜\' button below to know how you can use me.\n\n🔴 The Assistant must be in your group to play music in the voice chat of your group.\n\n🔴 More info & commands mentioned in the [User Manual](https://telegra.ph/Daisy-X-04-19)\n\nA project by @TeamDaisyX""",
+        f"""☬ Hai {message.from_user.first_name} welcome to 𝑭𝑯 𝑴𝑼𝑺𝑰𝑲 ☬\n
+        𝑭𝑯 𝑴𝑼𝑺𝑰𝑲 adalah Bot Music yang dapat memutar lagu di Group anda.
+        Saya memiliki fitur :
+        ┏━━
+        ✦҈͜͡➳ Memutar musik.
+        ✦҈͜͡➳ Mendownload lagu.
+        ✦҈͜͡➳ Mencari lagu yang ingin kamu putar atau download.
+        ┗━━
+        👨🏻‍💻 Managed with by : [ᴘᴀᴛʀɪᴄᴋ](https://t.me/SweetKillerBot)\n\n
+        Do you want me to play music in your Telegram groups'voice chats? Please click the \'User Manual\' button below to know how you can use me.\n\n The Assistant must be in your group to play music in the voice chat of your group.\n\n More info & commands mentioned in the [User Manual](https://telegra.ph/Daisy-X-04-19)\n\nA project by @TeamDaisyX""",
         reply_markup=InlineKeyboardMarkup(
             [ 
                 [
@@ -35,11 +44,11 @@ async def start(_, message: Message):
                         "📜 User Manual 📜", url="https://telegra.ph/Daisy-X-04-19")
                   ],[
                     InlineKeyboardButton(
-                        "👨‍💻 Updates 👨‍💻", url="https://t.me/daisyxupdates"
+                        "Join Group", url="https://t.me/gabutgabutonline"
                     )
                 ],[ 
                     InlineKeyboardButton(
-                        "Support Chat 🎙️", url="https://t.me/DaisySupport_Official"
+                        "Join Channel", url="https://t.me/katasecangkir"
                     )]
             ]
         ),
@@ -53,7 +62,7 @@ async def gstart(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "🎙️ Support Group 🎙️", url="https://t.me/daisysupport_Official")
+                        "👨🏻‍💻 Owner", url="https://t.me/SweetKillerBot")
                 ]
             ]
         )
