@@ -29,7 +29,7 @@ from DaisyXMusic.services.callsmusic import callsmusic
 
 @Client.on_message(filters.command("adminreset"))
 async def update_admin(client, message: Message):
-    chat_id = get_chat_id(message.chat.id)
+    chat_id = get_chat_id(message.chat)
     set(
         chat_id,
         [
@@ -44,7 +44,7 @@ async def update_admin(client, message: Message):
 @errors
 @authorized_users_only
 async def pause(_, message: Message):
-    chat_id = get_chat_id(message.chat.id)
+    chat_id = get_chat_id(message.chat)
     if (chat_id not in callsmusic.pytgcalls.active_calls) or (
         callsmusic.pytgcalls.active_calls[chat_id] == "paused"
     ):
@@ -58,7 +58,7 @@ async def pause(_, message: Message):
 @errors
 @authorized_users_only
 async def resume(_, message: Message):
-    chat_id = get_chat_id(message.chat.id)
+    chat_id = get_chat_id(message.chat)
     if (chat_id not in callsmusic.pytgcalls.active_calls) or (
         callsmusic.pytgcalls.active_calls[chat_id] == "playing"
     ):
@@ -72,7 +72,7 @@ async def resume(_, message: Message):
 @errors
 @authorized_users_only
 async def stop(_, message: Message):
-    chat_id = get_chat_id(message.chat.id)
+    chat_id = get_chat_id(message.chat)
     if chat_id not in callsmusic.pytgcalls.active_calls:
         await message.reply_text("❗ Nothing is streaming!")
     else:
@@ -90,7 +90,7 @@ async def stop(_, message: Message):
 @authorized_users_only
 async def skip(_, message: Message):
     global que
-    chat_id = get_chat_id(message.chat.id)
+    chat_id = get_chat_id(message.chat)
     if chat_id not in callsmusic.pytgcalls.active_calls:
         await message.reply_text("❗ Nothing is playing to skip!")
     else:
