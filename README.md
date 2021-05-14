@@ -1,4 +1,4 @@
-<h1 align="centre">DAISYXMUSIC V3 🎵</h1>
+<h1 align="centre">DAISYXMUSIC V3.5 🎵</h1>
 
 ### A bot that can play music on telegram group's voice call
 #### BASED ON [CALLSMUSIC](https://github.com/callsmusic/callsmusic)
@@ -19,6 +19,8 @@
 - Settings panel
 - Control with buttons
 - Userbot auto join
+- Cahnnel Music Play
+
 
 ### Commands 🛠
 #### For all in group
@@ -43,6 +45,14 @@
 - `/userbotjoin` - invite assistant to your chat
 - `/userbotleave` - remove assistant from your chat
 - `/admincache` - Refresh admin list
+
+#### Channel Music Play.
+You can set Channel Music Play like this:
+ 1. Get your channel ID.
+ 2. Rename your group to: Channel Music: your_channel_id
+ 3. Add @DaisyXBot as Channel admin with full perms
+ 4. Send /userbotjoin in Channel
+ 5. Simply send commands in your group.
 
 
 ### Deploy To Heroku</h4>
