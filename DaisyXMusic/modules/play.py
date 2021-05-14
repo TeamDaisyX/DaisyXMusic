@@ -203,7 +203,7 @@ async def ee(client, message):
 @authorized_users_only
 async def settings(client, message):
     playing = None
-    chat_id = get_chat_id(message.chat.id)
+    chat_id = get_chat_id(message.chat)
     if chat_id in callsmusic.pytgcalls.active_calls:
         playing = True
     queue = que.get(chat_id)
@@ -489,10 +489,10 @@ async def play(_, message: Message):
     requested_by = message.from_user.first_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
     file_path = await convert(youtube.download(url))
-    chat_id = get_chat_id(message.chat.id)
+    chat_id = get_chat_id(message.chat)
     if chat_id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(chat_id, file=file_path)
-        qeue = que.get(message.chat.id)
+        qeue = que.get(chat_id)
         s_name = title
         r_by = message.from_user
         loc = file_path
@@ -506,7 +506,7 @@ async def play(_, message: Message):
         os.remove("final.png")
         return await lel.delete()
     else:
-        chat_id = get_chat_id(message.chat.id)
+        chat_id = get_chat_id(message.chat)
         que[chat_id] = []
         qeue = que.get(chat_id)
         s_name = title
@@ -607,7 +607,7 @@ async def deezer(client: Client, message_: Message):
     file_path = await convert(wget.download(url))
     await res.edit("Generating Thumbnail")
     await generate_cover(requested_by, title, artist, duration, thumbnail)
-    chat_id = get_chat_id(message_.chat.id)
+    chat_id = get_chat_id(message_.chat)
     if chat_id in callsmusic.pytgcalls.active_calls:
         await res.edit("adding in queue")
         position = await queues.put(chat_id, file=file_path)
@@ -728,7 +728,7 @@ async def jiosaavn(client: Client, message_: Message):
         ]
     )
     file_path = await convert(wget.download(slink))
-    chat_id = get_chat_id(message_.chat.id)
+    chat_id = get_chat_id(message_.chat)
     if chat_id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(chat_id, file=file_path)
         qeue = que.get(chat_id)
