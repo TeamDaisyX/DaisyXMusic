@@ -15,14 +15,12 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-import os
-
 from pyrogram import Client as Bot
 
-from DaisyXMusic.config import API_HASH, API_ID, BG_IMAGE, BOT_TOKEN
+from DaisyXMusic.config import API_HASH, API_ID, BOT_TOKEN
 from DaisyXMusic.services.callsmusic import run
 
-#os.system(f"wget -O ./etc/foreground.png {BG_IMAGE}")
+# os.system(f"wget -O ./etc/foreground.png {BG_IMAGE}")
 bot = Bot(
     ":memory:",
     API_ID,
