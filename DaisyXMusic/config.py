@@ -1,6 +1,6 @@
-# Calls Music 1 - Telegram bot for streaming audio in group calls
+# DAISYXMUSIC- Telegram bot project
 # Copyright (C) 2021  Roj Serbest
-
+# Copyright (C) 2021  Inuka Asith
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
@@ -27,6 +27,7 @@ que = {}
 SESSION_NAME = getenv("SESSION_NAME", "session")
 BOT_TOKEN = getenv("BOT_TOKEN")
 BOT_NAME = getenv("BOT_NAME")
+UPDATES_CHANNEL = getenv("UPDATES_CHANNEL")
 admins = {}
 API_ID = int(getenv("API_ID"))
 API_HASH = getenv("API_HASH")
