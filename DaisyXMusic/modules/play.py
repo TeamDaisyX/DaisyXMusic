@@ -31,7 +31,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
 
-from DaisyXMusic.config import que, updateschannel, bn
+from DaisyXMusic.config import bn, que, updateschannel
 from DaisyXMusic.function.admins import admins as a
 from DaisyXMusic.helpers.admins import get_administrators
 from DaisyXMusic.helpers.decorators import authorized_users_only
