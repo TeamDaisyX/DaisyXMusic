@@ -16,7 +16,7 @@
 
 
 from pyrogram import Client as Bot
-
+import os
 from DaisyXMusic.config import API_HASH, API_ID, BG_IMAGE, BOT_TOKEN
 from DaisyXMusic.services.callsmusic import run
 
