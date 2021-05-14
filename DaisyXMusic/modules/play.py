@@ -41,7 +41,7 @@ from DaisyXMusic.helpers.decorators import authorized_users_only
 from DaisyXMusic.helpers.filters import command, other_filters
 from DaisyXMusic.services.callsmusic import callsmusic, queues
 from DaisyXMusic.services.callsmusic.callsmusic import client as USER
-from DaisyXMusic.services.converter import convert
+from DaisyXMusic.services.converter.converter import convert
 from DaisyXMusic.services.downloaders import youtube
 
 chat_id = None
