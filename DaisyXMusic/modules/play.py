@@ -37,13 +37,14 @@ from DaisyXMusic.config import UPDATES_CHANNEL as updateschannel
 from DaisyXMusic.config import que
 from DaisyXMusic.function.admins import admins as a
 from DaisyXMusic.helpers.admins import get_administrators
+from DaisyXMusic.helpers.channelmusic import get_chat_id
 from DaisyXMusic.helpers.decorators import authorized_users_only
 from DaisyXMusic.helpers.filters import command, other_filters
 from DaisyXMusic.services.callsmusic import callsmusic, queues
 from DaisyXMusic.services.callsmusic.callsmusic import client as USER
 from DaisyXMusic.services.converter import convert
 from DaisyXMusic.services.downloaders import youtube
-from DaisyXMusic.helpers.channelmusic import get_chat_id
+
 chat_id = None
 
 
@@ -256,13 +257,16 @@ async def p_cb(b, cb):
 @cb_admin_check
 async def m_cb(b, cb):
     global que
-    if cb.message.chat.title.startswith("Channel Music: ") and chat.title[14:].isnumeric():
-        chet_id= int(chat.title[13:])
+    if (
+        cb.message.chat.title.startswith("Channel Music: ")
+        and chat.title[14:].isnumeric()
+    ):
+        chet_id = int(chat.title[13:])
     else:
-        chet_id=cb.message.chat.id
+        chet_id = cb.message.chat.id
     qeue = que.get(chet_id)
     type_ = cb.matches[0].group(1)
-    chat_id = cb.message.chat.id
+    cb.message.chat.id
     m_chat = cb.message.chat
 
     the_data = cb.message.reply_markup.inline_keyboard[1][0].callback_data
@@ -617,7 +621,7 @@ async def deezer(client: Client, message_: Message):
         await res.edit_text(f"✯{bn}✯= #️⃣ Queued at position {position}")
     else:
         await res.edit_text(f"✯{bn}✯=▶️ Playing.....")
-        
+
         que[chat_id] = []
         qeue = que.get(chat_id)
         s_name = title
