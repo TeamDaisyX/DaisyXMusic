@@ -46,7 +46,7 @@ from DaisyXMusic.services.converter import convert
 from DaisyXMusic.services.downloaders import youtube
 
 chat_id = None
-
+BG_IMAGE = "./etc/foreground.png"
 
 def cb_admin_check(func: Callable) -> Callable:
     async def decorator(client, cb):
