@@ -30,7 +30,7 @@ from pyrogram.errors import UserAlreadyParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
-
+from DaisyXMusic.services.converter import convert
 from DaisyXMusic.config import que
 from DaisyXMusic.function.admins import admins as a
 from DaisyXMusic.helpers.admins import get_administrators
@@ -421,7 +421,7 @@ async def play(_, message: Message):
                     # print(e)
                     await lel.edit(
                         f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your group due to heavy requests for userbot! Make sure user is not banned in group."
-                        "\n\nOr manually add @DaisyXmusic to your Group and try again</b>",
+                        "\n\nOr manually add assistant to your Group and try again</b>",
                     )
     try:
         await USER.get_chat(chid)
@@ -476,7 +476,7 @@ async def play(_, message: Message):
     )
     requested_by = message.from_user.first_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
-    file_path = await converter.convert(youtube.download(url))
+    file_path = await convert(youtube.download(url))
 
     if message.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message.chat.id, file=file_path)
@@ -506,7 +506,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="▶️ **Playing** here the song requested by {} via DaisyXmusic 😜".format(
+            caption="▶️ **Playing** here the song requested by {} via Youtube Music 😜".format(
                 message.from_user.mention()
             ),
         )
@@ -555,7 +555,7 @@ async def deezer(client: Client, message_: Message):
                     # print(e)
                     await lel.edit(
                         f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your group due to heavy requests for userbot! Make sure user is not banned in group."
-                        "\n\nOr manually add @DaisyXmusic to your Group and try again</b>",
+                        "\n\nOr manually add assistant to your Group and try again</b>",
                     )
     try:
         await USER.get_chat(chid)
@@ -592,7 +592,7 @@ async def deezer(client: Client, message_: Message):
             [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
         ]
     )
-    file_path = await converter.convert(wget.download(url))
+    file_path = await convert(wget.download(url))
     await res.edit("Generating Thumbnail")
     await generate_cover(requested_by, title, artist, duration, thumbnail)
     if message_.chat.id in callsmusic.pytgcalls.active_calls:
@@ -604,9 +604,9 @@ async def deezer(client: Client, message_: Message):
         loc = file_path
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
-        await res.edit_text(f"✯DaisyXmusic✯= #️⃣ Queued at position {position}")
+        await res.edit_text(f"✯{bn}✯= #️⃣ Queued at position {position}")
     else:
-        await res.edit_text("✯DaisyXmusic✯=▶️ Playing.....")
+        await res.edit_text(f"✯{bn}✯=▶️ Playing.....")
         chat_id = message_.chat.id
         que[chat_id] = []
         qeue = que.get(message_.chat.id)
@@ -708,13 +708,13 @@ async def jiosaavn(client: Client, message_: Message):
             ],
             [
                 InlineKeyboardButton(
-                    text="Join Updates Channel", url="https://t.me/daisyxupdates"
+                    text="Join Updates Channel", url=f"{updateschannel}"
                 )
             ],
             [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
         ]
     )
-    file_path = await converter.convert(wget.download(slink))
+    file_path = await convert(wget.download(slink))
     if message_.chat.id in callsmusic.pytgcalls.active_calls:
         position = await queues.put(message_.chat.id, file=file_path)
         qeue = que.get(message_.chat.id)
@@ -728,11 +728,11 @@ async def jiosaavn(client: Client, message_: Message):
             chat_id=message_.chat.id,
             reply_markup=keyboard,
             photo="final.png",
-            caption=f"✯DaisyXmusic✯=#️⃣ Queued at position {position}",
+            caption=f"✯{bn}✯=#️⃣ Queued at position {position}",
         )
 
     else:
-        await res.edit_text("✯DaisyXmusic✯=▶️ Playing.....")
+        await res.edit_text(f"{bn}=▶️ Playing.....")
         chat_id = message_.chat.id
         que[chat_id] = []
         qeue = que.get(message_.chat.id)
