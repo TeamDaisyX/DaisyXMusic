@@ -32,7 +32,7 @@ import youtube_dl
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import Message
-from Python_ARQ import ARQ
+from DaisyXMusic.modules.play import arq
 from youtube_search import YoutubeSearch
 from youtubesearchpython import SearchVideos
 
@@ -99,8 +99,6 @@ def song(client, message):
         print(e)
 
 
-ARQ_API = "http://35.240.133.234:8000"
-arq = ARQ(ARQ_API)
 
 
 def get_text(message: Message) -> [None, str]:
@@ -283,9 +281,12 @@ async def jssong(_, message):
     m = await message.reply_text("Searching...")
     try:
         songs = await arq.saavn(query)
-        sname = songs[0].song
-        slink = songs[0].media_url
-        ssingers = songs[0].singers
+        if not songs.ok:
+            await message.reply_text(songs.result)
+            return
+        sname = songs.result[0].song
+        slink = songs.result[0].media_url
+        ssingers = songs.result[0].singers
         await m.edit("Downloading")
         song = await download_song(slink)
         await m.edit("Uploading")
@@ -319,9 +320,12 @@ async def deezsong(_, message):
     m = await message.reply_text("Searching...")
     try:
         songs = await arq.deezer(query, 1)
-        title = songs[0].title
-        url = songs[0].url
-        artist = songs[0].artist
+        if not songs.ok:
+            await message.reply_text(songs.result)
+            return
+        title = songs.result[0].title
+        url = songs.result[0].url
+        artist = songs.result[0].artist
         await m.edit("Downloading")
         song = await download_song(url)
         await m.edit("Uploading")
