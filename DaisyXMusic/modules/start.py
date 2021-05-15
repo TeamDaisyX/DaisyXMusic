@@ -22,22 +22,22 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 @Client.on_message(filters.command("start") & filters.private & ~filters.channel)
 async def start(_, message: Message):
     await message.reply_text(
-        f"""Hello 👋 there! I can play music in voice chats of Telegeam Groups. I have a lot of cool feature that will amaze you!\n\n🔴 Do you want me to play music in your Telegram groups'voice chats? Please click the \'📜 User Manual 📜\' button below to know how you can use me.\n\n🔴 The Assistant must be in your group to play music in the voice chat of your group.\n\n🔴 More info & commands mentioned in the [User Manual](https://telegra.ph/Daisy-X-04-19)\n\nA project by @TeamDaisyX""",
+        f"""Hallo 👋 aku bot untuk pemutar music di group , invite aku ke group kamu dan jadikan admin untuk memutar music dan jangan lupa menambahkan asisten ku @lifeisuckx untuk info cara mengunakan bot klik < cara mengunakan bot > di bawah""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "📜 User Manual 📜", url="https://telegra.ph/Daisy-X-04-19"
+                        "📜 Cara menggunakan bot 📜", url="https://telegra.ph/command-XVII-MUSIC-04-23"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "👨‍💻 Updates 👨‍💻", url="https://t.me/daisyxupdates"
+                        "👨‍💻 Updates 👨‍💻", url="https://t.me/owner"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "Support Chat 🎙️", url="https://t.me/DaisySupport_Official"
+                        "Support Chat 🎙️", url="https://t.me/loveiswarXVII"
                     )
                 ],
             ]
@@ -54,7 +54,7 @@ async def gstart(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "🎙️ Support Group 🎙️", url="https://t.me/daisysupport_Official"
+                        "🎙️ Support Group 🎙️", url="https://t.me/loveiswarXVII"
                     )
                 ]
             ]
