@@ -31,8 +31,9 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
 
-from DaisyXMusic.config import ARQ_API_KEY,DURATION_LIMIT
+from DaisyXMusic.config import ARQ_API_KEY
 from DaisyXMusic.config import BOT_NAME as bn
+from DaisyXMusic.config import DURATION_LIMIT
 from DaisyXMusic.config import UPDATES_CHANNEL as updateschannel
 from DaisyXMusic.config import que
 from DaisyXMusic.function.admins import admins as a
@@ -457,7 +458,11 @@ async def play(_, message: Message):
     message.from_user.first_name
     user_name = message.from_user.first_name
     rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
-    audio = (message.reply_to_message.audio or message.reply_to_message.voice) if message.reply_to_message else None
+    audio = (
+        (message.reply_to_message.audio or message.reply_to_message.voice)
+        if message.reply_to_message
+        else None
+    )
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
@@ -479,10 +484,11 @@ async def play(_, message: Message):
         duration = round(audio.duration / 60)
         views = "Locally added"
         requested_by = message.from_user.first_name
-        await generate_cover(requested_by, title, views, duration, thumbnail)  
+        await generate_cover(requested_by, title, views, duration, thumbnail)
         file_path = await converter.convert(
             (await message.reply_to_message.download(file_name))
-            if not path.isfile(path.join("downloads", file_name)) else file_name
+            if not path.isfile(path.join("downloads", file_name))
+            else file_name
         )
     else:
         query = ""
@@ -505,7 +511,9 @@ async def play(_, message: Message):
             views = results[0]["views"]
 
         except Exception as e:
-            await lel.edit("Song not found.Try another song or maybe spell it properly.")
+            await lel.edit(
+                "Song not found.Try another song or maybe spell it properly."
+            )
             print(str(e))
             return
 
