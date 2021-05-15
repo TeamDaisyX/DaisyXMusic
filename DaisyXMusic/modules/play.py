@@ -33,7 +33,7 @@ from youtube_search import YoutubeSearch
 
 from DaisyXMusic.config import BOT_NAME as bn
 from DaisyXMusic.config import UPDATES_CHANNEL as updateschannel
-from DaisyXMusic.config import que
+from DaisyXMusic.config import que,ARQ_API_KEY
 from DaisyXMusic.function.admins import admins as a
 from DaisyXMusic.helpers.admins import get_administrators
 from DaisyXMusic.helpers.channelmusic import get_chat_id
@@ -45,7 +45,7 @@ from DaisyXMusic.services.converter.converter import convert
 from DaisyXMusic.services.downloaders import youtube
 
 chat_id = None
-
+arq = ARQ("https://thearq.tech",ARQ_API_KEY)
 
 def cb_admin_check(func: Callable) -> Callable:
     async def decorator(client, cb):
@@ -410,6 +410,11 @@ async def play(_, message: Message):
     except:
         for administrator in administrators:
             if administrator == message.from_user.id:
+                if message.chat.title.startswith('Channel Music: '):
+                    await lel.edit(
+                        "<b>Remember to add helper to your channel</b>",
+                    )
+                    pass
                 try:
                     invitelink = await _.export_chat_invite_link(chid)
                 except:
@@ -544,6 +549,11 @@ async def deezer(client: Client, message_: Message):
     except:
         for administrator in administrators:
             if administrator == message_.from_user.id:
+                if message_.chat.title.startswith('Channel Music: '):
+                    await lel.edit(
+                        "<b>Remember to add helper to your channel</b>",
+                    )
+                    pass
                 try:
                     invitelink = await client.export_chat_invite_link(chid)
                 except:
@@ -584,7 +594,6 @@ async def deezer(client: Client, message_: Message):
     res = lel
     await res.edit(f"Searching 👀👀👀 for `{queryy}` on deezer")
     try:
-        arq = ARQ("https://thearq.tech")
         r = await arq.deezer(query=queryy, limit=1)
         title = r[0]["title"]
         duration = int(r[0]["duration"])
@@ -659,6 +668,11 @@ async def jiosaavn(client: Client, message_: Message):
     except:
         for administrator in administrators:
             if administrator == message_.from_user.id:
+                if message_.chat.title.startswith('Channel Music: '):
+                    await lel.edit(
+                        "<b>Remember to add helper to your channel</b>",
+                    )
+                    pass                
                 try:
                     invitelink = await client.export_chat_invite_link(chid)
                 except:
