@@ -16,11 +16,15 @@
 
 
 from pyrogram import Client as Bot
-
-from DaisyXMusic.config import API_HASH, API_ID, BOT_TOKEN
+import requests
+from DaisyXMusic.config import API_HASH, API_ID, BOT_TOKEN,BG_IMAGE
 from DaisyXMusic.services.callsmusic import run
 
-# os.system(f"wget -O ./etc/foreground.png {BG_IMAGE}")
+response = requests. get(BG_IMAGE)
+file = open("./etc/foreground.png", "wb")
+file. write(response. content)
+file. close() 
+
 bot = Bot(
     ":memory:",
     API_ID,
