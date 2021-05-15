@@ -1,8 +1,8 @@
 {
-  "name": "Music Bot",
+  "name": "DaisyXMusic",
   "description": "Open-Source bot to play songs in your Telegram's Group Voice Chat. Powered by PyTgCalls.",
   "keywords": ["music", "voicechat", "telegram"],
-  "repository": "https://github.com/ImJanindu/GroupMusicBot",
+  "repository": "https://github.com/TeamDaisyX/DaisyXMusic",
   "stack": "container",
   "env": {
     "SESSION_NAME": {
@@ -18,6 +18,21 @@
       "required": false,
       "value": ""
     },
+    "ARQ_API_KEY": {
+      "description": "Get from @ARQRobot.",
+      "required": false,
+      "value": ""
+    },    
+    "BG_IMAGE": {
+      "description": "BG image of bot (Use transparent one)[IGNORE].",
+      "required": false,
+      "value": ""
+    },     
+    "UPDATES_CHANNEL": {
+      "description": "Updates Channel [IGNORE].",
+      "required": false,
+      "value": ""
+    },    
     "API_ID": {
       "description": "App ID from my.telegram.org/apps",
       "required": true
