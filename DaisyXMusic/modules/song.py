@@ -32,9 +32,10 @@ import youtube_dl
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import Message
-from DaisyXMusic.modules.play import arq
 from youtube_search import YoutubeSearch
 from youtubesearchpython import SearchVideos
+
+from DaisyXMusic.modules.play import arq
 
 
 @Client.on_message(filters.command("song") & ~filters.channel)
@@ -97,8 +98,6 @@ def song(client, message):
         os.remove(thumb_name)
     except Exception as e:
         print(e)
-
-
 
 
 def get_text(message: Message) -> [None, str]:
