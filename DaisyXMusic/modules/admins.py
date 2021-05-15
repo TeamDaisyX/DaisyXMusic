@@ -16,7 +16,7 @@
 
 
 from asyncio.queues import QueueEmpty
-
+from DaisyXMusic.config import que
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
