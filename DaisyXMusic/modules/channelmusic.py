@@ -56,7 +56,7 @@ chat_id = None
 
 
 
-@Client.on_message(filters.command("channelplaylist") & filters.group & ~filters.edited)
+@Client.on_message(filterscommand(["channelplaylist","cplaylist"] & filters.group & ~filters.edited)
 async def playlist(client, message):
     try:
       lel = await client.get_chat(message.chat.id)
@@ -128,7 +128,7 @@ def r_ply(type_):
     return mar
 
 
-@Client.on_message(filters.command("channelcurrent") & filters.group & ~filters.edited)
+@Client.on_message(filterscommand(["channelcurrent","ccurrent"] & filters.group & ~filters.edited)
 async def ee(client, message):
     try:
       lel = await client.get_chat(message.chat.id)
@@ -145,7 +145,7 @@ async def ee(client, message):
         await message.reply("No VC instances running in this chat")
 
 
-@Client.on_message(filters.command("channelplayer") & filters.group & ~filters.edited)
+@Client.on_message(filters.command(["channelplayer","cplayer"] & filters.group & ~filters.edited)
 @authorized_users_only
 async def settings(client, message):
     playing = None
@@ -219,7 +219,7 @@ async def m_cb(b, cb):
         chet_id = int(chat.title[13:])
     else:
       try:
-        lel = await client.get_chat(cb.message.chat.id)
+        lel = await b.get_chat(cb.message.chat.id)
         lol = lel.linked_chat.id
         conv = lel.linked_chat
         chet_id = lol
@@ -354,7 +354,7 @@ async def m_cb(b, cb):
             await cb.answer("Chat is not connected!", show_alert=True)
 
 
-@Client.on_message(command("channelplay") & other_filters)
+@Client.on_message(command(["channelplay","cplay"]) & other_filters)
 @authorized_users_only
 async def play(_, message: Message):
     global que
@@ -529,7 +529,7 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="▶️ **Playing** here the song requested by {} via Youtube Music 😜".format(
+            caption="▶️ **Playing** the song requested by {} via Youtube Music 😜 in Linked Channel".format(
                 message.from_user.mention()
             ),
         )
@@ -537,7 +537,7 @@ async def play(_, message: Message):
         return await lel.delete()
 
 
-@Client.on_message(filters.command("channeldplay") & filters.group & ~filters.edited)
+@Client.on_message(filters.command(["channeldplay","cdplay"] & filters.group & ~filters.edited)
 @authorized_users_only
 async def deezer(client: Client, message_: Message):
     global que
@@ -591,7 +591,7 @@ async def deezer(client: Client, message_: Message):
                 except Exception:
                     # print(e)
                     await lel.edit(
-                        f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your channel due to heavy requests for userbot! Make sure user is not banned in group."
+                        f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your channel due to heavy requests for userbot! Make sure user is not banned in channel."
                         "\n\nOr manually add assistant to your Group and try again</b>",
                     )
     try:
@@ -660,12 +660,12 @@ async def deezer(client: Client, message_: Message):
         chat_id=message_.chat.id,
         reply_markup=keyboard,
         photo="final.png",
-        caption=f"Playing [{title}]({url}) Via Deezer",
+        caption=f"Playing [{title}]({url}) Via Deezer in Linked Channel",
     )
     os.remove("final.png")
 
 
-@Client.on_message(filters.command("channelsplay") & filters.group & ~filters.edited)
+@Client.on_message(filterscommand(["channelsplay","csplay"] & filters.group & ~filters.edited)
 @authorized_users_only
 async def jiosaavn(client: Client, message_: Message):
     global que
@@ -799,7 +799,7 @@ async def jiosaavn(client: Client, message_: Message):
         chat_id=message_.chat.id,
         reply_markup=keyboard,
         photo="final.png",
-        caption=f"Playing {sname} Via Jiosaavn",
+        caption=f"Playing {sname} Via Jiosaavn in linked channel",
     )
     os.remove("final.png")
 
