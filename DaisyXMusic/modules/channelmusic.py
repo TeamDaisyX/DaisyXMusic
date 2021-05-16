@@ -92,14 +92,9 @@ async def playlist(client, message):
 
 
 def updated_stats(chat, queue, vol=100):
-    try:
-      lel = await client.get_chat(chat.id)
-      lol = lel.linked_chat.id
-    except:
-      return None
-    if lol in callsmusic.pytgcalls.active_calls:
+    if chat.id in callsmusic.pytgcalls.active_calls:
         # if chat.id in active_chats:
-        stats = "Settings of **{}**".format(lel.linked_chat.title)
+        stats = "Settings of **{}**".format(chat.title)
         if len(que) > 0:
             stats += "\n\n"
             stats += "Volume : {}%\n".format(vol)
@@ -142,7 +137,7 @@ async def ee(client, message):
       await message.reply("Is chat even linked")
       return
     queue = que.get(lol)
-    stats = updated_stats(message.chat, queue)
+    stats = updated_stats(lel.linked_chat, queue)
     if stats:
         await message.reply(stats)
     else:
@@ -160,7 +155,7 @@ async def settings(client, message):
       await message.reply("Is chat even linked")
       return
     queue = que.get(lol)
-    stats = updated_stats(message.chat, queue)
+    stats = updated_stats(lel.linked_chat, queue)
     if stats:
         if playing:
             await message.reply(stats, reply_markup=r_ply("pause"))
@@ -230,6 +225,7 @@ async def m_cb(b, cb):
     type_ = cb.matches[0].group(1)
     cb.message.chat.id
     m_chat = cb.message.chat
+    
 
     the_data = cb.message.reply_markup.inline_keyboard[1][0].callback_data
     if type_ == "cpause":
@@ -242,7 +238,7 @@ async def m_cb(b, cb):
 
             await cb.answer("Music Paused!")
             await cb.message.edit(
-                updated_stats(m_chat, qeue), reply_markup=r_ply("play")
+                updated_stats(lel.linked_chat, qeue), reply_markup=r_ply("play")
             )
 
     elif type_ == "cplay":
@@ -254,7 +250,7 @@ async def m_cb(b, cb):
             callsmusic.pytgcalls.resume_stream(chet_id)
             await cb.answer("Music Resumed!")
             await cb.message.edit(
-                updated_stats(m_chat, qeue), reply_markup=r_ply("pause")
+                updated_stats(lel.linked_chat, qeue), reply_markup=r_ply("pause")
             )
 
     elif type_ == "cplaylist":
@@ -302,7 +298,7 @@ async def m_cb(b, cb):
         await cb.message.delete()
 
     elif type_ == "cmenu":
-        stats = updated_stats(cb.message.chat, qeue)
+        stats = updated_stats(lel.linked_chat, qeue)
         await cb.answer("Menu opened")
         marr = InlineKeyboardMarkup(
             [
