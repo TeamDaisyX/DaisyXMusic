@@ -20,8 +20,29 @@
 - Control with buttons
 - Userbot auto join
 - Cahnnel Music Play
+- 
+## 🚀 Deployment
 
+### 💜 Heroku
 
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/teamdaisyx/DaisyXMusic)
+
+Use [@DaisyXStringGeneratorBot](https://t.me/DaisyXStringGeneratorBot) to get pyrogram string session or [repl](https://repl.it/@SpEcHiDe/GenerateStringSession)
+
+### ⚔ Self-hosting (For Devs) 
+```sh
+# Install Git First (apt-instll git)
+$ git clone https://github.com/TeamDaisyX/DaisyXmusic
+$ cd DaisyXMusic
+# Upgrade sources
+# Install All Requirements 
+$ pip(3) install -r requirements.txt
+# Rename example.env to local.env and fill
+$ npm install
+$ npm start
+# Start Bot 
+$ python(3) -m DaisyX
+```
 ### Commands for Group 🛠
 #### For all in group
 
@@ -71,11 +92,7 @@ If you donlt like to play in linked channel:
  5. Simply send commands in your group.
 
 
-### Deploy To Heroku</h4>
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/teamdaisyx/DaisyXMusic)
-
-Use [@DaisyXStringGeneratorBot](https://t.me/DaisyXStringGeneratorBot) to get pyrogram string session or [repl](https://repl.it/@SpEcHiDe/GenerateStringSession)
 
 ### Credits
 #### Special Credits
