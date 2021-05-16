@@ -665,7 +665,7 @@ async def deezer(client: Client, message_: Message):
     os.remove("final.png")
 
 
-@Client.on_message(filterscommand(["channelsplay","csplay"]) & filters.group & ~filters.edited)
+@Client.on_message(filters.command(["channelsplay","csplay"]) & filters.group & ~filters.edited)
 @authorized_users_only
 async def jiosaavn(client: Client, message_: Message):
     global que
