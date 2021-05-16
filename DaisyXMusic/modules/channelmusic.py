@@ -30,7 +30,13 @@ from pyrogram.errors import UserAlreadyParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
-from DaisyXMusic.modules.play import generate_cover,arq,cb_admin_check,transcode,convert_seconds,time_to_seconds,changeImageSize,
+from DaisyXMusic.modules.play import generate_cover
+from DaisyXMusic.modules.play import arq
+from DaisyXMusic.modules.play import cb_admin_check
+from DaisyXMusic.modules.play import transcode
+from DaisyXMusic.modules.play import convert_seconds
+from DaisyXMusic.modules.play import time_to_seconds
+from DaisyXMusic.modules.play import changeImageSize
 from DaisyXMusic.config import BOT_NAME as bn
 from DaisyXMusic.config import DURATION_LIMIT
 from DaisyXMusic.config import UPDATES_CHANNEL as updateschannel
