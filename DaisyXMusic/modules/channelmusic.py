@@ -133,29 +133,31 @@ async def ee(client, message):
     try:
       lel = await client.get_chat(message.chat.id)
       lol = lel.linked_chat.id
+      conv = lel.linked_chat
     except:
       await message.reply("Is chat even linked")
       return
     queue = que.get(lol)
-    stats = updated_stats(lel.linked_chat, queue)
+    stats = updated_stats(conv, queue)
     if stats:
         await message.reply(stats)
     else:
         await message.reply("No VC instances running in this chat")
 
 
-@Client.on_message(filters.command("channelplayer") &filters.group & ~filters.edited)
+@Client.on_message(filters.command("channelplayer") & filters.group & ~filters.edited)
 @authorized_users_only
 async def settings(client, message):
     playing = None
     try:
       lel = await client.get_chat(message.chat.id)
       lol = lel.linked_chat.id
+      conv = lel.linked_chat
     except:
       await message.reply("Is chat even linked")
       return
     queue = que.get(lol)
-    stats = updated_stats(lel.linked_chat, queue)
+    stats = updated_stats(conv, queue)
     if stats:
         if playing:
             await message.reply(stats, reply_markup=r_ply("pause"))
@@ -172,6 +174,7 @@ async def p_cb(b, cb):
     try:
       lel = await client.get_chat(cb.message.chat.id)
       lol = lel.linked_chat.id
+      conv = lel.linked_chat
     except:
       return    
     que.get(lol)
@@ -188,7 +191,7 @@ async def p_cb(b, cb):
             temp.append(t)
         now_playing = temp[0][0]
         by = temp[0][1].mention(style="md")
-        msg = "**Now Playing** in {}".format(lel.linked_chat.title)
+        msg = "**Now Playing** in {}".format(conv.title)
         msg += "\n- " + now_playing
         msg += "\n- Req by " + by
         temp.pop(0)
@@ -218,6 +221,7 @@ async def m_cb(b, cb):
       try:
         lel = await client.get_chat(cb.message.chat.id)
         lol = lel.linked_chat.id
+        conv = lel.linked_chat
         chet_id = lol
       except:
         return
@@ -238,7 +242,7 @@ async def m_cb(b, cb):
 
             await cb.answer("Music Paused!")
             await cb.message.edit(
-                updated_stats(lel.linked_chat, qeue), reply_markup=r_ply("play")
+                updated_stats(conv, qeue), reply_markup=r_ply("play")
             )
 
     elif type_ == "cplay":
@@ -250,7 +254,7 @@ async def m_cb(b, cb):
             callsmusic.pytgcalls.resume_stream(chet_id)
             await cb.answer("Music Resumed!")
             await cb.message.edit(
-                updated_stats(lel.linked_chat, qeue), reply_markup=r_ply("pause")
+                updated_stats(conv, qeue), reply_markup=r_ply("pause")
             )
 
     elif type_ == "cplaylist":
@@ -298,7 +302,7 @@ async def m_cb(b, cb):
         await cb.message.delete()
 
     elif type_ == "cmenu":
-        stats = updated_stats(lel.linked_chat, qeue)
+        stats = updated_stats(conv, qeue)
         await cb.answer("Menu opened")
         marr = InlineKeyboardMarkup(
             [
@@ -358,13 +362,14 @@ async def play(_, message: Message):
 
     try:
       conchat = await _.get_chat(message.chat.id)
+      conv = conchat.linked_chat
       conid = conchat.linked_chat.id
       chid = conid
     except:
       await message.reply("Is chat even linked")
       return
     try:
-      administrators = await get_administrators(chid)
+      administrators = await get_administrators(conv)
     except:
       await message.reply("Am I admin of Channel")
     try:
@@ -541,12 +546,13 @@ async def deezer(client: Client, message_: Message):
     try:
       conchat = await _.get_chat(message_.chat.id)
       conid = conchat.linked_chat.id
+      conv = conchat.linked_chat
       chid = conid
     except:
       await message_.reply("Is chat even linked")
       return
     try:
-      administrators = await get_administrators(chid)
+      administrators = await get_administrators(conv)
     except:
       await message.reply("Am I admin of Channel") 
     try:
@@ -667,12 +673,13 @@ async def jiosaavn(client: Client, message_: Message):
     try:
       conchat = await _.get_chat(message_.chat.id)
       conid = conchat.linked_chat.id
+      conv = conchat.linked_chat
       chid = conid
     except:
       await message_.reply("Is chat even linked")
       return
     try:
-      administrators = await get_administrators(chid)
+      administrators = await get_administrators(conv)
     except:
       await message.reply("Am I admin of Channel")
     try:
