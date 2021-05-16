@@ -418,6 +418,7 @@ async def play(_, message: Message):
                     await lel.edit(
                         "<b>Remember to add helper to your channel</b>",
                     )
+                    pass
                 try:
                     invitelink = await _.export_chat_invite_link(chid)
                 except:
@@ -590,6 +591,7 @@ async def deezer(client: Client, message_: Message):
                     await lel.edit(
                         "<b>Remember to add helper to your channel</b>",
                     )
+                    pass
                 try:
                     invitelink = await client.export_chat_invite_link(chid)
                 except:
@@ -708,6 +710,7 @@ async def jiosaavn(client: Client, message_: Message):
                     await lel.edit(
                         "<b>Remember to add helper to your channel</b>",
                     )
+                    pass
                 try:
                     invitelink = await client.export_chat_invite_link(chid)
                 except:
