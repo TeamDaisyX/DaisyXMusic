@@ -541,7 +541,7 @@ async def deezer(client: Client, message_: Message):
       conid = conchat.linked_chat.id
       chid = conid
     except:
-      await message.reply("Is chat even linked")
+      await message_.reply("Is chat even linked")
       return
     try:
       administrators = await get_administrators(chid)
@@ -667,7 +667,7 @@ async def jiosaavn(client: Client, message_: Message):
       conid = conchat.linked_chat.id
       chid = conid
     except:
-      await message.reply("Is chat even linked")
+      await message_.reply("Is chat even linked")
       return
     try:
       administrators = await get_administrators(chid)
