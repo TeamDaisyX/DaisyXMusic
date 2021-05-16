@@ -1,4 +1,4 @@
-<h1 align="centre">DAISYXMUSIC V3.5 🎵</h1>
+<h1 align="centre">DAISYXMUSIC V4.0 🎵</h1>
 
 ### A bot that can play music on telegram group's voice call
 #### BASED ON [CALLSMUSIC](https://github.com/callsmusic/callsmusic)
@@ -19,10 +19,31 @@
 - Settings panel
 - Control with buttons
 - Userbot auto join
-- Cahnnel Music Play
+- Channel Music Play
 
+## 🚀 Deployment
 
-### Commands 🛠
+### 💜 Heroku
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/teamdaisyx/DaisyXMusic)
+
+Use [@DaisyXStringGeneratorBot](https://t.me/DaisyXStringGeneratorBot) to get pyrogram string session or [repl](https://repl.it/@SpEcHiDe/GenerateStringSession)
+
+### ⚔ Self-hosting (For Devs) 
+```sh
+# Install Git First (apt-instll git)
+$ git clone https://github.com/TeamDaisyX/DaisyXmusic
+$ cd DaisyXMusic
+# Upgrade sources
+# Install All Requirements 
+$ pip(3) install -r requirements.txt
+# Rename example.env to local.env and fill
+$ npm i -g npm
+# Start Bot 
+$ python(3) -m DaisyXMusic
+```
+
+### Commands for Group 🛠
 #### For all in group
 
 - `/play <song name>` - play song you requested
@@ -47,20 +68,31 @@
 - `/userbotleave` - remove assistant from your chat
 - `/admincache` - Refresh admin list
 
-#### Channel Music Play.
-You can set Channel Music Play like this:
+### Commands for Channel Music Play 🛠
+For linked group admins only:
+- `/cplay <song name>` - play song you requested
+- `/cplay <reply to audio>` - play replied file
+- `/cdplay <song name>` - play song you requested via deezer
+- `/csplay <song name>` - play song you requested via jio saavn
+- `/cplaylist` - Show now playing list
+- `/cccurrent` - Show now playing
+- `/cplayer` - open music player settings panel
+- `/cpause` - pause song play
+- `/cresume` - resume song play
+- `/cskip` - play next song
+- `/cend` - stop music play
+- `/userbotjoinchannel` - invite assistant to your chat
+* channel is also can be used instead of c
+
+If you donlt like to play in linked channel:
  1. Get your channel ID.
  2. Rename your group to: Channel Music: your_channel_id
  3. Add @DaisyXBot as Channel admin with full perms
- 4. Send /userbotjoin in Channel
+ 4. add helper to channel
  5. Simply send commands in your group.
 
 
-### Deploy To Heroku</h4>
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/teamdaisyx/DaisyXMusic)
-
-Use [@DaisyXStringGeneratorBot](https://t.me/DaisyXStringGeneratorBot) to get pyrogram string session or [repl](https://repl.it/@SpEcHiDe/GenerateStringSession)
 
 ### Credits
 #### Special Credits
