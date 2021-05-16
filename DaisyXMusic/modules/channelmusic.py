@@ -56,7 +56,7 @@ chat_id = None
 
 
 
-@Client.on_message(filterscommand(["channelplaylist","cplaylist"]) & filters.group & ~filters.edited)
+@Client.on_message(filters.command(["channelplaylist","cplaylist"]) & filters.group & ~filters.edited)
 async def playlist(client, message):
     try:
       lel = await client.get_chat(message.chat.id)
