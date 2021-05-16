@@ -38,11 +38,11 @@ $ cd DaisyXMusic
 # Install All Requirements 
 $ pip(3) install -r requirements.txt
 # Rename example.env to local.env and fill
-$ npm install
-$ npm start
+$ npm i -g npm
 # Start Bot 
-$ python(3) -m DaisyX
+$ python(3) -m DaisyXMusic
 ```
+
 ### Commands for Group 🛠
 #### For all in group
 
