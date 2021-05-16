@@ -1,7 +1,7 @@
 <h1 align="centre">DAISYXMUSIC V4.0 🎵</h1>
 
-### A bot that can play music on telegram group's voice call
-#### BASED ON [CALLSMUSIC](https://github.com/callsmusic/callsmusic)
+### A bot that can play music on Telegram Group and Channel Voice Chats
+#### POWERED BY [PYTGCALLS](https://github.com/pytgcalls/pytgcalls)
 # Available on telegram as @DaisyXbot
 
 <p align="center">
@@ -103,6 +103,7 @@ DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/
 
 #### Contribtors
 - [InukaASiTH](https://github.com/InukaAsith): Dev
+- [Rojserbest](http://github.com/rojserbes): Dev
 - [Wrench](https://github.com/EverythingSuckz/): Dev
 - [QueenArzoo](https://github.com/QueenArzoo): Dev
 - [lucifeermorningstar](https://github.com/lucifeermorningstar): Dev
