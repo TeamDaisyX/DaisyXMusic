@@ -19,8 +19,8 @@
 - Settings panel
 - Control with buttons
 - Userbot auto join
-- Cahnnel Music Play
-- 
+- Channel Music Play
+
 ## 🚀 Deployment
 
 ### 💜 Heroku
