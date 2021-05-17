@@ -93,10 +93,4 @@ channel is also can be used instead of c ( /cplay = /channelplay )
 *Player cmd and all other cmds except /play, /current  and /playlist  are only for admins of the group."
       ]
 
-START_MSG = """
-**Hello 👋 [{}](tg://user?id={})!**
-
-🤖 I am an advanced bot created for playing music in the voice chats of Telegram Groups & Channels.
-
-✅ Send me /help for more info.
-"""
+START_MSG = "**Hello 👋 [{}](tg://user?id={})!**\n\n🤖 I am an advanced bot created for playing music in the voice chats of Telegram Groups & Channels.\n\n✅ Send me /help for more info."
