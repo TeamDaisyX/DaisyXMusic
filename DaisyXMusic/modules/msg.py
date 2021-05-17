@@ -31,8 +31,8 @@ class Messages():
 """
 **Setting up**
 
-1) Make bot admin (Group and in channel if use cplay)2
-) Start a voice chat
+1) Make bot admin (Group and in channel if use cplay)
+2) Start a voice chat
 3) Try /play [song name] for the first time by an admin
 *) If userbot joined enjoy music, If not add @DaisyXhelper to your group and retry
 
