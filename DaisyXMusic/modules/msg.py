@@ -90,5 +90,6 @@ channel is also can be used instead of c ( /cplay = /channelplay )
 - /admincache: Updates admin info of your group. Try if bot isn't recognize admin
 - /userbotjoin: Invite @DaisyXhelper Userbot to your chat
 
-*Player cmd and all other cmds except /play, /current  and /playlist  are only for admins of the group."
+*Player cmd and all other cmds except /play, /current  and /playlist  are only for admins of the group.
+"""
       ]
