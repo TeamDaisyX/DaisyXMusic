@@ -30,13 +30,13 @@ def _start(client, message):
             [
                 [
                     InlineKeyboardButton(
-                        "📲 Updates Channel 📲", url="https://t.me/DaisyX_Updates")
-                  ],
-                [ 
+                        "📲 Channel", url="https://t.me/DaisyXUpdates"), 
                     InlineKeyboardButton(
-                        "💬 Support Chat 💬", url="https://t.me/DaisySupport_Official"
-                    )]
-            ]
+                        "💬 Group", url="https://t.me/DaisySupport_Official")
+                ],[
+                    InlineKeyboardButton(
+                        "🛠 Source Code 🛠", url="https://github.com/TeamDaisyX/DaisyXMusic")
+                ]
         ),
         reply_to_message_id=message.message_id
         )
@@ -49,7 +49,7 @@ async def gstart(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "🎙️ Support Group 🎙️", url="https://t.me/daisysupport_Official"
+                        "💬 Support Group", url="https://t.me/daisysupport_Official"
                     )
                 ]
             ]
@@ -89,8 +89,11 @@ def map(pos):
     elif(pos==len(tr.HELP_MSG)-1):
         url = "https://t.me/DaisySupport_Official"
         button = [
-            [InlineKeyboardButton(text = '📲 Updates Channel 📲', url="https://t.me/DaisyX_Updates")],
-            [InlineKeyboardButton(text = '💬 Support Chat 💬', url="https://t.me/DaisySupport_Official")],
+            [
+                InlineKeyboardButton(text = '📲 Channel', url="https://t.me/DaisyXUpdates"),
+                InlineKeyboardButton(text = '💬 Group', url="https://t.me/DaisySupport_Official")
+            ],[
+                InlineKeyboardButton(text = '🛠 Source Code 🛠', url="https://github.com/TeamDaisyX/DaisyXMusic")]
             [InlineKeyboardButton(text = '◀️', callback_data = f"help+{pos-1}")]
         ]
     else:
