@@ -49,7 +49,7 @@ async def gstart(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "💬 Support Group", url="https://t.me/daisysupport_Official"
+                        "💬 Support Chat", url="https://t.me/daisysupport_Official"
                     )
                 ]
             ]
