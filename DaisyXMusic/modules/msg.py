@@ -25,9 +25,7 @@ f"""
 
 ⚪️ {PROJECT_NAME} can play music in your group's voice chat as well as channel voice chats
 
-⚪️ Assistant name >> @{ASSISTANT_NAME}
-
-**Click next for instructions**
+⚪️ Assistant name >> @{ASSISTANT_NAME}\n\n**Click next for instructions**
 """,
 
 """
