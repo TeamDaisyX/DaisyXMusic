@@ -28,7 +28,7 @@ f"""
 ⚪️ Assistant name >> @{ASSISTANT_NAME}\n\nClick next for instructions**
 """,
 
-"""
+f"""
 **Setting up**
 
 1) Make bot admin (Group and in channel if use cplay)
@@ -62,7 +62,7 @@ f"""
 - /playlist: Shows playlist
 """,
         
-"""
+f"""
 **=>> Channel Music Play 🛠**
 
 ⚪️ For linked group admins only:
@@ -90,7 +90,7 @@ channel is also can be used instead of c ( /cplay = /channelplay )
 5) Simply send commands in your group.
 """,
 
-"""
+f"""
 **=>> More tools 🧑‍🔧**
 
 - /admincache: Updates admin info of your group. Try if bot isn't recognize admin
