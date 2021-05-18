@@ -18,7 +18,7 @@ import logging
 from DaisyXMusic.modules.msg import Messages as tr
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
-
+from DaisyXMusic.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL
 logging.basicConfig(level=logging.INFO)
 
 @Client.on_message(filters.private & filters.incoming & filters.command(['start']))
@@ -30,12 +30,12 @@ def _start(client, message):
             [
                 [
                     InlineKeyboardButton(
-                        "📲 Channel", url="https://t.me/DaisyXUpdates"), 
+                        "📲 Channel", url=f"https://t.me/{UPDATES_CHANNEL}"), 
                     InlineKeyboardButton(
-                        "💬 Group", url="https://t.me/DaisySupport_Official")
+                        "💬 Group", url=f"https://t.me/{SUPPORT_GROUP}")
                 ],[
                     InlineKeyboardButton(
-                        "🛠 Source Code 🛠", url="https://github.com/TeamDaisyX/DaisyXMusic")
+                        "🛠 Source Code 🛠", url=f"https://{SOURCE_CODE}")
                 ]
             ]
         ),
@@ -45,12 +45,12 @@ def _start(client, message):
 @Client.on_message(filters.command("start") & ~filters.private & ~filters.channel)
 async def gstart(_, message: Message):
     await message.reply_text(
-        """**🔴 Music player is online**""",
+        f"""**🔴 {PROJECT_NAME} is online**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "💬 Support Chat", url="https://t.me/daisysupport_Official"
+                        "💬 Support Chat", url=f"https://t.me/{SUPPORT_GROUP}"
                     )
                 ]
             ]
@@ -88,11 +88,11 @@ def map(pos):
             [InlineKeyboardButton(text = '▶️', callback_data = "help+2")]
         ]
     elif(pos==len(tr.HELP_MSG)-1):
-        url = "https://t.me/DaisySupport_Official"
+        url = f"https://t.me/{SUPPORT_GROUP}"
         button = [
-            [InlineKeyboardButton(text = '📲 Channel', url="https://t.me/DaisyXUpdates"),
-             InlineKeyboardButton(text = '💬 Group', url="https://t.me/DaisySupport_Official")],
-            [InlineKeyboardButton(text = '🛠 Source Code 🛠', url="https://github.com/TeamDaisyX/DaisyXMusic")],
+            [InlineKeyboardButton(text = '📲 Channel', url=f"https://t.me/{UPDATES_CHANNEL}"),
+             InlineKeyboardButton(text = '💬 Group', url=f"https://t.me/{SUPPORT_GROUP}")],
+            [InlineKeyboardButton(text = '🛠 Source Code 🛠', url=f"https://{SOURCE_CODE}")],
             [InlineKeyboardButton(text = '◀️', callback_data = f"help+{pos-1}")]
         ]
     else:
