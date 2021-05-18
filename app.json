@@ -13,6 +13,10 @@
       "description": "A bot token from @BotFather",
       "required": true
     },
+    "BOT_USERNAME": {
+      "description": "Your bot's username without @",
+      "required": true
+    },
     "BOT_NAME": {
       "description": "Your MusicPlayer Bot Name.",
       "required": false,
@@ -29,7 +33,7 @@
       "value": "DaisyXMusic v4"
     },
     "ASSISTANT_NAME": {
-      "description": "Your MusicPlayer's assistant Name without @.",
+      "description": "Your MusicPlayer's assistant Username without @.",
       "required": false,
       "value": "daisyxhelper"
     },
@@ -44,7 +48,7 @@
       "value": " https://telegra.ph/file/dcfdf612e499eef0e0b1f.png"
     },     
     "UPDATES_CHANNEL": {
-      "description": "Updates Channel [IGNORE].",
+      "description": "Updates Channel without @ [IGNORE].",
       "required": false,
       "value": "DaisyXupdates"
     },    
