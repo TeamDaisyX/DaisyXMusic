@@ -18,7 +18,7 @@ import logging
 from DaisyXMusic.modules.msg import Messages as tr
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton, Message
-from DaisyXMusic.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL
+from DaisyXMusic.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL,BOT_USERNAME
 logging.basicConfig(level=logging.INFO)
 
 @Client.on_message(filters.private & filters.incoming & filters.command(['start']))
@@ -30,9 +30,12 @@ def _start(client, message):
             [
                 [
                     InlineKeyboardButton(
-                        "📲 Channel", url=f"https://t.me/{UPDATES_CHANNEL}"), 
+                        "➕ Add me to your Groups 🙋‍♀️", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")]
+                [
                     InlineKeyboardButton(
-                        "💬 Group", url=f"https://t.me/{SUPPORT_GROUP}")
+                        "📲 Updates", url=f"https://t.me/{UPDATES_CHANNEL}"), 
+                    InlineKeyboardButton(
+                        "💬 Support", url=f"https://t.me/{SUPPORT_GROUP}")
                 ],[
                     InlineKeyboardButton(
                         "🛠 Source Code 🛠", url=f"https://{SOURCE_CODE}")
@@ -90,8 +93,9 @@ def map(pos):
     elif(pos==len(tr.HELP_MSG)-1):
         url = f"https://t.me/{SUPPORT_GROUP}"
         button = [
-            [InlineKeyboardButton(text = '📲 Channel', url=f"https://t.me/{UPDATES_CHANNEL}"),
-             InlineKeyboardButton(text = '💬 Group', url=f"https://t.me/{SUPPORT_GROUP}")],
+            [InlineKeyboardButton("➕ Add me to your Groups 🙋‍♀️", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")]
+            [InlineKeyboardButton(text = '📲 Updates', url=f"https://t.me/{UPDATES_CHANNEL}"),
+             InlineKeyboardButton(text = '💬 Support', url=f"https://t.me/{SUPPORT_GROUP}")],
             [InlineKeyboardButton(text = '🛠 Source Code 🛠', url=f"https://{SOURCE_CODE}")],
             [InlineKeyboardButton(text = '◀️', callback_data = f"help+{pos-1}")]
         ]
@@ -103,3 +107,19 @@ def map(pos):
             ],
         ]
     return button
+
+@Client.on_message(filters.command("help") & ~filters.private & ~filters.channel)
+async def ghelp(_, message: Message):
+    await message.reply_text(
+        f"""**🙋‍♀️ I can play music in the voice chats of telegram groups & channels.**""",
+        reply_markup=InlineKeyboardMarkup(
+            [
+                [
+                    InlineKeyboardButton(
+                        "🟡 Click here for help 🟡", url=f"https://t.me/{BOT_USERNAME}?start=help"
+                    )
+                ]
+            ]
+        ),
+    )
+
