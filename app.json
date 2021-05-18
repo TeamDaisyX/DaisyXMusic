@@ -23,7 +23,7 @@
       "value": ""
     },
     "SUPPORT_GROUP": {
-      "description": "Your MusicPlayer support group without @.",
+      "description": "Your MusicPlayer support group without @ [Leave this if you don't have one]",
       "required": false,
       "value": "DaisySupport_Official"
     },
@@ -34,8 +34,7 @@
     },
     "ASSISTANT_NAME": {
       "description": "Your MusicPlayer's assistant Username without @.",
-      "required": false,
-      "value": "daisyxhelper"
+      "required": true
     },
     "ARQ_API_KEY": {
       "description": "Get from @ARQRobot.",
@@ -43,12 +42,12 @@
       "value": "VKSSQH-SRNJYZ-MSOJAI-QALESR-ARQ"
     },    
     "BG_IMAGE": {
-      "description": "BG image of bot (Use transparent one)[IGNORE].",
+      "description": "BG image of bot (Use transparent one) [IGNORE].",
       "required": false,
       "value": " https://telegra.ph/file/dcfdf612e499eef0e0b1f.png"
     },     
     "UPDATES_CHANNEL": {
-      "description": "Updates Channel without @ [IGNORE].",
+      "description": "Updates Channel without @ [Leave this if you don't have one].",
       "required": false,
       "value": "DaisyXupdates"
     },    
