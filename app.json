@@ -18,6 +18,21 @@
       "required": false,
       "value": ""
     },
+    "SUPPORT_GROUP": {
+      "description": "Your MusicPlayer support group without @.",
+      "required": false,
+      "value": "DaisySupport_Official"
+    },
+    "PROJECT_NAME": {
+      "description": "Your MusicPlayer project Name.",
+      "required": false,
+      "value": "DaisyXMusic v4"
+    },
+    "ASSISTANT_NAME": {
+      "description": "Your MusicPlayer's assistant Name without @.",
+      "required": false,
+      "value": "daisyxhelper"
+    },
     "ARQ_API_KEY": {
       "description": "Get from @ARQRobot.",
       "required": false,
@@ -31,7 +46,7 @@
     "UPDATES_CHANNEL": {
       "description": "Updates Channel [IGNORE].",
       "required": false,
-      "value": ""
+      "value": "DaisyXupdates"
     },    
     "API_ID": {
       "description": "App ID from my.telegram.org/apps",
