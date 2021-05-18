@@ -15,17 +15,19 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import os
-
+from DaisyXMusic.config import SOURCE_CODE,ASSISTANT_NAME,PROJECT_NAME,SUPPORT_GROUP,UPDATES_CHANNEL
 class Messages():
       START_MSG = "**Hello 👋 [{}](tg://user?id={})!**\n\n🤖 I am an advanced bot created for playing music in the voice chats of Telegram Groups & Channels.\n\n✅ Send me /help for more info."
       HELP_MSG = [
         ".",
-"""
-**》 DAISYXMUSIC v4 《**
+f"""
+**Hey 👋, Welcome back to {PROJECT_NAME}
 
-⚪️ DAISYXMUSIC plays music in your group's voice chat as well as channel voice chats
+⚪️ {PROJECT_NAME} can play music in your group's voice chat as well as channel voice chats
 
-⚪️ Assistant name >> @DaisyXhelper
+⚪️ Assistant name >> @{ASSISTANT_NAME}
+
+Click next for instructions
 """,
 
 """
@@ -34,7 +36,12 @@ class Messages():
 1) Make bot admin (Group and in channel if use cplay)
 2) Start a voice chat
 3) Try /play [song name] for the first time by an admin
-*) If userbot joined enjoy music, If not add @DaisyXhelper to your group and retry
+*) If userbot joined enjoy music, If not add @{ASSISTANT_NAME} to your group and retry
+
+**For Channel Music Play**
+1) Make me admin of your channel 
+2) Send /userbotjoinchannel in linked group
+3) Now send commands in linked group
 
 **Commands**
 
@@ -42,6 +49,7 @@ class Messages():
 
 - /play: Play song using youtube music
 - /play [yt url] : Play the given yt url
+- /play [reply yo audio]: Play replied audio
 - /dplay: Play song via deezer
 - /splay: Play song via jio saavn
 
@@ -79,8 +87,8 @@ channel is also can be used instead of c ( /cplay = /channelplay )
 
 1) Get your channel ID.
 2) Create a group with tittle: Channel Music: your_channel_id
-3) Add @DaisyXBot as Channel admin with full perms
-4) Add @DaisyXhelper to the channel as an admin.
+3) Add bot as Channel admin with full perms
+4) Add @{ASSISTANT_NAME} to the channel as an admin.
 5) Simply send commands in your group.
 """,
 
@@ -88,7 +96,7 @@ channel is also can be used instead of c ( /cplay = /channelplay )
 **=>> More tools 🧑‍🔧**
 
 - /admincache: Updates admin info of your group. Try if bot isn't recognize admin
-- /userbotjoin: Invite @DaisyXhelper Userbot to your chat
+- /userbotjoin: Invite @{ASSISTANT_NAME} Userbot to your chat
 
 *Player cmd and all other cmds except /play, /current  and /playlist  are only for admins of the group.
 """
