@@ -17,6 +17,7 @@
 
 import json
 import os
+from os import path
 from typing import Callable
 
 import aiofiles
@@ -26,6 +27,7 @@ import requests
 import wget
 from PIL import Image, ImageDraw, ImageFont
 from pyrogram import Client, filters
+from pyrogram.types import Voice
 from pyrogram.errors import UserAlreadyParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from Python_ARQ import ARQ
@@ -39,6 +41,8 @@ from DaisyXMusic.config import que
 from DaisyXMusic.function.admins import admins as a
 from DaisyXMusic.helpers.admins import get_administrators
 from DaisyXMusic.helpers.channelmusic import get_chat_id
+from DaisyXMusic.helpers.errors import DurationLimitError
+from DaisyXMusic.helpers.decorators import errors
 from DaisyXMusic.helpers.decorators import authorized_users_only
 from DaisyXMusic.helpers.filters import command, other_filters
 from DaisyXMusic.helpers.gets import get_file_name
