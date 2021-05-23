@@ -637,17 +637,18 @@ async def deezer(client: Client, message_: Message):
 
     text = message_.text.split(" ", 1)
     queryy = text[1]
+    query = queryy
     res = lel
     await res.edit(f"Searching 👀👀👀 for `{queryy}` on deezer")
     try:
-        songs = await arq.deezer(query=queryy, limit=1)
+        songs = await arq.deezer(query,1)
         if not songs.ok:
             await message_.reply_text(songs.result)
             return
         title = songs.result[0].title
         url = songs.result[0].url
         artist = songs.result[0].artist
-        duration = int(songs.result[0].duration)
+        duration = songs.result[0].duration
         thumbnail = songs.result[0].thumbnail
 
     except:
@@ -788,7 +789,7 @@ async def jiosaavn(client: Client, message_: Message):
             ],
             [
                 InlineKeyboardButton(
-                    text="Join Updates Channel", url=f"{updateschannel}"
+                    text="Join Updates Channel", url=f"https://t.me/{updateschannel}"
                 )
             ],
             [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
