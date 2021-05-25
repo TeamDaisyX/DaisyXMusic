@@ -4,8 +4,6 @@
 #### POWERED BY [PYTGCALLS](https://github.com/pytgcalls/pytgcalls)
 ### Available on telegram as [@PhantomHelpBot](https://t.me/PhantomHelpBot)
 
-<p align="center">
-  <img src="https://telegra.ph/file/dd04b1968f1bc1169d162.jpg">
 </p>
 
 <h2> Whats new 🔥 </h2>
