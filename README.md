@@ -8,7 +8,7 @@
   <img src="https://telegra.ph/file/dd04b1968f1bc1169d162.jpg">
 </p>
 
-<h2> Whats new 🔥 </h2>
+<h2> Features 🔥 </h2>
 
 - Thumbnail Support
 - Playlist Support
@@ -95,6 +95,8 @@ If you donlt like to play in linked channel:
 
 
 ### Credits
+Don't edit this part
+
 #### Special Credits
 - [Rojserbest](http://github.com/rojserbes): Callsmusic Developer
 
