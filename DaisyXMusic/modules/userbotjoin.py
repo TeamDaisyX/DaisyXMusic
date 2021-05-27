@@ -71,11 +71,12 @@ async def rem(USER, message):
         )
         return
     
-@USER.on_message(filters.group & filters.command(["userbotleaveall"]))
-async def bye(USER, message):
+@Client.on_message(filters.command(["userbotleaveall"]))
+async def bye(client, message):
     if message.from_user.id in SUDO_USERS:
         left=0
         failed=0
+        await message.reply("Assistant Leaving all chats")
         for dialog in USER.iter_dialogs():
             try:
                 await USER.leave_chat(dialog.chat.id)
@@ -83,7 +84,7 @@ async def bye(USER, message):
             except:
                 failed=failed+1
             await asyncio.sleep(3)
-        await message.reply_text(f"Left {left} chats. Failed {failed} chats.")
+        await client.send_message(message.chat.id, f"Left {left} chats. Failed {failed} chats.")
     
     
 @Client.on_message(filters.command(["userbotjoinchannel","ubjoinc"]) & ~filters.private & ~filters.bot)
