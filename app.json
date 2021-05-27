@@ -55,6 +55,11 @@
       "description": "App ID from my.telegram.org/apps",
       "required": true
     },
+    "PMPERMIT": {
+      "description": "Change to turn off",
+      "required": false
+      "value": "ENABLE"
+    },    
     "API_HASH": {
       "description": "App hash from my.telegram.org/apps",
       "required": true
