@@ -425,6 +425,7 @@ async def play(_, message: Message):
         )
         return
     message.from_user.id
+    text_links = None
     message.from_user.first_name
     await lel.edit("🔎 **Finding**")
     message.from_user.id
