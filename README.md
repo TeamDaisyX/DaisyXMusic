@@ -95,7 +95,7 @@ If you donlt like to play in linked channel:
 ### Commands for Sudo Users ⚔️
 - `/userbotleaveall` - remove assistant from all chats
 - `/gcast <reply to message>` - globally brodcast replied message to all chats
-- `/pmpermit [ON/OFF]` - enable/disable pmpermit message
+- `/pmpermit [on/off]` - enable/disable pmpermit message
 + Sudo Users can execute any command in any groups
 
 ### Credits
