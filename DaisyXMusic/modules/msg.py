@@ -60,6 +60,8 @@ f"""
 - /end: Stops media playback
 - /current: Shows the current Playing track
 - /playlist: Shows playlist
+
+*Player cmd and all other cmds except /play, /current  and /playlist  are only for admins of the group.
 """,
         
 f"""
@@ -96,6 +98,12 @@ f"""
 - /admincache: Updates admin info of your group. Try if bot isn't recognize admin
 - /userbotjoin: Invite @{ASSISTANT_NAME} Userbot to your chat
 
-*Player cmd and all other cmds except /play, /current  and /playlist  are only for admins of the group.
+**=>> Commands for Sudo Users ⚔️**
+
+ - /userbotleaveall - remove assistant from all chats
+ - /gcast <reply to message> - globally brodcast replied message to all chats
+ - /pmpermit [on/off] - enable/disable pmpermit message
+*Sudo Users can execute any command in any groups
+
 """
       ]
