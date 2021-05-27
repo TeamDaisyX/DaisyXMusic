@@ -16,10 +16,9 @@
 
 from pyrogram import Client
 import asyncio
-from DaisyXMusic.config import SUDO_USERS
+from DaisyXMusic.config import SUDO_USERS, PMPERMIT
 from pyrogram import filters
 from pyrogram.types import Message
-from DaisyXMusic import PMPERMIT
 from DaisyXMusic.services.callsmusic.callsmusic import client as USER
 
 PMSET =True
