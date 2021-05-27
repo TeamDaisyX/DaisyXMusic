@@ -71,6 +71,7 @@ $ python(3) -m DaisyXMusic
 ### Commands for Channel Music Play 🛠
 For linked group admins only:
 - `/cplay <song name>` - play song you requested
+- `/cplay <reply to link>` - play replied youtube link
 - `/cplay <reply to audio>` - play replied file
 - `/cdplay <song name>` - play song you requested via deezer
 - `/csplay <song name>` - play song you requested via jio saavn
@@ -91,9 +92,10 @@ If you donlt like to play in linked channel:
  4. add helper to channel
  5. Simply send commands in your group.
 
-
-
-
+### Commands for Sudo Users ⚔️
+- `/userbotleaveall` - remove assistant from all chats
+- `/gcast <reply to message>` - globally brodcast replied message to all chats
+- `/pmpermit [ON/OFF]` - enable/disable pmpermit message
 ### Credits
 Don't edit this part
 
