@@ -9,7 +9,7 @@ async def bye(client, message):
     failed=0
     lol = await message.reply("Starting Gcast")
     if message.from_user.id in SUDO_USERS:
-        if not message.reply_to_message.text:
+        if not message.reply_to_message:
             await lol.edit("Reply to any text message to gcast sir")
             return
         msg = message.reply_to_message.text
