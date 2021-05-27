@@ -459,7 +459,7 @@ async def play(_, message: Message):
         views = "Locally added"
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
-        file_path = await converter.convert(
+        file_path = await convert(
             (await message.reply_to_message.download(file_name))
             if not path.isfile(path.join("downloads", file_name))
             else file_name
@@ -751,7 +751,7 @@ async def jiosaavn(client: Client, message_: Message):
         sname = songs.result[0].song
         slink = songs.result[0].media_url
         ssingers = songs.result[0].singers
-        sthumb = songs.result[0].image
+        sthumb = "https://telegra.ph/file/f6086f8909fbfeb0844f2.png"
         sduration = int(songs.result[0].duration)
     except Exception as e:
         await res.edit("Found Literally Nothing!, You Should Work On Your English.")
