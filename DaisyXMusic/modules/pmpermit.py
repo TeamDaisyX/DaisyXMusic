@@ -14,12 +14,16 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-
+from pyrogram import Client
+import asyncio
+from DaisyXMusic.config import SUDO_USERS
 from pyrogram import filters
 from pyrogram.types import Message
 from DaisyXMusic import PMPERMIT
 from DaisyXMusic.services.callsmusic.callsmusic import client as USER
-from DaisyXMusic.modules.pmset import PMSET
+
+PMSET =True
+
 
 @USER.on_message(filters.text & filters.private & ~filters.me & ~filters.bot)
 async def pmPermit(client: USER, message: Message):
@@ -32,3 +36,18 @@ async def pmPermit(client: USER, message: Message):
             return
 
     
+
+@Client.on_message(filters.command(["/pmpermit"]))
+async def bye(client: Client, message: Message):
+    if message.from_user.id in SUDO_USERS:
+        global PMSET
+        text = message.text.split(" ", 1)
+        queryy = text[1]
+        if queryy == "on":
+            PMSET = True
+            await message.reply_text("Pmpermit turned on")
+            return
+        if queryy == "off":
+            PMSET = None
+            await message.reply_text("Pmpermit turned off")
+            return
