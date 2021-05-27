@@ -17,10 +17,10 @@
 
 from pyrogram import Client, filters
 from pyrogram.errors import UserAlreadyParticipant
-
+import asyncio
 from DaisyXMusic.helpers.decorators import authorized_users_only, errors
 from DaisyXMusic.services.callsmusic.callsmusic import client as USER
-
+from DaisyXMusic.config import SUDO_USERS
 
 @Client.on_message(filters.command(["userbotjoin"]) & ~filters.private & ~filters.bot)
 @authorized_users_only
@@ -60,6 +60,7 @@ async def addchannel(client, message):
 
 
 @USER.on_message(filters.group & filters.command(["userbotleave"]))
+@authorized_users_only
 async def rem(USER, message):
     try:
         await USER.leave_chat(message.chat.id)
@@ -69,7 +70,22 @@ async def rem(USER, message):
             "\n\nOr manually kick me from to your Group</b>",
         )
         return
-
+    
+@USER.on_message(filters.group & filters.command(["userbotleaveall"]))
+async def bye(USER, message):
+    if message.from_user.id in SUDO_USERS:
+        left=0
+        failed=0
+        for dialog in USER.iter_dialogs():
+            try:
+                await USER.leave_chat(dialog.chat.id)
+                left = left+1
+            except:
+                failed=failed+1
+            await asyncio.sleep(3)
+        await message.reply_text(f"Left {left} chats. Failed {failed} chats.")
+    
+    
 @Client.on_message(filters.command(["userbotjoinchannel","ubjoinc"]) & ~filters.private & ~filters.bot)
 @authorized_users_only
 @errors
