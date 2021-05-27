@@ -57,7 +57,7 @@
     },
     "PMPERMIT": {
       "description": "Change to turn off",
-      "required": false
+      "required": false,
       "value": "ENABLE"
     },    
     "API_HASH": {
