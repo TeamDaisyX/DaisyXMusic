@@ -81,8 +81,10 @@ async def bye(client, message):
             try:
                 await USER.leave_chat(dialog.chat.id)
                 left = left+1
+                await lol.edit(f"Assistant leaving... Left: {left} chats. Failed: {failed} chats.")
             except:
                 failed=failed+1
+                await lol.edit(f"Assistant leaving... Left: {left} chats. Failed: {failed} chats.")
             await asyncio.sleep(3)
         await client.send_message(message.chat.id, f"Left {left} chats. Failed {failed} chats.")
     
