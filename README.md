@@ -96,6 +96,10 @@ If you donlt like to play in linked channel:
 - `/userbotleaveall` - remove assistant from all chats
 - `/gcast <reply to message>` - globally brodcast replied message to all chats
 - `/pmpermit [on/off]` - enable/disable pmpermit message
+
+#### Pmpermit
+- `.a` - approove someone to pm you
+- `.da` - disapproove someone to pm you
 + Sudo Users can execute any command in any groups
 
 ### Credits
