@@ -27,7 +27,8 @@
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/teamdaisyx/DaisyXMusic)
 
-Use [@DaisyXStringGeneratorBot](https://t.me/DaisyXStringGeneratorBot) to get pyrogram string session or [repl](https://repl.it/@SpEcHiDe/GenerateStringSession)
+Get pyrogram (p)  `SESSION` from here:
+[![Run on Repl.it](https://repl.it/badge/github/SpEcHiDe/GenerateStringSession)](https://repl.it/@SpEcHiDe/GenerateStringSession)
 
 ### ⚔ Self-hosting (For Devs) 
 ```sh
