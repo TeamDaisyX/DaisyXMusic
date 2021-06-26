@@ -45,11 +45,12 @@ f"""
 
 **=>> Song Playing 🎧**
 
-- /play: Play song using youtube music
+- /play: Play the requestd song
 - /play [yt url] : Play the given yt url
 - /play [reply yo audio]: Play replied audio
 - /dplay: Play song via deezer
 - /splay: Play song via jio saavn
+- /ytplay: Directly play song via Youtube Music
 
 **=>> Playback ⏯**
 
@@ -95,6 +96,7 @@ channel is also can be used instead of c ( /cplay = /channelplay )
 f"""
 **=>> More tools 🧑‍🔧**
 
+- /musicplayer [on/off]: Enable/Disable Music player
 - /admincache: Updates admin info of your group. Try if bot isn't recognize admin
 - /userbotjoin: Invite @{ASSISTANT_NAME} Userbot to your chat
 

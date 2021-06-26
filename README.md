@@ -1,4 +1,6 @@
-<h1 align="centre">DAISYXMUSIC V4.0 🎵</h1>
+
+
+<h1 align="centre">DAISYXMUSIC V4.5 🎵</h1>
 
 ### A bot that can play music on Telegram Group and Channel Voice Chats
 #### POWERED BY [PYTGCALLS](https://github.com/pytgcalls/pytgcalls)
@@ -20,12 +22,13 @@
 - Control with buttons
 - Userbot auto join
 - Channel Music Play
+- Keyboard selection support for youtube play
 
 ## 🚀 Deployment
 
 ### 💜 Heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/teamdaisyx/DaisyXMusic)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/TeamOfDaisyX/DaisyXMusic)
 
 Get pyrogram (p)  `SESSION` from here:
 [![Run on Repl.it](https://repl.it/badge/github/SpEcHiDe/GenerateStringSession)](https://repl.it/@SpEcHiDe/GenerateStringSession)
@@ -51,6 +54,7 @@ $ python(3) -m DaisyXMusic
 - `/play <reply to audio>` - play replied file
 - `/dplay <song name>` - play song you requested via deezer
 - `/splay <song name>` - play song you requested via jio saavn
+- `/ytplay <song name>`: Directly play song via Youtube Music
 - `/playlist` - Show now playing list
 - `/current` - Show now playing
 - `/song <song name>` - download songs you want quickly
@@ -68,6 +72,7 @@ $ python(3) -m DaisyXMusic
 - `/userbotjoin` - invite assistant to your chat
 - `/userbotleave` - remove assistant from your chat
 - `/admincache` - Refresh admin list
+- `/musicplayer [on/off]` - Enable/Disable Music Player
 
 ### Commands for Channel Music Play 🛠
 For linked group admins only:
@@ -111,3 +116,17 @@ Don't edit this part
 
 This bot is based on the original work done by [Rojserbest](http://github.com/rojserbest). Without his hardwork daisyxmusic won't exist. 
 DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/callsmusic) for fit the needs of @DaisyXbot users
+
+#### Contribtors
+- [InukaASiTH](https://github.com/InukaAsith): Dev
+- [Rojserbest](http://github.com/rojserbes): Dev
+- [Wrench](https://github.com/EverythingSuckz/): Dev
+- [Bemro](https://github.com/bemroofficial): Dev
+- [QueenArzoo](https://github.com/QueenArzoo): Dev
+- [lucifeermorningstar](https://github.com/lucifeermorningstar): Dev
+- [AuraXNetwork](https://github.com/AuraXNetwork/AuraXMusicBot)
+- [Hamker Cat](https://github.com/thehamkercat/)
+- [Anjana-Ma](https://github.com/Anjana-Ma): 
+- [ImJanindu](https://github.com/ImJanindu): 
+- [Laky](https://github.com/Laky-64) & [Andrew](https://github.com/AndrewLaneX): PyTgCalls
+- [Original Repo owners](https://github.com/suprojects/CallsMusic)
