@@ -233,7 +233,7 @@ async def settings(client, message):
     stats = updated_stats(message.chat, queue)
     if stats:
         if playing:
-            await message.reply(stats, reply_markup=r_ply("pause") 
+            await message.reply(stats, reply_markup=r_ply("pause")) 
         else:
             await message.reply(stats, reply_markup=r_ply("play"))
     else:
