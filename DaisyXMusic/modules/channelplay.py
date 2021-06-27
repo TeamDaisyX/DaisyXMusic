@@ -434,6 +434,8 @@ async def play(_, message: Message):
     user_name = message.from_user.first_name
     rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
     if message.reply_to_message:
+        if message.reply_to_message.audio:
+            pass
         entities = []
         toxt = message.reply_to_message.text or message.reply_to_message.caption
         if message.reply_to_message.entities:
