@@ -1307,3 +1307,24 @@ async def lol_cb(b, cb):
         )
     except:  # pylint:disable=C0103,W0703
         pass  # pylint:disable=E0602
+
+
+@Client.on_message(filters.command("cleanmusic") & filters.group & ~filters.edited)
+async def _qq(client: Client, message: Message):
+    input = message.command[1]
+    cws = get_current_clean_settings(message.chat.id)
+    pvw = cws.previous_
+    if cws.should_clean_goodbye is True:
+        await message.reply("I am already cleaning old welcone messages.")
+        return
+    if input == "on":
+        rm_clean_setting(message.chat.id)
+        add_clean_setting(message.chat.id,True, pvw)
+        await message.reply("I will clean old music messages from now.")
+    if input == "off":
+        rm_clean_setting(message.chat.id)
+        add_clean_setting(message.chat.id,False, pvw)
+        await message.reply("I will not clean old music messages from now.")
+    if not input == "on" and not input == "off":
+        await message.reply("I only understand by on or off")
+        return    
