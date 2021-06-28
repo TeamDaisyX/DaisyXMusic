@@ -1314,15 +1314,27 @@ async def lol_cb(b, cb):
 async def _qq(client: Client, message: Message):
     input = message.command[1]
     cws = get_current_clean_settings(message.chat.id)
+    if hasattr(cws, "should_clean_goodbye"):
+        pass
+    else:
+        if input == "on": 
+            add_clean_setting(message.chat.id,True, 0)
+            await message.reply("I will clean old music messages from now.")
+        if input == "off":
+
+            add_clean_setting(message.chat.id,False, 0)
+            await message.reply("I will not clean old music messages from now.")
+        if not input == "on" and not input == "off":
+            await message.reply("I only understand by on or off")
+            return    
+    pvw = cws.previous_goodbye        
     if input == "on":
-        if cws.should_clean is True:
-            await message.reply("I am already cleaning old welcone messages.")
-            return        
-        add_clean_setting(message.chat.id,True, 0)
+        rm_clean_setting(message.chat.id)      
+        add_clean_setting(message.chat.id,True, pvw)
         await message.reply("I will clean old music messages from now.")
     if input == "off":
-        
-        add_clean_setting(message.chat.id,False, 0)
+        rm_clean_setting(message.chat.id)
+        add_clean_setting(message.chat.id,False, pvw)
         await message.reply("I will not clean old music messages from now.")
     if not input == "on" and not input == "off":
         await message.reply("I only understand by on or off")
