@@ -1301,12 +1301,12 @@ async def lol_cb(b, cb):
     update_previous_msg(chat_id, previous.id)
     if cws.should_clean:
     # print ("2")
-    try:
-        await client.delete_messages(  # pylint:disable=E0602
-            chat_id, cws.previous_msg
-        )
-    except:  # pylint:disable=C0103,W0703
-        pass  # pylint:disable=E0602
+        try:
+            await client.delete_messages(  # pylint:disable=E0602
+                chat_id, cws.previous_msg
+            )
+        except:  # pylint:disable=C0103,W0703
+            pass  # pylint:disable=E0602
 
 
 @Client.on_message(filters.command("cleanmusic") & filters.group & ~filters.edited)
