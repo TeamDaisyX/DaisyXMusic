@@ -1315,7 +1315,7 @@ async def _qq(client: Client, message: Message):
     input = message.command[1]
     cws = get_current_clean_settings(message.chat.id)
     if input == "on":
-        if cws.should_clean_goodbye is True:
+        if cws.should_clean is True:
             await message.reply("I am already cleaning old welcone messages.")
             return        
         add_clean_setting(message.chat.id,True, 0)
