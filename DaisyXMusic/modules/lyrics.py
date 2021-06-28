@@ -22,7 +22,7 @@ import os
 from pyrogram import filters
 from tswift import Song
 
-from yrogram import Client as pbot
+from pyrogram import Client as pbot
 
 
 
