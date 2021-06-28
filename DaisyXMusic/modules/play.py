@@ -1314,7 +1314,8 @@ async def lol_cb(b, cb):
 async def _qq(client: Client, message: Message):
     input = message.command[1]
     cws = get_current_clean_settings(message.chat.id)
-    if hasattr(cws, chat_id):
+    pvw = cws.previous_    
+    if pvw:
         pass
     else:
         if input == "on": 
@@ -1327,7 +1328,7 @@ async def _qq(client: Client, message: Message):
         if not input == "on" and not input == "off":
             await message.reply("I only understand by on or off")
             return    
-    pvw = cws.previous_goodbye        
+ 
     if input == "on":
         rm_clean_setting(message.chat.id)      
         add_clean_setting(message.chat.id,True, pvw)
