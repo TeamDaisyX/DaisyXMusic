@@ -115,7 +115,9 @@ f"""
 
 **=>> Search Tools 📄**
 
-- /search [song name]
+- /search [song name]: Search youtube for songs
+- /lyrics [song name]: Get song lyrics
+""",
 
 f"""
 **=>> Commands for Sudo Users ⚔️**
@@ -126,4 +128,4 @@ f"""
 *Sudo Users can execute any command in any groups
 
 """
-      ]
+
