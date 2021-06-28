@@ -29,21 +29,22 @@ async def broadcast(_, message: Message):
     sent=0
     failed=0
     if message.from_user.id not in SUDO_USERS:
-        await message.reply("Go away! This is not for you 😂!")
         return
     else:
-        wtf = await message.reply("`Starting a Chatcast...`")
+        wtf = await message.reply("`Starting a broadcast...`")
         if not message.reply_to_message:
-            await wtf.edit("Please Reply to a Message to Chatcast it 🥺!")
+            await wtf.edit("Please Reply to a Message to broadcast!")
             return
         lmao = message.reply_to_message.text
         async for dialog in pakaya.iter_dialogs():
             try:
                 await pakaya.send_message(dialog.chat.id, lmao)
                 sent = sent+1
-                await wtf.edit(f"`ChatCasting...` \n\n**Sent to:** `{sent}` Chats \n**Failed in:** {failed} Chats")
+                await wtf.edit(f"`broadcasting...` \n\n**Sent to:** `{sent}` Chats \n**Failed in:** {failed} Chats")
+                await asyncio.sleep(3)
             except:
                 failed=failed+1
-                await wtf.edit(f"`ChatCasting...` \n\n**Sent to:** `{sent}` Chats \n**Failed in:** {failed} Chats")
-            await asyncio.sleep(3)
-        await message.reply_text(f"`ChatCasting Finished 😌` \n\n**Sent to:** `{sent}` Chats \n**Failed in:** {failed} Chats")
+                #await wtf.edit(f"`broadcasting...` \n\n**Sent to:** `{sent}` Chats \n**Failed in:** {failed} Chats")
+                
+            
+        await message.reply_text(f"`Broadcast Finished ` \n\n**Sent to:** `{sent}` Chats \n**Failed in:** {failed} Chats")
