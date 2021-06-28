@@ -13,17 +13,12 @@ class Clean(BASE):
     def __init__(
         self,
         chat_id,
-        should_clean,
-        previous_,
     ):
         self.chat_id = chat_id
-        self.should_clean = should_clean
-        self.previous_ = previous_
 
 
 
 Clean.__table__.create(checkfirst=True)
-
 
 
 
@@ -37,17 +32,12 @@ def get_current_clean_settings(chat_id):
         SESSION.close()
 
 
-def add_clean_setting(
-    chat_id,
-    should_clean,
-    previous_,
-):
-    # adder = SESSION.query(Clean).get(chat_id)
-    adder = Clean(
-        chat_id,
-        should_clean,
-        previous_,
-    )
+def add_clean_setting(chat_id, shouldclean, previous):
+    adder = SESSION.query(Clean).get(chat_id)
+    if not adder:
+        adder = Clean(chat_id)
+    adder.should_clean = shouldclean
+    adder.previous_ = previous
     SESSION.add(adder)
     SESSION.commit()
 
