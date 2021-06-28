@@ -4,7 +4,8 @@ from sqlalchemy.orm import scoped_session, sessionmaker
 
 from DaisyXMusic.config import DB_URI
 
-
+if not DB_URI:
+    print("Get your sql db from elephantsql.com")
 def start() -> scoped_session:
     engine = create_engine(DB_URI, client_encoding="utf8")
     BASE.metadata.bind = engine
