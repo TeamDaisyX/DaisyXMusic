@@ -11,7 +11,15 @@
    {
      "url": "heroku/python"
    }   
-  ],        
+  ],      
+  "addons": [
+    {
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "12"
+      }
+    }
+  ],  
   "env": {
     "SESSION_NAME": {
       "description": "Pyrogram session string",
@@ -82,12 +90,4 @@
       "value": "10"
     }
   }
-  "addons": [
-    {
-      "plan": "heroku-postgresql",
-      "options": {
-        "version": "12"
-      }
-    }
-  ]  
 }
