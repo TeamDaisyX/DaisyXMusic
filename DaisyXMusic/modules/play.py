@@ -451,7 +451,7 @@ async def m_cb(b, cb):
         else:
             await cb.answer("Chat is not connected!", show_alert=True)
 
-
+    
 @Client.on_message(command("play") & other_filters)
 async def play(_, message: Message):
     global que
@@ -1193,7 +1193,7 @@ async def jiosaavn(client: Client, message_: Message):
 @Client.on_callback_query(filters.regex(pattern=r"plll"))
 async def lol_cb(b, cb):
     global que
-
+    cws = get_current_clean_settings(cb.message.chat.id)
     cbd = cb.data.strip()
     chat_id = cb.message.chat.id
     typed_=cbd.split(None, 1)[1]
@@ -1269,12 +1269,13 @@ async def lol_cb(b, cb):
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
         await cb.message.delete()
-        await b.send_photo(chat_id,
+        previous = await b.send_photo(chat_id,
             photo="final.png",
             caption=f"#⃣  Song requested by {r_by.mention} <b>queued</b> at position {position}!",
             reply_markup=keyboard,
         )
         os.remove("final.png")
+
         
     else:
         que[chat_id] = []
@@ -1290,10 +1291,19 @@ async def lol_cb(b, cb):
     
         await callsmusic.set_stream(chat_id, file_path)
         await cb.message.delete()
-        await b.send_photo(chat_id,
+        previous = await b.send_photo(chat_id,
             photo="final.png",
             reply_markup=keyboard,
             caption=f"▶️ <b>Playing</b> here the song requested by {r_by.mention} via Youtube Music 😎",
         )
         
         os.remove("final.png")
+    update_previous_msg(chat_id, previous.id)
+    if cws.should_clean:
+    # print ("2")
+    try:
+        await client.delete_messages(  # pylint:disable=E0602
+            chat_id, cws.previous_msg
+        )
+    except:  # pylint:disable=C0103,W0703
+        pass  # pylint:disable=E0602
