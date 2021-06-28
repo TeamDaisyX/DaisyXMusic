@@ -1255,6 +1255,14 @@ async def lol_cb(b, cb):
         ]
     )
     requested_by = useer_name
+    if cws.should_clean:
+    # print ("2")
+        try:
+            await client.delete_messages(  # pylint:disable=E0602
+                chat_id, cws.previous_msg
+            )
+        except:  # pylint:disable=C0103,W0703
+            pass  # pylint:disable=E0602    
     await generate_cover(requested_by, title, views, duration, thumbnail)
     file_path = await convert(youtube.download(url))  
     if chat_id in callsmusic.active_chats:
@@ -1299,14 +1307,7 @@ async def lol_cb(b, cb):
         
         os.remove("final.png")
     update_previous_msg(chat_id, previous.id)
-    if cws.should_clean:
-    # print ("2")
-        try:
-            await client.delete_messages(  # pylint:disable=E0602
-                chat_id, cws.previous_msg
-            )
-        except:  # pylint:disable=C0103,W0703
-            pass  # pylint:disable=E0602
+
 
 
 @Client.on_message(filters.command("cleanmusic") & filters.group & ~filters.edited)
@@ -1317,11 +1318,11 @@ async def _qq(client: Client, message: Message):
         if cws.should_clean_goodbye is True:
             await message.reply("I am already cleaning old welcone messages.")
             return        
-        add_clean_setting(message.chat.id,True, pvw)
+        add_clean_setting(message.chat.id,True, 0)
         await message.reply("I will clean old music messages from now.")
     if input == "off":
         
-        add_clean_setting(message.chat.id,False, pvw)
+        add_clean_setting(message.chat.id,False, 0)
         await message.reply("I will not clean old music messages from now.")
     if not input == "on" and not input == "off":
         await message.reply("I only understand by on or off")
