@@ -1314,7 +1314,7 @@ async def lol_cb(b, cb):
 async def _qq(client: Client, message: Message):
     input = message.command[1]
     cws = get_current_clean_settings(message.chat.id)
-    if hasattr(cws, "should_clean_goodbye"):
+    if hasattr(cws, chat_id):
         pass
     else:
         if input == "on": 
