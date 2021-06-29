@@ -17,11 +17,14 @@
 
 import asyncio
 
-from pyrogram import Client, filters
-from pyrogram.types import Dialog, Chat, Message
+from pyrogram import Client
+from pyrogram import filters
+from pyrogram.types import Dialog
+from pyrogram.types import Chat
+from pyrogram.types import Message
 from pyrogram.errors import UserAlreadyParticipant
 
-from DaisyXMusic.services.callsmusic.callsmusic import client as pakaya
+from DaisyXMusic.services.callsmusic.callsmusic import client as USER
 from DaisyXMusic.config import SUDO_USERS
 
 @Client.on_message(filters.command(["broadcast"]))
@@ -36,9 +39,9 @@ async def broadcast(_, message: Message):
             await wtf.edit("Please Reply to a Message to broadcast!")
             return
         lmao = message.reply_to_message.text
-        async for dialog in pakaya.iter_dialogs():
+        async for dialog in USER.iter_dialogs():
             try:
-                await pakaya.send_message(dialog.chat.id, lmao)
+                await USER.send_message(dialog.chat.id, lmao)
                 sent = sent+1
                 await wtf.edit(f"`broadcasting...` \n\n**Sent to:** `{sent}` Chats \n**Failed in:** {failed} Chats")
                 await asyncio.sleep(3)
