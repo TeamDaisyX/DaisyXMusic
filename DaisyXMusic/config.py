@@ -15,8 +15,9 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 # Modified by Inukaasith
 
-from os import getenv
 import os
+from os import path
+from os import getenv
 from dotenv import load_dotenv
 
 if os.path.exists("local.env"):
