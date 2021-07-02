@@ -41,17 +41,17 @@ def _start(client, message):
                         "+ Add me to your Group ", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
                 [
                     InlineKeyboardButton(
-                        " channel", url=f"https://t.me/kpoppsongcover"), 
+                        (" channel", url=f"https://t.me/kpoppsongcover"), 
                     InlineKeyboardButton(
-                        " group", url=f"https://t.me/nyanyiisinii")
+                        (" group", url=f"https://t.me/nyanyiisinii")
                 ],[
                     InlineKeyboardButton(
-                        "owner", url=f"https://t.me/rizexx")
-                ]
+                        ( "owner", url=f"https://t.me/rizexx")
+                ],[
             ]
         ),
         reply_to_message_id=message.message_id
-        )
+        ),
 
 @Client.on_message(filters.command("start") & ~filters.private & ~filters.channel)
 async def gstart(_, message: Message):
@@ -61,7 +61,7 @@ async def gstart(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "my group", url=f"https://t.me/nyanyiisinii")
+                        ("my group", url=f"https://t.me/nyanyiisinii")
                     )
                 
             ]
