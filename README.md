@@ -26,7 +26,7 @@
 
 ### 💜 Heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://github.com/rizkyoye/PantekMusic)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://dashboard.heroku.com/new?button-url=https://github.com/rizkyoye/PantekMusic)
 
 Get pyrogram (p)  `SESSION` from here:
 
