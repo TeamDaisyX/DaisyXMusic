@@ -46,10 +46,11 @@ from DaisyXMusic.helpers.decorators import errors
 from DaisyXMusic.helpers.decorators import authorized_users_only
 from DaisyXMusic.helpers.filters import command, other_filters
 from DaisyXMusic.helpers.gets import get_file_name
-from DaisyXMusic.services.callsmusic import callsmusic, queues
+from DaisyXMusic.services.callsmusic import callsmusic
 from DaisyXMusic.services.callsmusic.callsmusic import client as USER
 from DaisyXMusic.services.converter.converter import convert
 from DaisyXMusic.services.downloaders import youtube
+from DaisyXMusic.services.queues import queues
 
 aiohttpsession = aiohttp.ClientSession()
 chat_id = None
