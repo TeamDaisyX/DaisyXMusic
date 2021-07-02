@@ -38,15 +38,15 @@ def _start(client, message):
             [
                 [
                     InlineKeyboardButton(
-                        "➕ Add me to your Group 🙋‍♀️", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
+                        "+ Add me to your Group ", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
                 [
                     InlineKeyboardButton(
-                        "📲 Updates", url=f"https://t.me/{UPDATES_CHANNEL}"), 
+                        " channel", url=f"https://t.me/kpoppsongcover"), 
                     InlineKeyboardButton(
-                        "💬 Support", url=f"https://t.me/{SUPPORT_GROUP}")
+                        " group", url=f"https://t.me/nyanyiisinii")
                 ],[
                     InlineKeyboardButton(
-                        "🛠 Source Code 🛠", url=f"https://{SOURCE_CODE}")
+                        "owner", url=f"https://t.me/rizexx")
                 ]
             ]
         ),
@@ -61,9 +61,9 @@ async def gstart(_, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "💬 Support Chat", url=f"https://t.me/{SUPPORT_GROUP}"
+                        "my group", url=f"https://t.me/nyanyiisinii")
                     )
-                ]
+                
             ]
         ),
     )
@@ -101,10 +101,9 @@ def map(pos):
     elif(pos==len(tr.HELP_MSG)-1):
         url = f"https://t.me/{SUPPORT_GROUP}"
         button = [
-            [InlineKeyboardButton("➕ Add me to your Group 🙋‍♀️", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
-            [InlineKeyboardButton(text = '📲 Updates', url=f"https://t.me/{UPDATES_CHANNEL}"),
-             InlineKeyboardButton(text = '💬 Support', url=f"https://t.me/{SUPPORT_GROUP}")],
-            [InlineKeyboardButton(text = '🛠 Source Code 🛠', url=f"https://{SOURCE_CODE}")],
+            [InlineKeyboardButton("+ Tambahin gua ke grup lu", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")],
+            [InlineKeyboardButton(text = ' my channel', url=f"https://t.me/kpoppsongcover"),
+             InlineKeyboardButton(text = ' group', url=f"https://t.me/nyanyiisinii"   
             [InlineKeyboardButton(text = '◀️', callback_data = f"help+{pos-1}")]
         ]
     else:
