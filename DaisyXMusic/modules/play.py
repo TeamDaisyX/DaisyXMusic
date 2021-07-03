@@ -1291,8 +1291,7 @@ async def lol_cb(b, cb):
     
         await callsmusic.set_stream(chat_id, file_path)
         await cb.message.delete()
-        await b.send_photo(chat_id,{r_by.mention} 🔥",
-
+        await b.send_photo(chat_id,
             photo="final.png",
             reply_markup=keyboard,
             caption=f"🏷<b>Judul</b> : {title}/n"
