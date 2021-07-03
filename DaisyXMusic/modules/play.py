@@ -125,12 +125,12 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     img = Image.open("temp.png")
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("etc/font.otf", 32)
-    draw.text((205, 550), f"Judul   : {title}", (51, 215, 255), font=font)
+    draw.text((205, 550), f"Judul   : {title}", (255, 255, 255), font=font)
     draw.text((205, 590), f"Durasi  : {duration}", (255, 255, 255), font=font)
     draw.text((205, 630), f"Ditonton: {views}", (255, 255, 255), font=font)
     draw.text(
         (205, 670),
-        f"DIPUTAR OLEH: {requested_by}",
+        f"Diputar oleh: {requested_by}",
         (51, 215, 255),
         font=font,
     )
@@ -1291,10 +1291,14 @@ async def lol_cb(b, cb):
     
         await callsmusic.set_stream(chat_id, file_path)
         await cb.message.delete()
-        await b.send_photo(chat_id,
+        await b.send_photo(chat_id,{r_by.mention} 🔥",
+
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"▶️ Sedang memutar {title}/n/n Atas permintaan {r_by.mention} Via Youtube🔥",
+            caption=f"🏷<b>Judul</b> : {title}/n"
+            caption=f"⏱<b>Durasi</b>  : {duration}/n"
+            caption=f"💡<b>Status</b> : Sedang Memutar /n"
+            caption=f"🎧<b>Atas permintaan<b/>: {r_by.mention} ".
         )
         
         os.remove("final.png")
