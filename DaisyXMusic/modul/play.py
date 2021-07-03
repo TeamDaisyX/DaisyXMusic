@@ -201,7 +201,7 @@ def r_ply(type_):
             [
                 InlineKeyboardButton("Playlist 📖", "playlist"),
             ],
-            [InlineKeyboardButton("❌ Close", "cls")],
+            [InlineKeyboardButton("🗑️ Close", "cls")],
         ]
     )
     return mar
@@ -415,7 +415,7 @@ async def m_cb(b, cb):
                 [
                     InlineKeyboardButton("Playlist 📖", "playlist"),
                 ],
-                [InlineKeyboardButton("❌ Close", "cls")],
+                [InlineKeyboardButton("🗑️ Close", "cls")],
             ]
         )
         await cb.message.edit(stats, reply_markup=marr)
@@ -613,8 +613,8 @@ async def play(_, message: Message):
                     InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
                     InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
                 ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
-            ]
+                [InlineKeyboardButton(text="🗑️ Close", callback_data="cls")],
+            
         )
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
@@ -706,7 +706,7 @@ async def play(_, message: Message):
                         InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
                         InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
                     ],
-                    [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+                    [InlineKeyboardButton(text="🗑️ Close", callback_data="cls")],
                 ]
             )
             requested_by = message.from_user.first_name
@@ -864,7 +864,7 @@ async def ytplay(_, message: Message):
                 InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
                 InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
             ],
-            [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+            [InlineKeyboardButton(text="🗑️ Close", callback_data="cls")],
         ]
     )
     requested_by = message.from_user.first_name
@@ -1004,7 +1004,7 @@ async def deezer(client: Client, message_: Message):
                 InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
             ],
             [InlineKeyboardButton(text="Listen On Deezer 🎬", url=f"{url}")],
-            [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+            [InlineKeyboardButton(text="🗑️ Close", callback_data="cls")],
         ]
     )
     file_path = await convert(wget.download(url))
@@ -1144,7 +1144,7 @@ async def jiosaavn(client: Client, message_: Message):
                     text="Join Updates Channel", url=f"https://t.me/{updateschannel}"
                 )
             ],
-            [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+            [InlineKeyboardButton(text="🗑️ Close", callback_data="cls")],
         ]
     )
     file_path = await convert(wget.download(slink))
@@ -1252,7 +1252,7 @@ async def lol_cb(b, cb):
                 InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
                 InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
             ],
-            [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+            [InlineKeyboardButton(text="🗑️ Close", callback_data="cls")],
         ]
     )
     requested_by = useer_name
