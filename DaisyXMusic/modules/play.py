@@ -125,12 +125,12 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     img = Image.open("temp.png")
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("etc/font.otf", 32)
-    draw.text((205, 550), f"Title: {title}", (51, 215, 255), font=font)
-    draw.text((205, 590), f"Duration: {duration}", (255, 255, 255), font=font)
-    draw.text((205, 630), f"Views: {views}", (255, 255, 255), font=font)
+    draw.text((205, 550), f"JUDUL   : {title}", (51, 215, 255), font=font)
+    draw.text((205, 590), f"DURASI  : {duration}", (255, 255, 255), font=font)
+    draw.text((205, 630), f"DITONTON: {views}", (255, 255, 255), font=font)
     draw.text(
         (205, 670),
-        f"Riquest By: {requested_by}",
+        f"DIPUTAR OLEH: {requested_by}",
         (51, 215, 255),
         font=font,
     )
@@ -201,7 +201,7 @@ def r_ply(type_):
             [
                 InlineKeyboardButton("Playlist 📖", "playlist"),
             ],
-            [InlineKeyboardButton("❌ Close", "cls")],
+            [InlineKeyboardButton("❎ Close", "cls")],
         ]
     )
     return mar
@@ -415,7 +415,7 @@ async def m_cb(b, cb):
                 [
                     InlineKeyboardButton("Playlist 📖", "playlist"),
                 ],
-                [InlineKeyboardButton("❌ Close", "cls")],
+                [InlineKeyboardButton("❎ Close", "cls")],
             ]
         )
         await cb.message.edit(stats, reply_markup=marr)
@@ -552,7 +552,7 @@ async def play(_, message: Message):
                     InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
                     InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
                 ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+                [InlineKeyboardButton(text="❎ Close", callback_data="cls")],
             ]
         )
         file_name = get_file_name(audio)
@@ -613,7 +613,7 @@ async def play(_, message: Message):
                     InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
                     InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
                 ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+                [InlineKeyboardButton(text="❎ Close", callback_data="cls")],
             ]
         )
         requested_by = message.from_user.first_name
@@ -633,16 +633,16 @@ async def play(_, message: Message):
           await lel.edit("Give me something to play")
         # Looks like hell. Aren't it?? FUCK OFF
         try:
-            toxxt = "**Select the song you want to play**\n\n"
+            toxxt = "**✳️ Pilih musik yang ingin kamu putar**\n\n"
             j = 0
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣",]
 
             while j < 5:
                 toxxt += f"{emojilist[j]} <b>Title - [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})</b>\n"
-                toxxt += f" ╚ <b>Duration</b> - {results[j]['duration']}\n"
-                toxxt += f" ╚ <b>Views</b> - {results[j]['views']}\n"
-                toxxt += f" ╚ <b>Channel</b> - {results[j]['channel']}\n\n"
+                toxxt += f" ╚ ⏰<b>Durasi</b> - {results[j]['duration']}\n"
+                toxxt += f" ╚ 👁️<b>Penonton</b> - {results[j]['views']}\n"
+                toxxt += f" ╚  ©️<b>Channel</b> - {results[j]['channel']}\n\n"
 
                 j += 1            
             koyboard = InlineKeyboardMarkup(
@@ -706,7 +706,7 @@ async def play(_, message: Message):
                         InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
                         InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
                     ],
-                    [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
+                    [InlineKeyboardButton(text="❎ Close", callback_data="cls")],
                 ]
             )
             requested_by = message.from_user.first_name
@@ -1294,7 +1294,8 @@ async def lol_cb(b, cb):
         await b.send_photo(chat_id,
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"▶️ <b>PLAYING</b> HERE THE SONG REQUESTED BY {r_by.mention} VIA YOUTUBE MUSIC 🔥",
+            caption=f"▶️ <b>JUDUL</b> : {title}/n/n
+SONG REQUESTED BY {r_by.mention} VIA YOUTUBE MUSIC 🔥",
         )
         
         os.remove("final.png")
