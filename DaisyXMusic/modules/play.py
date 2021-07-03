@@ -125,9 +125,9 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     img = Image.open("temp.png")
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("etc/font.otf", 32)
-    draw.text((205, 550), f"JUDUL   : {title}", (51, 215, 255), font=font)
-    draw.text((205, 590), f"DURASI  : {duration}", (255, 255, 255), font=font)
-    draw.text((205, 630), f"DITONTON: {views}", (255, 255, 255), font=font)
+    draw.text((205, 550), f"Judul   : {title}", (51, 215, 255), font=font)
+    draw.text((205, 590), f"Durasi  : {duration}", (255, 255, 255), font=font)
+    draw.text((205, 630), f"Ditonton: {views}", (255, 255, 255), font=font)
     draw.text(
         (205, 670),
         f"DIPUTAR OLEH: {requested_by}",
@@ -642,7 +642,7 @@ async def play(_, message: Message):
                 toxxt += f"{emojilist[j]} <b>Title - [{results[j]['title']}](https://youtube.com{results[j]['url_suffix']})</b>\n"
                 toxxt += f" ╚ ⏰<b>Durasi</b> - {results[j]['duration']}\n"
                 toxxt += f" ╚ 👁️<b>Penonton</b> - {results[j]['views']}\n"
-                toxxt += f" ╚  ©️<b>Channel</b> - {results[j]['channel']}\n\n"
+                toxxt += f" ╚ ©️<b>Channel</b> - {results[j]['channel']}\n\n"
 
                 j += 1            
             koyboard = InlineKeyboardMarkup(
@@ -1272,7 +1272,7 @@ async def lol_cb(b, cb):
         await cb.message.delete()
         await b.send_photo(chat_id,
             photo="final.png",
-            caption=f"#⃣  Song requested by {r_by.mention} <b>queued</b> at position {position}!",
+            caption=f"#⃣  Atas permintaan {r_by.mention} <b>Daftar antrian</b> {position}!",
             reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -1294,7 +1294,7 @@ async def lol_cb(b, cb):
         await b.send_photo(chat_id,
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"▶️ <b>Sedang memutar music</b> Atas permintaan {r_by.mention} Via Youtube🔥",
+            caption=f"▶️ Sedang memutar {title}/n/n Atas permintaan {r_by.mention} Via Youtube🔥",
         )
         
         os.remove("final.png")
