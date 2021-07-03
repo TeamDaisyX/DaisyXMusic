@@ -690,7 +690,7 @@ async def play(_, message: Message):
                     dur += (int(dur_arr[i]) * secmul)
                     secmul *= 60
                 if (dur / 60) > DURATION_LIMIT:
-                     await lel.edit(f"❌ Videos longer than {DURATION_LIMIT} minutes aren't allowed to play!")
+                     await lel.edit(f"X Videos longer than {DURATION_LIMIT} minutes aren't allowed to play!")
                      return
             except:
                 pass
