@@ -21,32 +21,33 @@ from DaisyXMusic.config import PROJECT_NAME
 from DaisyXMusic.config import SUPPORT_GROUP
 from DaisyXMusic.config import UPDATES_CHANNEL
 class Messages():
-      START_MSG = "**Hello 👋 [{}](tg://user?id={})!**\n\n🤖 I am an advanced bot created for playing music in the voice chats of Telegram Groups & Channels.\n\n✅ Send me /help for more info."
+      START_MSG = "**Hello 🗿 [{}](tg://user?id={})!**\n\n🤖 saya 𝙧𝙞𝙯𝙚𝙭 𝙢𝙪𝙨𝙞𝙘 aku adalah bot music \n \n ━━━━━━━━━━━━━━━━━━━━━━━━━ \n \n saya dapat memutar lagu di voice chat group dan di channel kamu \n \n ketik /help untuk informasi lengkap saya \n \n ━━━━━━━━━━━━━━━━━━━━━━━━━ managed by @rizexx"
       HELP_MSG = [
         ".",
 f"""
-**Hey 👋 Welcome back to {PROJECT_NAME}
+**✨Hii, selamat datang kembali di {PROJECT_NAME}
 
-⚪️ {PROJECT_NAME} can play music in your group's voice chat as well as channel voice chats
+⚪️ {PROJECT_NAME} bisa memutar musik di grup voice chat dan di channel kamu.
 
-⚪️ Assistant name >> @{ASSISTANT_NAME}\n\nClick next for instructions**
+
+⚪️ assistant name >> @{ASSISTANT_NAME}\n\nClick next for instructions**
 """,
 
 f"""
-**Setting up**
+**✨pengaturan untuk grup**
 
-1) Make bot admin (Group and in channel if use cplay)
-2) Start a voice chat
-3) Try /play [song name] for the first time by an admin
-*) If userbot joined enjoy music, If not add @{ASSISTANT_NAME} to your group and retry
+1) bot music wajib jadi admin dan diberi izin untuk mengelola obrolan suara.
+2) nyalaiin vcg atau voice chat grup lu dulu ngab sebelum request musik.
+3) lalu ketik /play [judul lagu] untuk memutar musik.
+*) jika asisten bergabung ke vcg silahkan menikmati musiknya pantek, jika tidak, tambahkan @ { ASSISTANT_NAME } ke dalam grup lalu coba lagi.
 
-**For Channel Music Play**
-1) Make me admin of your channel 
-2) Send /userbotjoinchannel in linked group
-3) Now send commands in linked group
+**pengaturan untuk channel**
+1) jadiian gua admin di channel lu ngab
+2) ketik /userbotjoinchannel di grup yang udah asyik dengan channelnya.
+3) lalu ketikkan perintah dibawah ini di dalam grup yang menuju ke saluran
 """,
 f"""
-**Commands**
+**perintah untuk memutar lagu**
 
 **=>> Song Playing 🎧**
 
