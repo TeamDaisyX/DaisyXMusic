@@ -130,8 +130,8 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     draw.text((205, 630), f"Views: {views}", (255, 255, 255), font=font)
     draw.text(
         (205, 670),
-        f"Added By: {requested_by}",
-        (255, 255, 255),
+        f"Riquest By: {requested_by}",
+        (51, 215, 255),
         font=font,
     )
     img.save("final.png")
@@ -1294,7 +1294,7 @@ async def lol_cb(b, cb):
         await b.send_photo(chat_id,
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"▶️ <b>Playing</b> here the song requested by {r_by.mention} via Youtube Music 😎",
+            caption=f"▶️ <b>PLAYING</b> HERE THE SONG REQUESTED BY {r_by.mention} VIA YOUTUBE MUSIC 🔥",
         )
         
         os.remove("final.png")
