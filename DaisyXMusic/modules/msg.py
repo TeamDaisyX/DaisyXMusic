@@ -21,7 +21,7 @@ from DaisyXMusic.config import PROJECT_NAME
 from DaisyXMusic.config import SUPPORT_GROUP
 from DaisyXMusic.config import UPDATES_CHANNEL
 class Messages():
-      START_MSG = "**Hello 👋 [{}](tg://user?id={})!**\n\n🤖 I am an advanced bot created for playing music in the voice chats of Telegram Groups & Channels.\n\n✅ Send me /help for more info."
+      START_MSG = "**𝓗𝓮𝓵𝓵𝓸 👋 [{}](tg://user?id={})!**\n\n🤖 𝓘 𝓪𝓶 𝓪𝓷  𝓪𝓭𝓿𝓪𝓷𝓬𝓮𝓭 𝓫𝓸𝓽 𝓬𝓻𝓮𝓪𝓽𝓮𝓭 𝓯𝓸𝓻 𝓹𝓵𝓪𝔂𝓲𝓷𝓰 𝓶𝓾𝓼𝓲𝓬 𝓲𝓷 𝓽𝓱𝓮 𝓿𝓸𝓲𝓬𝓮 𝓬𝓱𝓪𝓽𝓼 𝓸𝓯 𝓣𝓮𝓵𝓮𝓰𝓻𝓪𝓶𝓮 𝓖𝓻𝓸𝓾𝓹𝓼 & 𝓒𝓱𝓪𝓷𝓷𝓮𝓵𝓼.\n\n✅ 𝓢𝓮𝓷𝓭 𝓜𝓮 /mhelp 𝓯𝓸𝓻 𝓶𝓸𝓻𝓮 𝓲𝓷𝓯𝓸."
       HELP_MSG = [
         ".",
 f"""
@@ -108,7 +108,7 @@ f"""
 f"""
 **=>> Song Download 🎸**
 
-- /video [song mame]: Download video song from youtube
+- /vsong [song mame]: Download video song from youtube
 - /song [song name]: Download audio song from youtube
 - /saavn [song name]: Download song from saavn
 - /deezer [song name]: Download song from deezer
