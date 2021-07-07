@@ -1,1 +1,3 @@
-from DaisyXMusic.services.downloaders.youtube import download
+from DaisyXMusic.services.downloaders import youtube
+
+__all__ = ["youtube"]
