@@ -105,16 +105,16 @@ If you donlt like to play in linked channel:
 - `.da` - disapproove someone to pm you
 + Sudo Users can execute any command in any groups
 
-### Credits
-Don't edit this part
 
-#### Special Credits
-- [Rojserbest](http://github.com/rojserbes): Callsmusic Developer
 
-This bot is based on the original work done by [Rojserbest](http://github.com/rojserbest). Without his hardwork daisyxmusic won't exist. 
-DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/callsmusic) for fit the needs of @DaisyXbot users
+### Inspiration
+- [Callsmusic](http://github.com/callsmusic/callsmusic)
+- [tgvc-userbot](https://github.com/callsmusic/tgvc-userbot)
 
-#### Contribtors
+This project is inspired on the hard work done by [Rojserbest](http://github.com/rojserbest). Without his hardwork daisyxmusic won't exist. 
+Also DaisyXmusic is inspired by many opensource bots and userbots
+
+#### Developers &Contribtors
 - [InukaASiTH](https://github.com/InukaAsith): Dev
 - [Technical-Hunter](https://github.com/Technical-Hunter): Dev
 - [Rojserbest](http://github.com/rojserbest): Dev
@@ -127,3 +127,16 @@ DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/
 - [ImJanindu](https://github.com/ImJanindu): 
 - [MARSHALX](https://github.com/MarshalX): TgCalls
 - [Original Repo owners](https://github.com/CallsMusic/CallsMusic)
+
+
+
+
+
+### Copyright & License 👮
+
+    Copyright (C) 2020 - 2021 by [TeamDaisyX](github.com/teamdaisyx) ❤️️
+    Licensed under the terms of the [GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007](https://github.com/TeamDaisyX/DaisyXMusic/blob/master/LICENSE)
+    
+DaisyXMusic is Free Software: You can use, study share and improve it at your will. Specifically you can redistribute and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.    
+
+## Made with ♥️ by [TeamDaisyX](https://github.com/TeamDaisyX)
