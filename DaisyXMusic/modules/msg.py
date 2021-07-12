@@ -21,11 +21,11 @@ from DaisyXMusic.config import PROJECT_NAME
 from DaisyXMusic.config import SUPPORT_GROUP
 from DaisyXMusic.config import UPDATES_CHANNEL
 class Messages():
-      START_MSG = "**Hello 👋 [{}](tg://user?id={})!**\n\n🤖 I am an advanced bot created for playing music in the voice chats of Telegram Groups & Channels.\n\n✅ Send me /help for more info."
+      START_MSG = "**Hello [{}](tg://user?id={})!**\n\n I am an advanced bot created by my Master 𝔸 N I Ꮶ E T for playing music in the voice chats of Telegram Groups & Channels.\n\n✅ Send me /help for more info."
       HELP_MSG = [
         ".",
 f"""
-**Hey 👋 Welcome back to {PROJECT_NAME}
+**Hey , Welcome to {PROJECT_NAME}
 
 ⚪️ {PROJECT_NAME} can play music in your group's voice chat as well as channel voice chats
 
@@ -38,7 +38,7 @@ f"""
 1) Make bot admin (Group and in channel if use cplay)
 2) Start a voice chat
 3) Try /play [song name] for the first time by an admin
-*) If userbot joined enjoy music, If not add @{ASSISTANT_NAME} to your group and retry
+4) If userbot joined enjoy music, If not add @{ASSISTANT_NAME} to your group and retry
 
 **For Channel Music Play**
 1) Make me admin of your channel 
@@ -48,7 +48,7 @@ f"""
 f"""
 **Commands**
 
-**=>> Song Playing 🎧**
+**=>> Song Playing **
 
 - /play: Play the requestd song
 - /play [yt url] : Play the given yt url
@@ -57,7 +57,7 @@ f"""
 - /splay: Play song via jio saavn
 - /ytplay: Directly play song via Youtube Music
 
-**=>> Playback ⏯**
+**=>> Playback **
 
 - /player: Open Settings menu of player
 - /skip: Skips the current track
@@ -71,7 +71,7 @@ f"""
 """,
 
 f"""
-**=>> Channel Music Play 🛠**
+**=>> Channel Music Play **
 
 ⚪️ For linked group admins only:
 
@@ -99,28 +99,28 @@ channel is also can be used instead of c ( /cplay = /channelplay )
 """,
 
 f"""
-**=>> More tools 🧑‍🔧**
+**=>> More tools **
 
 - /musicplayer [on/off]: Enable/Disable Music player
 - /admincache: Updates admin info of your group. Try if bot isn't recognize admin
 - /userbotjoin: Invite @{ASSISTANT_NAME} Userbot to your chat
 """,
 f"""
-**=>> Song Download 🎸**
+**=>> Song Download **
 
 - /video [song mame]: Download video song from youtube
 - /song [song name]: Download audio song from youtube
 - /saavn [song name]: Download song from saavn
 - /deezer [song name]: Download song from deezer
 
-**=>> Search Tools 📄**
+**=>> Search Tools **
 
 - /search [song name]: Search youtube for songs
 - /lyrics [song name]: Get song lyrics
 """,
 
 f"""
-**=>> Commands for Sudo Users ⚔️**
+**=>> Commands for Sudo Users **
 
  - /userbotleaveall - remove assistant from all chats
  - /broadcast <reply to message> - globally brodcast replied message to all chats
