@@ -1,9 +1,9 @@
 {
-  "name": "DaisyXMusic",
-  "logo": "https://telegra.ph/file/36ff1b571aa11df5812de.jpg",
+  "name": "Abscissa Music",
+  "logo": "https://telegra.ph/file/7e7c022256cd080bdbcf9.jpg",
   "description": "Open-Source bot to play songs in your Telegram's Group Voice Chat. Powered by PyTgCalls.",
   "keywords": ["music", "voicechat", "telegram"],
-  "repository": "https://github.com/TeamDaisyX/DaisyXMusic",
+  "repository": "https://github.com/Aniket-Code10010/Abscissa-Music",
   "stack": "heroku-20",
   "buildpacks": [
    {
