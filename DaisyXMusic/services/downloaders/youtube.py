@@ -19,8 +19,8 @@ from os import path
 
 from youtube_dl import YoutubeDL
 
-from VCPlayBot.config import DURATION_LIMIT
-from VCPlayBot.helpers.errors import DurationLimitError
+from DaisyXMusic.config import DURATION_LIMIT
+from DaisyXMusic.helpers.errors import DurationLimitError
 
 ydl_opts = {
     "format": "bestaudio[ext=m4a]",
