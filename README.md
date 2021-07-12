@@ -26,7 +26,7 @@
 
 ### 💜 Heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/TeamDaisyX/DaisyXMusic)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Aniket-Code10010/Abscissa-Music)
 
 Get pyrogram (p)  `SESSION` from here:
 
@@ -139,4 +139,4 @@ Also DaisyXmusic is inspired by many opensource bots and userbots
     
 DaisyXMusic is Free Software: You can use, study share and improve it at your will. Specifically you can redistribute and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.    
 
-## Made with ♥️ by [TeamDaisyX](https://github.com/TeamDaisyX)
+## Made with ♥️ by [TeamDaisyX](https://github.com/TeamDaisyX)  and Reconfigured By [Aniket-Code10010](https://github.com/Aniket-Code10010)
