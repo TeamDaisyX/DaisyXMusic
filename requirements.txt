@@ -10,7 +10,7 @@ aiofiles
 asyncio
 youtube_search
 search_engine_parser
-ffmpeg
+ffmpeg-python
 Pillow
 python-arq
 future
