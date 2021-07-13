@@ -122,8 +122,8 @@ Also DaisyXmusic is inspired by many opensource bots and userbots
 - [Bemro](https://github.com/bemroofficial): Dev
 - [QueenArzoo](https://github.com/QueenArzoo): Dev
 - [lucifeermorningstar](https://github.com/lucifeermorningstar): Dev
-- [Hamker Cat](https://github.com/thehamkercat/)
-- [Anjana-Ma](https://github.com/Anjana-Ma): 
+- [HamkerCat](https://github.com/thehamkercat/)
+- [AnjanaMadu](https://github.com/AnjanaMadu): 
 - [ImJanindu](https://github.com/ImJanindu): 
 - [MARSHALX](https://github.com/MarshalX): TgCalls
 - [Original Repo owners](https://github.com/CallsMusic/CallsMusic)
