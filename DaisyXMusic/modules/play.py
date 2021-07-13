@@ -58,6 +58,7 @@ from DaisyXMusic.services.converter.converter import convert
 from DaisyXMusic.services.downloaders import youtube
 from DaisyXMusic.services.queues import queues
 from DaisyXMusic.services.sql.cleansql import update_previous_msg,rm_clean_setting,add_clean_setting,get_current_clean_settings
+
 aiohttpsession = aiohttp.ClientSession()
 chat_id = None
 arq = ARQ("https://thearq.tech", ARQ_API_KEY, aiohttpsession)
@@ -571,7 +572,7 @@ async def play(_, message: Message):
     elif urls:
         query = toxt
         await lel.edit("🎵 <b>Processing</b>")
-        ydl_opts = {"format": "bestaudio[ext=mp3]"}
+        ydl_opts = {"format": "bestaudio[ext=m4a]"}
         try:
             results = YoutubeSearch(query, max_results=1).to_dict()
             url = f"https://youtube.com{results[0]['url_suffix']}"
@@ -625,7 +626,7 @@ async def play(_, message: Message):
             query += " " + str(i)
         print(query)
         await lel.edit("🎵 **Processing**")
-        ydl_opts = {"format": "bestaudio[ext=mp3]"}
+        ydl_opts = {"format": "bestaudio[ext=m4a]"}
         
         try:
           results = YoutubeSearch(query, max_results=5).to_dict()
@@ -822,7 +823,7 @@ async def ytplay(_, message: Message):
         query += " " + str(i)
     print(query)
     await lel.edit("🎵 <b>Processing</b>")
-    ydl_opts = {"format": "bestaudio[ext=mp3]"}
+    ydl_opts = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
         url = f"https://youtube.com{results[0]['url_suffix']}"
