@@ -1,5 +1,3 @@
-
-
 <h1 align="centre">DAISYXMUSIC V4.5 🎵</h1> 
 
 ## old version
@@ -30,7 +28,7 @@
 
 ### 💜 Heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/TeamDaisyX/DaisyXMusic)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/TeamDaisyX/DaisyXMusic/tree/legacy)
 
 Get pyrogram (p)  `SESSION` from here:
 [![Run on Repl.it](https://repl.it/badge/github/SpEcHiDe/GenerateStringSession)](https://repl.it/@SpEcHiDe/GenerateStringSession)
@@ -121,6 +119,7 @@ DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/
 
 #### Contribtors
 - [InukaASiTH](https://github.com/InukaAsith): Dev
+- [Technical-Hunter](https://github.com/Technical-Hunter): Dev
 - [Rojserbest](http://github.com/rojserbes): Dev
 - [Wrench](https://github.com/EverythingSuckz/): Dev
 - [Bemro](https://github.com/bemroofficial): Dev
