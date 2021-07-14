@@ -15,7 +15,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-from asyncio.queues import QueueEmpty
+from asyncio import QueueEmpty
 from DaisyXMusic.config import que
 from pyrogram import Client, filters
 from pyrogram.types import Message
@@ -25,6 +25,7 @@ from DaisyXMusic.helpers.channelmusic import get_chat_id
 from DaisyXMusic.helpers.decorators import authorized_users_only, errors
 from DaisyXMusic.helpers.filters import command, other_filters
 from DaisyXMusic.services.callsmusic import callsmusic
+from DaisyXMusic.services.queues import queues
 
 
 @Client.on_message(filters.command("adminreset"))
