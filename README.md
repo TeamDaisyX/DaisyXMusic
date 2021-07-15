@@ -112,7 +112,7 @@ If you donlt like to play in linked channel:
 Don't edit this part
 
 #### Special Credits
-- [Rojserbest](http://github.com/rojserbes): Callsmusic Developer
+- [Roj Serbest](http://github.com/rojserbest): Callsmusic Developer
 
 This bot is based on the original work done by [Rojserbest](http://github.com/rojserbest). Without his hardwork daisyxmusic won't exist. 
 DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/callsmusic) for fit the needs of @DaisyXbot users
@@ -120,7 +120,7 @@ DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/
 #### Contribtors
 - [InukaASiTH](https://github.com/InukaAsith): Dev
 - [Technical-Hunter](https://github.com/Technical-Hunter): Dev
-- [Rojserbest](http://github.com/rojserbes): Dev
+- [Roj Serbest](http://github.com/rojserbest): Dev
 - [Wrench](https://github.com/EverythingSuckz/): Dev
 - [Bemro](https://github.com/bemroofficial): Dev
 - [QueenArzoo](https://github.com/QueenArzoo): Dev
