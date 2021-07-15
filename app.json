@@ -1,12 +1,15 @@
-{
+{{
   "name": "DaisyXMusic",
-  "description": "Open-Source bot to play songs in your Telegram's Group Voice Chat. Powered by PyTgCalls.",
+  "logo": "https://telegra.ph/file/3254d72486adf6739d8fd.jpg",
+  "description": "Open-Source bot to play songs in your Telegram's Group Voice Chat. Powered by MARSHALX TGCALLS.",
   "keywords": ["music", "voicechat", "telegram"],
-  "repository": "https://github.com/TeamofDaisyX/DaisyXMusic",
-  "stack": "container",
-  "buildpacks": [
+  "repository": "https://github.com/TeamDaisyX/DaisyXMusic",
+  "buildpacks": 
    {
      "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+   },
+   {
+     "url": "heroku/python"
    }   
   ],        
   "env": {
@@ -30,12 +33,12 @@
     "SUPPORT_GROUP": {
       "description": "Your MusicPlayer support group without @ [Leave this if you don't have one]",
       "required": false,
-      "value": "DaisySupport_Official"
+      "value": "Yeageristbots"
     },
     "PROJECT_NAME": {
       "description": "Your MusicPlayer project Name.",
       "required": false,
-      "value": "DaisyXMusic v4"
+      "value": "DaisyXMusict v5"
     },
     "ASSISTANT_NAME": {
       "description": "Your MusicPlayer's assistant Username without @.",
@@ -44,17 +47,17 @@
     "ARQ_API_KEY": {
       "description": "Get from @ARQRobot.",
       "required": false,
-      "value": "VKSSQH-SRNJYZ-MSOJAI-QALESR-ARQ"
+      "value": ""
     },    
     "BG_IMAGE": {
       "description": "BG image of bot (Use transparent one) [IGNORE].",
       "required": false,
-      "value": " https://telegra.ph/file/dcfdf612e499eef0e0b1f.png"
+      "value": "  https://telegra.ph/file/8a4928725cbc36a0f703b.jpg"
     },     
     "UPDATES_CHANNEL": {
       "description": "Updates Channel without @ [Leave this if you don't have one].",
       "required": false,
-      "value": "DaisyXupdates"
+      "value": "Animemusicarchive6"
     },    
     "API_ID": {
       "description": "App ID from my.telegram.org/apps",
