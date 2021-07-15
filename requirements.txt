@@ -1,6 +1,6 @@
 Pyrogram
 TgCrypto
-git+https://github.com/MarshalX/tgcalls@dev#subdirectory=pytgcalls
+pytgcalls
 python-dotenv
 youtube_dl
 youtube_search_python
@@ -20,4 +20,4 @@ tswift
 
 # Database
 psycopg2-binary==2.8.6
-sqlalchemy==1.3.20 
+sqlalchemy==1.3.20
