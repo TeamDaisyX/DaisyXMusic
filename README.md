@@ -1,7 +1,5 @@
 <h1 align="centre">DAISYXMUSIC V5.5 🎵</h1> 
 
-## old version
-
 ### A bot that can play music on Telegram Group and Channel Voice Chats
 #### POWERED BY [PYTGCALLS](https://github.com/pytgcalls/pytgcalls)
 ### Available on telegram as [@DaisyXbot](https://t.me/daisyxbot)
@@ -118,9 +116,8 @@ This bot is based on the original work done by [Rojserbest](http://github.com/ro
 DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/callsmusic) for fit the needs of @DaisyXbot users
 
 #### Contribtors
-
 - [Technical-Hunter](https://github.com/Technical-Hunter): Dev
-- [Roj Serbest](http://github.com/rojserbest): Dev
+- [Roj Serbest](http://github.com/rojserbest): Developer of callsmusic 
 - [Wrench](https://github.com/EverythingSuckz/): Dev
 - [Bemro](https://github.com/bemroofficial): Dev
 - [QueenArzoo](https://github.com/QueenArzoo): Dev
