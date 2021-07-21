@@ -1,4 +1,4 @@
-# Daisyxmusic (Telegram bot project )
+# ZeroTwo Music (Telegram bot project )
 # Copyright (C) 2021  Inukaasith
 
 # This program is free software: you can redistribute it and/or modify
@@ -21,7 +21,7 @@ class Messages():
       HELP_MSG = [
         ".",
 f"""
-**Hey 👋 Welcome back to {PROJECT_NAME}
+**Hey 👋 Welcome to {PROJECT_NAME}
 
 ⚪️ {PROJECT_NAME} can play music in your group's voice chat as well as channel voice chats
 
