@@ -16,19 +16,19 @@
 
 from typing import Dict
 
-from pytgcalls import GroupCall
+from pytgcalls import GroupCallFactory
 
 from DaisyXMusic.services.callsmusic import client
 from DaisyXMusic.services.queues import queues
 
 
-instances: Dict[int, GroupCall] = {}
+instances: Dict[int, GroupCallFactory] = {}
 active_chats: Dict[int, Dict[str, bool]] = {}
 
 
 def init_instance(chat_id: int):
     if chat_id not in instances:
-        instances[chat_id] = GroupCall(client)
+        instances[chat_id] = GroupCallFactory(client).get_file_group_call()
 
     instance = instances[chat_id]
 
@@ -53,7 +53,7 @@ def remove(chat_id: int):
         del active_chats[chat_id]
 
 
-def get_instance(chat_id: int) -> GroupCall:
+def get_instance(chat_id: int) -> GroupCallFactory:
     init_instance(chat_id)
     return instances[chat_id]
 
