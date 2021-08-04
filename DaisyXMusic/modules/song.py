@@ -300,45 +300,6 @@ async def jssong(_, message):
     is_downloading = False
 
 
-# Deezer Music
-
-
-@Client.on_message(filters.command("deezer") & ~filters.edited)
-async def deezsong(_, message):
-    global is_downloading
-    if len(message.command) < 2:
-        await message.reply_text("/deezer requires an argument.")
-        return
-    if is_downloading:
-        await message.reply_text(
-            "Another download is in progress, try again after sometime."
-        )
-        return
-    is_downloading = True
-    text = message.text.split(None, 1)[1]
-    query = text.replace(" ", "%20")
-    m = await message.reply_text("Searching...")
-    try:
-        songs = await arq.deezer(query, 1)
-        if not songs.ok:
-            await message.reply_text(songs.result)
-            return
-        title = songs.result[0].title
-        url = songs.result[0].url
-        artist = songs.result[0].artist
-        await m.edit("Downloading")
-        song = await download_song(url)
-        await m.edit("Uploading")
-        await message.reply_audio(audio=song, title=title, performer=artist)
-        os.remove(song)
-        await m.delete()
-    except Exception as e:
-        is_downloading = False
-        await m.edit(str(e))
-        return
-    is_downloading = False
-
-
 @Client.on_message(filters.command(["vsong", "video"]))
 async def ytmusic(client, message: Message):
     global is_downloading
