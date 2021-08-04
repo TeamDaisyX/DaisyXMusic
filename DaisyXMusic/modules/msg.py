@@ -48,7 +48,6 @@ f"""
 - /play: Play the requestd song
 - /play [yt url] : Play the given yt url
 - /play [reply yo audio]: Play replied audio
-- /dplay: Play song via deezer
 - /splay: Play song via jio saavn
 - /ytplay: Directly play song via Youtube Music
 
@@ -71,7 +70,6 @@ f"""
 ⚪️ For linked group admins only:
 
 - /cplay [song name] - play song you requested
-- /cdplay [song name] - play song you requested via deezer
 - /csplay [song name] - play song you requested via jio saavn
 - /cplaylist - Show now playing list
 - /cccurrent - Show now playing
