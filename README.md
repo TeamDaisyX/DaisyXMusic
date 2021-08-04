@@ -38,11 +38,11 @@ $ git clone https://github.com/TeamDaisyX/DaisyXmusic
 $ cd DaisyXMusic
 # Upgrade sources
 # Install All Requirements 
-$ pip(3) install -r requirements.txt
+$ pip3 install -r requirements.txt
 # Rename example.env to local.env and fill
 $ npm i -g npm
 # Start Bot 
-$ python(3) -m DaisyXMusic
+$ python3 -m DaisyXMusic
 ```
 
 ### Commands for Group 🛠
