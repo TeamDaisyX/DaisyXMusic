@@ -50,7 +50,6 @@ $ python(3) -m DaisyXMusic
 
 - `/play <song name>` - play song you requested
 - `/play <reply to audio>` - play replied file
-- `/dplay <song name>` - play song you requested via deezer
 - `/splay <song name>` - play song you requested via jio saavn
 - `/ytplay <song name>`: Directly play song via Youtube Music
 - `/playlist` - Show now playing list
@@ -77,7 +76,6 @@ For linked group admins only:
 - `/cplay <song name>` - play song you requested
 - `/cplay <reply to link>` - play replied youtube link
 - `/cplay <reply to audio>` - play replied file
-- `/cdplay <song name>` - play song you requested via deezer
 - `/csplay <song name>` - play song you requested via jio saavn
 - `/cplaylist` - Show now playing list
 - `/cccurrent` - Show now playing
@@ -124,8 +122,8 @@ DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/
 - [QueenArzoo](https://github.com/QueenArzoo): Dev
 - [lucifeermorningstar](https://github.com/lucifeermorningstar): Dev
 - [AuraXNetwork](https://github.com/AuraXNetwork/AuraXMusicBot)
-- [Hamker Cat](https://github.com/thehamkercat/)
+- [Hamker Cat](https://github.com/thehamkercat): Python-ARQ
 - [Anjana-Ma](https://github.com/Anjana-Ma): 
 - [ImJanindu](https://github.com/ImJanindu): 
 - [Laky](https://github.com/Laky-64) & [Andrew](https://github.com/AndrewLaneX): PyTgCalls
-- [Original Repo owners](https://github.com/suprojects/CallsMusic)
+- [Original Repo owners](https://github.com/CallsMusic/CallsMusic)
