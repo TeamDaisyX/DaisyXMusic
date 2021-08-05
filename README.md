@@ -127,3 +127,12 @@ DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/
 - [ImJanindu](https://github.com/ImJanindu): 
 - [Laky](https://github.com/Laky-64) & [Andrew](https://github.com/AndrewLaneX): PyTgCalls
 - [Original Repo owners](https://github.com/CallsMusic/CallsMusic)
+
+## All who helped at a glance 
+
+> This project exists thanks to these awesome developers and their codes and contributions.
+
+<a href="https://github.com/TeamDaisyX/DaisyXmusic/graphs/contributors"><img src="https://opencollective.com/teamdaisyxdaisy/contributors.svg?width=890&button=false" /></a>
+
+> And credits goes to all who supported, all who helped and API & environmental equirement package devs and all projects helped in making this project.
+> Special thanks to you for using bot
