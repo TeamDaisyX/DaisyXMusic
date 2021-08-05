@@ -57,7 +57,7 @@
       "value": "DaisyXupdates"
     },    
     "API_ID": {
-      "description": "App ID from my.telegram.org/apps",
+      "description": "ID Aplikasi dari my.telegram.org/apps",
       "required": true
     },
     "PMPERMIT": {
