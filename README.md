@@ -116,6 +116,7 @@ DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/
 - [InukaAsith](https://github.com/InukaAsith): Dev
 - [Technical-Hunter](https://github.com/Technical-Hunter): Dev
 - [Roj Serbest](http://github.com/rojserbest): Developer of callsmusic 
+- [SpEcHiDe](https://github.com/SpEcHiDe/)
 - [Wrench](https://github.com/EverythingSuckz/): Dev
 - [Bemro](https://github.com/bemroofficial): Dev
 - [QueenArzoo](https://github.com/QueenArzoo): Dev
