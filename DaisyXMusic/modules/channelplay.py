@@ -84,7 +84,7 @@ async def playlist(client, message):
     await message.reply_text(msg)
 
 
-# ============================= Settings =========================================
+# =============================  =========================================
 
 
 def updated_stats(chat, queue, vol=100):
