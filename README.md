@@ -15,7 +15,7 @@
 - Current playback support
 - Showing track names when skipping
 - Zero downtime, Fully Stable
-- Deezer,Youtube & Saavn playback support
+- Youtube & Saavn playback support
 - Settings panel
 - Control with buttons
 - Userbot auto join
@@ -56,7 +56,6 @@ $ python3 -m DaisyXMusic
 - `/current` - Show now playing
 - `/song <song name>` - download songs you want quickly
 - `/search <query>` - search videos on youtube with details
-- `/deezer <song name>` - download songs you want quickly via deezer
 - `/saavn <song name>` - download songs you want quickly via saavn
 - `/video <song name>` - download videos you want quickly
 
@@ -117,6 +116,7 @@ DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/
 - [InukaAsith](https://github.com/InukaAsith): Dev
 - [Technical-Hunter](https://github.com/Technical-Hunter): Dev
 - [Roj Serbest](http://github.com/rojserbest): Developer of callsmusic 
+- [SpEcHiDe](https://github.com/SpEcHiDe/)
 - [Wrench](https://github.com/EverythingSuckz/): Dev
 - [Bemro](https://github.com/bemroofficial): Dev
 - [QueenArzoo](https://github.com/QueenArzoo): Dev
@@ -127,3 +127,12 @@ DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/
 - [ImJanindu](https://github.com/ImJanindu): 
 - [Laky](https://github.com/Laky-64) & [Andrew](https://github.com/AndrewLaneX): PyTgCalls
 - [Original Repo owners](https://github.com/CallsMusic/CallsMusic)
+
+## All who helped at a glance 
+
+> This project exists thanks to these awesome developers and their codes and contributions.
+
+<a href="https://github.com/TeamDaisyX/DaisyXmusic/graphs/contributors"><img src="https://opencollective.com/teamdaisyxdaisy/contributors.svg?width=890&button=false" /></a>
+
+> And credits goes to all who supported, all who helped and API & environmental requirement package devs and all projects helped in making this project.
+> Special thanks to you for using bot
