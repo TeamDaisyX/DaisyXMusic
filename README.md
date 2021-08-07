@@ -59,6 +59,7 @@ $ python3 -m DaisyXMusic
 - `/saavn <song name>` - download songs you want quickly via saavn
 - `/video <song name>` - download videos you want quickly
 
+
 #### Admins only.
 - `/player` - open music player settings panel
 - `/pause` - pause song play
