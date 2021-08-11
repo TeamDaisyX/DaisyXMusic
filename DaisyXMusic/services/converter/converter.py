@@ -36,14 +36,14 @@ async def convert(file_path: str) -> str:
             cmd=(
                 "ffmpeg " 
                 "-y -i " 
-                "{file_path} "
+                f"{file_path} "
                 "-f s16le "
                 "-ac 1 "
                 "-ar 48000 "
                 "-acodec pcm_s16le " 
                 f"{out}"
-            asyncio.subprocess.PIPE,
-            stderr=asyncio.subprocess.PIPE,
+            ),
+            stdin=asyncio.subprocess.PIPE,
         )
 
         await proc.communicate()
