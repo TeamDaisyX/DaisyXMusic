@@ -1,6 +1,6 @@
-Pyrogram
-TgCrypto
-pytgcalls[pyrogram]
+pyrogram
+tgcrypto
+pytgcalls[pyrogram]==2.0.0.dev3
 python-dotenv
 youtube_dl
 youtube_search_python
@@ -11,7 +11,7 @@ asyncio
 youtube_search
 search_engine_parser
 ffmpeg-python
-Pillow
+pillow
 python-arq
 future
 psutil
