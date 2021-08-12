@@ -31,12 +31,14 @@ async def pmPermit(client: USER, message: Message):
             chat_id = message.chat.id
             if chat_id in pchats:
                 return
-            await USER.send_message(
-                message.chat.id,
-                PMMSG
-          )
-            return
-
+            try:
+              await USER.send_message(
+                  message.chat.id,
+                  PMMSG
+              )
+              return
+            except:
+              return
     
 
 @Client.on_message(filters.command(["/pmpermit"]))
