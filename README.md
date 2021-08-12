@@ -103,7 +103,10 @@ If you donlt like to play in linked channel:
 #### Pmpermit
 - `.a` - approove someone to pm you
 - `.da` - disapproove someone to pm you
+- You can add a custom pmpermit message by adding var `PMMSG` and adding your message through env vars (for heroku, Settings/Edit vars)
+
 + Sudo Users can execute any command in any groups
+
 
 ### Credits
 Don't edit this part
