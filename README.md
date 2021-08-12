@@ -134,7 +134,5 @@ DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/
 
 > This project exists thanks to these awesome developers and their codes and contributions.
 
-<a href="https://github.com/TeamDaisyX/DaisyXmusic/graphs/contributors"><img src="https://opencollective.com/teamdaisyxdaisy/contributors.svg?width=890&button=false" /></a>
-
 > And credits goes to all who supported, all who helped and API & environmental requirement package devs and all projects helped in making this project.
 > Special thanks to you for using bot
