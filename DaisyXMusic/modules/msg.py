@@ -1,5 +1,8 @@
 # Daisyxmusic (Telegram bot project )
-# Copyright (C) 2021  Inukaasith
+
+# Copyright (C) 2021  Bemro-Official 
+# Copyright (C) 2021  Inukaasith (Modified)
+# Copyright (C) 2021  Technical-Hunter (Modified)
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
