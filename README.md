@@ -95,6 +95,13 @@ If you donlt like to play in linked channel:
  4. add helper to channel
  5. Simply send commands in your group.
 
+### Authorized users & Misc
+*Authorized users can execute admin commands in authorized group
+- `/auth <reply to user>` - Authorize User
+- `/deauth <reply to user>` - DeAuthorize user
+- `/admincache` - Refesh admin list
+
+
 ### Commands for Sudo Users ⚔️
 - `/userbotleaveall` - remove assistant from all chats
 - `/gcast <reply to message>` - globally brodcast replied message to all chats
@@ -127,6 +134,7 @@ DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/
 - [QueenArzoo](https://github.com/QueenArzoo): Dev
 - [Anjana-Ma](https://github.com/Anjana-Ma): 
 - [ImJanindu](https://github.com/ImJanindu): 
+- [azimazizov9150](https://github.com/azimazizov9150)
 
 #### Special Credits
 - [SpEcHiDe](https://github.com/SpEcHiDe/)
