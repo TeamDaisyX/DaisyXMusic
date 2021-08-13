@@ -75,6 +75,13 @@ $ python3 -m DaisyXMusic
 - `/admincache` - Refresh admin list
 - `/musicplayer [on/off]` - Enable/Disable Music Player
 
+#### Authorized users & Misc
+*Authorized users can execute admin commands in authorized group
+- `/auth <reply to user>` - Authorize User
+- `/deauth <reply to user>` - DeAuthorize user
+- `/admincache` - Refesh admin list
+
+
 ### Commands for Channel Music Play 🛠
 For linked group admins only:
 - `/cplay <song name>` - play song you requested
@@ -97,12 +104,6 @@ If you donlt like to play in linked channel:
  3. Add @DaisyXBot as Channel admin with full perms
  4. add helper to channel
  5. Simply send commands in your group.
-
-### Authorized users & Misc
-*Authorized users can execute admin commands in authorized group
-- `/auth <reply to user>` - Authorize User
-- `/deauth <reply to user>` - DeAuthorize user
-- `/admincache` - Refesh admin list
 
 
 ### Commands for Sudo Users ⚔️
