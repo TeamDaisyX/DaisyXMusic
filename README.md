@@ -8,6 +8,8 @@
   <img src="https://telegra.ph/file/dd04b1968f1bc1169d162.jpg">
 </p>
 
+> ⭐️ Thanks to everyone who starred DaisyXMusic, That is the greatest pleasure we have !
+
 <h2> Features 🔥 </h2>
 
 - Thumbnail Support
