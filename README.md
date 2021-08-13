@@ -48,6 +48,8 @@ $ npm i -g npm
 # Start Bot 
 $ python3 -m DaisyXMusic
 ```
+[Watch Tutorial on hosting DaisyXMusic on vps](https://youtu.be/MdavNbazT7Q)
+
 
 ### Commands for Group 🛠
 #### For all in group
