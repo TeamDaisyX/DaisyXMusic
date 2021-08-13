@@ -18,7 +18,7 @@
 - Current playback support
 - Showing track names when skipping
 - Zero downtime, Fully Stable
-- Youtube & Saavn playback support
+- Youtube, Local & Saavn playback support
 - Settings panel
 - Control with buttons
 - Userbot auto join
