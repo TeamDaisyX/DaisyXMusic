@@ -119,7 +119,7 @@ If you donlt like to play in linked channel:
 + Sudo Users can execute any command in any groups
 
 
-### Credits
+## Credits
 Don't edit this part
 
 #### Special Credits
