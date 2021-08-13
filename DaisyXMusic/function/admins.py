@@ -1,5 +1,5 @@
 from typing import Dict, List
-
+from DaisyXMusic.config import admins
 
 admins: Dict[int, List[int]] = {}
 
