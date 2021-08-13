@@ -296,7 +296,7 @@ async def jssong(_, message):
     query = text.replace(" ", "%20")
     m = await message.reply_text("Searching...")
 
-# ======= Copied from https://github.com/TheHamkerCat/WilliamButcherBot/blob/dev/wbb/modules/music.py ========
+# ======= Copied from https://github.com/TheHamkerCat/WilliamButcherBot/blob/dev/wbb/modules/music.py line 170 ========
 
 """
 MIT License
