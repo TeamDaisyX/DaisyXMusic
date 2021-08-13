@@ -1,6 +1,10 @@
 # Daisyxmusic (Telegram bot project)
+
 # Copyright (C) 2021  Inukaasith
-# Copyright (C) 2021  TheHamkerCat (Python_ARQ)
+# Copyright (C) 2021  Technical-Hunter
+# Copyright (C) 2021  Anjana-MA
+# Copyright (C) 2021  Bemro-Official
+
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Affero General Public License as
 # published by the Free Software Foundation, either version 3 of the
@@ -54,7 +58,10 @@ from DaisyXMusic.services.queues import queues
 
 aiohttpsession = aiohttp.ClientSession()
 chat_id = None
+
+# Credits to github.com/thehamkercat for api
 arq = ARQ("https://thearq.tech", ARQ_API_KEY, aiohttpsession)
+
 DISABLED_GROUPS = []
 useer ="NaN"
 def cb_admin_check(func: Callable) -> Callable:
