@@ -49,7 +49,6 @@ $ python3 -m DaisyXMusic
 #### For all in group
 
 - `/play <song name>` - play song you requested
-- `/play <reply to audio>` - play replied file
 - `/dplay <song name>` - play song you requested via deezer
 - `/splay <song name>` - play song you requested via jio saavn
 - `/ytplay <song name>`: Directly play song via Youtube Music
