@@ -2,6 +2,7 @@
 
 # Copyright (C) 2021  Inukaasith
 # Copyright (C) 2021  Technical-Hunter
+# Copyright (C) 2021  ImJanindu
 # Copyright (C) 2021  Anjana-MA
 # Copyright (C) 2021  Bemro-Official
 
