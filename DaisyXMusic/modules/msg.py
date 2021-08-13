@@ -97,6 +97,9 @@ f"""
 - /musicplayer [on/off]: Enable/Disable Music player
 - /admincache: Updates admin info of your group. Try if bot isn't recognize admin
 - /userbotjoin: Invite @{ASSISTANT_NAME} Userbot to your chat
+- /auth [reply to user] - Authorize User
+- /deauth [reply to user] - DeAuthorize user
+Authorized users can execute admin commands in authorized group
 
 **=>> Commands for Sudo Users ⚔️**
 
