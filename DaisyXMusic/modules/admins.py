@@ -14,6 +14,9 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+# Modified by @InukaAsith
+
+# Added /auth and /deauth by azimazizov9150 <https://github.com/azimazizov9150>
 
 from asyncio import QueueEmpty
 from DaisyXMusic.config import que
@@ -27,8 +30,9 @@ from DaisyXMusic.helpers.filters import command, other_filters
 from DaisyXMusic.services.callsmusic import callsmusic
 from DaisyXMusic.services.queues import queues
 
+# By azimazizov9150 <https://github.com/azimazizov9150>
 
-@Client.on_message(filters.command("adminreset"))
+@Client.on_message(filters.command("admincache"))
 async def update_admin(client, message):
     global admins
     new_admins = []
