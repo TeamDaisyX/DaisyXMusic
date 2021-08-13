@@ -137,7 +137,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     os.remove("background.png")
 
 
-@Client.on_message(filters.command("playlist") & filters.group & ~filters.edited)
+@Client.on_message(filters.command("playlist2") & filters.group & ~filters.edited)
 async def playlist(client, message):
     global que
     if message.chat.id in DISABLED_GROUPS:
@@ -184,7 +184,7 @@ def updated_stats(chat, queue, vol=100):
 
 
 def r_ply(type_):
-    if type_ == "play":
+    if type_ == "play2":
         pass
     else:
         pass
@@ -205,7 +205,7 @@ def r_ply(type_):
     return mar
 
 
-@Client.on_message(filters.command("current") & filters.group & ~filters.edited)
+@Client.on_message(filters.command("current2") & filters.group & ~filters.edited)
 async def ee(client, message):
     if message.chat.id in DISABLED_GROUPS:
         return
@@ -217,7 +217,7 @@ async def ee(client, message):
         await message.reply("No VC instances running in this chat")
 
 
-@Client.on_message(filters.command("player") & filters.group & ~filters.edited)
+@Client.on_message(filters.command("player2") & filters.group & ~filters.edited)
 @authorized_users_only
 async def settings(client, message):
     if message.chat.id in DISABLED_GROUPS:
@@ -231,16 +231,16 @@ async def settings(client, message):
     stats = updated_stats(message.chat, queue)
     if stats:
         if playing:
-            await message.reply(stats, reply_markup=r_ply("pause"))
+            await message.reply(stats, reply_markup=r_ply("pause2"))
 
         else:
-            await message.reply(stats, reply_markup=r_ply("play"))
+            await message.reply(stats, reply_markup=r_ply("play2"))
     else:
         await message.reply("No VC instances running in this chat")
 
 
 @Client.on_message(
-    filters.command("musicplayer") & ~filters.edited & ~filters.bot & ~filters.private
+    filters.command("musicplayer2") & ~filters.edited & ~filters.bot & ~filters.private
 )
 @authorized_users_only
 async def hfmm(_, message):
@@ -282,7 +282,7 @@ async def hfmm(_, message):
         )    
         
 
-@Client.on_callback_query(filters.regex(pattern=r"^(playlist)$"))
+@Client.on_callback_query(filters.regex(pattern=r"^(playlist2)$"))
 async def p_cb(b, cb):
     global que
     que.get(cb.message.chat.id)
@@ -346,7 +346,7 @@ async def m_cb(b, cb):
                 updated_stats(m_chat, qeue), reply_markup=r_ply("play")
             )
 
-    elif type_ == "play":
+    elif type_ == "play2":
         if (chet_id not in callsmusic.pytgcalls.active_calls) or (
             callsmusic.pytgcalls.active_calls[chet_id] == "playing"
         ):
@@ -455,7 +455,7 @@ async def m_cb(b, cb):
             await cb.answer("Chat is not connected!", show_alert=True)
 
 
-@Client.on_message(command("play") & other_filters)
+@Client.on_message(command("play2") & other_filters)
 async def play(_, message: Message):
     global que
     global useer
