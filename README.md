@@ -120,10 +120,10 @@ Don't edit this part
 
 #### Special Credits
 - [Roj Serbest](http://github.com/rojserbest): Callsmusic Developer
-
 This bot is based on the original work done by [Rojserbest](http://github.com/rojserbest). Without his hardwork daisyxmusic won't exist. 
-DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/callsmusic) for fit the needs of @DaisyXbot users
+DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/callsmusic) for fit the needs of some users
 
+- [StarkGang](https://github.com/StarkGang/)
 - [SpEcHiDe](https://github.com/SpEcHiDe/)
 - [The Hamker Cat](https://github.com/thehamkercat): Python-ARQ
 - [Laky](https://github.com/Laky-64) & [Andrew](https://github.com/AndrewLaneX): PyTgCalls
