@@ -121,19 +121,25 @@ DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/
 - [InukaAsith](https://github.com/InukaAsith): Dev
 - [Technical-Hunter](https://github.com/Technical-Hunter): Dev
 - [Roj Serbest](http://github.com/rojserbest): Developer of callsmusic 
-- [SpEcHiDe](https://github.com/SpEcHiDe/)
+- [lucifeermorningstar](https://github.com/lucifeermorningstar): Dev
 - [Wrench](https://github.com/EverythingSuckz/): Dev
 - [Bemro](https://github.com/bemroofficial): Dev
 - [QueenArzoo](https://github.com/QueenArzoo): Dev
-- [lucifeermorningstar](https://github.com/lucifeermorningstar): Dev
-- [AuraXNetwork](https://github.com/AuraXNetwork/AuraXMusicBot)
-- [Hamker Cat](https://github.com/thehamkercat): Python-ARQ
 - [Anjana-Ma](https://github.com/Anjana-Ma): 
 - [ImJanindu](https://github.com/ImJanindu): 
+
+#### Special Credits
+- [SpEcHiDe](https://github.com/SpEcHiDe/)
+- [AuraXNetwork](https://github.com/AuraXNetwork/AuraXMusicBot)
+- [The Hamker Cat](https://github.com/thehamkercat): Python-ARQ
 - [Laky](https://github.com/Laky-64) & [Andrew](https://github.com/AndrewLaneX): PyTgCalls
 - [Original Repo owners](https://github.com/CallsMusic/CallsMusic)
 
-## All who helped at a glance 
+#### Open Source codes used in this project 
+
+
+- https://github.com/DevsExpo/FridayUserbot/blob/master/main_startup/helper_func/basic_helpers.py : Functioms from line 275 to 351
+- 
 
 > This project exists thanks to these awesome developers and their codes and contributions.
 
