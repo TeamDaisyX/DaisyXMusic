@@ -33,7 +33,7 @@
 
 [![Deploy+on+Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/TeamDaisyX/DaisyXMusic/tree/Py-Tgcalls(main)&envs=SESSION_NAME,BOT_TOKEN,BOT_USERNAME,BOT_NAME,SUPPORT_GROUP,PROJECT_NAME,ARQ_API_KEY,ASSISTANT_NAME,BG_IMAGE,UPDATES_CHANNEL,API_ID,PMPERMIT,API_HASH,SUDO_USERS,DURATION_LIMIT)
 
-[Watch Tutorial on hosting DaisyXMusic on VPS](https://youtu.be/MdavNbazT7Q)
+
 
 Get pyrogram (p)  `SESSION` from here:
 [![Run on Repl.it](https://repl.it/badge/github/SpEcHiDe/GenerateStringSession)](https://repl.it/@SpEcHiDe/GenerateStringSession)
@@ -51,6 +51,7 @@ $ npm i -g npm
 # Start Bot 
 $ python3 -m DaisyXMusic
 ```
+[Watch Tutorial on hosting DaisyXMusic on VPS](https://youtu.be/MdavNbazT7Q)
 
 
 ### Commands for Group 🛠
