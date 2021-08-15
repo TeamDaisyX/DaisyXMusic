@@ -35,7 +35,8 @@
 
 
 
-Get pyrogram (p)  `SESSION` from here:
+• Get pyrogram (p)  `SESSION` from here:
+
 [![Run on Repl.it](https://repl.it/badge/github/SpEcHiDe/GenerateStringSession)](https://repl.it/@SpEcHiDe/GenerateStringSession)
 
 ### ⚔ Self-hosting (For Devs) 
@@ -51,6 +52,7 @@ $ npm i -g npm
 # Start Bot 
 $ python3 -m DaisyXMusic
 ```
+
 [Watch Tutorial on hosting DaisyXMusic on VPS](https://youtu.be/MdavNbazT7Q)
 
 
