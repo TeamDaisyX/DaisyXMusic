@@ -139,7 +139,7 @@ DaisyXMusic is a hardwork of many people. Many contributors and open source proj
 - [Bemro](https://github.com/bemroofficial): Dev
 - [QueenArzoo](https://github.com/QueenArzoo): Dev
 - [Anjana-Ma](https://github.com/Anjana-Ma): Dev
-- [ImJanindu](https://github.com/ImJanindu): Contributor
+- [ImJanindu](https://github.com/ImJanindu): Dev
 - [azimazizov9150](https://github.com/azimazizov9150): Contributor
 
 
@@ -151,7 +151,7 @@ DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/
 
 - [StarkGang](https://github.com/StarkGang/)
 - [SpEcHiDe](https://github.com/SpEcHiDe/)
-- [The Hamker Cat](https://github.com/thehamkercat): Python-ARQ
+- [The Hamker Cat](https://github.com/thehamkercat)
 - [Laky](https://github.com/Laky-64) & [Andrew](https://github.com/AndrewLaneX): PyTgCalls
 - [Dan (for pyrogram)](https://github.com/delivrance)
 
@@ -163,6 +163,5 @@ DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/
 
 
 > This project exists thanks to these awesome developers and their codes and contributions.
-
 > And credits goes to all who supported, all who helped and API & environmental requirement package devs and all projects helped in making this project.
 > Special thanks to you for using bot
