@@ -133,7 +133,7 @@ DaisyXMusic is a hardwork of many people. Many contributors and open source proj
 - [InukaAsith](https://github.com/InukaAsith): Dev / Owner
 - [Technical-Hunter](https://github.com/Technical-Hunter): Dev / Owner
 - [Roj Serbest](http://github.com/rojserbest): Developer of callsmusic 
-- [Deshadeeth-Thisarana](https://github.com/deshadeeth-thisarana) : Dev
+- [DeshadeethThisarana](https://github.com/deshadeeth-thisarana) : Dev
 - [lucifeermorningstar](https://github.com/lucifeermorningstar): Dev
 - [Wrench](https://github.com/EverythingSuckz/): Dev
 - [Bemro](https://github.com/bemroofficial): Dev
