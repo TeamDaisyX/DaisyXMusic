@@ -127,24 +127,13 @@ If you donlt like to play in linked channel:
 
 
 ## Credits
-Don't edit this part
-
-#### Special Credits
-- [Roj Serbest](http://github.com/rojserbest): Callsmusic Developer
-
-This bot is based on the original work done by [Rojserbest](http://github.com/rojserbest). Without his hardwork daisyxmusic won't exist. 
-DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/callsmusic) for fit the needs of some users
-
-- [StarkGang](https://github.com/StarkGang/)
-- [SpEcHiDe](https://github.com/SpEcHiDe/)
-- [The Hamker Cat](https://github.com/thehamkercat): Python-ARQ
-- [Laky](https://github.com/Laky-64) & [Andrew](https://github.com/AndrewLaneX): PyTgCalls
-- [Dan (for pyrogram)](https://github.com/delivrance)
+DaisyXMusic is a hardwork of many people. Many contributors and open source projects (Specially callsmusic projects) helped a lot in this. 
 
 #### Contributors
-- [InukaAsith](https://github.com/InukaAsith): Dev
-- [Technical-Hunter](https://github.com/Technical-Hunter): Dev
+- [InukaAsith](https://github.com/InukaAsith): Dev / Owner
+- [Technical-Hunter](https://github.com/Technical-Hunter): Dev / Owner
 - [Roj Serbest](http://github.com/rojserbest): Developer of callsmusic 
+- [Deshadeeth-Thisarana](https://github.com/deshadeeth-thisarana) : Dev
 - [lucifeermorningstar](https://github.com/lucifeermorningstar): Dev
 - [Wrench](https://github.com/EverythingSuckz/): Dev
 - [Bemro](https://github.com/bemroofficial): Dev
@@ -152,6 +141,19 @@ DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/
 - [Anjana-Ma](https://github.com/Anjana-Ma): 
 - [ImJanindu](https://github.com/ImJanindu): 
 - [azimazizov9150](https://github.com/azimazizov9150)
+
+
+#### Special Credits
+- [Roj Serbest](http://github.com/rojserbest): Callsmusic Developer
+
+This bot is based on the original work done by [Rojserbest](http://github.com/rojserbest). Without his hardwork daisyxmusic won t exist. 
+DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/callsmusic) for fit the needs of some users
+
+- [StarkGang](https://github.com/StarkGang/)
+- [SpEcHiDe](https://github.com/SpEcHiDe/)
+- [The Hamker Cat](https://github.com/thehamkercat): Python-ARQ
+- [Laky](https://github.com/Laky-64) & [Andrew](https://github.com/AndrewLaneX): PyTgCalls
+- [Dan (for pyrogram)](https://github.com/delivrance)
 
 
 #### Open Source codes used in this project 
