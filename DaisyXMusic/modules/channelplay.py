@@ -32,17 +32,18 @@ from pyrogram.types import Voice
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
-from DaisyXMusic.modules.play import generate_cover
-from DaisyXMusic.modules.play import arq
-from DaisyXMusic.modules.play import cb_admin_check
-from DaisyXMusic.modules.play import transcode
-from DaisyXMusic.modules.play import convert_seconds
-from DaisyXMusic.modules.play import time_to_seconds
-from DaisyXMusic.modules.play import changeImageSize
+from DaisyXMusic.modules.play import (
+        generate_cover, 
+        arq, 
+        cb_admin_check,
+        transcode, 
+        convert_seconds, 
+        time_to_seconds, 
+        changeImageSize
+    )
 from DaisyXMusic.config import BOT_NAME as bn
-from DaisyXMusic.config import DURATION_LIMIT
+from DaisyXMusic.config import DURATION_LIMIT, que
 from DaisyXMusic.config import UPDATES_CHANNEL as updateschannel
-from DaisyXMusic.config import que
 from DaisyXMusic.function.admins import admins as a
 from DaisyXMusic.helpers.errors import DurationLimitError
 from DaisyXMusic.helpers.decorators import errors
@@ -127,7 +128,9 @@ def r_ply(type_):
             [
                 InlineKeyboardButton("Playlist 📖", "cplaylist"),
             ],
-            [InlineKeyboardButton("❌ Close", "ccls")],
+            [
+                InlineKeyboardButton("❌ Close", "ccls")
+            ]
         ]
     )
     return mar
@@ -320,7 +323,9 @@ async def m_cb(b, cb):
                 [
                     InlineKeyboardButton("Playlist 📖", "cplaylist"),
                 ],
-                [InlineKeyboardButton("❌ Close", "ccls")],
+                [
+                    InlineKeyboardButton("❌ Close", "ccls")
+                ]
             ]
         )
         await cb.message.edit(stats, reply_markup=marr)
@@ -465,7 +470,9 @@ async def play(_, message: Message):
                     InlineKeyboardButton("📖 Playlist", callback_data="cplaylist"),
                     InlineKeyboardButton("Menu ⏯ ", callback_data="cmenu"),
                 ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="ccls")],
+                [
+                    InlineKeyboardButton(text="❌ Close", callback_data="ccls")
+                ],
             ]
         )
         file_name = get_file_name(audio)
@@ -516,7 +523,9 @@ async def play(_, message: Message):
                     InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
                     InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
                 ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="ccls")],
+                [
+                    InlineKeyboardButton(text="❌ Close", callback_data="ccls")
+                ]
             ]
         )
         requested_by = message.from_user.first_name
@@ -561,7 +570,9 @@ async def play(_, message: Message):
                     InlineKeyboardButton(text="🎬 YouTube", url=f"{url}"),
                     InlineKeyboardButton(text="Download 📥", url=f"{dlurl}"),
                 ],
-                [InlineKeyboardButton(text="❌ Close", callback_data="ccls")],
+                [   
+                    InlineKeyboardButton(text="❌ Close", callback_data="ccls")
+                ],
             ]
         )
         requested_by = message.from_user.first_name
@@ -719,11 +730,11 @@ async def jiosaavn(client: Client, message_: Message):
                 InlineKeyboardButton("Menu ⏯ ", callback_data="cmenu"),
             ],
             [
-                InlineKeyboardButton(
-                    text="Join Updates Channel", url=f"https://t.me/{updateschannel}"
-                )
+                InlineKeyboardButton(text="Join Updates Channel", url=f"https://t.me/{updateschannel}")
             ],
-            [InlineKeyboardButton(text="❌ Close", callback_data="ccls")],
+            [
+                InlineKeyboardButton(text="❌ Close", callback_data="ccls")
+            ],
         ]
     )
     file_path = await convert(wget.download(slink))
