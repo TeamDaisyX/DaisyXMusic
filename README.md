@@ -138,9 +138,9 @@ DaisyXMusic is a hardwork of many people. Many contributors and open source proj
 - [Wrench](https://github.com/EverythingSuckz/): Dev
 - [Bemro](https://github.com/bemroofficial): Dev
 - [QueenArzoo](https://github.com/QueenArzoo): Dev
-- [Anjana-Ma](https://github.com/Anjana-Ma): 
-- [ImJanindu](https://github.com/ImJanindu): 
-- [azimazizov9150](https://github.com/azimazizov9150)
+- [Anjana-Ma](https://github.com/Anjana-Ma): Dev
+- [ImJanindu](https://github.com/ImJanindu): Contributor
+- [azimazizov9150](https://github.com/azimazizov9150): Contributor
 
 
 #### Special Credits
