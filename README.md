@@ -152,7 +152,7 @@ DaisyXmusic is a modified version of [Callsmusic](https://github.com/callsmusic/
 - [StarkGang](https://github.com/StarkGang/)
 - [SpEcHiDe](https://github.com/SpEcHiDe/)
 - [The Hamker Cat](https://github.com/thehamkercat)
-- [Laky](https://github.com/Laky-64) & [Andrew](https://github.com/AndrewLaneX): PyTgCalls
+- [Laky(for PyTgCalls)](https://github.com/Laky-64)
 - [Dan (for pyrogram)](https://github.com/delivrance)
 
 
