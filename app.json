@@ -1,5 +1,6 @@
 {
   "name": "DaisyXMusic",
+  "logo": "https://telegra.ph/file/67fc54b05e25a48b0a2b0.jpg",
   "description": "Open-Source bot to play songs in your Telegram's Group Voice Chat. Powered by PyTgCalls.",
   "keywords": ["music", "voicechat", "telegram"],
   "repository": "https://github.com/TeamDaisyX/DaisyXMusic",
