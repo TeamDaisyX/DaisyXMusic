@@ -85,7 +85,7 @@ async def pause(_, message: Message):
     ):
         await message.reply_text("❗ Nothing is playing!")
     else:
-        callsmusic.pytgcalls.pause_stream(chat_id)
+        await callsmusic.pytgcalls.pause_stream(chat_id)
         await message.reply_text("▶️ Paused!")
 
 
@@ -99,7 +99,7 @@ async def resume(_, message: Message):
     ):
         await message.reply_text("❗ Nothing is paused!")
     else:
-        callsmusic.pytgcalls.resume_stream(chat_id)
+        await callsmusic.pytgcalls.resume_stream(chat_id)
         await message.reply_text("⏸ Resumed!")
 
 
@@ -116,7 +116,7 @@ async def stop(_, message: Message):
         except QueueEmpty:
             pass
 
-        callsmusic.pytgcalls.leave_group_call(chat_id)
+        await callsmusic.pytgcalls.leave_group_call(chat_id)
         await message.reply_text("❌ Stopped streaming!")
 
 
@@ -132,9 +132,9 @@ async def skip(_, message: Message):
         queues.task_done(chat_id)
 
         if queues.is_empty(chat_id):
-            callsmusic.pytgcalls.leave_group_call(chat_id)
+            await callsmusic.pytgcalls.leave_group_call(chat_id)
         else:
-            callsmusic.pytgcalls.change_stream(
+            await callsmusic.pytgcalls.change_stream(
                 chat_id, queues.get(chat_id)["file"]
             )
 
