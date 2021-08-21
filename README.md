@@ -1,3 +1,4 @@
+
 <h1 align="centre"> DAISYXMUSIC V5.5 🎵 </h1> 
 
 ### A bot that can play music on Telegram Group and Channel Voice Chats
@@ -32,7 +33,9 @@
 
 [![Deploy+on+Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/TeamDaisyX/DaisyXMusic/tree/Py-Tgcalls(main)&envs=SESSION_NAME,BOT_TOKEN,BOT_USERNAME,BOT_NAME,SUPPORT_GROUP,PROJECT_NAME,ARQ_API_KEY,ASSISTANT_NAME,BG_IMAGE,UPDATES_CHANNEL,API_ID,PMPERMIT,API_HASH,SUDO_USERS,DURATION_LIMIT)
 
+
 • Get pyrogram (p)  `SESSION` from here:
+
 [![Run on Repl.it](https://repl.it/badge/github/SpEcHiDe/GenerateStringSession)](https://repl.it/@SpEcHiDe/GenerateStringSession)
 
 ### ⚔ Self-hosting (For Devs) 
@@ -79,7 +82,7 @@ $ python3 -m DaisyXMusic
 - `/musicplayer [on/off]` - Enable/Disable Music Player
 
 #### Authorized users & Misc
-*Authorized users can execute admin commands in authorized group
+Authorized users can execute admin commands in authorized group
 - `/auth <reply to user>` - Authorize User
 - `/deauth <reply to user>` - DeAuthorize user
 - `/admincache` - Refesh admin list
@@ -103,7 +106,8 @@ For linked group admins only:
 
 If you donlt like to play in linked channel:
  1. Get your channel ID.
- 2. Rename your group to: `Channel Music:your_channel_id`
+ 2. Rename your group to: 
+`Channel Music:your_channel_id`
  3. Add @DaisyXBot as Channel admin with full perms
  4. add helper to channel
  5. Simply send commands in your group.
