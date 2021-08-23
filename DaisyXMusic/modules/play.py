@@ -169,9 +169,6 @@ async def playlist(client, message):
     await message.reply_text(msg)
 
 
-# ============================= Settings =========================================
-
-
 def updated_stats(chat, queue, vol=100):
     if chat.id in callsmusic.pytgcalls.active_calls:
         # if chat.id in active_chats:
@@ -342,8 +339,6 @@ async def m_cb(b, cb):
     if type_ == "pause":
         if (chet_id in callsmusic.pytgcalls.active_calls) or (
             not in callsmusic.pytgcalls.active_calls[chet_id] == "paused"
-        if (chet_id in callsmusic.pytgcalls.active_calls) or (not in
-            callsmusic.pytgcalls.active_calls[chet_id] == "paused"
         ):
             await cb.answer("Chat is not connected!", show_alert=True)
         else:
@@ -356,7 +351,6 @@ async def m_cb(b, cb):
     elif type_ == "play":
         if (chet_id in callsmusic.pytgcalls.active_calls) or (
             not in callsmusic.pytgcalls.active_calls[chet_id] == "playing"
-            callsmusic.pytgcalls.active_calls[chet_id] == "playing"
         ):
             await cb.answer("Chat is not connected!", show_alert=True)
         else:
@@ -392,7 +386,6 @@ async def m_cb(b, cb):
     elif type_ == "resume":
         if (chet_id in callsmusic.pytgcalls.active_calls) or (
             not in callsmusic.pytgcalls.active_calls[chet_id] == "playing"
-            callsmusic.pytgcalls.active_calls[chet_id] == "playing"
         ):
             await cb.answer("Chat is not connected or already playng", show_alert=True)
         else:
@@ -401,7 +394,6 @@ async def m_cb(b, cb):
     elif type_ == "puse":
         if (chet_id in callsmusic.pytgcalls.active_calls) or (
             not in callsmusic.pytgcalls.active_calls[chet_id] == "paused"
-            callsmusic.pytgcalls.active_calls[chet_id] == "paused"
         ):
             await cb.answer("Chat is not connected or already paused", show_alert=True)
         else:
@@ -660,7 +652,7 @@ async def play(_, message: Message):
                         InlineKeyboardButton("5️⃣", callback_data=f'plll 4|{query}|{user_id}'),
                     ],
                     [
-                        InlineKeyboardButton(text="Close", callback_data="cls")
+                        InlineKeyboardButton(text="❌ Close", callback_data="cls")
                     ],
                 ]
             )       
@@ -961,7 +953,7 @@ async def jiosaavn(client: Client, message_: Message):
     text = message_.text.split(" ", 1)
     query = text[1]
     res = lel
-    await res.edit(f"Searching for `{query}` on jio saavn")
+    await res.edit(f"Searching 🔍 for `{query}` on jio saavn")
     
     # ================== Copied from https://github.com/TheHamkerCat/WilliamButcherBot/blob/dev/wbb/modules/music.py line 170 ===============
     
