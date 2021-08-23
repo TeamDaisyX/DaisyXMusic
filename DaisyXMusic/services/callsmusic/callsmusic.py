@@ -27,6 +27,7 @@ pytgcalls = PyTgCalls(client)
 
 
 @pytgcalls.on_stream_end()
+async def on_stream_end(client: PyTgCalls, chat_id: int) -> None:
 async def on_stream_end(client: PyTgCalls, update: Update, chat_id: int) -> None:
     queues.task_done(chat_id)
 
