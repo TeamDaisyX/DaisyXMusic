@@ -342,6 +342,8 @@ async def m_cb(b, cb):
     if type_ == "pause":
         if (chet_id in callsmusic.pytgcalls.active_calls) or (
             not in callsmusic.pytgcalls.active_calls[chet_id] == "paused"
+        if (chet_id in callsmusic.pytgcalls.active_calls) or (not in
+            callsmusic.pytgcalls.active_calls[chet_id] == "paused"
         ):
             await cb.answer("Chat is not connected!", show_alert=True)
         else:
@@ -354,6 +356,7 @@ async def m_cb(b, cb):
     elif type_ == "play":
         if (chet_id in callsmusic.pytgcalls.active_calls) or (
             not in callsmusic.pytgcalls.active_calls[chet_id] == "playing"
+            callsmusic.pytgcalls.active_calls[chet_id] == "playing"
         ):
             await cb.answer("Chat is not connected!", show_alert=True)
         else:
@@ -389,6 +392,7 @@ async def m_cb(b, cb):
     elif type_ == "resume":
         if (chet_id in callsmusic.pytgcalls.active_calls) or (
             not in callsmusic.pytgcalls.active_calls[chet_id] == "playing"
+            callsmusic.pytgcalls.active_calls[chet_id] == "playing"
         ):
             await cb.answer("Chat is not connected or already playng", show_alert=True)
         else:
@@ -397,6 +401,7 @@ async def m_cb(b, cb):
     elif type_ == "puse":
         if (chet_id in callsmusic.pytgcalls.active_calls) or (
             not in callsmusic.pytgcalls.active_calls[chet_id] == "paused"
+            callsmusic.pytgcalls.active_calls[chet_id] == "paused"
         ):
             await cb.answer("Chat is not connected or already paused", show_alert=True)
         else:
