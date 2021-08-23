@@ -241,20 +241,19 @@ async def m_cb(b, cb):
 
     the_data = cb.message.reply_markup.inline_keyboard[1][0].callback_data
     if type_ == "cpause":
-        if (chet_id not in callsmusic.pytgcalls.active_calls) or (
+        if (chet_id in callsmusic.pytgcalls.active_calls) or (not in
             callsmusic.pytgcalls.active_calls[chet_id] == "paused"
         ):
             await cb.answer("Chat is not connected!", show_alert=True)
         else:
             await callsmusic.pytgcalls.pause_stream(chet_id)
-
             await cb.answer("Music Paused!")
             await cb.message.edit(
                 updated_stats(conv, qeue), reply_markup=r_ply("play")
             )
 
     elif type_ == "cplay":
-        if (chet_id not in callsmusic.pytgcalls.active_calls) or (
+        if (chet_id in callsmusic.pytgcalls.active_calls) or (not in
             callsmusic.pytgcalls.active_calls[chet_id] == "playing"
         ):
             await cb.answer("Chat is not connected!", show_alert=True)
@@ -289,7 +288,7 @@ async def m_cb(b, cb):
         await cb.message.edit(msg)
 
     elif type_ == "cresume":
-        if (chet_id not in callsmusic.pytgcalls.active_calls) or (
+        if (chet_id in callsmusic.pytgcalls.active_calls) or (not in
             callsmusic.pytgcalls.active_calls[chet_id] == "playing"
         ):
             await cb.answer("Chat is not connected or already playng", show_alert=True)
@@ -297,13 +296,12 @@ async def m_cb(b, cb):
             await callsmusic.pytgcalls.resume_stream(chet_id)
             await cb.answer("Music Resumed!")
     elif type_ == "cpuse":
-        if (chet_id not in callsmusic.pytgcalls.active_calls) or (
+        if (chet_id in callsmusic.pytgcalls.active_calls) or (not in
             callsmusic.pytgcalls.active_calls[chet_id] == "paused"
         ):
             await cb.answer("Chat is not connected or already paused", show_alert=True)
         else:
             await callsmusic.pytgcalls.pause_stream(chet_id)
-
             await cb.answer("Music Paused!")
     elif type_ == "ccls":
         await cb.answer("Closed menu")
@@ -332,7 +330,7 @@ async def m_cb(b, cb):
     elif type_ == "cskip":
         if qeue:
             qeue.pop(0)
-        if chet_id not in callsmusic.pytgcalls.active_calls:
+        if chet_id in callsmusic.pytgcalls.active_calls:
             await cb.answer("Chat is not connected!", show_alert=True)
         else:
             queues.task_done(chet_id)
@@ -357,7 +355,6 @@ async def m_cb(b, cb):
                 queues.clear(chet_id)
             except QueueEmpty:
                 pass
-
             await callsmusic.pytgcalls.leave_group_call(chet_id)
             await cb.message.edit("Successfully Left the Chat!")
         else:
@@ -385,7 +382,7 @@ async def play(_, message: Message):
     try:
         user = await USER.get_me()
     except:
-        user.first_name = "helper"
+        user.first_name = "DaisyMusic"
     usar = user
     wew = usar.id
     try:
@@ -453,7 +450,7 @@ async def play(_, message: Message):
     else:
         urls=None
     if text_links:
-        urls = True    
+        urls = True
     audio = (
         (message.reply_to_message.audio or message.reply_to_message.voice)
         if message.reply_to_message
