@@ -243,8 +243,6 @@ async def m_cb(b, cb):
     if type_ == "cpause":
         if (chet_id in callsmusic.pytgcalls.active_calls) or (
             not in callsmusic.pytgcalls.active_calls[chet_id] == "paused"
-        if (chet_id in callsmusic.pytgcalls.active_calls) or (not in
-            callsmusic.pytgcalls.active_calls[chet_id] == "paused"
         ):
             await cb.answer("Chat is not connected!", show_alert=True)
         else:
@@ -257,8 +255,6 @@ async def m_cb(b, cb):
     elif type_ == "cplay":
         if (chet_id in callsmusic.pytgcalls.active_calls) or (
             not in callsmusic.pytgcalls.active_calls[chet_id] == "playing"
-        if (chet_id in callsmusic.pytgcalls.active_calls) or (not in
-            callsmusic.pytgcalls.active_calls[chet_id] == "playing"
         ):
             await cb.answer("Chat is not connected!", show_alert=True)
         else:
@@ -294,8 +290,6 @@ async def m_cb(b, cb):
     elif type_ == "cresume":
         if (chet_id in callsmusic.pytgcalls.active_calls) or (
             not in callsmusic.pytgcalls.active_calls[chet_id] == "playing"
-        if (chet_id in callsmusic.pytgcalls.active_calls) or (not in
-            callsmusic.pytgcalls.active_calls[chet_id] == "playing"
         ):
             await cb.answer("Chat is not connected or already playng", show_alert=True)
         else:
@@ -304,8 +298,6 @@ async def m_cb(b, cb):
     elif type_ == "cpuse":
         if (chet_id in callsmusic.pytgcalls.active_calls) or (
             not in callsmusic.pytgcalls.active_calls[chet_id] == "paused"
-        if (chet_id in callsmusic.pytgcalls.active_calls) or (not in
-            callsmusic.pytgcalls.active_calls[chet_id] == "paused"
         ):
             await cb.answer("Chat is not connected or already paused", show_alert=True)
         else:
@@ -345,7 +337,6 @@ async def m_cb(b, cb):
 
             if queues.is_empty(chet_id):
                 await callsmusic.pytgcalls.leave_group_call(chet_id)
-
                 await cb.message.edit("- No More Playlist..\n- Leaving VC!")
             else:
                 await callsmusic.pytgcalls.change_stream(
