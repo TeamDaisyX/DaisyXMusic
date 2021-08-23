@@ -42,8 +42,8 @@ async def pause(_, message: Message):
       await message.reply("Is chat even linked")
       return    
     chat_id = chid
-    if (chat_id in callsmusic.pytgcalls.active_calls) or (not in
-        callsmusic.pytgcalls.active_calls[chat_id] == "paused"
+    if (chat_id in callsmusic.pytgcalls.active_calls) or (
+        not in callsmusic.pytgcalls.active_calls[chat_id] == "paused"
     ):
         await message.reply_text("❗ Nothing is playing!")
     else:
@@ -63,8 +63,8 @@ async def resume(_, message: Message):
       await message.reply("Is chat even linked")
       return    
     chat_id = chid
-    if (chat_id in callsmusic.pytgcalls.active_calls) or (not in
-        callsmusic.pytgcalls.active_calls[chat_id] == "playing"
+    if (chat_id in callsmusic.pytgcalls.active_calls) or (
+        not in callsmusic.pytgcalls.active_calls[chat_id] == "playing"
     ):
         await message.reply_text("❗ Nothing is paused!")
     else:
