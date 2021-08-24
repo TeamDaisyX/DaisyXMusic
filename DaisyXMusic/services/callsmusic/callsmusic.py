@@ -98,23 +98,23 @@ def resume(chat_id: int) -> bool:
     return True
 
 
-def mute(chat_id: int) -> int:
+async def mute(chat_id: int) -> int:
     if chat_id not in active_chats:
         return 2
     elif active_chats[chat_id]["muted"]:
         return 1
 
-    get_instance(chat_id).set_is_mute(True)
+    await get_instance(chat_id).set_is_mute(True)
     active_chats[chat_id]["muted"] = True
     return 0
 
 
-def unmute(chat_id: int) -> int:
+async def unmute(chat_id: int) -> int:
     if chat_id not in active_chats:
         return 2
     elif not active_chats[chat_id]["muted"]:
         return 1
 
-    get_instance(chat_id).set_is_mute(False)
+    awaait get_instance(chat_id).set_is_mute(False)
     active_chats[chat_id]["muted"] = False
     return 0
