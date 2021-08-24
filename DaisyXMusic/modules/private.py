@@ -33,7 +33,7 @@ def _start(client, message):
             InlineKeyboardButton("📲 Updates", url=f"https://t.me/{UPDATES_CHANNEL}"), 
             InlineKeyboardButton("💬 Support", url=f"https://t.me/{SUPPORT_GROUP}")
             ],[
-            InlineKeyboardButton("🛠 Source Code 🛠", url=f"https://{SOURCE_CODE}")
+            InlineKeyboardButton("🛠 Source Code 🛠", url=f"{SOURCE_CODE}")
           ]]
         ),
         reply_to_message_id=message.message_id
