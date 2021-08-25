@@ -20,9 +20,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-import json
 import os
-from os import path
 from typing import Callable
 
 import aiofiles
@@ -33,7 +31,7 @@ import wget
 from PIL import Image, ImageDraw, ImageFont
 from pyrogram import Client, filters
 from pyrogram.errors import UserAlreadyParticipant
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, Voice
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from Python_ARQ import ARQ
 from youtube_search import YoutubeSearch
 
@@ -141,7 +139,7 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     os.remove("background.png")
 
 
-@Client.on_message(filters.command("playlist") & filters.group & ~filters.edited)
+@Client.on_message(command("playlist") & filters.group & ~filters.edited)
 async def playlist(client, message):
     global que
     if message.chat.id in DISABLED_GROUPS:
@@ -208,7 +206,7 @@ def r_ply(type_):
     return mar
 
 
-@Client.on_message(filters.command("current") & filters.group & ~filters.edited)
+@Client.on_message(command("current") & filters.group & ~filters.edited)
 async def ee(client, message):
     if message.chat.id in DISABLED_GROUPS:
         return
@@ -220,7 +218,7 @@ async def ee(client, message):
         await message.reply("No VC instances running in this chat")
 
 
-@Client.on_message(filters.command("player") & filters.group & ~filters.edited)
+@Client.on_message(command("player") & filters.group & ~filters.edited)
 @authorized_users_only
 async def settings(client, message):
     if message.chat.id in DISABLED_GROUPS:
@@ -243,7 +241,7 @@ async def settings(client, message):
 
 
 @Client.on_message(
-    filters.command("musicplayer") & ~filters.edited & ~filters.bot & ~filters.private
+    command("musicplayer") & ~filters.edited & ~filters.bot & ~filters.private
 )
 @authorized_users_only
 async def hfmm(_, message):
@@ -512,6 +510,8 @@ async def play(_, message: Message):
     text_links=None
     await lel.edit("🔎 **Finding**")
     if message.reply_to_message:
+        if message.reply_to_message.audio or message.reply_to_message.voice:
+            pass
         entities = []
         toxt = message.reply_to_message.text or message.reply_to_message.caption
         if message.reply_to_message.entities:
@@ -560,7 +560,7 @@ async def play(_, message: Message):
         await generate_cover(requested_by, title, views, duration, thumbnail)
         file_path = await convert(
             (await message.reply_to_message.download(file_name))
-            if not path.isfile(path.join("downloads", file_name))
+            if not os.path.isfile(os.path.join("downloads", file_name))
             else file_name
         )
     elif urls:
@@ -732,7 +732,7 @@ async def play(_, message: Message):
         return await lel.delete()
 
 
-@Client.on_message(filters.command("ytplay") & filters.group & ~filters.edited)
+@Client.on_message(command("ytplay") & filters.group & ~filters.edited)
 async def ytplay(_, message: Message):
     global que
     if message.chat.id in DISABLED_GROUPS:
@@ -882,7 +882,7 @@ async def ytplay(_, message: Message):
         return await lel.delete()
     
 
-@Client.on_message(filters.command("splay") & filters.group & ~filters.edited)
+@Client.on_message(command("splay") & filters.group & ~filters.edited)
 async def jiosaavn(client: Client, message_: Message):
     global que
     if message_.chat.id in DISABLED_GROUPS:
@@ -1131,10 +1131,11 @@ async def lol_cb(b, cb):
         await cb.message.delete()
         await b.send_photo(chat_id,
             photo="final.png",
-            caption=f"#⃣  Song requested by {r_by.mention} **queued** at position {position}!",
+            caption=f"#⃣ Song requested by {r_by.mention} **queued** at position {position}!",
             reply_markup=keyboard,
         )
-        os.remove("final.png")
+        if os.path.exists("final.png"):
+            os.remove("final.png")
         
     else:
         que[chat_id] = []
@@ -1155,4 +1156,5 @@ async def lol_cb(b, cb):
             reply_markup=keyboard,
             caption=f"▶️ **Playing** here the song requested by {r_by.mention} via Youtube Music 😜",
         )
-        os.remove("final.png")
+        if os.path.exists("final.png"):
+            os.remove("final.png")
