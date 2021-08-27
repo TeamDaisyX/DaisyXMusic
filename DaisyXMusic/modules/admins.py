@@ -104,7 +104,7 @@ async def skip(_, message: Message):
         else:
             await callsmusic.set_stream(
                 chat_id, 
-                queues.get(chat_id)["file"]
+                queues.get(chat_id)["file_path"]
             )
 
     qeue = que.get(chat_id)
