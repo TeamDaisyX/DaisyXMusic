@@ -39,7 +39,7 @@ def init_instance(chat_id: int):
         if queues.is_empty(chat_id):
             await stop(chat_id)
         else:
-            instance.input_filename = queues.get(chat_id)["file"]
+            instance.input_filename = queues.get(chat_id)["file_path"]
 
 
 def remove(chat_id: int):
