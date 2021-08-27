@@ -115,6 +115,6 @@ async def unmute(chat_id: int) -> int:
     elif not active_chats[chat_id]["muted"]:
         return 1
 
-    awaait get_instance(chat_id).set_is_mute(False)
+    await get_instance(chat_id).set_is_mute(False)
     active_chats[chat_id]["muted"] = False
     return 0
