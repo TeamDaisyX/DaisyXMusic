@@ -35,13 +35,13 @@ Get pyrogram (p)  `SESSION` from here:
 
 ### ⚔ Self-hosting (For Devs) 
 ```sh
-# Install Git First (apt-instll git)
+# Install Git First (apt-get install git)
 $ git clone https://github.com/TeamDaisyX/DaisyXmusic
 $ cd DaisyXMusic
 # Upgrade sources
 # Install All Requirements 
-$ pip3 install -r requirements.txt
-# Fork This Repo and fill local.env and config.py both with your own values.Then Start The Bot
+$ pip3 install -U -r requirements.txt
+# Fork This Repo and fill config.py both with your own values.Then Start The Bot
 $ python3 -m DaisyXMusic
 ```
 
@@ -115,22 +115,21 @@ If you donlt like to play in linked channel:
 This project is inspired on the hard work done by [Rojserbest](http://github.com/rojserbest). Without his hardwork daisyxmusic won't exist. 
 Also DaisyXmusic is inspired by many opensource bots and userbots
 
+### Don't Edit This Part
+
 #### Developers &Contribtors
-- [InukaASiTH](https://github.com/InukaAsith): Dev
-- [Technical-Hunter](https://github.com/Technical-Hunter): Dev
-- [Rojserbest](http://github.com/rojserbest): Dev
+- [InukaASiTH](https://github.com/InukaAsith): Dev/Owner
+- [Technical-Hunter](https://github.com/Technical-Hunter): Dev/Owner
+- [lucifeermorningstar](https://github.com/lucifeermorningstar): Dev/Owner
+- [Rojserbest](http://github.com/rojserbest): Dev of callsmusic
 - [Wrench](https://github.com/EverythingSuckz/): Dev
 - [Bemro](https://github.com/bemroofficial): Dev
 - [QueenArzoo](https://github.com/QueenArzoo): Dev
-- [lucifeermorningstar](https://github.com/lucifeermorningstar): Dev
 - [HamkerCat](https://github.com/thehamkercat/)
 - [AnjanaMadu](https://github.com/AnjanaMadu): 
 - [ImJanindu](https://github.com/ImJanindu): 
 - [MARSHALX](https://github.com/MarshalX): TgCalls
 - [Original Repo owners](https://github.com/CallsMusic/CallsMusic)
-
-
-
 
 
 ## Copyright & License 👮
@@ -139,5 +138,4 @@ Also DaisyXmusic is inspired by many opensource bots and userbots
  - Licensed under the terms of the [GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007](https://github.com/TeamDaisyX/DaisyXMusic/blob/master/LICENSE)
     
 DaisyXMusic is Free Software: You can use, study share and improve it at your will. Specifically you can redistribute and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.    
-
 ## Made with ♥️ by [TeamDaisyX](https://github.com/TeamDaisyX)
