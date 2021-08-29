@@ -41,7 +41,7 @@ $ cd DaisyXMusic
 # Upgrade sources
 # Install All Requirements 
 $ pip3 install -U -r requirements.txt
-# Fork This Repo and fill config.py both with your own values.Then Start The Bot
+# Fork This Repo and fill config.py vars with your own values.Then Start The Bot
 $ python3 -m DaisyXMusic
 ```
 
