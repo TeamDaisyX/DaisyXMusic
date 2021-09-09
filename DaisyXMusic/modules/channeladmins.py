@@ -20,7 +20,6 @@ from asyncio import QueueEmpty
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from DaisyXMusic.config import que
 from DaisyXMusic.function.admins import set
 from DaisyXMusic.helpers.decorators import authorized_users_only, errors
 from DaisyXMusic.services.callsmusic import callsmusic
