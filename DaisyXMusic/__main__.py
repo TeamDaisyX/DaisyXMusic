@@ -18,10 +18,7 @@
 import requests
 from pyrogram import Client as Bot
 
-from DaisyXMusic.config import API_HASH
-from DaisyXMusic.config import API_ID
-from DaisyXMusic.config import BG_IMAGE
-from DaisyXMusic.config import BOT_TOKEN
+from DaisyXMusic.config import API_HASH, API_ID, BG_IMAGE, BOT_TOKEN
 from DaisyXMusic.services.callsmusic import run
 
 response = requests.get(BG_IMAGE)

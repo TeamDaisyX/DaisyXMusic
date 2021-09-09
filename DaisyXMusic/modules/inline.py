@@ -1,8 +1,9 @@
-from pyrogram import Client
-from pyrogram import errors
-from pyrogram.types import InlineQuery
-from pyrogram.types import InlineQueryResultArticle   
-from pyrogram.types import InputTextMessageContent
+from pyrogram import Client, errors
+from pyrogram.types import (
+    InlineQuery,
+    InlineQueryResultArticle,
+    InputTextMessageContent,
+)
 from youtubesearchpython import VideosSearch
 
 

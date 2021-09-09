@@ -16,17 +16,14 @@
 
 
 from asyncio import QueueEmpty
-from pyrogram import Client 
-from pyrogram import filters
+
+from pyrogram import Client, filters
 from pyrogram.types import Message
 
-from DaisyXMusic.config import que
 from DaisyXMusic.function.admins import set
 from DaisyXMusic.helpers.channelmusic import get_chat_id
-from DaisyXMusic.helpers.decorators import authorized_users_only
-from DaisyXMusic.helpers.decorators import errors
-from DaisyXMusic.helpers.filters import command
-from DaisyXMusic.helpers.filters import other_filters
+from DaisyXMusic.helpers.decorators import authorized_users_only, errors
+from DaisyXMusic.helpers.filters import command, other_filters
 from DaisyXMusic.services.callsmusic import callsmusic
 from DaisyXMusic.services.queues import queues
 
@@ -102,10 +99,7 @@ async def skip(_, message: Message):
         if queues.is_empty(chat_id):
             await callsmusic.stop(chat_id)
         else:
-            await callsmusic.set_stream(
-                chat_id, 
-                queues.get(chat_id)["file"]
-            )
+            await callsmusic.set_stream(chat_id, queues.get(chat_id)["file"])
 
     qeue = que.get(chat_id)
     if qeue:

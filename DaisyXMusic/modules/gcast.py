@@ -17,20 +17,17 @@
 
 import asyncio
 
-from pyrogram import Client
-from pyrogram import filters
-from pyrogram.types import Dialog
-from pyrogram.types import Chat
+from pyrogram import Client, filters
 from pyrogram.types import Message
-from pyrogram.errors import UserAlreadyParticipant
 
-from DaisyXMusic.services.callsmusic.callsmusic import client as USER
 from DaisyXMusic.config import SUDO_USERS
+from DaisyXMusic.services.callsmusic.callsmusic import client as USER
+
 
 @Client.on_message(filters.command(["broadcast"]))
 async def broadcast(_, message: Message):
-    sent=0
-    failed=0
+    sent = 0
+    failed = 0
     if message.from_user.id not in SUDO_USERS:
         return
     else:
@@ -42,12 +39,15 @@ async def broadcast(_, message: Message):
         async for dialog in USER.iter_dialogs():
             try:
                 await USER.send_message(dialog.chat.id, lmao)
-                sent = sent+1
-                await wtf.edit(f"`broadcasting...` \n\n**Sent to:** `{sent}` Chats \n**Failed in:** {failed} Chats")
+                sent = sent + 1
+                await wtf.edit(
+                    f"`broadcasting...` \n\n**Sent to:** `{sent}` Chats \n**Failed in:** {failed} Chats"
+                )
                 await asyncio.sleep(3)
             except:
-                failed=failed+1
-                #await wtf.edit(f"`broadcasting...` \n\n**Sent to:** `{sent}` Chats \n**Failed in:** {failed} Chats")
-                
-            
-        await message.reply_text(f"`Broadcast Finished ` \n\n**Sent to:** `{sent}` Chats \n**Failed in:** {failed} Chats")
+                failed = failed + 1
+                # await wtf.edit(f"`broadcasting...` \n\n**Sent to:** `{sent}` Chats \n**Failed in:** {failed} Chats")
+
+        await message.reply_text(
+            f"`Broadcast Finished ` \n\n**Sent to:** `{sent}` Chats \n**Failed in:** {failed} Chats"
+        )

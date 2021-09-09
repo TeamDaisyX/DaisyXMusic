@@ -16,8 +16,8 @@
 # Modified by Inukaasith
 
 import os
-from os import path
 from os import getenv
+
 from dotenv import load_dotenv
 
 if os.path.exists("local.env"):
