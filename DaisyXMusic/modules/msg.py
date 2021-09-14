@@ -1,4 +1,4 @@
-# Daisyxmusic (Telegram bot project )
+# nelover music (Telegram bot project )
 # Copyright (C) 2021  Inukaasith
 
 # This program is free software: you can redistribute it and/or modify
@@ -18,49 +18,40 @@ from DaisyXMusic.config import ASSISTANT_NAME, PROJECT_NAME
 
 
 class Messages:
-    START_MSG = "**Hello 👋 [{}](tg://user?id={})!**\n\n🤖 I am an advanced bot created for playing music in the voice chats of Telegram Groups & Channels.\n\n✅ Send me /help for more info."
+    START_MSG = "** هلاا [{}](tg://user?id={})!**\n\n  بوت الاغاني المقدم من سورس نيلوفر ، كل الي عليك تضيف البوت والحساب المساعد وترفعهم مشرف ، للمزيد من المعلومات اضغط /help"
     HELP_MSG = [
         ".",
         f"""
-**Hey 👋 Welcome back to {PROJECT_NAME}
+**Hey هلابيك من جديد {PROJECT_NAME}
 
-⚪️ {PROJECT_NAME} can play music in your group's voice chat as well as channel voice chats
+⚪️ {PROJECT_NAME} يستطيع تشغيل الاغاني في المكالمات الجماعيه
 
-⚪️ Assistant name >> @{ASSISTANT_NAME}\n\nClick next for instructions**
-""",
+⚪️ Assistant name >> @{ASSISTANT_NAME}\n\n اضغط "التالي" للمزيد من التعليمات**
+"""
         f"""
 **Setting up**
 
-1) Make bot admin (Group and in channel if use cplay)
-2) Start a voice chat
-3) Try /play [song name] for the first time by an admin
-*) If userbot joined enjoy music, If not add @{ASSISTANT_NAME} to your group and retry
+1) ارفع البوت والحساب المساعد مشرف
+2) ابدئ مكالمه جماعيه
+3) ارسل اغنيه او رابط يوتيوب او بصمه و رد عليها ب play/
 
-**For Channel Music Play**
-1) Make me admin of your channel 
-2) Send /userbotjoinchannel in linked group
-3) Now send commands in linked group
+
 """,
         f"""
 **Commands**
 
-**=>> Song Playing 🎧**
+**=>> تشغيل الأغاني 🎧**
 
-- /play: Play the requestd song
-- /play [yt url] : Play the given yt url
-- /play [reply yo audio]: Play replied audio
-- /splay: Play song via jio saavn
-- /ytplay: Directly play song via Youtube Music
+- /play: يشغل الاغنيه المطلوبه
+- /play [رابط يوتيوب] : يشغل الاغنيه من الرابط المطلوب
 
-**=>> Playback ⏯**
+**=>> المشغل ⏯**
 
-- /player: Open Settings menu of player
-- /skip: Skips the current track
-- /pause: Pause track
-- /resume: Resumes the paused track
-- /end: Stops media playback
-- /current: Shows the current Playing track
-- /playlist: Shows playlist
+- /player: يظهر اعدادات المشغل
+- /skip: يتخطى الاغنيه الحاليه
+- /pause: ايقاف الاغنيه مؤقتاً
+- /resume: استئناف تشغيل الاغنيه
+- /end: ايقاف تشغيل الاغنيه
 
 *Player cmd and all other cmds except /play, /current  and /playlist  are only for admins of the group.
 """,
