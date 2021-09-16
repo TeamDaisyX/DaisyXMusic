@@ -1,9 +1,8 @@
 {
-  "name": "DaisyXMusic",
+  "name": "agastyaopxd",
   "logo": "https://telegra.ph/file/36ff1b571aa11df5812de.jpg",
   "description": "Open-Source bot to play songs in your Telegram's Group Voice Chat. Powered by PyTgCalls.",
   "keywords": ["music", "voicechat", "telegram"],
-  "repository": "https://github.com/TeamDaisyX/DaisyXMusic",
   "stack": "container",
   "buildpacks": [
    {
@@ -58,7 +57,7 @@
     "UPDATES_CHANNEL": {
       "description": "Updates Channel without @ [Leave this if you don't have one].",
       "required": false,
-      "value": "DaisyXupdates"
+      "value": "rarePEOPLE"
     },    
     "API_ID": {
       "description": "App ID from my.telegram.org/apps",
