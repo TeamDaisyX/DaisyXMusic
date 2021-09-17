@@ -114,21 +114,19 @@ If you donlt like to play in linked channel:
 This project is inspired on the hard work done by [Rojserbest](http://github.com/rojserbest). Without his hardwork daisyxmusic won't exist. 
 Also DaisyXmusic is inspired by many opensource bots and userbots
 
-### Don't Edit This Part
-
-#### Developers &Contribtors
-- [InukaASiTH](https://github.com/InukaAsith): Dev/Owner
-- [Technical-Hunter](https://github.com/Technical-Hunter): Dev/Owner
-- [lucifeermorningstar](https://github.com/lucifeermorningstar): Dev/Owner
-- [Rojserbest](http://github.com/rojserbest): Dev of callsmusic
+#### Contributors
+- [InukaAsith](https://github.com/InukaAsith): Dev / Owner
+- [lucifeermorningstar](https://github.com/lucifeermorningstar): Dev / Owner
+- [Technical-Hunter](https://github.com/Technical-Hunter): Dev / Owner
+- [Hellboy-OP](https://github.com/hellboy-op)
+- [Roj Serbest](http://github.com/rojserbest): Developer of callsmusic 
+- [DeshadeethThisarana](https://github.com/deshadeeth-thisarana): Dev
 - [Wrench](https://github.com/EverythingSuckz/): Dev
 - [Bemro](https://github.com/bemroofficial): Dev
 - [QueenArzoo](https://github.com/QueenArzoo): Dev
-- [HamkerCat](https://github.com/thehamkercat/)
-- [AnjanaMadu](https://github.com/AnjanaMadu): 
-- [ImJanindu](https://github.com/ImJanindu): 
-- [MARSHALX](https://github.com/MarshalX): TgCalls
-- [Original Repo owners](https://github.com/CallsMusic/CallsMusic)
+- [Anjana-Ma](https://github.com/Anjana-Ma): Dev
+- [ImJanindu](https://github.com/ImJanindu): Dev
+- [azimazizov9150](https://github.com/azimazizov9150): Contributor
 
 
 ## Copyright & License 👮
