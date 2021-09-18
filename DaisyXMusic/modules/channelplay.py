@@ -476,7 +476,7 @@ async def play(_, message: Message):
         views = "Locally added"
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
-        file_path = await convert(
+        file = await convert(
             (await message.reply_to_message.download(file_name))
             if not path.isfile(path.join("downloads", file_name))
             else file_name
@@ -533,7 +533,7 @@ async def play(_, message: Message):
         )
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
-        file_path = await convert(youtube.download(url))
+        file = await convert(youtube.download(url))
     else:
         query = ""
         for i in message.command[1:]:
@@ -589,7 +589,7 @@ async def play(_, message: Message):
         )
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
-        file_path = await convert(youtube.download(url))
+        file = await convert(youtube.download(url))
     chat_id = chid
     if chat_id in callsmusic.active_chats:
         position = await queues.put(chat_id, file=file)
@@ -612,7 +612,7 @@ async def play(_, message: Message):
         qeue = que.get(chat_id)
         s_name = title
         r_by = message.from_user
-        loc = file_path
+        loc = file
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
         await callsmusic.set_stream(chat_id, file)
