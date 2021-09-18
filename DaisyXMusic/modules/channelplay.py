@@ -105,6 +105,8 @@ def r_ply(type_):
                 InlineKeyboardButton("⏸", "cpuse"),
                 InlineKeyboardButton("▶️", "cresume"),
                 InlineKeyboardButton("⏭", "cskip"),
+                InlineKeyboardButton("🔇", "cmute"),
+                InlineKeyboardButton("🔊", "cunmute"),
             ],
             [
                 InlineKeyboardButton("Playlist 📖", "cplaylist"),
