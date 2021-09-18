@@ -223,23 +223,19 @@ async def m_cb(b, cb):
 
     the_data = cb.message.reply_markup.inline_keyboard[1][0].callback_data
     if type_ == "cpause":
-        if (chet_id not in callsmusic.active_chats) or (
-            callsmusic.active_chats[chet_id] == "paused"
-        ):
-            await cb.answer("Chat is not connected!", show_alert=True)
-        else:
-            callsmusic.pause(chet_id)
             await cb.answer("Music Paused!")
+          if:
+            callsmusic.pause(chet_id)
+          else:
+            await cb.answer("Chat is not connected!", show_alert=True)
             await cb.message.edit(updated_stats(conv, qeue), reply_markup=r_ply("play"))
 
     elif type_ == "cplay":
-        if (chet_id not in callsmusic.active_chats) or (
-            callsmusic.active_chats[chet_id] == "playing"
-        ):
-            await cb.answer("Chat is not connected!", show_alert=True)
-        else:
-            callsmusic.resume(chet_id)
             await cb.answer("Music Resumed!")
+          if:
+            callsmusic.resume(chet_id)
+          else:
+            await cb.answer("Chat is not connected!", show_alert=True)
             await cb.message.edit(
                 updated_stats(conv, qeue), reply_markup=r_ply("pause")
             )
@@ -268,21 +264,19 @@ async def m_cb(b, cb):
         await cb.message.edit(msg)
 
     elif type_ == "cresume":
-        if (chet_id not in callsmusic.active_chats) or (
-            callsmusic.active_chats[chet_id] == "playing"
-        ):
-            await cb.answer("Chat is not connected or already playng", show_alert=True)
-        else:
-            callsmusic.resume(chet_id)
             await cb.answer("Music Resumed!")
+          if:
+            callsmusic.resume(chet_id)
+          else:
+            await cb.answer("Chat is not connected or already playng", show_alert=True)
+   
     elif type_ == "cpuse":
-        if (chet_id not in callsmusic.active_chats) or (
-            callsmusic.active_chats[chet_id] == "paused"
-        ):
-            await cb.answer("Chat is not connected or already paused", show_alert=True)
-        else:
-            callsmusic.pause(chet_id)
             await cb.answer("Music Paused!")
+          if:
+            callsmusic.pause(chet_id)
+          else:
+            await cb.answer("Chat is not connected or already paused", show_alert=True)
+            
     elif type_ == "ccls":
         await cb.answer("Closed menu")
         await cb.message.delete()
@@ -335,6 +329,30 @@ async def m_cb(b, cb):
             await cb.message.edit("Successfully Left the Chat!")
         else:
             await cb.answer("Chat is not connected!", show_alert=True)
+            
+    elif type_ == "cmute":
+              result = callsmusic.mute(chet_id)
+              await cb.message.edit("Successfully Muted")
+            if:
+              result == 0
+            else:
+              await cb.message.edit("Chat is not connected or Already muted", show_alert=True)
+            if:
+              result == 1
+            else:
+              await cb.message.edit("Chat is not connected or Not in call", show_alert=True)
+        
+    elif type_ == "cunmute":
+              result = callsmusic.unmute(chet_id)
+              await cb.message.edit("Successfully unmuted")
+            if:
+              result == 0
+            else:
+              await cb.message.edit("Chat is not connected or Not muted", show_alert=True)
+            if:
+              result == 1
+            else:
+              await message.edit("Chat is not connected or Not in call", show_alert=True)
 
 
 @Client.on_message(
@@ -572,11 +590,11 @@ async def play(_, message: Message):
         file_path = await convert(youtube.download(url))
     chat_id = chid
     if chat_id in callsmusic.active_chats:
-        position = await queues.put(chat_id, file=file_path)
+        position = await queues.put(chat_id, file=file)
         qeue = que.get(chat_id)
         s_name = title
         r_by = message.from_user
-        loc = file_path
+        loc = file
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
         await message.reply_photo(
@@ -595,7 +613,7 @@ async def play(_, message: Message):
         loc = file_path
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
-        await callsmusic.set_stream(chat_id, file_path)
+        await callsmusic.set_stream(chat_id, file)
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
@@ -709,11 +727,11 @@ async def jiosaavn(client: Client, message_: Message):
     file_path = await convert(wget.download(slink))
     chat_id = chid
     if chat_id in callsmusic.active_chats:
-        position = await queues.put(chat_id, file=file_path)
+        position = await queues.put(chat_id, file=file)
         qeue = que.get(chat_id)
         s_name = sname
         r_by = message_.from_user
-        loc = file_path
+        loc = file
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
         await res.delete()
@@ -730,10 +748,10 @@ async def jiosaavn(client: Client, message_: Message):
         qeue = que.get(chat_id)
         s_name = sname
         r_by = message_.from_user
-        loc = file_path
+        loc = file
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
-    await callsmusic.set_stream(chat_id, file_path)
+    await callsmusic.set_stream(chat_id, file)
     await res.edit("Generating Thumbnail.")
     await generate_cover(requested_by, sname, ssingers, sduration, sthumb)
     await res.delete()
