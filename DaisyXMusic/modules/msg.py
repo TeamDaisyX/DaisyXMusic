@@ -59,6 +59,8 @@ class Messages:
 - /pause: Pause track
 - /resume: Resumes the paused track
 - /end: Stops media playback
+- /mute: mute song play
+- /unmute: unmute song play
 - /current: Shows the current Playing track
 - /playlist: Shows playlist
 
@@ -78,6 +80,9 @@ class Messages:
 - /cresume - resume song play
 - /cskip - play next song
 - /cend - stop music play
+- /cmute - mute song play
+- /mute - mute song play
+- /unmute - mute song play
 - /userbotjoinchannel - invite assistant to your chat
 
 channel is also can be used instead of c ( /cplay = /channelplay )
