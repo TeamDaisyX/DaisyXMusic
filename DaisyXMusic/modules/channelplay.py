@@ -726,7 +726,7 @@ async def jiosaavn(client: Client, message_: Message):
             [InlineKeyboardButton(text="❌ Close", callback_data="ccls")],
         ]
     )
-    file_path = await convert(wget.download(slink))
+    file = await convert(wget.download(slink))
     chat_id = chid
     if chat_id in callsmusic.active_chats:
         position = await queues.put(chat_id, file=file)
