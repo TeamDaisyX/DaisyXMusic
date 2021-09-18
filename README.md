@@ -66,6 +66,8 @@ $ python3 -m DaisyXMusic
 - `/resume` - resume song play
 - `/skip` - play next song
 - `/end` - stop music play
+- `/mute` - mute song play
+- `/unmute` - unmute song play
 - `/userbotjoin` - invite assistant to your chat
 - `/userbotleave` - remove assistant from your chat
 - `/admincache` - Refresh admin list
@@ -85,6 +87,8 @@ For linked group admins only:
 - `/cresume` - resume song play
 - `/cskip` - play next song
 - `/cend` - stop music play
+- `/cmute` - mute song play
+- `/cunmute` - unmute song play
 - `/userbotjoinchannel` - invite assistant to your chat
 * channel is also can be used instead of c
 
