@@ -572,7 +572,7 @@ async def play(_, message: Message):
         views = "Locally added"
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
-        file_path = await convert(
+        file = await convert(
             (await message.reply_to_message.download(file_name))
             if not path.isfile(path.join("downloads", file_name))
             else file_name
@@ -629,7 +629,7 @@ async def play(_, message: Message):
         )
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
-        file_path = await convert(youtube.download(url))
+        file = await convert(youtube.download(url))
     else:
         query = ""
         for i in message.command[1:]:
@@ -740,7 +740,7 @@ async def play(_, message: Message):
             )
             requested_by = message.from_user.first_name
             await generate_cover(requested_by, title, views, duration, thumbnail)
-            file_path = await convert(youtube.download(url))
+            file = await convert(youtube.download(url))
     chat_id = get_chat_id(message.chat)
     if chat_id in callsmusic.active_chats:
         position = await queues.put(chat_id, file=file)
@@ -763,7 +763,7 @@ async def play(_, message: Message):
         qeue = que.get(chat_id)
         s_name = title
         r_by = message.from_user
-        loc = file_path
+        loc = file
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
         try:
@@ -896,7 +896,7 @@ async def ytplay(_, message: Message):
     )
     requested_by = message.from_user.first_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
-    file_path = await convert(youtube.download(url))
+    file = await convert(youtube.download(url))
     chat_id = get_chat_id(message.chat)
     if chat_id in callsmusic.active_chats:
         position = await queues.put(chat_id, file=file)
@@ -919,7 +919,7 @@ async def ytplay(_, message: Message):
         qeue = que.get(chat_id)
         s_name = title
         r_by = message.from_user
-        loc = file_path
+        loc = file
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
         try:
@@ -1038,7 +1038,7 @@ async def jiosaavn(client: Client, message_: Message):
             [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
         ]
     )
-    file_path = await convert(wget.download(slink))
+    file = await convert(wget.download(slink))
     chat_id = get_chat_id(message_.chat)
     if chat_id in callsmusic.active_chats:
         position = await queues.put(chat_id, file=file)
@@ -1062,7 +1062,7 @@ async def jiosaavn(client: Client, message_: Message):
         qeue = que.get(chat_id)
         s_name = sname
         r_by = message_.from_user
-        loc = file_path
+        loc = file
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
         try:
@@ -1152,7 +1152,7 @@ async def lol_cb(b, cb):
     )
     requested_by = useer_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
-    file_path = await convert(youtube.download(url))
+    file = await convert(youtube.download(url))
     if chat_id in callsmusic.active_chats:
         position = await queues.put(chat_id, file=file)
         qeue = que.get(chat_id)
@@ -1168,7 +1168,7 @@ async def lol_cb(b, cb):
         await b.send_photo(
             chat_id,
             photo="final.png",
-            caption=f"#⃣  Song requested by {r_by.mention} <b>queued</b> at position {position}!",
+            caption=f"#⃣  Song requested by {r_by.mention()} <b>queued</b> at position {position}!",
             reply_markup=keyboard,
         )
         os.remove("final.png")
@@ -1181,7 +1181,7 @@ async def lol_cb(b, cb):
             r_by = cb.message.reply_to_message.from_user
         except:
             r_by = cb.message.from_user
-        loc = file_path
+        loc = file
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
 
@@ -1191,6 +1191,6 @@ async def lol_cb(b, cb):
             chat_id,
             photo="final.png",
             reply_markup=keyboard,
-            caption=f"▶️ <b>Playing</b> here the song requested by {r_by.mention} via Youtube Music 😎",
+            caption=f"▶️ <b>Playing</b> here the song requested by {r_by.mention()} via Youtube Music 😎",
         )
         os.remove("final.png")
