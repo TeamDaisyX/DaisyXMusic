@@ -97,28 +97,19 @@ def map(pos):
         button = [[InlineKeyboardButton(text="▶️", callback_data="help+2")]]
     elif pos == len(tr.HELP_MSG) - 1:
         url = f"https://t.me/{SUPPORT_GROUP}"
-        button = [
-            [
-                InlineKeyboardButton(
-                    "➕ Add me to your Group 🙋‍♀️",
-                    url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
-                )
-            ],
-            [
-                InlineKeyboardButton(
-                    text="📲 Updates", url=f"https://t.me/{UPDATES_CHANNEL}"
-                ),
-                InlineKeyboardButton(
-                    text="💬 Support", url=f"https://t.me/{SUPPORT_GROUP}"
-                ),
-            ],
-            [
-                InlineKeyboardButton(
-                    text="🛠 Source Code 🛠", url=f"https://{SOURCE_CODE}"
-                )
-            ],
-            [InlineKeyboardButton(text="◀️", callback_data=f"help+{pos-1}")],
-        ]
+        button = [[
+                    InlineKeyboardButton("➕ Add me to your Group 🙋‍♀️", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+                  ],
+                  [
+                    InlineKeyboardButton(text="📲 Updates", url=f"https://t.me/{UPDATES_CHANNEL}"),
+                    InlineKeyboardButton(text="💬 Support", url=f"https://t.me/{SUPPORT_GROUP}")
+                  ],
+                  [
+                    InlineKeyboardButton(text="🛠 Source Code 🛠", url=f"https://{SOURCE_CODE}")
+                  ],
+                  [
+                    InlineKeyboardButton(text="◀️", callback_data=f"help+{pos-1}")
+                 ]]
     else:
         button = [
             [
@@ -133,14 +124,5 @@ def map(pos):
 async def ghelp(_, message: Message):
     await message.reply_text(
         f"""**🙋‍♀️ Hello there! I can play music in the voice chats of telegram groups & channels.**""",
-        reply_markup=InlineKeyboardMarkup(
-            [
-                [
-                    InlineKeyboardButton(
-                        "🟡 Click here for help 🟡",
-                        url=f"https://t.me/{BOT_USERNAME}?start",
-                    )
-                ]
-            ]
-        ),
+        reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("🟡 Click here for help 🟡", url=f"https://t.me/{BOT_USERNAME}?start")]])
     )
