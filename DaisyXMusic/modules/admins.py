@@ -46,12 +46,14 @@ async def update_admin(client, message: Message):
 @errors
 @authorized_users_only
 async def pause(_, message: Message):
-      chat_id = get_chat_id(message.chat)
+    chat_id = get_chat_id(message.chat)
+    (
       await message.reply_text("▶️ Paused!")
-      if:
+    ) if (
         callsmusic.pause(chat_id)
-      else:
+    ) else (
         await message.reply_text("❗ Nothing is playing!")
+    )
         
 
 
@@ -60,11 +62,13 @@ async def pause(_, message: Message):
 @authorized_users_only
 async def resume(_, message: Message):
     chat_id = get_chat_id(message.chat)
+    (
         await message.reply_text("⏸ Resumed!")
-      if:
+    ) if (
         callsmusic.resume(chat_id)
-      else:
+    ) else (
         await message.reply_text("❗ Nothing is paused!")
+    )
         
 
 
