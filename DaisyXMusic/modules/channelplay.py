@@ -225,19 +225,25 @@ async def m_cb(b, cb):
 
     the_data = cb.message.reply_markup.inline_keyboard[1][0].callback_data
     if type_ == "cpause":
+        (
             await cb.answer("Music Paused!")
-          if:
+        ) if (
             callsmusic.pause(chet_id)
-          else:
+        ) else (
             await cb.answer("Chat is not connected!", show_alert=True)
-            await cb.message.edit(updated_stats(conv, qeue), reply_markup=r_ply("play"))
+        )
+            await cb.message.edit(
+                updated_stats(conv, qeue), reply_markup=r_ply("play")
+            )
 
     elif type_ == "cplay":
+        (
             await cb.answer("Music Resumed!")
-          if:
+        ) if (
             callsmusic.resume(chet_id)
-          else:
+        ) else (
             await cb.answer("Chat is not connected!", show_alert=True)
+        )
             await cb.message.edit(
                 updated_stats(conv, qeue), reply_markup=r_ply("pause")
             )
@@ -338,27 +344,31 @@ async def m_cb(b, cb):
             
     elif type_ == "cmute":
               result = callsmusic.mute(chet_id)
+            (
               await cb.message.edit("Successfully Muted")
-            if:
+            ) if (
               result == 0
-            else:
+            ) else (
               await cb.message.edit("Chat is not connected or Already muted", show_alert=True)
-            if:
+            ) if (
               result == 1
-            else:
+            ) else (
               await cb.message.edit("Chat is not connected or Not in call", show_alert=True)
+            )
         
     elif type_ == "cunmute":
               result = callsmusic.unmute(chet_id)
+            (
               await cb.message.edit("Successfully unmuted")
-            if:
+            ) if (
               result == 0
-            else:
+            ) else (
               await cb.message.edit("Chat is not connected or Not muted", show_alert=True)
-            if:
+            ) if (
               result == 1
-            else:
+            ) else (
               await message.edit("Chat is not connected or Not in call", show_alert=True)
+            )
 
 
 @Client.on_message(
@@ -428,34 +438,11 @@ async def play(_, message: Message):
             f"<i> {user.first_name} Userbot not in this chat, Ask channel admin to send /play command for first time or add {user.first_name} manually</i>"
         )
         return
-    audio = (
-        (message.reply_to_message.audio or message.reply_to_message.voice)
-        if message.reply_to_message
-        else None
-    )
-    if audio:
-        if round(audio.duration / 60) > DURATION_LIMIT:
-            await lel.edit(
-                f"❌ Videos longer than {DURATION_LIMIT} minute(s) aren't allowed to play!"
-            )
-        file_name = audio.file_unique_id + '.' + (
-            (
-                audio.file_name.split('.')[-1]
-            ) if (
-                not isinstance(audio, Voice)
-            ) else 'ogg'
-        )
-        file_name = path.join(path.realpath('downloads'), file_name)
-        file = await converter.convert(
-            (
-                await message.reply_to_message.download(file_name)
-            )
-            if (
-                not path.isfile(file_name)
-            )
-            else file_name,
-        )
-    else:
+    text_links = None
+    await lel.edit("🔎 <b>Finding</b>")
+    if message.reply_to_message:
+        if message.reply_to_message.audio:
+            pass
         entities = []
         if message.entities:
             entities += entities
@@ -468,23 +455,35 @@ async def play(_, message: Message):
                 entities = message.reply_to_message.entities + entities
             elif message.reply_to_message.caption_entities:
                 entities = message.reply_to_message.entities + entities
-            else:
-                text = message.text or message.caption
+        else:
+            text = message.text or message.caption
 
         urls = [entity for entity in entities if entity.type == 'url']
         text_links = [
             entity for entity in entities if entity.type == 'text_link'
         ]
-
-        if urls:
-            url = text[urls[0].offset:urls[0].offset + urls[0].length]
-        elif text_links:
-            url = text_links[0].url
-        else:
-            await response.edit_text(
-                '<b>❌ You did not give me anything to play</b>',
+    else:
+        urls = None
+    if text_links:
+        urls = True
+    user_id = message.from_user.id
+    user_name = message.from_user.first_name
+    rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
+    audio = (
+        (message.reply_to_message.audio or message.reply_to_message.voice)
+        if message.reply_to_message
+        else None
+    )
+    audio = (
+        (message.reply_to_message.audio or message.reply_to_message.voice)
+        if message.reply_to_message
+        else None
+    )
+    if audio:
+        if round(audio.duration / 60) > DURATION_LIMIT:
+            await lel.edit(
+                f"❌ Videos longer than {DURATION_LIMIT} minute(s) aren't allowed to play!"
             )
-            return
         keyboard = InlineKeyboardMarkup(
             [
                 [
