@@ -329,23 +329,25 @@ async def m_cb(b, cb):
 
     the_data = cb.message.reply_markup.inline_keyboard[1][0].callback_data
     if type_ == "pause":
+        (
             await cb.answer("Music Paused!")
-            
-          if:
+        ) if (
             callsmusic.pause(chet_id)
-          else:
+        ) else (
             await cb.answer("Chat is not connected!", show_alert=True)
+        )
             await cb.message.edit(
                 updated_stats(m_chat, qeue), reply_markup=r_ply("play")
             )
 
-    elif type_ == "play":
+    elif type_ == "resume":
+        (
             await cb.answer("Music Resumed!")
-            
-          if:
+        ) if (
             callsmusic.resume(chet_id)
-          else:
+        ) else (
             await cb.answer("Chat is not connected!", show_alert=True)
+        )
             await cb.message.edit(
                 updated_stats(m_chat, qeue), reply_markup=r_ply("pause")
             )
@@ -374,18 +376,22 @@ async def m_cb(b, cb):
         await cb.message.edit(msg)
 
     elif type_ == "resume":
-            await cb.answer("Music Resumed!")   
-          if:
+        (
+            await cb.answer("Music Resumed!")
+        ) if (
             callsmusic.resume(chet_id)
-          else:
+        ) else (
             await cb.answer("Chat is not connected or already playng", show_alert=True)
+        )
             
     elif type_ == "puse":
+        (
             await cb.answer("Music Paused!")
-          if:
+        ) if (
             callsmusic.pause(chet_id)
-          else:
+        ) else (
             await cb.answer("Chat is not connected or already paused", show_alert=True)
+        )
             
     elif type_ == "cls":
         await cb.answer("Closed menu")
@@ -401,6 +407,8 @@ async def m_cb(b, cb):
                     InlineKeyboardButton("⏸", "puse"),
                     InlineKeyboardButton("▶️", "resume"),
                     InlineKeyboardButton("⏭", "skip"),
+                    InlineKeyboardButton("🔇", "mute"),
+                    InlineKeyboardButton("🔊", "unmute"),
                 ],
                 [
                     InlineKeyboardButton("Playlist 📖", "playlist"),
@@ -421,7 +429,10 @@ async def m_cb(b, cb):
                 callsmusic.stop(chet_id)
                 await cb.message.edit("- No More Playlist..\n- Leaving VC!")
             else:
-                await callsmusic.set_stream(chet_id, queues.get(chet_id)["file"])
+                await callsmusic.set_stream(
+                    chet_id, 
+                    queues.get(chet_id)["file"],
+                )
                 await cb.answer.reply_text("✅ <b>Skipped</b>")
                 await cb.message.edit((m_chat, qeue), reply_markup=r_ply(the_data))
                 await cb.message.reply_text(
@@ -442,27 +453,31 @@ async def m_cb(b, cb):
             
      elif type_ == "mute":
               result = callsmusic.mute(chet_id)
+            (
               await cb.message.edit("Successfully Muted")
-            if:
+            ) if (
               result == 0
-            else:
+            ) else (
               await cb.message.edit("Chat is not connected or Already muted", show_alert=True)
-            if:
+            ) if (
               result == 1
-            else:
+            ) else:
               await cb.message.edit("Chat is not connected or Not in call", show_alert=True)
+            )
         
     elif type_ == "unmute":
               result = callsmusic.unmute(chet_id)
+            (
               await cb.message.edit("Successfully unmuted")
-            if:
+            ) if (
               result == 0
-            else:
+            ) else (
               await cb.message.edit("Chat is not connected or Not muted", show_alert=True)
-            if:
+            ) if (
               result == 1
-            else:
+            ) else (
               await message.edit("Chat is not connected or Not in call", show_alert=True)
+            )
 
 
 @Client.on_message(command("play") & other_filters)
@@ -530,13 +545,24 @@ async def play(_, message: Message):
         if message.reply_to_message.audio:
             pass
         entities = []
-        toxt = message.reply_to_message.text or message.reply_to_message.caption
-        if message.reply_to_message.entities:
-            entities = message.reply_to_message.entities + entities
-        elif message.reply_to_message.caption_entities:
-            entities = message.reply_to_message.entities + entities
-        urls = [entity for entity in entities if entity.type == "url"]
-        text_links = [entity for entity in entities if entity.type == "text_link"]
+        if message.entities:
+            entities += entities
+        elif message.caption_entities:
+            entities += message.caption_entities
+        if message.reply_to_message:
+            text = message.reply_to_message.text \
+                or message.reply_to_message.caption
+            if message.reply_to_message.entities:
+                entities = message.reply_to_message.entities + entities
+            elif message.reply_to_message.caption_entities:
+                entities = message.reply_to_message.entities + entities
+        else:
+            text = message.text or message.caption
+
+        urls = [entity for entity in entities if entity.type == 'url']
+        text_links = [
+            entity for entity in entities if entity.type == 'text_link'
+        ]
     else:
         urls = None
     if text_links:
