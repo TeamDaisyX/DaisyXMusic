@@ -266,18 +266,22 @@ async def m_cb(b, cb):
         await cb.message.edit(msg)
 
     elif type_ == "cresume":
+        (
             await cb.answer("Music Resumed!")
-          if:
+        ) if (
             callsmusic.resume(chet_id)
-          else:
+        ) else (
             await cb.answer("Chat is not connected or already playng", show_alert=True)
+        )
    
     elif type_ == "cpuse":
+        (
             await cb.answer("Music Paused!")
-          if:
+        ) if (
             callsmusic.pause(chet_id)
-          else:
+        ) else (
             await cb.answer("Chat is not connected or already paused", show_alert=True)
+        )
             
     elif type_ == "ccls":
         await cb.answer("Closed menu")
@@ -424,30 +428,6 @@ async def play(_, message: Message):
             f"<i> {user.first_name} Userbot not in this chat, Ask channel admin to send /play command for first time or add {user.first_name} manually</i>"
         )
         return
-    message.from_user.id
-    text_links = None
-    message.from_user.first_name
-    await lel.edit("🔎 <b>Finding</b>")
-    message.from_user.id
-    user_id = message.from_user.id
-    message.from_user.first_name
-    user_name = message.from_user.first_name
-    rpk = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
-    if message.reply_to_message:
-        if message.reply_to_message.audio:
-            pass
-        entities = []
-        toxt = message.reply_to_message.text or message.reply_to_message.caption
-        if message.reply_to_message.entities:
-            entities = message.reply_to_message.entities + entities
-        elif message.reply_to_message.caption_entities:
-            entities = message.reply_to_message.entities + entities
-        urls = [entity for entity in entities if entity.type == "url"]
-        text_links = [entity for entity in entities if entity.type == "text_link"]
-    else:
-        urls = None
-    if text_links:
-        urls = True
     audio = (
         (message.reply_to_message.audio or message.reply_to_message.voice)
         if message.reply_to_message
@@ -457,6 +437,52 @@ async def play(_, message: Message):
         if round(audio.duration / 60) > DURATION_LIMIT:
             await lel.edit(
                 f"❌ Videos longer than {DURATION_LIMIT} minute(s) aren't allowed to play!"
+            )
+        file_name = audio.file_unique_id + '.' + (
+            (
+                audio.file_name.split('.')[-1]
+            ) if (
+                not isinstance(audio, Voice)
+            ) else 'ogg'
+        )
+        file_name = path.join(path.realpath('downloads'), file_name)
+        file = await converter.convert(
+            (
+                await message.reply_to_message.download(file_name)
+            )
+            if (
+                not path.isfile(file_name)
+            )
+            else file_name,
+        )
+    else:
+        entities = []
+        if message.entities:
+            entities += entities
+        elif message.caption_entities:
+            entities += message.caption_entities
+        if message.reply_to_message:
+            text = message.reply_to_message.text \
+                or message.reply_to_message.caption
+            if message.reply_to_message.entities:
+                entities = message.reply_to_message.entities + entities
+            elif message.reply_to_message.caption_entities:
+                entities = message.reply_to_message.entities + entities
+            else:
+                text = message.text or message.caption
+
+        urls = [entity for entity in entities if entity.type == 'url']
+        text_links = [
+            entity for entity in entities if entity.type == 'text_link'
+        ]
+
+        if urls:
+            url = text[urls[0].offset:urls[0].offset + urls[0].length]
+        elif text_links:
+            url = text_links[0].url
+        else:
+            await response.edit_text(
+                '<b>❌ You did not give me anything to play</b>',
             )
             return
         keyboard = InlineKeyboardMarkup(
