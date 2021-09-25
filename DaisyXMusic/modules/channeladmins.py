@@ -149,15 +149,17 @@ async def mute(_, message: Message):
         return 
     chat_id = chid
     result = callsmusic.mute(chat_id)
+    (
         await message.reply_text("✅ Muted")
-      if:
+    ) if (
         result == 0
-      else:
+    ) else (
         await message.reply_text("❌ Already muted")
-      if:
+    ) if (
         result == 1
-      else:
+    ) else (
         await message.reply_text("❌ Not in call")
+    )
         
         
 @Client.on_message(
@@ -176,15 +178,17 @@ async def unmute(_, message: Message):
         return 
     chat_id = chid
     result = callsmusic.unmute(chat_id)
+    (
         await message.reply_text("✅ Unmuted")
-      if:
+    ) if (
         result == 0
-      else:
+    ) else (
         await message.reply_text("❌ Not muted")
-      if:
+    ) if (
         result == 1
-      else:
+    ) else (
         await message.reply_text("❌ Not in call")
+    )
 
 
 @Client.on_message(filters.command("channeladmincache"))
