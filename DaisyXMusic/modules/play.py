@@ -69,7 +69,11 @@ def cb_admin_check(func: Callable) -> Callable:
 
 def transcode(filename):
     ffmpeg.input(filename).output(
-        "input.raw", format="s16le", acodec="pcm_s16le", ac=2, ar="48k"
+        "input.raw", 
+        format="s16le", 
+        acodec="pcm_s16le", 
+        ac=2, 
+        ar="48k"
     ).overwrite_output().run()
     os.remove(filename)
 
@@ -336,9 +340,7 @@ async def m_cb(b, cb):
         ) else (
             await cb.answer("Chat is not connected!", show_alert=True)
         )
-            await cb.message.edit(
-                updated_stats(m_chat, qeue), reply_markup=r_ply("play")
-            )
+        await cb.message.edit(updated_stats(m_chat, qeue), reply_markup=r_ply("play"))
 
     elif type_ == "resume":
         (
@@ -348,9 +350,7 @@ async def m_cb(b, cb):
         ) else (
             await cb.answer("Chat is not connected!", show_alert=True)
         )
-            await cb.message.edit(
-                updated_stats(m_chat, qeue), reply_markup=r_ply("pause")
-            )
+        await cb.message.edit(updated_stats(m_chat, qeue), reply_markup=r_ply("pause"))
 
     elif type_ == "playlist":
         queue = que.get(cb.message.chat.id)
