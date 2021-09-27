@@ -232,7 +232,7 @@ async def m_cb(b, cb):
         ) else (
             await cb.answer("Chat is not connected!", show_alert=True)
         )
-            await cb.message.edit(updated_stats(conv, qeue), reply_markup=r_ply("play"))
+        await cb.message.edit(updated_stats(conv, qeue), reply_markup=r_ply("play"))
 
     elif type_ == "cplay":
         (
@@ -242,9 +242,7 @@ async def m_cb(b, cb):
         ) else (
             await cb.answer("Chat is not connected!", show_alert=True)
         )
-            await cb.message.edit(
-                updated_stats(conv, qeue), reply_markup=r_ply("pause")
-            )
+        await cb.message.edit(updated_stats(conv, qeue), reply_markup=r_ply("pause"))
 
     elif type_ == "cplaylist":
         queue = que.get(cb.message.chat.id)
