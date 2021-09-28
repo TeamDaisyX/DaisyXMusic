@@ -452,7 +452,7 @@ async def m_cb(b, cb):
             await cb.answer("Chat is not connected!", show_alert=True)
             
      elif type_ == "mute":
-              result = callsmusic.mute(chet_id)
+            result = callsmusic.mute(chet_id)
             (
               await cb.message.edit("Successfully Muted")
             ) if (
@@ -466,7 +466,7 @@ async def m_cb(b, cb):
             )
         
     elif type_ == "unmute":
-              result = callsmusic.unmute(chet_id)
+            result = callsmusic.unmute(chet_id)
             (
               await cb.message.edit("Successfully unmuted")
             ) if (
