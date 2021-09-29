@@ -105,8 +105,6 @@ def r_ply(type_):
                 InlineKeyboardButton("⏸", "cpuse"),
                 InlineKeyboardButton("▶️", "cresume"),
                 InlineKeyboardButton("⏭", "cskip"),
-                InlineKeyboardButton("🔇", "cmute"),
-                InlineKeyboardButton("🔊", "cunmute"),
             ],
             [
                 InlineKeyboardButton("Playlist 📖", "cplaylist"),
@@ -307,6 +305,7 @@ async def m_cb(b, cb):
             ]
         )
         await cb.message.edit(stats, reply_markup=marr)
+        
     elif type_ == "cskip":
         if qeue:
             qeue.pop(0)
@@ -338,35 +337,7 @@ async def m_cb(b, cb):
         else:
             await cb.answer("Chat is not connected!", show_alert=True)
             
-    elif type_ == "cmute":
-            result = callsmusic.mute(chet_id)
-            (
-              await cb.message.edit("Successfully Muted")
-            ) if (
-              result == 0
-            ) else (
-              await cb.message.edit("Chat is not connected or Already muted", show_alert=True)
-            ) if (
-              result == 1
-            ) else (
-              await cb.message.edit("Chat is not connected or Not in call", show_alert=True)
-            )
-        
-    elif type_ == "cunmute":
-            result = callsmusic.unmute(chet_id)
-            (
-              await cb.message.edit("Successfully unmuted")
-            ) if (
-              result == 0
-            ) else (
-              await cb.message.edit("Chat is not connected or Not muted", show_alert=True)
-            ) if (
-              result == 1
-            ) else (
-              await message.edit("Chat is not connected or Not in call", show_alert=True)
-            )
-
-
+    
 @Client.on_message(
     filters.command(["channelplay", "cplay"]) & filters.group & ~filters.edited
 )
