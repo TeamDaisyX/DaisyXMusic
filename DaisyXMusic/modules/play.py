@@ -193,8 +193,6 @@ def r_ply(type_):
                 InlineKeyboardButton("⏸", "puse"),
                 InlineKeyboardButton("▶️", "resume"),
                 InlineKeyboardButton("⏭", "skip"),
-                InlineKeyboardButton("🔇", "mute"),
-                InlineKeyboardButton("🔊", "unmute"),
             ],
             [
                 InlineKeyboardButton("Playlist 📖", "playlist"),
@@ -407,8 +405,6 @@ async def m_cb(b, cb):
                     InlineKeyboardButton("⏸", "puse"),
                     InlineKeyboardButton("▶️", "resume"),
                     InlineKeyboardButton("⏭", "skip"),
-                    InlineKeyboardButton("🔇", "mute"),
-                    InlineKeyboardButton("🔊", "unmute"),
                 ],
                 [
                     InlineKeyboardButton("Playlist 📖", "playlist"),
@@ -451,35 +447,7 @@ async def m_cb(b, cb):
         else:
             await cb.answer("Chat is not connected!", show_alert=True)
             
-     elif type_ == "mute":
-            result = callsmusic.mute(chet_id)
-            (
-              await cb.message.edit("Successfully Muted")
-            ) if (
-              result == 0
-            ) else (
-              await cb.message.edit("Chat is not connected or Already muted", show_alert=True)
-            ) if (
-              result == 1
-            ) else:
-              await cb.message.edit("Chat is not connected or Not in call", show_alert=True)
-            )
-        
-    elif type_ == "unmute":
-            result = callsmusic.unmute(chet_id)
-            (
-              await cb.message.edit("Successfully unmuted")
-            ) if (
-              result == 0
-            ) else (
-              await cb.message.edit("Chat is not connected or Not muted", show_alert=True)
-            ) if (
-              result == 1
-            ) else (
-              await message.edit("Chat is not connected or Not in call", show_alert=True)
-            )
-
-
+     
 @Client.on_message(command("play") & other_filters)
 async def play(_, message: Message):
     global que
