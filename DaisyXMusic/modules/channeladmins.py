@@ -148,7 +148,7 @@ async def mute(_, message: Message):
         await message.reply("Is chat even linked")
         return 
     chat_id = chid
-    result = callsmusic.mute(chat_id)
+    result = await callsmusic.mute(chat_id)
     (
         await message.reply_text("✅ Muted")
     ) if (
@@ -177,7 +177,7 @@ async def unmute(_, message: Message):
         await message.reply("Is chat even linked")
         return 
     chat_id = chid
-    result = callsmusic.unmute(chat_id)
+    result = await callsmusic.unmute(chat_id)
     (
         await message.reply_text("✅ Unmuted")
     ) if (
