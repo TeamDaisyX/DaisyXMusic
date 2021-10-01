@@ -39,7 +39,7 @@
     "PROJECT_NAME": {
       "description": "Your MusicPlayer project Name.",
       "required": false,
-      "value": "DaisyXMusic v5"
+      "value": " 𝐁𝐢𝐬𝐡𝐨𝐮𝐣𝐨 v5"
     },
     "ASSISTANT_NAME": {
       "description": "Your MusicPlayer's assistant Username without @.",
@@ -53,12 +53,12 @@
     "BG_IMAGE": {
       "description": "BG image of bot (Use transparent one) [IGNORE].",
       "required": false,
-      "value": " https://telegra.ph/file/dcfdf612e499eef0e0b1f.png"
+      "value": " https://telegra.ph/file/95500eb7c13af48a0be60.png"
     },     
     "UPDATES_CHANNEL": {
       "description": "Updates Channel without @ [Leave this if you don't have one].",
       "required": false,
-      "value": "DaisyXupdates"
+      "value": "Bishoujo_updated"
     },    
     "API_ID": {
       "description": "App ID from my.telegram.org/apps",
@@ -80,7 +80,7 @@
     "DURATION_LIMIT": {
       "description": "Max audio duration limit for downloads (minutes).",
       "required": true,
-      "value": "10"
+      "value": "20"
     }
   }
 }
