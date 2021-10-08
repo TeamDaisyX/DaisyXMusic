@@ -18,7 +18,7 @@
 
 from os import path
 
-from youtube_dl import YoutubeDL
+from yt_dlp import YoutubeDL
 
 from DaisyXMusic.config import DURATION_LIMIT
 from DaisyXMusic.helpers.errors import DurationLimitError
