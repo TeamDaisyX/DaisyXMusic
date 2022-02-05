@@ -3,10 +3,8 @@
 .git/
 .idea/
 str.py
-Procfile
 README.md
 downloads/
 raw_files/
 .gitignore
-runtime.txt
 __pycache__/
