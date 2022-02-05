@@ -1,7 +1,7 @@
-<h1 align="center">DAISYX MUSIC V5.0 🎵</h1>
+<h1 align="center">DAISYX MUSIC V6.0 🎵</h1>
 
 ### A bot that can play music on Telegram Group and Channel Voice Chats
-#### POWERED BY [MARSHALX TGCALLS](https://github.com/MarshalX/tgcalls)
+#### POWERED BY [PYTGCALLS](https://github.com/pytcalls/pytgcalls)
 ### Available on telegram as [@DaisyXbot](https://t.me/daisyxbot)
 
 <p align="center">
@@ -15,7 +15,7 @@
 - Current playback support
 - Showing track names when skipping
 - Zero downtime, Fully Stable
-- Deezer,Youtube & Saavn playback support
+- Youtube playback support
 - Settings panel
 - Control with buttons
 - Userbot auto join
@@ -26,21 +26,32 @@
 
 ### 💜 Heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/TeamDaisyX/DaisyXMusic)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 Get pyrogram (p)  `SESSION` from here:
 
 [![Run on Repl.it](https://repl.it/badge/github/ChankitSaini/GenerateStringSession)](https://replit.com/@ChankitSaini/GenerateStringSession)
 
-### ⚔ Self-hosting (For Devs) 
+### ⚔ Self-hosting
 ```sh
-# Install Git First (apt-get install git)
+# First Upgrade Your Terminal
+$ sudo su (if terminal not have root access)
+$ cd (if terminal not have root access)
+$ apt update && apt upgrade -y
+$ apt install python ffmpeg -y
+$ curl -fssL https://deb.nodesource.com/setup_17.x | sudo -E bash -
+$ apt install nodejs -y
+$ pip3 install -U pip
+$ npm i -g npm
+# Now Do Git Clone
 $ git clone https://github.com/TeamDaisyX/DaisyXmusic
 $ cd DaisyXMusic
 # Upgrade sources
 # Install All Requirements 
 $ pip3 install -U -r requirements.txt
-# Fork This Repo and fill config.py vars with your own values.Then Start The Bot
+# Now Edit example.env and enter your creds
+$ cp example.env .env
+# Now start the Bot
 $ python3 -m DaisyXMusic
 ```
 
@@ -49,15 +60,11 @@ $ python3 -m DaisyXMusic
 
 - `/play <song name>` - play song you requested
 - `/play <reply to audio>` - play replied file
-- `/dplay <song name>` - play song you requested via deezer
-- `/splay <song name>` - play song you requested via jio saavn
 - `/ytplay <song name>`: Directly play song via Youtube Music
 - `/playlist` - Show now playing list
 - `/current` - Show now playing
 - `/song <song name>` - download songs you want quickly
 - `/search <query>` - search videos on youtube with details
-- `/deezer <song name>` - download songs you want quickly via deezer
-- `/saavn <song name>` - download songs you want quickly via saavn
 - `/video <song name>` - download videos you want quickly
 
 #### Admins only.
@@ -78,8 +85,6 @@ For linked group admins only:
 - `/cplay <song name>` - play song you requested
 - `/cplay <reply to link>` - play replied youtube link
 - `/cplay <reply to audio>` - play replied file
-- `/cdplay <song name>` - play song you requested via deezer
-- `/csplay <song name>` - play song you requested via jio saavn
 - `/cplaylist` - Show now playing list
 - `/cccurrent` - Show now playing
 - `/cplayer` - open music player settings panel
@@ -121,7 +126,6 @@ Also DaisyXmusic is inspired by many opensource bots and userbots
 #### Contributors
 - [InukaAsith](https://github.com/InukaAsith): Dev / Owner
 - [lucifeermorningstar](https://github.com/lucifeermorningstar): Dev / Owner
-- [Technical-Hunter](https://github.com/Technical-Hunter): Dev / Owner
 - [Hellboy-OP](https://github.com/hellboy-op)
 - [Roj Serbest](http://github.com/rojserbest): Developer of callsmusic 
 - [DeshadeethThisarana](https://github.com/deshadeeth-thisarana): Dev

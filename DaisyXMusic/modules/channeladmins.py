@@ -20,12 +20,14 @@ from asyncio import QueueEmpty
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
+
 from DaisyXMusic.function.admins import set
 from DaisyXMusic.helpers.decorators import authorized_users_only, errors
 from DaisyXMusic.services.callsmusic import callsmusic
 from DaisyXMusic.services.queues import queues
 from DaisyXMusic.config import que
 
+ACTV_CALLS = []
 
 @Client.on_message(
     filters.command(["channelpause", "cpause"]) & filters.group & ~filters.edited
@@ -41,13 +43,13 @@ async def pause(_, message: Message):
         await message.reply("Is chat even linked")
         return
     chat_id = chid
-    (
-        await message.reply_text("▶️ Paused!")
-    ) if (
-        callsmusic.pause(chat_id)
-    ) else (
+    for x in callsmusic.pytgcalls.active_calls:
+        ACTV_CALLS.append(int(x.chat_id))
+    if int(chat_id) not in ACTV_CALLS:
         await message.reply_text("❗ Nothing is playing!")
-    )
+    else:
+        await callsmusic.pytgcalls.pause_stream(chat_id)
+        await message.reply_text("▶️ Paused!")
 
 
 @Client.on_message(
@@ -64,13 +66,13 @@ async def resume(_, message: Message):
         await message.reply("Is chat even linked")
         return
     chat_id = chid
-    (
-       await message.reply_text("⏸ Resumed!")
-    ) if (
-        callsmusic.resume(chat_id)
-    ) else (
+    for x in callsmusic.pytgcalls.active_calls:
+        ACTV_CALLS.append(int(x.chat_id))
+    if int(chat_id) not in ACTV_CALLS:
         await message.reply_text("❗ Nothing is paused!")
-    )
+    else:
+        await callsmusic.pytgcalls.resume_stream(chat_id)
+        await message.reply_text("⏸ Resumed!")
         
     
 
@@ -88,15 +90,17 @@ async def stop(_, message: Message):
         await message.reply("Is chat even linked")
         return
     chat_id = chid
-    if chat_id not in callsmusic.active_chats:
+    for x in callsmusic.pytgcalls.active_calls:
+        ACTV_CALLS.append(int(x.chat_id))
+    if int(chat_id) not in ACTV_CALLS:
         await message.reply_text("❗ Nothing is streaming!")
     else:
         try:
-            queues.clear(chat_id)
+            queues.clear(message.chat.id)
         except QueueEmpty:
             pass
 
-        await callsmusic.stop(chat_id)
+        await callsmusic.pytgcalls.leave_group_call(chat_id)
         await message.reply_text("❌ Stopped streaming!")
 
 
@@ -115,15 +119,24 @@ async def skip(_, message: Message):
         await message.reply("Is chat even linked")
         return
     chat_id = chid
-    if chat_id not in callsmusic.active_chats:
+    for x in callsmusic.pytgcalls.active_calls:
+        ACTV_CALLS.append(int(x.chat_id))
+    if int(chat_id) not in ACTV_CALLS:
         await message.reply_text("❗ Nothing is playing to skip!")
     else:
         queues.task_done(chat_id)
 
         if queues.is_empty(chat_id):
-            await callsmusic.stop(chat_id)
+            await callsmusic.pytgcalls.leave_group_call(chat_id)
         else:
-            await callsmusic.set_stream(chat_id, queues.get(chat_id)["file"])
+            await callsmusic.pytgcalls.change_stream(
+                chat_id,
+                InputStream(
+                    InputAudioStream(
+                        queues.get(chat_id)["file"],
+                    ),
+                ),
+            )
 
     qeue = que.get(chat_id)
     if qeue:
@@ -148,18 +161,16 @@ async def mute(_, message: Message):
         await message.reply("Is chat even linked")
         return 
     chat_id = chid
-    result = await callsmusic.mute(chat_id)
-    (
-        await message.reply_text("✅ Muted")
-    ) if (
+    result = await callsmusic.pytgcalls.mute_stream(chat_id)
+    await message.reply_text("✅ Muted")
+    if:
         result == 0
-    ) else (
+    else:
         await message.reply_text("❌ Already muted")
-    ) if (
+    if:
         result == 1
-    ) else (
+    else:
         await message.reply_text("❌ Not in call")
-    )
         
         
 @Client.on_message(
@@ -177,18 +188,16 @@ async def unmute(_, message: Message):
         await message.reply("Is chat even linked")
         return 
     chat_id = chid
-    result = await callsmusic.unmute(chat_id)
-    (
-        await message.reply_text("✅ Unmuted")
-    ) if (
+    result = await callsmusic.pytgcalls.unmute_stream(chat_id)
+    await message.reply_text("✅ Unmuted")
+    if:
         result == 0
-    ) else (
+    else:
         await message.reply_text("❌ Not muted")
-    ) if (
+    if:
         result == 1
-    ) else (
+    else:
         await message.reply_text("❌ Not in call")
-    )
 
 
 @Client.on_message(filters.command("channeladmincache"))

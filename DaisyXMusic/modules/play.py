@@ -1,20 +1,3 @@
-# Daisyxmusic (Telegram bot project)
-# Copyright (C) 2021  Inukaasith
-# Copyright (C) 2021  TheHamkerCat (Python_ARQ)
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU Affero General Public License as
-# published by the Free Software Foundation, either version 3 of the
-# License, or (at your option) any later version.
-
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU Affero General Public License for more details.
-#
-# You should have received a copy of the GNU Affero General Public License
-# along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
-
 import os
 from os import path
 from typing import Callable
@@ -28,7 +11,9 @@ from PIL import Image, ImageDraw, ImageFont
 from pyrogram import Client, filters
 from pyrogram.errors import UserAlreadyParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
-from Python_ARQ import ARQ
+from pytgcalls import StreamType
+from pytgcalls.types.input_stream import InputAudioStream
+from pytgcalls.types.input_stream import InputStream
 from youtube_search import YoutubeSearch
 
 from DaisyXMusic.config import ARQ_API_KEY
@@ -42,18 +27,16 @@ from DaisyXMusic.helpers.channelmusic import get_chat_id
 from DaisyXMusic.helpers.decorators import authorized_users_only
 from DaisyXMusic.helpers.filters import command, other_filters
 from DaisyXMusic.helpers.gets import get_file_name
-from DaisyXMusic.services.callsmusic import callsmusic
-from DaisyXMusic.services.callsmusic import client as USER
+from DaisyXMusic.services.pytgcalls import pytgcalls
+from DaisyXMusic.services.pytgcalls.pytgcalls import client as USER
 from DaisyXMusic.services.converter.converter import convert
 from DaisyXMusic.services.downloaders import youtube
 from DaisyXMusic.services.queues import queues
 
-aiohttpsession = aiohttp.ClientSession()
 chat_id = None
-arq = ARQ("https://thearq.tech", ARQ_API_KEY, aiohttpsession)
 DISABLED_GROUPS = []
 useer = "NaN"
-
+ACTV_CALLS = []
 
 def cb_admin_check(func: Callable) -> Callable:
     async def decorator(client, cb):
@@ -72,7 +55,7 @@ def transcode(filename):
         "input.raw", 
         format="s16le", 
         acodec="pcm_s16le", 
-        ac=2, 
+        ac=1, 
         ar="48k"
     ).overwrite_output().run()
     os.remove(filename)
@@ -166,9 +149,9 @@ async def playlist(client, message):
 # ============================= Settings =========================================
 
 
-def updated_stats(chat, queue, vol=100):
-    if chat.id in callsmusic.active_chats:
-        # if chat.id in active_chats:
+async def updated_stats(chat, queue, vol=100):
+    if chat.id in active_calls:
+        # if chat.id in active_calls:
         stats = "Settings of **{}**".format(chat.title)
         if len(que) > 0:
             stats += "\n\n"
@@ -331,24 +314,25 @@ async def m_cb(b, cb):
 
     the_data = cb.message.reply_markup.inline_keyboard[1][0].callback_data
     if type_ == "pause":
-        (
-            await cb.answer("Music Paused!")
-        ) if (
-            callsmusic.pause(chet_id)
-        ) else (
-            await cb.answer("Chat is not connected!", show_alert=True)
-        )
-        await cb.message.edit(updated_stats(m_chat, qeue), reply_markup=r_ply("play"))
+        for x in pytgcalls.active_calls:
+            ACTV_CALLS.append(int(x.chat_id))
+        if int(chat_id) not in ACTV_CALLS:
+            await cb.answer('Chat is not connected!', show_alert=True)
+        else:
+            await pytgcalls.pause_stream(chat_id)
+            
+            await cb.answer('Music Paused!')
+            await cb.message.edit(updated_stats(m_chat, qeue), reply_markup=r_ply('play'))
 
     elif type_ == "resume":
-        (
-            await cb.answer("Music Resumed!")
-        ) if (
-            callsmusic.resume(chet_id)
-        ) else (
-            await cb.answer("Chat is not connected!", show_alert=True)
-        )
-        await cb.message.edit(updated_stats(m_chat, qeue), reply_markup=r_ply("pause"))
+        for x in pytgcalls.active_calls:
+            ACTV_CALLS.append(int(x.chat_id))
+        if int(chat_id) not in ACTV_CALLS:
+            await cb.answer('Chat is not connected!', show_alert=True)
+        else:
+            await pytgcalls.resume_stream(chat_id)
+            await cb.answer('Music Resumed!')
+            await cb.message.edit(updated_stats(m_chat, qeue), reply_markup=r_ply('pause'))
 
     elif type_ == "playlist":
         queue = que.get(cb.message.chat.id)
@@ -374,22 +358,22 @@ async def m_cb(b, cb):
         await cb.message.edit(msg)
 
     elif type_ == "resume":
-        (
-            await cb.answer("Music Resumed!")
-        ) if (
-            callsmusic.resume(chet_id)
-        ) else (
-            await cb.answer("Chat is not connected or already playng", show_alert=True)
-        )
+        for x in pytgcalls.active_calls:
+            ACTV_CALLS.append(int(x.chat_id))
+        if int(chat_id) not in ACTV_CALLS:
+            await cb.answer('Chat is not connected or already playng', show_alert=True)
+        else:
+            await pytgcalls.resume_stream(chat_id)
+            await cb.answer('Music Resumed!')
             
     elif type_ == "puse":
-        (
-            await cb.answer("Music Paused!")
-        ) if (
-            callsmusic.pause(chet_id)
-        ) else (
-            await cb.answer("Chat is not connected or already paused", show_alert=True)
-        )
+        for x in pytgcalls.active_calls:
+            ACTV_CALLS.append(int(x.chat_id))
+        if int(chat_id) not in ACTV_CALLS:
+            await cb.answer('Chat is not connected or already paused', show_alert=True)
+        else:
+            await pytgcalls.pause_stream(chat_id)    
+            await cb.answer('Music Paused!')
             
     elif type_ == "cls":
         await cb.answer("Closed menu")
@@ -417,33 +401,40 @@ async def m_cb(b, cb):
     elif type_ == "skip":
         if qeue:
             qeue.pop(0)
-        if chet_id not in callsmusic.active_chats:
-            await cb.answer("Chat is not connected!", show_alert=True)
+        for x in pytgcalls.active_calls:
+            ACTV_CALLS.append(int(x.chat_id))
+        if int(chat_id) not in ACTV_CALLS:
+            await cb.answer('Chat is not connected!', show_alert=True)
         else:
-            queues.task_done(chet_id)
-            if queues.is_empty(chet_id):
-                callsmusic.stop(chet_id)
-                await cb.message.edit("- No More Playlist..\n- Leaving VC!")
+            queues.task_done(chat_id)
+
+            if queues.is_empty(chat_id):
+                await pytgcalls.leave_group_call(chat_id)
+                await cb.message.edit('- No More Playlist..\n- Leaving VC!')
             else:
-                await callsmusic.set_stream(
-                    chet_id, 
-                    queues.get(chet_id)["file"],
+                await pytgcalls.change_stream(
+                    chat_id,
+                    InputStream(
+                        InputAudioStream(
+                            queues.get(chat_id)["file"],
+                        ),
+                    ),
                 )
-                await cb.answer.reply_text("✅ <b>Skipped</b>")
+                await cb.answer('Skipped')
                 await cb.message.edit((m_chat, qeue), reply_markup=r_ply(the_data))
-                await cb.message.reply_text(
-                    f"- Skipped track\n- Now Playing **{qeue[0][0]}**"
-                )
+                await cb.message.reply_text(f'- Skipped track\n- Now Playing **{qeue[0][0]}**')
 
     else:
-        if chet_id in callsmusic.active_chats:
+        for x in pytgcalls.active_calls:
+            ACTV_CALLS.append(int(x.chat_id))
+        if int(chat_id) in ACTV_CALLS:
             try:
-                queues.clear(chet_id)
+                queues.clear(chat_id)
             except QueueEmpty:
                 pass
 
-            await callsmusic.stop(chet_id)
-            await cb.message.edit("Successfully Left the Chat!")
+            await pytgcalls.leave_group_call(chat_id)
+            await cb.message.edit('Successfully Left the Chat!')
         else:
             await cb.answer("Chat is not connected!", show_alert=True)
             
@@ -476,6 +467,8 @@ async def play(_, message: Message):
                     )
                 try:
                     invitelink = await _.export_chat_invite_link(chid)
+                    if invitelink.startswith("https://t.me/+"):
+                        invitelink = invitelink.replace("https://t.me/+","https://t.me/joinchat/")
                 except:
                     await lel.edit(
                         "<b>Add me as admin of yor group first</b>",
@@ -736,7 +729,9 @@ async def play(_, message: Message):
             await generate_cover(requested_by, title, views, duration, thumbnail)
             file = await convert(youtube.download(url))
     chat_id = get_chat_id(message.chat)
-    if chat_id in callsmusic.active_chats:
+    for x in pytgcalls.active_calls:
+        ACTV_CALLS.append(int(x.chat_id))
+    if int(chat_id) in ACTV_CALLS:
         position = await queues.put(chat_id, file=file)
         qeue = que.get(chat_id)
         s_name = title
@@ -761,7 +756,15 @@ async def play(_, message: Message):
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
         try:
-            await callsmusic.set_stream(chat_id, file)
+            await pytgcalls.join_group_call(
+                chat_id, 
+                InputStream(
+                    InputAudioStream(
+                        file,
+                    ),
+                ),
+                stream_type=StreamType().local_stream,
+            )
         except:
             message.reply("Group Call is not connected or I can't join it")
             return
@@ -803,6 +806,8 @@ async def ytplay(_, message: Message):
                     )
                 try:
                     invitelink = await _.export_chat_invite_link(chid)
+                    if invitelink.startswith("https://t.me/+"):
+                        invitelink = invitelink.replace("https://t.me/+","https://t.me/joinchat/")
                 except:
                     await lel.edit(
                         "<b>Add me as admin of yor group first</b>",
@@ -892,7 +897,9 @@ async def ytplay(_, message: Message):
     await generate_cover(requested_by, title, views, duration, thumbnail)
     file = await convert(youtube.download(url))
     chat_id = get_chat_id(message.chat)
-    if chat_id in callsmusic.active_chats:
+    for x in pytgcalls.active_calls:
+        ACTV_CALLS.append(int(x.chat_id))
+    if int(chat_id) in ACTV_CALLS:
         position = await queues.put(chat_id, file=file)
         qeue = que.get(chat_id)
         s_name = title
@@ -917,7 +924,15 @@ async def ytplay(_, message: Message):
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
         try:
-            await callsmusic.set_stream(chat_id, file)
+            await pytgcalls.join_group_call(
+                chat_id, 
+                InputStream(
+                    InputAudioStream(
+                        file,
+                    ),
+                ),
+                stream_type=StreamType().local_stream,
+            )
         except:
             message.reply("Group Call is not connected or I can't join it")
             return
@@ -930,150 +945,6 @@ async def ytplay(_, message: Message):
         )
         os.remove("final.png")
         return await lel.delete()
-
-
-@Client.on_message(filters.command("splay") & filters.group & ~filters.edited)
-async def jiosaavn(client: Client, message_: Message):
-    global que
-    if message_.chat.id in DISABLED_GROUPS:
-        return
-    lel = await message_.reply("🔄 <b>Processing</b>")
-    administrators = await get_administrators(message_.chat)
-    chid = message_.chat.id
-    try:
-        user = await USER.get_me()
-    except:
-        user.first_name = "DaisyMusic"
-    usar = user
-    wew = usar.id
-    try:
-        # chatdetails = await USER.get_chat(chid)
-        await client.get_chat_member(chid, wew)
-    except:
-        for administrator in administrators:
-            if administrator == message_.from_user.id:
-                if message_.chat.title.startswith("Channel Music: "):
-                    await lel.edit(
-                        "<b>Remember to add helper to your channel</b>",
-                    )
-                try:
-                    invitelink = await client.export_chat_invite_link(chid)
-                except:
-                    await lel.edit(
-                        "<b>Add me as admin of yor group first</b>",
-                    )
-                    return
-
-                try:
-                    await USER.join_chat(invitelink)
-                    await USER.send_message(
-                        message_.chat.id, "I joined this group for playing music in VC"
-                    )
-                    await lel.edit(
-                        "<b>helper userbot joined your chat</b>",
-                    )
-
-                except UserAlreadyParticipant:
-                    pass
-                except Exception:
-                    # print(e)
-                    await lel.edit(
-                        f"<b>🔴 Flood Wait Error 🔴 \nUser {user.first_name} couldn't join your group due to heavy requests for userbot! Make sure user is not banned in group."
-                        "\n\nOr manually add @DaisyXmusic to your Group and try again</b>",
-                    )
-    try:
-        await USER.get_chat(chid)
-        # lmoa = await client.get_chat_member(chid,wew)
-    except:
-        await lel.edit(
-            "<i> helper Userbot not in this chat, Ask admin to send /play command for first time or add assistant manually</i>"
-        )
-        return
-    requested_by = message_.from_user.first_name
-    chat_id = message_.chat.id
-    text = message_.text.split(" ", 1)
-    query = text[1]
-    res = lel
-    await res.edit(f"Searching 🔍 for `{query}` on jio saavn")
-    try:
-        songs = await arq.saavn(query)
-        if not songs.ok:
-            await message_.reply_text(songs.result)
-            return
-        sname = songs.result[0].song
-        slink = songs.result[0].media_url
-        ssingers = songs.result[0].singers
-        sthumb = songs.result[0].image
-        sduration = int(songs.result[0].duration)
-    except Exception as e:
-        await res.edit("Found Literally Nothing!, You Should Work On Your English.")
-        print(str(e))
-        return
-    try:
-        duuration = round(sduration / 60)
-        if duuration > DURATION_LIMIT:
-            await cb.message.edit(
-                f"Music longer than {DURATION_LIMIT}min are not allowed to play"
-            )
-            return
-    except:
-        pass
-    keyboard = InlineKeyboardMarkup(
-        [
-            [
-                InlineKeyboardButton("📖 Playlist", callback_data="playlist"),
-                InlineKeyboardButton("Menu ⏯ ", callback_data="menu"),
-            ],
-            [
-                InlineKeyboardButton(
-                    text="Join Updates Channel", url=f"https://t.me/{updateschannel}"
-                )
-            ],
-            [InlineKeyboardButton(text="❌ Close", callback_data="cls")],
-        ]
-    )
-    file = await convert(wget.download(slink))
-    chat_id = get_chat_id(message_.chat)
-    if chat_id in callsmusic.active_chats:
-        position = await queues.put(chat_id, file=file)
-        qeue = que.get(chat_id)
-        s_name = sname
-        r_by = message_.from_user
-        loc = file
-        appendable = [s_name, r_by, loc]
-        qeue.append(appendable)
-        await res.delete()
-        m = await client.send_photo(
-            chat_id=message_.chat.id,
-            reply_markup=keyboard,
-            photo="final.png",
-            caption=f"✯{bn}✯=#️⃣ Queued at position {position}",
-        )
-
-    else:
-        await res.edit_text(f"{bn}=▶️ Playing.....")
-        que[chat_id] = []
-        qeue = que.get(chat_id)
-        s_name = sname
-        r_by = message_.from_user
-        loc = file
-        appendable = [s_name, r_by, loc]
-        qeue.append(appendable)
-        try:
-            await callsmusic.set_stream(chat_id, file)
-        except:
-            res.edit("Group call is not connected of I can't join it")
-            return
-    await res.edit("Generating Thumbnail.")
-    await generate_cover(requested_by, sname, ssingers, sduration, sthumb)
-    await res.delete()
-    m = await client.send_photo(
-        chat_id=message_.chat.id,
-        reply_markup=keyboard,
-        photo="final.png",
-        caption=f"Playing {sname} Via Jiosaavn",
-    )
-    os.remove("final.png")
 
 
 @Client.on_callback_query(filters.regex(pattern=r"plll"))
@@ -1147,7 +1018,9 @@ async def lol_cb(b, cb):
     requested_by = useer_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
     file = await convert(youtube.download(url))
-    if chat_id in callsmusic.active_chats:
+    for x in pytgcalls.active_calls:
+        ACTV_CALLS.append(int(x.chat_id))
+    if int(chat_id) in ACTV_CALLS:
         position = await queues.put(chat_id, file=file)
         qeue = que.get(chat_id)
         s_name = title
@@ -1179,7 +1052,15 @@ async def lol_cb(b, cb):
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
 
-        await callsmusic.set_stream(chat_id, file)
+        await pytgcalls.join_group_call(
+            chat_id,
+            InputStream(
+                InputAudioStream(
+                    file,
+                ),
+            ),
+            stream_type=StreamType().local_stream,
+        )
         await cb.message.delete()
         await b.send_photo(
             chat_id,
