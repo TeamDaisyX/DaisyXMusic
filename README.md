@@ -15,7 +15,7 @@
 - Current playback support
 - Showing track names when skipping
 - Zero downtime, Fully Stable
-- Deezer,Youtube & Saavn playback support
+- Youtube playback support
 - Settings panel
 - Control with buttons
 - Userbot auto join
