@@ -33,7 +33,7 @@ async def update_admin(client, message: Message):
 @errors
 @authorized_users_only
 async def pause(_, message: Message):
-    chat_id = message.chat.id
+    chat_id = get_chat_id(message.chat)
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
@@ -48,7 +48,7 @@ async def pause(_, message: Message):
 @errors
 @authorized_users_only
 async def resume(_, message: Message):
-    chat_id = message.chat.id
+    chat_id = get_chat_id(message.chat)
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
@@ -63,7 +63,7 @@ async def resume(_, message: Message):
 @errors
 @authorized_users_only
 async def stop(_, message: Message):
-    chat_id = message.chat.id
+    chat_id = get_chat_id(message.chat)
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
@@ -82,7 +82,7 @@ async def stop(_, message: Message):
 @authorized_users_only
 async def skip(_, message: Message):
     global que
-    chat_id = message.chat.id
+    chat_id = get_chat_id(message.chat)
     for x in callsmusic.pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
