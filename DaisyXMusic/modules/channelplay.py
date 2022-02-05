@@ -18,7 +18,7 @@ from DaisyXMusic.helpers.admins import get_administrators
 from DaisyXMusic.helpers.decorators import authorized_users_only
 from DaisyXMusic.helpers.gets import get_file_name
 from DaisyXMusic.modules.play import cb_admin_check, generate_cover
-from DaisyXMusic.services.callsmusic import callsmusic
+from DaisyXMusic.services.pytgcalls import pytgcalls
 from DaisyXMusic.services.callsmusic import client as USER
 from DaisyXMusic.services.converter.converter import convert
 from DaisyXMusic.services.downloaders import youtube
@@ -200,7 +200,7 @@ async def m_cb(b, cb):
             lel = await b.get_chat(cb.message.chat.id)
             lol = lel.linked_chat.id
             conv = lel.linked_chat
-            chet_id = lol
+            chat_id = lol
         except:
             return
     qeue = que.get(chet_id)
@@ -210,23 +210,23 @@ async def m_cb(b, cb):
 
     the_data = cb.message.reply_markup.inline_keyboard[1][0].callback_data
     if type_ == "cpause":
-        for x in callsmusic.pytgcalls.active_calls:
+        for x in pytgcalls.active_calls:
             ACTV_CALLS.append(int(x.chat_id))
         if int(chat_id) not in ACTV_CALLS:
             await cb.answer('Chat is not connected!', show_alert=True)
         else:
-            await callsmusic.pytgcalls.pause_stream(chat_id)
+            await pytgcalls.pause_stream(chat_id)
             
             await cb.answer('Music Paused!')
             await cb.message.edit(updated_stats(m_chat, qeue), reply_markup=r_ply('play'))
 
     elif type_ == "cresmue":
-        for x in callsmusic.pytgcalls.active_calls:
+        for x in pytgcalls.active_calls:
             ACTV_CALLS.append(int(x.chat_id))
         if int(chat_id) not in ACTV_CALLS:
             await cb.answer('Chat is not connected!', show_alert=True)
         else:
-            await callsmusic.pytgcalls.resume_stream(chat_id)
+            await pytgcalls.resume_stream(chat_id)
             await cb.answer('Music Resumed!')
             await cb.message.edit(updated_stats(m_chat, qeue), reply_markup=r_ply('pause'))
 
@@ -254,21 +254,21 @@ async def m_cb(b, cb):
         await cb.message.edit(msg)
 
     elif type_ == "cresume":
-        for x in callsmusic.pytgcalls.active_calls:
+        for x in pytgcalls.active_calls:
             ACTV_CALLS.append(int(x.chat_id))
         if int(chat_id) not in ACTV_CALLS:
             await cb.answer('Chat is not connected or already playng', show_alert=True)
         else:
-            await callsmusic.pytgcalls.resume_stream(chat_id)
+            await pytgcalls.resume_stream(chat_id)
             await cb.answer('Music Resumed!')
    
     elif type_ == "cpuse":
-        for x in callsmusic.pytgcalls.active_calls:
+        for x in pytgcalls.active_calls:
             ACTV_CALLS.append(int(x.chat_id))
         if int(chat_id) not in ACTV_CALLS:
             await cb.answer('Chat is not connected or already paused', show_alert=True)
         else:
-            await callsmusic.pytgcalls.pause_stream(chat_id)    
+            await pytgcalls.pause_stream(chat_id)    
             await cb.answer('Music Paused!')
             
     elif type_ == "ccls":
@@ -297,7 +297,7 @@ async def m_cb(b, cb):
     elif type_ == "cskip":
         if qeue:
             qeue.pop(0)
-        for x in callsmusic.pytgcalls.active_calls:
+        for x in pytgcalls.active_calls:
             ACTV_CALLS.append(int(x.chat_id))
         if int(chat_id) not in ACTV_CALLS:
             await cb.answer('Chat is not connected!', show_alert=True)
@@ -305,10 +305,10 @@ async def m_cb(b, cb):
             queues.task_done(chat_id)
 
             if queues.is_empty(chat_id):
-                await callsmusic.pytgcalls.leave_group_call(chat_id)
+                await pytgcalls.leave_group_call(chat_id)
                 await cb.message.edit('- No More Playlist..\n- Leaving VC!')
             else:
-                await callsmusic.pytgcalls.change_stream(
+                await pytgcalls.change_stream(
                     chat_id,
                     InputStream(
                         InputAudioStream(
@@ -321,7 +321,7 @@ async def m_cb(b, cb):
                 await cb.message.reply_text(f'- Skipped track\n- Now Playing **{qeue[0][0]}**')
 
     else:
-        for x in callsmusic.pytgcalls.active_calls:
+        for x in pytgcalls.active_calls:
             ACTV_CALLS.append(int(x.chat_id))
         if int(chat_id) in ACTV_CALLS:
             try:
@@ -329,7 +329,7 @@ async def m_cb(b, cb):
             except QueueEmpty:
                 pass
 
-            await callsmusic.pytgcalls.leave_group_call(chat_id)
+            await pytgcalls.leave_group_call(chat_id)
             await cb.message.edit('Successfully Left the Chat!')
         else:
             await cb.answer("Chat is not connected!", show_alert=True)
@@ -582,7 +582,7 @@ async def play(_, message: Message):
         await generate_cover(requested_by, title, views, duration, thumbnail)
         file = await convert(youtube.download(url))
     chat_id = chid
-    for x in callsmusic.pytgcalls.active_calls:
+    for x in pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) in ACTV_CALLS:
         position = await queues.put(chat_id, file=file)
@@ -608,7 +608,7 @@ async def play(_, message: Message):
         loc = file
         appendable = [s_name, r_by, loc]
         qeue.append(appendable)
-        await callsmusic.pytgcalls.join_group_call(
+        await pytgcalls.join_group_call(
             chat_id, 
             InputStream(
                 InputAudioStream(
