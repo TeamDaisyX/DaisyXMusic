@@ -5,6 +5,9 @@ import wget
 from pyrogram import Client, filters
 from pyrogram.errors import UserAlreadyParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
+from pytgcalls import StreamType
+from pytgcalls.types.input_stream import InputAudioStream
+from pytgcalls.types.input_stream import InputStream
 from youtube_search import YoutubeSearch
 
 from DaisyXMusic.config import BOT_NAME as bn
