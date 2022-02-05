@@ -10,7 +10,7 @@ from DaisyXMusic.function.admins import set
 from DaisyXMusic.helpers.channelmusic import get_chat_id
 from DaisyXMusic.helpers.decorators import authorized_users_only, errors
 from DaisyXMusic.helpers.filters import command, other_filters
-from DaisyXMusic.services.callsmusic import callsmusic
+from DaisyXMusic.services.pytgcalls import pytgcalls
 from DaisyXMusic.services.queues import queues
 from DaisyXMusic.config import que
 
@@ -34,12 +34,12 @@ async def update_admin(client, message: Message):
 @authorized_users_only
 async def pause(_, message: Message):
     chat_id = get_chat_id(message.chat)
-    for x in callsmusic.pytgcalls.active_calls:
+    for x in pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
         await message.reply_text("❗ Nothing is playing!")
     else:
-        await callsmusic.pytgcalls.pause_stream(chat_id)
+        await pytgcalls.pause_stream(chat_id)
         await message.reply_text("▶️ Paused!")
         
 
@@ -49,12 +49,12 @@ async def pause(_, message: Message):
 @authorized_users_only
 async def resume(_, message: Message):
     chat_id = get_chat_id(message.chat)
-    for x in callsmusic.pytgcalls.active_calls:
+    for x in pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
         await message.reply_text("❗ Nothing is paused!")
     else:
-        await callsmusic.pytgcalls.resume_stream(chat_id)
+        await pytgcalls.resume_stream(chat_id)
         await message.reply_text("⏸ Resumed!")
         
 
@@ -64,7 +64,7 @@ async def resume(_, message: Message):
 @authorized_users_only
 async def stop(_, message: Message):
     chat_id = get_chat_id(message.chat)
-    for x in callsmusic.pytgcalls.active_calls:
+    for x in pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
         await message.reply_text("❗ Nothing is streaming!")
@@ -74,7 +74,7 @@ async def stop(_, message: Message):
         except QueueEmpty:
             pass
 
-        await callsmusic.pytgcalls.leave_group_call(chat_id)
+        await pytgcalls.leave_group_call(chat_id)
         await message.reply_text("❌ Stopped streaming!")
 
 @Client.on_message(command("skip") & other_filters)
@@ -83,7 +83,7 @@ async def stop(_, message: Message):
 async def skip(_, message: Message):
     global que
     chat_id = get_chat_id(message.chat)
-    for x in callsmusic.pytgcalls.active_calls:
+    for x in pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) not in ACTV_CALLS:
         await message.reply_text("❗ Nothing is playing to skip!")
@@ -91,9 +91,9 @@ async def skip(_, message: Message):
         queues.task_done(chat_id)
 
         if queues.is_empty(chat_id):
-            await callsmusic.pytgcalls.leave_group_call(chat_id)
+            await pytgcalls.leave_group_call(chat_id)
         else:
-            await callsmusic.pytgcalls.change_stream(
+            await pytgcalls.change_stream(
                 chat_id,
                 InputStream(
                     InputAudioStream(
@@ -115,7 +115,7 @@ async def skip(_, message: Message):
 @authorized_users_only
 async def mute(_, message: Message):
     chat_id = get_chat_id(message.chat)
-    result = await callsmusic.pytgcalls.mute_stream(chat_id)
+    result = await pytgcalls.mute_stream(chat_id)
     await message.reply_text("✅ Muted")
     if:
         result == 0
@@ -132,7 +132,7 @@ async def mute(_, message: Message):
 @authorized_users_only
 async def unmute(_, message: Message):
     chat_id = get_chat_id(message.chat)
-    result = await callsmusic.pytgcalls.unmute_stream(chat_id)
+    result = await pytgcalls.unmute_stream(chat_id)
     await message.reply_text("✅ Unmuted")
     if:
         result == 0
