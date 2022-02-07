@@ -2,9 +2,7 @@ from asyncio import QueueEmpty
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-
-from pytgcalls.types.input_stream import InputAudioStream
-from pytgcalls.types.input_stream import InputStream
+from pytgcalls.types.input_stream import InputAudioStream, InputStream
 
 from DaisyXMusic.function.admins import set
 from DaisyXMusic.helpers.channelmusic import get_chat_id
@@ -12,9 +10,9 @@ from DaisyXMusic.helpers.decorators import authorized_users_only, errors
 from DaisyXMusic.helpers.filters import command, other_filters
 from DaisyXMusic.services.pytgcalls import pytgcalls
 from DaisyXMusic.services.queues import queues
-from DaisyXMusic.config import que
 
 ACTV_CALLS = []
+
 
 @Client.on_message(filters.command("adminreset"))
 async def update_admin(client, message: Message):
@@ -41,7 +39,6 @@ async def pause(_, message: Message):
     else:
         await pytgcalls.pause_stream(chat_id)
         await message.reply_text("▶️ Paused!")
-        
 
 
 @Client.on_message(command("resume") & other_filters)
@@ -56,7 +53,6 @@ async def resume(_, message: Message):
     else:
         await pytgcalls.resume_stream(chat_id)
         await message.reply_text("⏸ Resumed!")
-        
 
 
 @Client.on_message(command("end") & other_filters)
@@ -76,6 +72,7 @@ async def stop(_, message: Message):
 
         await pytgcalls.leave_group_call(chat_id)
         await message.reply_text("❌ Stopped streaming!")
+
 
 @Client.on_message(command("skip") & other_filters)
 @errors
@@ -108,37 +105,37 @@ async def skip(_, message: Message):
     if not qeue:
         return
     await message.reply_text(f"- Skipped **{skip[0]}**\n- Now Playing **{qeue[0][0]}**")
-    
 
-@Client.on_message(command('mute') & other_filters)
+
+@Client.on_message(command("mute") & other_filters)
 @errors
 @authorized_users_only
 async def mute(_, message: Message):
     chat_id = get_chat_id(message.chat)
     result = await pytgcalls.mute_stream(chat_id)
     await message.reply_text("✅ Muted")
-    if:
+    if mute:
         result == 0
     else:
         await message.reply_text("❌ Already muted")
-    if:
+    if not mute:
         result == 1
     else:
         await message.reply_text("❌ Not in call")
 
-        
-@Client.on_message(command('unmute') & other_filters)
+
+@Client.on_message(command("unmute") & other_filters)
 @errors
 @authorized_users_only
 async def unmute(_, message: Message):
     chat_id = get_chat_id(message.chat)
     result = await pytgcalls.unmute_stream(chat_id)
     await message.reply_text("✅ Unmuted")
-    if:
+    if unmute:
         result == 0
     else:
         await message.reply_text("❌ Not muted")
-    if:
+    if not unmute:
         result == 1
     else:
         await message.reply_text("❌ Not in call")

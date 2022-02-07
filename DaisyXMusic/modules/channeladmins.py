@@ -20,14 +20,13 @@ from asyncio import QueueEmpty
 from pyrogram import Client, filters
 from pyrogram.types import Message
 
-
 from DaisyXMusic.function.admins import set
 from DaisyXMusic.helpers.decorators import authorized_users_only, errors
 from DaisyXMusic.services.callsmusic import callsmusic
 from DaisyXMusic.services.queues import queues
-from DaisyXMusic.config import que
 
 ACTV_CALLS = []
+
 
 @Client.on_message(
     filters.command(["channelpause", "cpause"]) & filters.group & ~filters.edited
@@ -73,8 +72,7 @@ async def resume(_, message: Message):
     else:
         await callsmusic.pytgcalls.resume_stream(chat_id)
         await message.reply_text("⏸ Resumed!")
-        
-    
+
 
 @Client.on_message(
     filters.command(["channelend", "cend"]) & filters.group & ~filters.edited
@@ -144,8 +142,8 @@ async def skip(_, message: Message):
     if not qeue:
         return
     await message.reply_text(f"- Skipped **{skip[0]}**\n- Now Playing **{qeue[0][0]}**")
-    
-    
+
+
 @Client.on_message(
     filters.command(["channelmute", "cmute"]) & filters.group & ~filters.edited
 )
@@ -159,20 +157,20 @@ async def mute(_, message: Message):
         chid = conid
     except:
         await message.reply("Is chat even linked")
-        return 
+        return
     chat_id = chid
     result = await callsmusic.pytgcalls.mute_stream(chat_id)
     await message.reply_text("✅ Muted")
-    if:
+    if mute:
         result == 0
     else:
         await message.reply_text("❌ Already muted")
-    if:
+    if not mute:
         result == 1
     else:
         await message.reply_text("❌ Not in call")
-        
-        
+
+
 @Client.on_message(
     filters.command(["channelunmute", "cunmute"]) & filters.group & ~filters.edited
 )
@@ -186,15 +184,15 @@ async def unmute(_, message: Message):
         chid = conid
     except:
         await message.reply("Is chat even linked")
-        return 
+        return
     chat_id = chid
     result = await callsmusic.pytgcalls.unmute_stream(chat_id)
     await message.reply_text("✅ Unmuted")
-    if:
+    if unmute:
         result == 0
     else:
         await message.reply_text("❌ Not muted")
-    if:
+    if not unmute:
         result == 1
     else:
         await message.reply_text("❌ Not in call")
