@@ -117,11 +117,11 @@ async def mute(_, message: Message):
     chat_id = get_chat_id(message.chat)
     result = await pytgcalls.mute_stream(chat_id)
     await message.reply_text("✅ Muted")
-    if:
+    if mute:
         result == 0
     else:
         await message.reply_text("❌ Already muted")
-    if:
+    if not mute:
         result == 1
     else:
         await message.reply_text("❌ Not in call")
@@ -134,11 +134,11 @@ async def unmute(_, message: Message):
     chat_id = get_chat_id(message.chat)
     result = await pytgcalls.unmute_stream(chat_id)
     await message.reply_text("✅ Unmuted")
-    if:
+    if unmute:
         result == 0
     else:
         await message.reply_text("❌ Not muted")
-    if:
+    if not unmute:
         result == 1
     else:
         await message.reply_text("❌ Not in call")
