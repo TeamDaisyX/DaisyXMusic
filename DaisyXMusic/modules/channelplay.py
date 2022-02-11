@@ -1,6 +1,7 @@
-from os import path
+import os
 from asyncio import QueueEmpty
-import os, requests
+
+import requests
 from pyrogram import Client, filters
 from pyrogram.errors import UserAlreadyParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
@@ -14,9 +15,9 @@ from DaisyXMusic.helpers.decorators import authorized_users_only
 from DaisyXMusic.helpers.gets import get_file_name
 from DaisyXMusic.modules.play import cb_admin_check, generate_cover
 from DaisyXMusic.services.pytgcalls import client as USER
-from DaisyXMusic.services.youtube.youtube import get_audio
 from DaisyXMusic.services.pytgcalls import pytgcalls
 from DaisyXMusic.services.queues import queues
+from DaisyXMusic.services.youtube.youtube import get_audio
 
 chat_id = None
 ACTV_CALLS = []

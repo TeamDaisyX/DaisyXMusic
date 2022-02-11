@@ -1,5 +1,4 @@
 import asyncio
-from os import path
 
 
 async def get_audio(link: str) -> str:

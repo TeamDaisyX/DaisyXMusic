@@ -1,7 +1,7 @@
 import os
+from asyncio import QueueEmpty
 from os import path
 from typing import Callable
-from asyncio import QueueEmpty
 
 import aiofiles
 import aiohttp
@@ -21,10 +21,10 @@ from DaisyXMusic.helpers.channelmusic import get_chat_id
 from DaisyXMusic.helpers.decorators import authorized_users_only
 from DaisyXMusic.helpers.filters import command, other_filters
 from DaisyXMusic.helpers.gets import get_file_name
-from DaisyXMusic.services.youtube.youtube import get_audio
 from DaisyXMusic.services.pytgcalls import pytgcalls
 from DaisyXMusic.services.pytgcalls.pytgcalls import client as USER
 from DaisyXMusic.services.queues import queues
+from DaisyXMusic.services.youtube.youtube import get_audio
 
 chat_id = None
 DISABLED_GROUPS = []
