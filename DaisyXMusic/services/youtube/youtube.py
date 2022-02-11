@@ -3,7 +3,7 @@ from os import path
 
 
 async def get_audio(link: str) -> str:
-    link = https://youtube.com{results[0]['url_suffix']}
+    link = f"https://youtube.com{results[0]['url_suffix']}"
     proc = await asyncio.create_subprocess_exec(
         "yt-dlp",
         "-g",
