@@ -1,17 +1,17 @@
 import os
 from os import path
 from typing import Callable
+from asyncio import QueueEmpty
 
 import aiofiles
 import aiohttp
-import ffmpeg
 import requests
 from PIL import Image, ImageDraw, ImageFont
 from pyrogram import Client, filters
 from pyrogram.errors import UserAlreadyParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from pytgcalls import StreamType
-from pytgcalls.types.input_stream import InputAudioStream, InputStream
+from pytgcalls.types.input_stream import AudioPiped
 from youtube_search import YoutubeSearch
 
 from DaisyXMusic.config import DURATION_LIMIT, que
@@ -21,8 +21,7 @@ from DaisyXMusic.helpers.channelmusic import get_chat_id
 from DaisyXMusic.helpers.decorators import authorized_users_only
 from DaisyXMusic.helpers.filters import command, other_filters
 from DaisyXMusic.helpers.gets import get_file_name
-from DaisyXMusic.services.converter.converter import convert
-from DaisyXMusic.services.downloaders import youtube
+from DaisyXMusic.services.youtube.youtube import get_audio
 from DaisyXMusic.services.pytgcalls import pytgcalls
 from DaisyXMusic.services.pytgcalls.pytgcalls import client as USER
 from DaisyXMusic.services.queues import queues
@@ -43,13 +42,6 @@ def cb_admin_check(func: Callable) -> Callable:
             return
 
     return decorator
-
-
-def transcode(filename):
-    ffmpeg.input(filename).output(
-        "input.raw", format="s16le", acodec="pcm_s16le", ac=1, ar="48k"
-    ).overwrite_output().run()
-    os.remove(filename)
 
 
 # Convert seconds to mm:ss
@@ -141,7 +133,7 @@ async def playlist(client, message):
 
 
 async def updated_stats(chat, queue, vol=100):
-    if chat.id in active_calls:
+    if chat.id in pytgcalls.active_calls:
         # if chat.id in active_calls:
         stats = "Settings of **{}**".format(chat.title)
         if len(que) > 0:
@@ -197,7 +189,7 @@ async def settings(client, message):
         return
     playing = None
     chat_id = get_chat_id(message.chat)
-    if chat_id in callsmusic.active_chats:
+    if chat_id in pytgcalls.active_chats:
         playing = True
     queue = que.get(chat_id)
     stats = updated_stats(message.chat, queue)
@@ -289,7 +281,7 @@ async def p_cb(b, cb):
     filters.regex(pattern=r"^(play|pause|skip|leave|puse|resume|menu|cls)$")
 )
 @cb_admin_check
-async def m_cb(b, cb):
+async def m_cb(chat, b, cb):
     global que
     if (
         cb.message.chat.title.startswith("Channel Music: ")
@@ -409,10 +401,8 @@ async def m_cb(b, cb):
             else:
                 await pytgcalls.change_stream(
                     chat_id,
-                    InputStream(
-                        InputAudioStream(
-                            queues.get(chat_id)["file"],
-                        ),
+                    AudioPiped(
+                        queues.get(chat_id)["file"],
                     ),
                 )
                 await cb.answer("Skipped")
@@ -612,7 +602,7 @@ async def play(_, message: Message):
         )
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
-        file = await convert(youtube.download(url))
+        file = await get_audio(link)
     else:
         query = ""
         for i in message.command[1:]:
@@ -723,7 +713,7 @@ async def play(_, message: Message):
             )
             requested_by = message.from_user.first_name
             await generate_cover(requested_by, title, views, duration, thumbnail)
-            file = await convert(youtube.download(url))
+            file = await get_audio(link)
     chat_id = get_chat_id(message.chat)
     for x in pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
@@ -754,10 +744,8 @@ async def play(_, message: Message):
         try:
             await pytgcalls.join_group_call(
                 chat_id,
-                InputStream(
-                    InputAudioStream(
-                        file,
-                    ),
+                AudioPiped(
+                    file,
                 ),
                 stream_type=StreamType().local_stream,
             )
@@ -893,7 +881,7 @@ async def ytplay(_, message: Message):
     )
     requested_by = message.from_user.first_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
-    file = await convert(youtube.download(url))
+    file = await get_audio(link)
     chat_id = get_chat_id(message.chat)
     for x in pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
@@ -924,10 +912,8 @@ async def ytplay(_, message: Message):
         try:
             await pytgcalls.join_group_call(
                 chat_id,
-                InputStream(
-                    InputAudioStream(
-                        file,
-                    ),
+                AudioPiped(
+                    file,
                 ),
                 stream_type=StreamType().local_stream,
             )
@@ -1015,7 +1001,7 @@ async def lol_cb(b, cb):
     )
     requested_by = useer_name
     await generate_cover(requested_by, title, views, duration, thumbnail)
-    file = await convert(youtube.download(url))
+    file = await get_audio(link)
     for x in pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
     if int(chat_id) in ACTV_CALLS:
@@ -1052,10 +1038,8 @@ async def lol_cb(b, cb):
 
         await pytgcalls.join_group_call(
             chat_id,
-            InputStream(
-                InputAudioStream(
-                    file,
-                ),
+            AudioPiped(
+                file,
             ),
             stream_type=StreamType().local_stream,
         )

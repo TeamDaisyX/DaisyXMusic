@@ -1,11 +1,11 @@
 from os import path
-
-import requests
+from asyncio import QueueEmpty
+import os, requests
 from pyrogram import Client, filters
 from pyrogram.errors import UserAlreadyParticipant
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from pytgcalls import StreamType
-from pytgcalls.types.input_stream import InputAudioStream, InputStream
+from pytgcalls.types.input_stream import AudioPiped
 from youtube_search import YoutubeSearch
 
 from DaisyXMusic.config import DURATION_LIMIT, que
@@ -13,9 +13,8 @@ from DaisyXMusic.helpers.admins import get_administrators
 from DaisyXMusic.helpers.decorators import authorized_users_only
 from DaisyXMusic.helpers.gets import get_file_name
 from DaisyXMusic.modules.play import cb_admin_check, generate_cover
-from DaisyXMusic.services.callsmusic import client as USER
-from DaisyXMusic.services.converter.converter import convert
-from DaisyXMusic.services.downloaders import youtube
+from DaisyXMusic.services.pytgcalls import client as USER
+from DaisyXMusic.services.youtube.youtube import get_audio
 from DaisyXMusic.services.pytgcalls import pytgcalls
 from DaisyXMusic.services.queues import queues
 
@@ -61,7 +60,7 @@ async def playlist(client, message):
 
 
 async def updated_stats(chat, queue, vol=100):
-    if chat.id in callsmusic.active_chats:
+    if chat.id in pytgcalls.active_chats:
         # if chat.id in active_chats:
         stats = "Settings of **{}**".format(chat.title)
         if len(que) > 0:
@@ -142,7 +141,7 @@ async def settings(client, message):
 
 
 @Client.on_callback_query(filters.regex(pattern=r"^(cplaylist)$"))
-async def p_cb(b, cb):
+async def p_cb(client, b, cb):
     global que
     try:
         lel = await client.get_chat(cb.message.chat.id)
@@ -183,7 +182,7 @@ async def p_cb(b, cb):
     filters.regex(pattern=r"^(cplay|cpause|cskip|cleave|cpuse|cresume|cmenu|ccls)$")
 )
 @cb_admin_check
-async def m_cb(b, cb):
+async def m_cb(chat, b, cb):
     global que
     if (
         cb.message.chat.title.startswith("Channel Music: ")
@@ -309,10 +308,8 @@ async def m_cb(b, cb):
             else:
                 await pytgcalls.change_stream(
                     chat_id,
-                    InputStream(
-                        InputAudioStream(
-                            queues.get(chat_id)["file"],
-                        ),
+                    AudioPiped(
+                        queues.get(chat_id)["file"],
                     ),
                 )
                 await cb.answer("Skipped")
@@ -467,11 +464,7 @@ async def play(_, message: Message):
         views = "Locally added"
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
-        file = await convert(
-            (await message.reply_to_message.download(file_name))
-            if not path.isfile(path.join("downloads", file_name))
-            else file_name
-        )
+        file = await message.reply_to_message.download(file_name)
     elif urls:
         query = toxt
         await lel.edit("🎵 **Processing**")
@@ -524,7 +517,7 @@ async def play(_, message: Message):
         )
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
-        file = await convert(youtube.download(url))
+        file = await get_audio(link)
     else:
         query = ""
         for i in message.command[1:]:
@@ -580,7 +573,7 @@ async def play(_, message: Message):
         )
         requested_by = message.from_user.first_name
         await generate_cover(requested_by, title, views, duration, thumbnail)
-        file = await convert(youtube.download(url))
+        file = await get_audio(link)
     chat_id = chid
     for x in pytgcalls.active_calls:
         ACTV_CALLS.append(int(x.chat_id))
@@ -610,10 +603,8 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await pytgcalls.join_group_call(
             chat_id,
-            InputStream(
-                InputAudioStream(
-                    file,
-                ),
+            AudioPiped(
+                file,
             ),
             stream_type=StreamType().local_stream,
         )
