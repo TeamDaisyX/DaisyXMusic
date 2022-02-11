@@ -2,7 +2,7 @@ import config
 from pyrogram import Client
 from pytgcalls import PyTgCalls
 from pytgcalls.types import Update
-from pytgcalls.types.input_stream import InputAudioStream, InputStream
+from pytgcalls.types.input_stream import AudioPiped
 
 from DaisyXMusic.services.queues import queues
 
@@ -20,10 +20,8 @@ async def on_stream_end(client: PyTgCalls, update: Update) -> None:
     else:
         await pytgcalls.change_stream(
             chat_id,
-            InputStream(
-                InputAudioStream(
-                    queues.get(chat_id)["file"],
-                ),
+            AudioPiped(
+                queues.get(chat_id)["file"],
             ),
         )
 

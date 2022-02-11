@@ -2,7 +2,7 @@ from asyncio import QueueEmpty
 
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from pytgcalls.types.input_stream import InputAudioStream, InputStream
+from pytgcalls.types.input_stream import AudioPiped
 
 from DaisyXMusic.function.admins import set
 from DaisyXMusic.helpers.channelmusic import get_chat_id
@@ -92,10 +92,8 @@ async def skip(_, message: Message):
         else:
             await pytgcalls.change_stream(
                 chat_id,
-                InputStream(
-                    InputAudioStream(
-                        queues.get(chat_id)["file"],
-                    ),
+                AudioPiped(
+                    queues.get(chat_id)["file"],
                 ),
             )
 
