@@ -30,7 +30,7 @@
 
 Get pyrogram (p)  `SESSION` from here:
 
-[![Run on Repl.it](https://repl.it/badge/github/ChankitSaini/GenerateStringSession)](https://replit.com/@ChankitSaini/GenerateStringSession)
+[![Run on Repl.it](https://repl.it/badge/github/Makoto-XD/Session-Generator)](https://replit.com/@Makoto-XD/Session-Generator)
 
 ### ⚔ Self-hosting
 ```sh
@@ -118,14 +118,10 @@ If you donlt like to play in linked channel:
 ## Special Credits
 - [Dan](https://github.com/delivrance) For [Pyrogram](https://github.com/pyrogram/pyrogram)
 - [Laky-64](https://github.com/Laky-64) For [PyTgCalls](https://github.com/pytgcalls/pytgcalls)
-- 
 
 ### Inspiration
 - [Callsmusic](http://github.com/callsmusic/callsmusic)
 - [tgvc-userbot](https://github.com/callsmusic/tgvc-userbot)
-
-This project is inspired on the hard work done by [Rojserbest](http://github.com/rojserbest). Without his hardwork daisyxmusic won't exist. 
-Also DaisyXmusic is inspired by many opensource bots and userbots
 
 #### Contributors
 - [InukaAsith](https://github.com/InukaAsith): Dev / Owner
