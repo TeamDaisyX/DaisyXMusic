@@ -28,7 +28,7 @@ jobs:
           black .
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: 'Auto Fixes: Code formatted'
+          commit_message: 'PyLint Auto Fixes'
           commit_options: '--no-verify'
           repository: .
           commit_user_name: Hunter-XD
