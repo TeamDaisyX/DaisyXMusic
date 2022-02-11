@@ -4,7 +4,7 @@ from pyrogram import Client, filters
 from pyrogram.types import Message
 
 from DaisyXMusic.config import SUDO_USERS
-from DaisyXMusic.services.callsmusic.callsmusic import client as USER
+from DaisyXMusic.services.pytgcalls.pytgcalls import client as USER
 
 
 @Client.on_message(filters.command(["broadcast"]))

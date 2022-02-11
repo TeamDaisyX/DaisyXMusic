@@ -83,7 +83,7 @@ def song(client, message):
         print(e)
 
 
-def get_text(message: Message) -> [None, str]:
+def get_text(message: Message, str) -> str:
     text_to_return = message.text
     if message.text is None:
         return None
@@ -145,7 +145,7 @@ async def progress(current, total, message, start, type_of_ps, file_name=None):
                 pass
 
 
-def get_user(message: Message, text: str) -> [int, str, None]:
+def get_user(message: Message, text: str) -> str:
     if text is None:
         asplit = None
     else:
@@ -289,7 +289,7 @@ async def ytmusic(client, message: Message):
     }
     try:
         is_downloading = True
-        with youtube_dl.YoutubeDL(opts) as ytdl:
+        with yt_dlp.YoutubeDL(opts) as ytdl:
             infoo = ytdl.extract_info(url, False)
             duration = round(infoo["duration"] / 60)
 

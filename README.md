@@ -115,6 +115,10 @@ If you donlt like to play in linked channel:
 + Sudo Users can execute any command in any groups
 
 
+## Special Credits
+- [Dan](https://github.com/delivrance) For [Pyrogram](https://github.com/pyrogram/pyrogram)
+- [Laky-64](https://github.com/Laky-64) For [PyTgCalls](https://github.com/pytgcalls/pytgcalls)
+- 
 
 ### Inspiration
 - [Callsmusic](http://github.com/callsmusic/callsmusic)
@@ -139,8 +143,8 @@ Also DaisyXmusic is inspired by many opensource bots and userbots
 
 ## Copyright & License 👮
 
- - Copyright (C) 2020 - 2021 by [TeamDaisyX](github.com/teamdaisyx) ❤️️
- - Licensed under the terms of the [GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007](https://github.com/TeamDaisyX/DaisyXMusic/blob/master/LICENSE)
+ - Copyright (C) 2020-present by [TeamDaisyX](github.com/teamdaisyx) ❤️️
+ - Licensed under the terms of the [MIT License](https://github.com/TeamDaisyX/DaisyXMusic/blob/master/LICENSE)
     
 DaisyXMusic is Free Software: You can use, study share and improve it at your will. Specifically you can redistribute and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.    
 ## Made with ♥️ by [TeamDaisyX](https://github.com/TeamDaisyX)
